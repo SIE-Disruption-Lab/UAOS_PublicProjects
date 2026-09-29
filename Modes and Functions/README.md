@@ -2,7 +2,7 @@
 
 Artifacts accompanying the paper:
 
-> Gregory, J. (2026). An Ontological Pattern for Spacecraft Operational Mode Management and Structural Validation. *Journal of Spacecraft and Rockets*. Manuscript ID: 2026-07-A36921.
+> (prelim) Gregory, J. (2026). An Ontological Pattern for Spacecraft Operational Mode Management and Structural Validation. *Journal of Spacecraft and Rockets*. 
 
 ## Contents
 
