@@ -1,0 +1,371 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://uaontologies.com/UAOS_Domain/UAOS_Verification#"
+     xml:base="http://uaontologies.com/UAOS_Domain/UAOS_Verification"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:oml="http://opencaesar.io/oml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:UAOS_Verification="http://uaontologies.com/UAOS_Domain/UAOS_Verification#">
+    <owl:Ontology rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Verification">
+        <owl:imports rdf:resource="http://purl.org/dc/elements/1.1"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Agent"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_ModelingAndSimulation"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test"/>
+        <oml:namespace rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#"/>
+        <oml:prefix>UAOS_Verification</oml:prefix>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Vocabulary"/>
+        <dc:contributor>Joe Gregory</dc:contributor>
+        <dc:creator>SIE Disruption Lab</dc:creator>
+        <dc:description>A vocabulary to capture system requirements patterns</dc:description>
+        <dc:hasVersion>0.1</dc:hasVersion>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://opencaesar.io/oml#namespace -->
+
+
+    <owl:AnnotationProperty rdf:about="http://opencaesar.io/oml#namespace"/>
+    
+
+
+    <!-- http://opencaesar.io/oml#prefix -->
+
+
+    <owl:AnnotationProperty rdf:about="http://opencaesar.io/oml#prefix"/>
+    
+
+
+    <!-- http://opencaesar.io/oml#relationBase -->
+
+
+    <owl:AnnotationProperty rdf:about="http://opencaesar.io/oml#relationBase"/>
+    
+
+
+    <!-- http://opencaesar.io/oml#relationEntity -->
+
+
+    <owl:AnnotationProperty rdf:about="http://opencaesar.io/oml#relationEntity"/>
+    
+
+
+    <!-- http://opencaesar.io/oml#type -->
+
+
+    <owl:AnnotationProperty rdf:about="http://opencaesar.io/oml#type"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://opencaesar.io/oml#hasSource -->
+
+
+    <owl:ObjectProperty rdf:about="http://opencaesar.io/oml#hasSource"/>
+    
+
+
+    <!-- http://opencaesar.io/oml#hasTarget -->
+
+
+    <owl:ObjectProperty rdf:about="http://opencaesar.io/oml#hasTarget"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Verification#isVerifiedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Verification#isVerifiedBy">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#verifies"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Requirement"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#VerificationActivity"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#Verifies"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>is verified by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Verification#verifies -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Verification#verifies">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#VerificationActivity"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Requirement"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#Verifies"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>verifies</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Verification#hasVerificationStatus -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Verification#hasVerificationStatus">
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#VerificationActivity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>[=hasVerificationStatus=] ...</dc:description>
+        <rdfs:label>has verification status</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Verification#AnalysisRequirement -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Verification#AnalysisRequirement">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#VerificationRequirement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#prescribes"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_ModelingAndSimulation#Analysis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Verification#Demonstration -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Verification#Demonstration">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Agent#ManagedProcess"/>
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#VerificationActivity"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Verification#DemonstrationRequirement -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Verification#DemonstrationRequirement">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#VerificationRequirement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#prescribes"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#Demonstration"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Verification#Inspection -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Verification#Inspection">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Agent#ManagedProcess"/>
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#VerificationActivity"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Verification#InspectionRequirement -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Verification#InspectionRequirement">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#VerificationRequirement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#prescribes"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#Inspection"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Verification#TestRequirement -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Verification#TestRequirement">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#VerificationRequirement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#prescribes"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Verification#VerificationActivity -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Verification#VerificationActivity">
+        <oml:type rdf:resource="http://opencaesar.io/oml#Aspect"/>
+        <dc:description>A [=VerificationActivity=]...</dc:description>
+        <rdfs:label>Verification Activity</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Verification#VerificationRequirement -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Verification#VerificationRequirement">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Requirement"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Verification#Verifies -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Verification#Verifies">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=Verifies=] is a </dc:description>
+        <rdfs:label>Verifies</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="urn:swrl:var#r">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#s">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#t">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>verifies derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#Verifies"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#verifies"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.5.0.2023-01-14T12:41:38Z) https://github.com/owlcs/owlapi/ -->
+
+

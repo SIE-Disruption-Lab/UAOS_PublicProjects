@@ -1,0 +1,99 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary capturing risk management concepts for mission engineering and system T&E. Defines Risk as a DescriptiveICE (moved from UAOS_MissionEngineering), with SystemRisk and OperationalRisk subtypes, severity scalar properties aligned to the DoD 5x5 risk matrix scale, and relations linking risks to the tests that inform them and the probabilistic quantities whose values supply their likelihood estimates."
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_Risk#> as UAOS_Risk {
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	/////// Vocabulary Imports ///////
+
+	// Import standard vocabularies
+	extends <http://purl.org/dc/elements/1.1/> as dc
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	// Import relevant vocabularies
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Measurement#> as meas
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_Test#> as test
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Vocabulary Definitions ///////
+
+
+	///// Concepts
+
+	@rdfs:label "Risk"
+	@dc:description "A [=Risk=] is a DescriptiveICE that describes a potential adverse event together with its estimated likelihood and impact on enterprise goals or mission execution. It is an information entity — a description of a future contingency — not the adverse event itself. NOTE: moved here from UAOS_MissionEngineering to centralise risk management vocabulary."
+	concept Risk < info:DescriptiveICE
+
+	@rdfs:label "SystemRisk"
+	@dc:description "A [=SystemRisk=] is a Risk that describes a potential adverse event affecting a specific system or subsystem — typically a failure to meet an engineering design specification as revealed by developmental test. The system or subsystem it pertains to is captured via info:describes (range: sa:System or tlo:Object). SystemRisks are the risks that developmental testing (DT) is designed to reduce."
+	concept SystemRisk < Risk
+
+	@rdfs:label "OperationalRisk"
+	@dc:description "An [=OperationalRisk=] is a Risk that describes a potential adverse event affecting mission execution or operational effectiveness — typically a failure to achieve a desired operational effect as revealed by operational test. The mission it pertains to is captured via info:describes (range: me:Mission). OperationalRisks are the risks that operational testing (OT) is designed to reduce."
+	concept OperationalRisk < Risk
+
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Relations ///////
+
+	@rdfs:label "Informs Risk"
+	@dc:description "[=InformsRisk=] relates a Test to a Risk that it is designed to reduce or provide information about. A test result (pass or fail) updates the estimated likelihood of the risk materialising. The relation is asymmetric: the test informs the risk, not vice versa."
+	relation entity InformsRisk [
+		from test:Test
+		to Risk
+		@rdfs:label "informs risk"
+		forward informsRisk
+		@rdfs:label "risk informed by"
+		reverse riskInformedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Likelihood Quantity"
+	@dc:description "[=HasLikelihoodQuantity=] relates a Risk to a meas:Quantity whose current value supplies the estimated likelihood of the risk. For risks modelled via a Bayesian network, this quantity is typically a latent BN node whose hasBayesianTrueStateValue gives the probability of adequate performance; the risk likelihood is the complement (1 - hasBayesianTrueStateValue). For risks whose likelihood is directly measured (e.g. P_Kill for an OperationalRisk), the quantity value is used directly."
+	relation entity HasLikelihoodQuantity [
+		from Risk
+		to meas:Quantity
+		@rdfs:label "has likelihood quantity"
+		forward hasLikelihoodQuantity
+		@rdfs:label "likelihood quantity of"
+		reverse likelihoodQuantityOf
+		asymmetric
+		irreflexive
+	]
+
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Scalar Properties ///////
+
+	@rdfs:label "severity score"
+	@dc:description "[=hasSeverityScore=] captures the consequence severity of a Risk on the DoD 5x5 scale: 1=Negligible, 2=Marginal, 3=Moderate, 4=Critical, 5=Catastrophic. Combined with the likelihood derived from the associated quantity, severity score locates the risk in the 5x5 risk matrix."
+	scalar property hasSeverityScore [
+		domain Risk
+		range xsd:integer
+		functional
+	]
+
+	@rdfs:label "severity label"
+	@dc:description "[=hasSeverityLabel=] captures the human-readable DoD consequence severity label corresponding to hasSeverityScore: Negligible (1), Marginal (2), Moderate (3), Critical (4), Catastrophic (5)."
+	scalar property hasSeverityLabel [
+		domain Risk
+		range xsd:string
+		functional
+	]
+
+
+	///// Rules
+
+
+}

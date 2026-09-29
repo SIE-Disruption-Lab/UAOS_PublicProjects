@@ -1,0 +1,94 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:contributor "Ahmed Alhamadah"
+@dc:description "A vocabulary to capture states, transitions, and their relations."
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_States#> as States {
+
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+	
+	// Import standard vocabularies	
+	extends <http://purl.org/dc/elements/1.1/> as dc
+    
+	// Import relevant vocabularies
+	extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Event#> as event
+	
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	////// Vocabulary Definitions ///////
+	
+	///// Aspects
+		
+
+
+	///// Concepts
+			
+	concept Transition < tlo:Function
+	
+	concept TransitionOccurrence < tlo:Process [
+		restricts all event:isManifestationOf to Transition
+		restricts some event:isManifestationOf to Transition
+		restricts all tlo:hasOccurrentPart to TransitionOccurrence 
+		restricts all tlo:isOccurrentPartOf to TransitionOccurrence 
+	]
+	
+	concept State < tlo:Disposition [
+		restricts all tlo:hasContinuantPart to State
+		restricts all tlo:isContinuantPartOf to State
+	]
+	
+		
+	///// Relations
+	
+	relation entity TriggeredBy [
+		from Transition
+		to tlo:Process
+		forward triggeredBy
+		reverse triggers
+		irreflexive
+		asymmetric
+	]
+	
+	relation entity EnteredBy [
+		from State
+		to Transition
+		forward enteredBy
+		reverse enters
+		irreflexive
+		asymmetric
+	]
+	
+	relation entity ExitedBy [
+		from State
+		to Transition
+		forward exitedBy
+		reverse exits
+		irreflexive
+		asymmetric
+	]
+	
+	relation entity Incorporates [
+		from State
+		to tlo:Function
+		forward incorporates
+		reverse incorporatedIn
+		irreflexive
+		asymmetric
+	]
+
+		
+	///// Scalar Properties
+	
+	// no scalar properties
+	
+	
+	///// Rules
+	
+	// no rules
+		
+	
+}

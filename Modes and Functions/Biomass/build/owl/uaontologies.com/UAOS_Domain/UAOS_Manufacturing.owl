@@ -1,0 +1,616 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#"
+     xml:base="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:oml="http://opencaesar.io/oml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:UAOS_Manuf_I="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#">
+    <owl:Ontology rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing">
+        <owl:imports rdf:resource="http://purl.org/dc/elements/1.1"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Agent"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Event"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel"/>
+        <oml:namespace rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#"/>
+        <oml:prefix>UAOS_Manuf_I</oml:prefix>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Vocabulary"/>
+        <dc:contributor>Joe Gregory</dc:contributor>
+        <dc:creator>SIE Disruption Lab</dc:creator>
+        <dc:description>A vocabulary to capture manufacturing information</dc:description>
+        <dc:hasVersion>0.1</dc:hasVersion>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#AdditivePFeature -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#AdditivePFeature">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ManufacturingPFeature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Bend -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Bend">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#MaterialFormPFeature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Blind -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Blind">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ShapeQuality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#BlindHole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#BlindHole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#BlindHole -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#BlindHole">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Hole"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#CompoundHole -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#CompoundHole">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Hole"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#DeformationPFeature -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#DeformationPFeature">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ManufacturingPFeature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#FormPFeature -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#FormPFeature">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#PFeature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Hole -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Hole">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#VoidFormPFeature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#IFeature -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#IFeature">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#describes"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#PFeature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#describes"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#PFeature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#JointPFeature -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#JointPFeature">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ManufacturingPFeature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#MachiningPFeature -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#MachiningPFeature">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ManufacturingPFeature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ManufacturingCapability -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ManufacturingCapability">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Disposition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Agent#Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Event#manifestsIn"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Process"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Agent#Agent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ManufacturingOperation -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ManufacturingOperation">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Process"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasOccurrentPart"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ProductProductionProcess"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ManufacturingPFeature -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ManufacturingPFeature">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#PFeature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ManufacturingProcess -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ManufacturingProcess">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Process"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasOccurrentPart"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ManufacturingOperation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#MaterialFormPFeature -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#MaterialFormPFeature">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#FormPFeature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#MaxWeldSize -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#MaxWeldSize">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Quantity"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#MinWeldFinish -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#MinWeldFinish">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Quantity"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#MinWeldSize -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#MinWeldSize">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Quantity"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#PFeature -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#PFeature">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Quality"/>
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#MaterialEntity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#MaterialEntity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ProductProductionProcess -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ProductProductionProcess">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Process"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Protrusion -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Protrusion">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#MaterialFormPFeature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ShapeQuality -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ShapeQuality">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Quality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#FormPFeature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#FormPFeature"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Slot -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Slot">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#VoidFormPFeature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Through -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Through">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ShapeQuality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ThroughHole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ThroughHole"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ThroughHole -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ThroughHole">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Hole"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#VoidFormPFeature -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#VoidFormPFeature">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#FormPFeature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Weld -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Weld">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#JointPFeature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldFinish -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldFinish">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Quantity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Weld"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldIntermittance -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldIntermittance">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Quantity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Weld"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldSize -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldSize">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Quantity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Weld"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldSymbol -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldSymbol">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#IFeature"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#describes"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Weld"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasContinuantPart"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldSymbol_WeldFinish"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasContinuantPart"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldSymbol_WeldIntermittance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasContinuantPart"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldSymbol_WeldSize"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#describes"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Weld"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldSymbol_WeldFinish -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldSymbol_WeldFinish">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#SimpleMeasurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#measurementOf"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldFinish"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldSymbol_WeldIntermittance -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldSymbol_WeldIntermittance">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#SimpleMeasurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#measurementOf"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldIntermittance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldSymbol_WeldSize -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldSymbol_WeldSize">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#SimpleMeasurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#measurementOf"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldSize"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldingCapability -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldingCapability">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ManufacturingCapability"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hsd"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#MaxWeldSize"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hsd"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#MinWeldFinish"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hsd"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#MinWeldSize"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldingProcess -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#WeldingProcess">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#ManufacturingProcess"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Agent#hasOutput"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#Weld"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#1DFeature -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#1DFeature">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#MachiningPFeature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#2.5DFeature -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#2.5DFeature">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#MachiningPFeature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.5.0.2023-01-14T12:41:38Z) https://github.com/owlcs/owlapi/ -->
+
+

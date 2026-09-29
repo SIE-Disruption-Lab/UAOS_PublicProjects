@@ -1,0 +1,192 @@
+{ "head": {
+    "vars": [ "system" , "systemName" , "mode" , "modeName" , "function" , "functionName" ]
+  } ,
+  "results": {
+    "bindings": [
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#aocs" } ,
+        "systemName": { "type": "literal" , "value": "AOCS Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#aocs_ash" } ,
+        "modeName": { "type": "literal" , "value": "AOCS Acquisition and Safe Hold Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#T_aocs_ash_to_nmg" } ,
+        "functionName": { "type": "literal" , "value": "AOCS ASH-to-NM-GAP Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#aocs" } ,
+        "systemName": { "type": "literal" , "value": "AOCS Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#aocs_ash" } ,
+        "modeName": { "type": "literal" , "value": "AOCS Acquisition and Safe Hold Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#fn_attitude_safe" } ,
+        "functionName": { "type": "literal" , "value": "Attitude Safe Hold" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#aocs" } ,
+        "systemName": { "type": "literal" , "value": "AOCS Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#aocs_nmc" } ,
+        "modeName": { "type": "literal" , "value": "AOCS Normal Mode CAP" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#fn_attitude_normal" } ,
+        "functionName": { "type": "literal" , "value": "Attitude Normal Control" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#aocs" } ,
+        "systemName": { "type": "literal" , "value": "AOCS Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#aocs_nmc" } ,
+        "modeName": { "type": "literal" , "value": "AOCS Normal Mode CAP" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#fn_orbit_control" } ,
+        "functionName": { "type": "literal" , "value": "Orbit Correction Manoeuvre" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#aocs" } ,
+        "systemName": { "type": "literal" , "value": "AOCS Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#aocs_nmg" } ,
+        "modeName": { "type": "literal" , "value": "AOCS Normal Mode GAP" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#T_aocs_nmg_to_nmc" } ,
+        "functionName": { "type": "literal" , "value": "AOCS NM-GAP-to-NM-CAP Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#aocs" } ,
+        "systemName": { "type": "literal" , "value": "AOCS Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#aocs_nmg" } ,
+        "modeName": { "type": "literal" , "value": "AOCS Normal Mode GAP" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#fn_attitude_normal" } ,
+        "functionName": { "type": "literal" , "value": "Attitude Normal Control" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#biomass" } ,
+        "systemName": { "type": "literal" , "value": "Biomass Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sc_nom" } ,
+        "modeName": { "type": "literal" , "value": "Nominal Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#fn_telemetry" } ,
+        "functionName": { "type": "literal" , "value": "Housekeeping Telemetry" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#biomass" } ,
+        "systemName": { "type": "literal" , "value": "Biomass Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sc_nom" } ,
+        "modeName": { "type": "literal" , "value": "Nominal Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#fn_sar_acquisition" } ,
+        "functionName": { "type": "literal" , "value": "SAR Data Acquisition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#biomass" } ,
+        "systemName": { "type": "literal" , "value": "Biomass Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sc_pom" } ,
+        "modeName": { "type": "literal" , "value": "Pre-Operational Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#fn_telemetry" } ,
+        "functionName": { "type": "literal" , "value": "Housekeeping Telemetry" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#biomass" } ,
+        "systemName": { "type": "literal" , "value": "Biomass Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sc_pom" } ,
+        "modeName": { "type": "literal" , "value": "Pre-Operational Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#fn_deployment" } ,
+        "functionName": { "type": "literal" , "value": "LDR Deployment" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#biomass" } ,
+        "systemName": { "type": "literal" , "value": "Biomass Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sc_pom" } ,
+        "modeName": { "type": "literal" , "value": "Pre-Operational Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#T_sc_pom_to_nom" } ,
+        "functionName": { "type": "literal" , "value": "SC POM-to-Nominal Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#biomass" } ,
+        "systemName": { "type": "literal" , "value": "Biomass Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sc_pom" } ,
+        "modeName": { "type": "literal" , "value": "Pre-Operational Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#T_sc_pom_to_saf" } ,
+        "functionName": { "type": "literal" , "value": "SC POM-to-Safe Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#biomass" } ,
+        "systemName": { "type": "literal" , "value": "Biomass Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sc_safe" } ,
+        "modeName": { "type": "literal" , "value": "Safe Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#fn_telemetry" } ,
+        "functionName": { "type": "literal" , "value": "Housekeeping Telemetry" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#biomass" } ,
+        "systemName": { "type": "literal" , "value": "Biomass Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sc_safe" } ,
+        "modeName": { "type": "literal" , "value": "Safe Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#T_sc_saf_to_pom" } ,
+        "functionName": { "type": "literal" , "value": "SC Safe-to-POM Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sar" } ,
+        "systemName": { "type": "literal" , "value": "P-Band SAR Instrument" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sar_measurement" } ,
+        "modeName": { "type": "literal" , "value": "SAR Measurement" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#T_sar_meas_to_ready" } ,
+        "functionName": { "type": "literal" , "value": "SAR Measurement-to-Ready Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sar" } ,
+        "systemName": { "type": "literal" , "value": "P-Band SAR Instrument" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sar_measurement" } ,
+        "modeName": { "type": "literal" , "value": "SAR Measurement" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#fn_sar_imaging" } ,
+        "functionName": { "type": "literal" , "value": "SAR Polarimetric Imaging" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sar" } ,
+        "systemName": { "type": "literal" , "value": "P-Band SAR Instrument" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sar_off" } ,
+        "modeName": { "type": "literal" , "value": "SAR Off" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#T_sar_off_to_ready" } ,
+        "functionName": { "type": "literal" , "value": "SAR Off-to-Ready Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sar" } ,
+        "systemName": { "type": "literal" , "value": "P-Band SAR Instrument" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sar_ready" } ,
+        "modeName": { "type": "literal" , "value": "SAR Ready" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#T_sar_ready_to_meas" } ,
+        "functionName": { "type": "literal" , "value": "SAR Ready-to-Measurement Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sar" } ,
+        "systemName": { "type": "literal" , "value": "P-Band SAR Instrument" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sar_ready" } ,
+        "modeName": { "type": "literal" , "value": "SAR Ready" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#T_sar_ready_to_off" } ,
+        "functionName": { "type": "literal" , "value": "SAR Ready-to-Off Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sar" } ,
+        "systemName": { "type": "literal" , "value": "P-Band SAR Instrument" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sar_ready" } ,
+        "modeName": { "type": "literal" , "value": "SAR Ready" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#fn_sar_standby" } ,
+        "functionName": { "type": "literal" , "value": "SAR Standby Operations" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#rdiu" } ,
+        "systemName": { "type": "literal" , "value": "Reflector Deployment Interface Unit" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#rdiu_off" } ,
+        "modeName": { "type": "literal" , "value": "RDIU Off" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#T_rdiu_off_to_oper" } ,
+        "functionName": { "type": "literal" , "value": "RDIU Off-to-Operational Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#rdiu" } ,
+        "systemName": { "type": "literal" , "value": "Reflector Deployment Interface Unit" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#rdiu_operational" } ,
+        "modeName": { "type": "literal" , "value": "RDIU Operational" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#fn_ldr_motor" } ,
+        "functionName": { "type": "literal" , "value": "LDR Motor Activation" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#rdiu" } ,
+        "systemName": { "type": "literal" , "value": "Reflector Deployment Interface Unit" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#rdiu_operational" } ,
+        "modeName": { "type": "literal" , "value": "RDIU Operational" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#T_rdiu_oper_to_off" } ,
+        "functionName": { "type": "literal" , "value": "RDIU Operational-to-Off Transition" }
+      }
+    ]
+  }
+}

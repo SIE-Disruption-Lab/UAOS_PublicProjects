@@ -1,0 +1,58 @@
+##############################################################################
+# Query 03: Incomplete Transitions (Missing Source Mode)
+#
+# Identifies Transitions that have no declared source Mode — i.e., no Mode
+# that is exitedBy that Transition. Such a Transition cannot be triggered,
+# because the TransitionAvailability rule
+#
+#   exits(t, m) -> availableIn(t, m)
+#
+# requires a source mode to fire. A Transition with no source mode is not
+# available in any Mode, making the mode transition it represents unrealisable.
+#
+# This violation is structurally subtle: a Transition may have a correctly
+# declared target Mode (enteredBy), may appear in the HasSubTransition
+# hierarchy as a declared sub-transition, and may even have Functions
+# allocated to it — yet still be unrealisable because its source Mode is
+# undefined. Inspecting individual state machine diagrams will not reveal
+# this: each diagram appears well-formed. Only cross-diagram structural
+# checking (this query) exposes it.
+#
+# Detection pattern:
+#   For each Transition t in the model:
+#   FILTER NOT EXISTS any Mode m such that m exitedBy t.
+#
+# Expected result for CATSAT-2 Scenario A: zero rows (all transitions
+# have exactly one source Mode).
+#
+# Expected result for CATSAT-2 Scenario B:
+#   T_rwa_b_sci_to_nom / RWA (Scenario B) (VIOLATION)
+#   — rwa_b_science exitedBy T_rwa_b_sci_to_nom was intentionally omitted.
+#   The transition has a target mode (rwa_b_nominal) and a parent sub-transition
+#   reference, but no source mode. TransitionAvailability does not fire.
+##############################################################################
+
+PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tlo:    <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#>
+PREFIX States: <http://uaontologies.com/UAOS_Domain/UAOS_States#>
+PREFIX sa:     <http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#>
+PREFIX modes:  <http://uaontologies.com/UAOS_Domain/UAOS_Modes#>
+
+SELECT ?transition  ?transitionName
+       ?system      ?systemName
+WHERE {
+    # Find all Transitions and the Systems they are specifically dependent on
+    ?transition  a States:Transition ;
+                 tlo:hasName ?transitionName ;
+                 tlo:sdo ?system .
+
+    ?system      tlo:hasName ?systemName .
+
+    # COMPLETENESS FILTER: retain only Transitions with NO source Mode —
+    # those for which no Mode declares exitedBy this Transition.
+    FILTER NOT EXISTS {
+        ?sourceMode States:exitedBy ?transition
+    }
+}
+ORDER BY ?systemName ?transitionName

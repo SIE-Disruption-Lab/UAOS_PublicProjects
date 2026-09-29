@@ -1,0 +1,254 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture the top level terminology required by the SIE Disruption Lab. Note that this is essentially a simplified version of BFO."
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo {
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+	
+	// Import standard vocabularies	
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd 
+    
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	
+	///// Aspects
+
+	@rdfs:label "SDC Carrier"
+	aspect SDCCarrier
+	
+	@rdfs:label "GDC Carrier"
+	aspect GDCCarrier
+		
+	
+	///// Concepts
+	
+	@rdfs:label "Identified Entity"
+	concept IdentifiedEntity
+	
+	@rdfs:label "Occurrent"
+	concept Occurrent < IdentifiedEntity
+	
+	@rdfs:label "Continuant"
+	concept Continuant < IdentifiedEntity
+	
+	@rdfs:label "Temporal Region"
+	concept TemporalRegion < Occurrent [
+		restricts all hasOccurrentPart to TemporalRegion
+		restricts all isOccurrentPartOf to TemporalRegion  
+	]
+	
+	@rdfs:label "Process"
+	concept Process < Occurrent [
+		restricts all hasOccurrentPart to Process
+		restricts all isOccurrentPartOf to Process 
+	]
+	
+	@rdfs:label "Independent Continuant"
+	concept IndependentContinuant < Continuant, SDCCarrier, GDCCarrier
+	
+	@rdfs:label "Specifically Dependent Continuant"
+	concept SpecificallyDependentContinuant < Continuant, SDCCarrier [
+		restricts some sdo to SDCCarrier
+	]
+	
+	@rdfs:label "Generically Dependent Continuant"
+	concept GenericallyDependentContinuant < Continuant
+	
+	@rdfs:label "Realizable Entity"
+	concept RealizableEntity < SpecificallyDependentContinuant
+	
+	@rdfs:label "Quality"
+	concept Quality < SpecificallyDependentContinuant
+	
+	@rdfs:label "Disposition"
+	concept Disposition < RealizableEntity
+	
+	@rdfs:label "Role"
+	concept Role < RealizableEntity [
+		restricts all hasContinuantPart to Role
+		restricts all isContinuantPartOf to Role  
+	]
+	
+	@rdfs:label "Function"
+	concept Function < Disposition [
+		restricts all hasContinuantPart to Function
+		restricts all isContinuantPartOf to Function  
+	]
+	
+	@rdfs:label "Material Entity"
+	concept MaterialEntity < IndependentContinuant [
+		restricts all hasContinuantPart to MaterialEntity
+		restricts all isContinuantPartOf to MaterialEntity  
+	]
+	
+	@rdfs:label "Object Aggregate"
+	concept ObjectAggregate < MaterialEntity [
+		restricts all hasContinuantPart to MaterialEntity
+		restricts all isContinuantPartOf to ObjectAggregate  
+	]
+	
+	@rdfs:label "Object"
+	concept Object < MaterialEntity
+	
+	@rdfs:label "Immaterial Entity"
+	concept ImmaterialEntity < IndependentContinuant
+	
+	@rdfs:label "Site"
+	concept Site < ImmaterialEntity [
+		restricts all hasSpatialPart to Site
+		restricts all isSpatialPartOf to Site
+	]
+	
+	@rdfs:label "Energy"
+	concept Energy < ImmaterialEntity
+	
+	
+	
+	
+	///// Relations
+	
+	@rdfs:label "HasContinuantPart"
+	@dc:description "[=HasContinuantPart=] is a..."
+	relation entity HasContinuantPart [
+		from Continuant
+		to Continuant
+		@rdfs:label "has continuant part"
+		forward hasContinuantPart
+		@rdfs:label "is continuant part of"
+		reverse isContinuantPartOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "HasMemberPart"
+	@dc:description "[=HasMemberPart=] is a..."
+	relation entity HasMemberPart [
+		from MaterialEntity
+		to MaterialEntity
+		@rdfs:label "has member part"
+		forward hasMemberPart
+		@rdfs:label "is member part of"
+		reverse isMemberPartOf
+		asymmetric
+		irreflexive
+	]
+	< HasContinuantPart
+	
+	@rdfs:label "HasSpatialPart"
+	@dc:description "[=HasSpatialPart=] is a..."
+	relation entity HasSpatialPart [
+		from ImmaterialEntity
+		to ImmaterialEntity
+		@rdfs:label "has spatial part"
+		forward hasSpatialPart
+		@rdfs:label "is spatial part of"
+		reverse isSpatialPartOf
+		asymmetric
+		irreflexive
+	]
+	< HasContinuantPart
+	
+	@rdfs:label "HasOccurrentPart"
+	@dc:description "[=HasOccurrentPart=] is a..."
+	relation entity HasOccurrentPart [
+		from Occurrent
+		to Occurrent
+		@rdfs:label "has occurrent part"
+		forward hasOccurrentPart
+		@rdfs:label "is occurrent part of"
+		reverse isOccurrentPartOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Specifically Dependent On"
+	@dc:description "[=SpecificallyDependentOn=] is a..."
+	relation entity SpecificallyDependentOn [
+		from SpecificallyDependentContinuant
+		to SDCCarrier
+		@rdfs:label "specifically dependent on"
+		forward sdo
+		@rdfs:label "is specifically depended on by"
+		reverse hsd
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Generically Dependent On"
+	@dc:description "[=GenericallyDependentOn=] is a..."
+	relation entity GenericallyDependentOn [
+		from GenericallyDependentContinuant
+		to GDCCarrier
+		@rdfs:label "generically dependent on"
+		forward gdo
+		@rdfs:label "is carrier of"
+		reverse hgd
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Occupies"
+	@dc:description "[=Occupies=] is a..."
+	relation entity Occupies [
+		from MaterialEntity
+		to Site
+		@rdfs:label "occupies"
+		forward occupies
+		@rdfs:label "is occupied by"
+		reverse isOccupiedBy
+		asymmetric
+		irreflexive
+	]
+	
+	
+	
+	
+	///// Scalar Properties
+	
+	@rdfs:label "has name"
+	@dc:description "[=hasName=] is a FOUNDATIONAL scalar property - all entities can have a name"
+	scalar property hasName [
+		domain IdentifiedEntity
+		range xsd:string
+	]
+	
+	@rdfs:label "has ID"
+	@dc:description "[=hasID=] is a FOUNDATIONAL scalar property - all entities can have an ID"
+	scalar property hasID [
+		domain IdentifiedEntity
+		range xsd:string
+	]
+	
+	@rdfs:label "has natural language description"
+	@dc:description "[=hasNaturalLanguageDescription=] is a FOUNDATIONAL scalar property - all entities can have a natural language description"
+	scalar property hasNaturalLanguageDescription [
+		domain IdentifiedEntity
+		range xsd:string
+	]
+	
+	@rdfs:label "has begin instant"
+	@dc:description "[=hasBeginInstant=] ..."
+	scalar property hasBeginInstant [
+		domain TemporalRegion
+		range xsd:dateTime
+	]
+	
+	@rdfs:label "has end instant"
+	@dc:description "[=hasEndInstant=] ..."
+	scalar property hasEndInstant [
+		domain TemporalRegion
+		range xsd:dateTime
+	]
+	
+	///// Rules
+	
+	
+	}

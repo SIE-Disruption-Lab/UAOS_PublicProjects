@@ -1,0 +1,836 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://uaontologies.com/UAOS_Domain/UAOS_Test#"
+     xml:base="http://uaontologies.com/UAOS_Domain/UAOS_Test"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:oml="http://opencaesar.io/oml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:UAOS_Test="http://uaontologies.com/UAOS_Domain/UAOS_Test#">
+    <owl:Ontology rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test">
+        <owl:imports rdf:resource="http://purl.org/dc/elements/1.1"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Agent"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Event"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel"/>
+        <oml:namespace rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#"/>
+        <oml:prefix>UAOS_Test</oml:prefix>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Vocabulary"/>
+        <dc:contributor>Joe Gregory</dc:contributor>
+        <dc:creator>SIE Disruption Lab</dc:creator>
+        <dc:description>A vocabulary to capture testing patterns</dc:description>
+        <dc:hasVersion>0.1</dc:hasVersion>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://opencaesar.io/oml#namespace -->
+
+
+    <owl:AnnotationProperty rdf:about="http://opencaesar.io/oml#namespace"/>
+    
+
+
+    <!-- http://opencaesar.io/oml#prefix -->
+
+
+    <owl:AnnotationProperty rdf:about="http://opencaesar.io/oml#prefix"/>
+    
+
+
+    <!-- http://opencaesar.io/oml#relationBase -->
+
+
+    <owl:AnnotationProperty rdf:about="http://opencaesar.io/oml#relationBase"/>
+    
+
+
+    <!-- http://opencaesar.io/oml#relationEntity -->
+
+
+    <owl:AnnotationProperty rdf:about="http://opencaesar.io/oml#relationEntity"/>
+    
+
+
+    <!-- http://opencaesar.io/oml#type -->
+
+
+    <owl:AnnotationProperty rdf:about="http://opencaesar.io/oml#type"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#TestStatus -->
+
+
+    <rdfs:Datatype rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestStatus">
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>Completed</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Planned</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://opencaesar.io/oml#hasSource -->
+
+
+    <owl:ObjectProperty rdf:about="http://opencaesar.io/oml#hasSource"/>
+    
+
+
+    <!-- http://opencaesar.io/oml#hasTarget -->
+
+
+    <owl:ObjectProperty rdf:about="http://opencaesar.io/oml#hasTarget"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#hasTestCondition -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#hasTestCondition">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#HasTestCondition"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>has test condition</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#hasTestSubject -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#hasTestSubject">
+        <rdfs:subPropertyOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Event#hasParticipant"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#HasTestSubject"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>has test subject</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#isConditionOfTest -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#isConditionOfTest">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#hasTestCondition"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#HasTestCondition"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>is condition of test</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#isSubjectOfTest -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#isSubjectOfTest">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#hasTestSubject"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#HasTestSubject"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>is subject of test</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#testIsTriggeredBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#testIsTriggeredBy">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#triggersTest"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Tester"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TriggersTest"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>test is triggered by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#triggersTest -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#triggersTest">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Tester"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TriggersTest"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>triggers test</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#hasBooleanResult -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#hasBooleanResult">
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#BooleanTestResult"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#hasTestStatus -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#hasTestStatus">
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestStatus"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#ActualTestCondition -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#ActualTestCondition">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Measurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#describes"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestCondition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#isContinuantPartOf"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestResult"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=ActualTestCondition=] is a...</dc:description>
+        <rdfs:label>Actual Test Condition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#BooleanTestResult -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#BooleanTestResult">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#describes"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#describes"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=BooleanTestResult=] is a...</dc:description>
+        <rdfs:label>Boolean Test Result</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#HasTestCondition -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#HasTestCondition">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=HasTestCondition=] is a </dc:description>
+        <rdfs:label>Has Test Condition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#HasTestSubject -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#HasTestSubject">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Event#HasParticipant"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=HasTestSubject=] is a </dc:description>
+        <rdfs:label>Has Test Subject</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#PlannedTestCondition -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#PlannedTestCondition">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#PrescriptiveICE"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#prescribes"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestCondition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#isContinuantPartOf"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestProcedure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=PlannedTestCondition=] is a...</dc:description>
+        <rdfs:label>Planned Test Condition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#SiteData -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#SiteData">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Measurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#describes"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestSite"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#isContinuantPartOf"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestResult"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=SiteData=] is a...</dc:description>
+        <rdfs:label>Site Data</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#SitePlan -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#SitePlan">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#PrescriptiveICE"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#prescribes"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestSite"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#isContinuantPartOf"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestProcedure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=SitePlan=] is a...</dc:description>
+        <rdfs:label>Site Plan</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#Test -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Agent#ManagedProcess"/>
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#VerificationActivity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#hasTestSubject"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Event#occursAt"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestSite"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=Test=] is a...</dc:description>
+        <rdfs:label>Test</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#TestCondition -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestCondition">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=TestCondition=] is a...</dc:description>
+        <rdfs:label>Test Condition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#TestEquipmentData -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestEquipmentData">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Measurement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#describes"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Object"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#isContinuantPartOf"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestResult"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=TestEquipmentData=] is a...</dc:description>
+        <rdfs:label>Test Equipment Data</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#TestEquipmentPlan -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestEquipmentPlan">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#PrescriptiveICE"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#prescribes"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Object"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#isContinuantPartOf"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestProcedure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=TestEquipmentPlan=] is a...</dc:description>
+        <rdfs:label>Test Equipment Plan</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#TestObjective -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestObjective">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Objective"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#prescribes"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#isContinuantPartOf"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestProcedure"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=TestObjective=] is a...</dc:description>
+        <rdfs:label>Test Objective</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#TestProcedure -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestProcedure">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Agent#Procedure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#prescribes"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#prescribes"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=TestProcedure=] is a...</dc:description>
+        <rdfs:label>Test Procedure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#TestResult -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestResult">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#describes"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#describes"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=TestResult=] is a...</dc:description>
+        <rdfs:label>Test Result</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#TestSite -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestSite">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Site"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=TestSite=] is a...</dc:description>
+        <rdfs:label>Test Site</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#TestStrategy -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestStrategy">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Agent#ManagedProcess"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasOccurrentPart"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#isOccurrentPartOf"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#Test"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=Test Strategy=] is a...</dc:description>
+        <rdfs:label>Test Strategy</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#Tester -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#Tester">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Role"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=Tester=]...</dc:description>
+        <rdfs:label>Tester</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Test#TriggersTest -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Test#TriggersTest">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=TriggersTest=] is a </dc:description>
+        <rdfs:label>Triggers Test</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="urn:swrl:var#r">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#s">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#t">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>hasTestCondition derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#HasTestCondition"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#hasTestCondition"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>hasTestSubject derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#HasTestSubject"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#hasTestSubject"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>triggersTest derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TriggersTest"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#triggersTest"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.5.0.2023-01-14T12:41:38Z) https://github.com/owlcs/owlapi/ -->
+
+

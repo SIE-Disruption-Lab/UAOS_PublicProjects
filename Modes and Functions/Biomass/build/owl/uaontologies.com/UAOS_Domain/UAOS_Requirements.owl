@@ -1,0 +1,936 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#"
+     xml:base="http://uaontologies.com/UAOS_Domain/UAOS_Requirements"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:oml="http://opencaesar.io/oml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:UAOS_Requirements="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#">
+    <owl:Ontology rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements">
+        <owl:imports rdf:resource="http://purl.org/dc/elements/1.1"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel"/>
+        <oml:namespace rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#"/>
+        <oml:prefix>UAOS_Requirements</oml:prefix>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Vocabulary"/>
+        <dc:contributor>Joe Gregory</dc:contributor>
+        <dc:creator>SIE Disruption Lab</dc:creator>
+        <dc:description>A vocabulary to capture system requirements patterns</dc:description>
+        <dc:hasVersion>0.1</dc:hasVersion>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#allocatesRequirement -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#allocatesRequirement">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Requirement"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#AllocatesRequirement"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>allocates requirement</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#derivesRequirement -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#derivesRequirement">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Requirement"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Requirement"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#DerivesRequirement"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>derives requirement</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#hasObjectiveValue -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#hasObjectiveValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#QuantitativeRequirement"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#SimpleMeasurement"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#HasObjectiveValue"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>has objective value</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#hasThresholdValue -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#hasThresholdValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#QuantitativeRequirement"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#SimpleMeasurement"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#HasThresholdValue"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>has threshold value</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#isObjectiveValueOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#isObjectiveValueOf">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#hasObjectiveValue"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#SimpleMeasurement"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#QuantitativeRequirement"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#HasObjectiveValue"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>is objective value of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#isRefinedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#isRefinedBy">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#refines"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#QuantitativeRequirement"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Constraint"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Refines"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>is refined by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#isSatisfiedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#isSatisfiedBy">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#satisfies"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Requirement"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Satisfies"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>is satisfied by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#isThresholdValueOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#isThresholdValueOf">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#hasThresholdValue"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#SimpleMeasurement"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#QuantitativeRequirement"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#HasThresholdValue"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>is threshold value of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#refines -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#refines">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Constraint"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#QuantitativeRequirement"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Refines"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>refines</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#requirementDerivedFrom -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#requirementDerivedFrom">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#derivesRequirement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Requirement"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Requirement"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#DerivesRequirement"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>requirement derived from</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#requirementIsAllocatedTo -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#requirementIsAllocatedTo">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#allocatesRequirement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Requirement"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#AllocatesRequirement"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>requirement is allocated to</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#satisfies -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#satisfies">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Requirement"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Satisfies"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>satisfies</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#comparesTo -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#comparesTo">
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#ConstraintExpression"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <dc:description>[=comparesTo=] ...</dc:description>
+        <rdfs:label>comparesTo</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#equalTo -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#equalTo">
+        <rdfs:subPropertyOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#comparesTo"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#ConstraintExpression"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <dc:description>[=equalTo=] ...</dc:description>
+        <rdfs:label>equal to</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#greaterThan -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#greaterThan">
+        <rdfs:subPropertyOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#comparesTo"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#ConstraintExpression"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <dc:description>[=greaterThan=] ...</dc:description>
+        <rdfs:label>greater than</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#greaterThanOrEqualTo -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#greaterThanOrEqualTo">
+        <rdfs:subPropertyOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#comparesTo"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#ConstraintExpression"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <dc:description>[=greaterThanOrEqualTo=] ...</dc:description>
+        <rdfs:label>greater than or equal to</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#hasConstraintExpression -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#hasConstraintExpression">
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Constraint"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>[=hasConstraintExpression=] ...</dc:description>
+        <rdfs:label>has constraint expression</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#hasObjectiveText -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#hasObjectiveText">
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Objective"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>[=hasObjectiveText=] ...</dc:description>
+        <rdfs:label>has objective text</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#hasRequirementText -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#hasRequirementText">
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Requirement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>[=hasRequirementText=] ...</dc:description>
+        <rdfs:label>has requirement text</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#lessThan -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#lessThan">
+        <rdfs:subPropertyOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#comparesTo"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#ConstraintExpression"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <dc:description>[=lessThan=] ...</dc:description>
+        <rdfs:label>less than</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#lessThanOrEqualTo -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#lessThanOrEqualTo">
+        <rdfs:subPropertyOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#comparesTo"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#ConstraintExpression"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <dc:description>[=lessThanOrEqualTo=] ...</dc:description>
+        <rdfs:label>less than or equal to</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#AllocatesRequirement -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#AllocatesRequirement">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=AllocatesRequirement=] is a </dc:description>
+        <rdfs:label>Allocates Requirement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Constraint -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Constraint">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#PrescriptiveICE"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=Constraint=]...</dc:description>
+        <rdfs:label>Constraint</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#ConstraintExpression -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#ConstraintExpression">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#RepresentationalICE"/>
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Value"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#represents"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Constraint"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#hasUnit"/>
+                <owl:someValuesFrom rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=ConstraintExpression=]...</dc:description>
+        <rdfs:label>ConstraintExpression</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#DerivesRequirement -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#DerivesRequirement">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=DerivesRequirement=] is a </dc:description>
+        <rdfs:label>Derives Requirement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#FunctionalRequirement -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#FunctionalRequirement">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Requirement"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=FunctionalRequirement=]...</dc:description>
+        <rdfs:label>Functional Requirement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#HasObjectiveValue -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#HasObjectiveValue">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=HasObjectiveValue=] is a </dc:description>
+        <rdfs:label>Has Objective Value</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#HasThresholdValue -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#HasThresholdValue">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=HasThresholdValue=] is a </dc:description>
+        <rdfs:label>Has Threshold Value</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#KPP -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#KPP">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#PerformanceRequirement"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=KPP=]...</dc:description>
+        <rdfs:label>KPP</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#KSA -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#KSA">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#QuantitativeRequirement"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=KSA=]...</dc:description>
+        <rdfs:label>KSA</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Objective -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Objective">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#PrescriptiveICE"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=Objective=]...</dc:description>
+        <rdfs:label>Objective</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#PerformanceRequirement -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#PerformanceRequirement">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#QuantitativeRequirement"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=PerformanceRequirement=]...</dc:description>
+        <rdfs:label>Performance Requirement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#PhysicalRequirement -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#PhysicalRequirement">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#QuantitativeRequirement"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=PhysicalRequirement=]...</dc:description>
+        <rdfs:label>Physical Requirement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#QuantitativeRequirement -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#QuantitativeRequirement">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Requirement"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#prescribes"/>
+                <owl:allValuesFrom rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Quality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=QuantitativeRequirement=]...</dc:description>
+        <rdfs:label>Quantitative Requirement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Refines -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Refines">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=Refines=] is a </dc:description>
+        <rdfs:label>Refines</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Requirement -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Requirement">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#PrescriptiveICE"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=Requirement=]...</dc:description>
+        <rdfs:label>Requirement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Satisfies -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Satisfies">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=Satisfies=] is a </dc:description>
+        <rdfs:label>Satisfies</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="urn:swrl:var#r">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#s">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#t">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>derivesRequirement derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#DerivesRequirement"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#derivesRequirement"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>hasObjectiveValue derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#HasObjectiveValue"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#hasObjectiveValue"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>hasThresholdValue derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#HasThresholdValue"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#hasThresholdValue"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>allocatesRequirement derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#AllocatesRequirement"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#allocatesRequirement"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>refines derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Refines"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#refines"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>satisfies derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Satisfies"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#satisfies"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.5.0.2023-01-14T12:41:38Z) https://github.com/owlcs/owlapi/ -->
+
+

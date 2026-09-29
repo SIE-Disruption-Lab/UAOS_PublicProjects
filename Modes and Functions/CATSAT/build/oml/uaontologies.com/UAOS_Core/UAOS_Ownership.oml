@@ -1,0 +1,53 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture entities associated with ownership"
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Core/UAOS_Ownership#> as UAOS_Ownership {
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+		
+	// Import standard vocabularies	
+	extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Agent#> as agent
+		
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	///// Aspects
+	
+		
+	///// Concepts
+		
+	
+	///// Relations
+	
+	@rdfs:label "Owns"
+	@dc:description "[=Owns=] is a..."
+	relation entity Owns [
+		from agent:Agent
+		to tlo:Continuant
+		@rdfs:label "owns"
+		forward owns
+		@rdfs:label "is owned by"
+		reverse isOwnedBy
+		asymmetric
+		irreflexive
+	]
+			
+	
+	///// Scalar Properties
+	
+
+	
+	///// Rules
+			
+	
+}

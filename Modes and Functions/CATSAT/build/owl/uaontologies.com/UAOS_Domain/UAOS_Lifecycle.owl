@@ -1,0 +1,932 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#"
+     xml:base="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:oml="http://opencaesar.io/oml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:UAOS_Lifecycle="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#">
+    <owl:Ontology rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle">
+        <owl:imports rdf:resource="http://purl.org/dc/elements/1.1"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Types"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_DigitalEnvironment"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel"/>
+        <oml:namespace rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#"/>
+        <oml:prefix>UAOS_Lifecycle</oml:prefix>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Vocabulary"/>
+        <dc:contributor>Joe Gregory</dc:contributor>
+        <dc:creator>SIE Disruption Lab</dc:creator>
+        <dc:description>A vocabulary formalising the four-level NNSA physical hierarchy (System → Subsystem → Component → Part), condition-dependent life estimation (TypeLifeEstimate as a types:Estimate), discrete exposure history (ExposureEvent accumulating damage fractions for Miner&apos;s rule SPARQL), and context-dependent replaceability (isReplaceable asserted per physical instance). Type/token pattern is handled via UAOS_Types: part types are modelled as ObjectType instances, conformance via the Types relation, and TypeLifeEstimates are linked to QuantityType instances (ExpectedLife per condition) via estimateOf. The SWRL rule in UAOS_Types infers estimateOfQuantity across the type/token gap. System remaining-life aggregation: worst-case remaining life across non-replaceable parts propagates up the hierarchy.</dc:description>
+        <dc:hasVersion>0.1</dc:hasVersion>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#appliesToCondition -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#appliesToCondition">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#TypeLifeEstimate"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#LifeConditionProfile"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#AppliesToCondition"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>applies to condition</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#hadExposure -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#hadExposure">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isExposureOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Object"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#ExposureEvent"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#IsExposureOf"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>had exposure</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#hasComponent -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#hasComponent">
+        <rdfs:subPropertyOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasContinuantPart"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#Subsystem"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#Component"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#HasComponent"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>has component</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#hasPart -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#hasPart">
+        <rdfs:subPropertyOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasContinuantPart"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#Component"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#Part"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#HasPart"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>has part</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#hasSubsystem -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#hasSubsystem">
+        <rdfs:subPropertyOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasContinuantPart"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#System"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#Subsystem"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#HasSubsystem"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>has subsystem</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isComponentOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isComponentOf">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#hasComponent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#Component"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#Subsystem"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#HasComponent"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>is component of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isConditionOfExposure -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isConditionOfExposure">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#underCondition"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#LifeConditionProfile"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#ExposureEvent"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#UnderCondition"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>is condition of exposure</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isConditionOfLifeEstimate -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isConditionOfLifeEstimate">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#appliesToCondition"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#LifeConditionProfile"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#TypeLifeEstimate"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#AppliesToCondition"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>is condition of life estimate</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isExposureOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isExposureOf">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#ExposureEvent"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Object"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#IsExposureOf"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>is exposure of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isPartOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isPartOf">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#hasPart"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#Part"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#Component"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#HasPart"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>is part of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isRequiredToolCapabilityTypeForPhase -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isRequiredToolCapabilityTypeForPhase">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#requiresToolCapabilityType"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_DigitalEnvironment#DEToolCapabilityKind"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#LifecyclePhase"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#RequiresToolCapabilityType"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>is required tool capability type for phase</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isSubsystemOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isSubsystemOf">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#hasSubsystem"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#Subsystem"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#System"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#HasSubsystem"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>is subsystem of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#requiresToolCapabilityType -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#requiresToolCapabilityType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#LifecyclePhase"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_DigitalEnvironment#DEToolCapabilityKind"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#RequiresToolCapabilityType"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>requires tool capability type</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#underCondition -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#underCondition">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#ExposureEvent"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#LifeConditionProfile"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#UnderCondition"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>under condition</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#exposureDurationYears -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#exposureDurationYears">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#ExposureEvent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <dc:description>[=exposureDurationYears=] records the duration in years of a discrete ExposureEvent. Used as the numerator in Miner&apos;s rule damage accumulation SPARQL: SUM(exposureDurationYears / TypeLifeEstimate.hasValue) grouped by physical instance gives the total accumulated damage fraction, from which remaining life is derived.</dc:description>
+        <rdfs:label>exposure duration years</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#hasConditionDescription -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#hasConditionDescription">
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#LifeConditionProfile"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>[=hasConditionDescription=] records a human-readable description of a LifeConditionProfile, summarising the operating or storage regime it represents.</dc:description>
+        <rdfs:label>has condition description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isReplaceable -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isReplaceable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Object"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <dc:description>[=isReplaceable=] records whether a physical Object instance can be replaced in its current installation context. Asserted per-instance at description time: instances of the same ObjectType may differ — some are replaceable and others are not, depending on installation context. Non-replaceable instances are included in the system-level remaining-life aggregation; replaceable instances are excluded.</dc:description>
+        <rdfs:label>is replaceable</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#AppliesToCondition -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#AppliesToCondition">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=AppliesToCondition=] relates a TypeLifeEstimate to the LifeConditionProfile under which it was derived. Functional: each TypeLifeEstimate is conditioned on exactly one profile.</dc:description>
+        <rdfs:label>Applies To Condition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#Component -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#Component">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Object"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=Component=] is a material Object constituting a Subsystem, related via hasComponent. Components are the third level of the NNSA physical hierarchy. A Component may contain Parts (the atomic tracked units) via hasPart but need not be decomposed when only subsystem-level lifecycle tracking is required.</dc:description>
+        <rdfs:label>Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#ExpectedLife -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#ExpectedLife">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Quantity"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>An [=ExpectedLife=] is a time-dimensioned Quantity representing the expected service duration of a physical Object under specific operating or storage conditions. As a meas:Quantity (Quality/SDC) it inheres in a physical Object via tlo:sdo. Its type is characterised by a types:QuantityType instance; the SWRL rule in UAOS_Types infers that any TypeLifeEstimate whose estimateOf QuantityType matches the isOfType of this quality is an estimate of this quality.</dc:description>
+        <rdfs:label>Expected Life</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#ExposureEvent -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#ExposureEvent">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Process"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>An [=ExposureEvent=] is a Process recording a discrete temporal period during which a specific physical Object instance was operated or stored under a specific LifeConditionProfile. The duration is recorded in years via exposureDurationYears. Miner&apos;s rule damage accumulation is computed in SPARQL by summing (exposureDurationYears / TypeLifeEstimate.hasValue) across all ExposureEvents for a given instance under matching condition profiles, yielding the total damage fraction and hence remaining life.</dc:description>
+        <rdfs:label>Exposure Event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#HasComponent -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#HasComponent">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasContinuantPart"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=HasComponent=] relates a Subsystem to a Component of which it is physically composed. Sub-relation of tlo:HasContinuantPart, enforcing the NNSA hierarchy at the Subsystem–Component level.</dc:description>
+        <rdfs:label>Has Component</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#HasPart -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#HasPart">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasContinuantPart"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=HasPart=] relates a Component to a Part of which it is physically composed. Sub-relation of tlo:HasContinuantPart, enforcing the NNSA hierarchy at the Component–Part level.</dc:description>
+        <rdfs:label>Has Part</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#HasSubsystem -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#HasSubsystem">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasContinuantPart"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=HasSubsystem=] relates a System to a Subsystem of which it is physically composed. Sub-relation of tlo:HasContinuantPart, narrowing both domain and range to enforce the NNSA hierarchy at the System–Subsystem level.</dc:description>
+        <rdfs:label>Has Subsystem</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#IsExposureOf -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#IsExposureOf">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=IsExposureOf=] relates an ExposureEvent to the physical Object instance whose service history it contributes to. Functional: each ExposureEvent belongs to exactly one physical instance.</dc:description>
+        <rdfs:label>Is Exposure Of</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#LifeConditionProfile -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#LifeConditionProfile">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=LifeConditionProfile=] is a DescriptiveICE characterising a named operating or storage condition regime (e.g., cold-dry-storage, hot-moist-operational). It plays two roles: (a) it qualifies a TypeLifeEstimate via appliesToCondition, recording the condition under which the life test was conducted; (b) it qualifies an ExposureEvent via underCondition, recording the condition to which a physical instance was exposed during a given service period.</dc:description>
+        <rdfs:label>Life Condition Profile</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#LifecyclePhase -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#LifecyclePhase">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Process"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=LifecyclePhase=] is a temporally bounded Process representing a named programme phase (e.g., Phase 6.1 SRR, Phase 6.2 PDR, Phase 6.3 CDR). Tool capability type requirements for each phase are modelled via RequiresToolCapabilityType, enabling SPARQL to detect gaps between what a phase requires and what an organisation&apos;s DE environment provides.</dc:description>
+        <rdfs:label>Lifecycle Phase</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#Part -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#Part">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Object"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=Part=] is a material Object constituting a Component, related via hasPart. Parts are the fourth and lowest level of the NNSA physical hierarchy and the primary atomic units for lifecycle tracking. Each Part instance may conform to a types:ObjectType via types:isOfType and accumulates ExposureEvents over its service life.</dc:description>
+        <rdfs:label>Part</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#RequiresToolCapabilityType -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#RequiresToolCapabilityType">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=RequiresToolCapabilityType=] relates a LifecyclePhase to a DEToolCapabilityKind instance representing the functional capability category required for that phase. Kind instances are GDC types (no bearer constraint) — safe to assert in any description. Gaps between required kinds and available capability instances (typed via types:isOfType) are detected by SPARQL, not OWL reasoning.</dc:description>
+        <rdfs:label>Requires Tool Capability Type</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#Subsystem -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#Subsystem">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#System"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=Subsystem=] is a System that is a physical constituent of a higher-level System, related via hasSubsystem. Corresponds to the second level of the four-level NNSA physical hierarchy (System → Subsystem → Component → Part). A Subsystem may contain Components via hasComponent but need not — it may be treated as a black box when internal decomposition is not modelled.</dc:description>
+        <rdfs:label>Subsystem</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#TypeLifeEstimate -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#TypeLifeEstimate">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Types#Estimate"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=TypeLifeEstimate=] is a types:Estimate recording the estimated service life (in years) of a part type (modelled as a types:ObjectType instance) under a specific LifeConditionProfile. It inherits hasValue (xsd:double) and hasUnit from the meas:Value aspect via types:Estimate. It is linked to the QuantityType it estimates via estimateOf: each TypeLifeEstimate is an estimate of an ExpectedLife QuantityType scoped to a specific condition. The SWRL rule in UAOS_Types infers estimateOfQuantity, linking this estimate to the actual ExpectedLife qualities of all conforming part instances.</dc:description>
+        <rdfs:label>Type Life Estimate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#UnderCondition -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#UnderCondition">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=UnderCondition=] relates an ExposureEvent to the LifeConditionProfile that characterised the operating or storage regime during that exposure period. Functional: each ExposureEvent occurs under exactly one condition profile.</dc:description>
+        <rdfs:label>Under Condition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="urn:swrl:var#r">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#s">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#t">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>appliesToCondition derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#AppliesToCondition"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#appliesToCondition"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>hasComponent derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#HasComponent"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#hasComponent"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>hasPart derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#HasPart"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#hasPart"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>hasSubsystem derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#HasSubsystem"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#hasSubsystem"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>isExposureOf derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#IsExposureOf"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#isExposureOf"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>requiresToolCapabilityType derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#RequiresToolCapabilityType"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#requiresToolCapabilityType"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>underCondition derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#UnderCondition"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#underCondition"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.5.0.2023-01-14T12:41:38Z) https://github.com/owlcs/owlapi/ -->
+
+

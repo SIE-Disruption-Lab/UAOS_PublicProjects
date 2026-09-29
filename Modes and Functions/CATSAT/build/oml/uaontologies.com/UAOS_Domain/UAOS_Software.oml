@@ -1,0 +1,104 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture software patterns"
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_Software#> as UAOS_Software {
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+		
+	// Import standard vocabularies	
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+    
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Agent#> as agent
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_ProjectManagement#> as pm
+	
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	///// Aspects
+	
+			
+	
+	///// Concepts
+	
+	@rdfs:label "Software"
+	@dc:description "A [=Software=] is a..."
+	concept Software < tlo:GenericallyDependentContinuant [
+		restricts all tlo:gdo to tlo:Object
+	]
+	
+	@rdfs:label "Software Agent"
+	@dc:description "A [=SoftwareAgent=] is a..."
+	concept SoftwareAgent < Software, agent:Agent
+	
+	@rdfs:label "Operating System"
+	@dc:description "A [=OperatingSystem=] is a..."
+	concept OperatingSystem < Software
+	
+	
+	
+	///// Relations
+	
+	@rdfs:label "Has Software Vendor"
+	@dc:description "[=HasSoftwareVendor=] is a..."
+	relation entity HasSoftwareVendor [
+		from Software
+		to agent:Organization
+		@rdfs:label "has software vendor"
+		forward hasSoftwareVendor
+		@rdfs:label "is software vendor of"
+		reverse isSoftwareVendorOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Has Entity Source"
+	@dc:description "[=HasEntitySource=] is a..."
+	relation entity HasEntitySource [
+		from tlo:IdentifiedEntity
+		to Software
+		@rdfs:label "has entity source"
+		forward hasEntitySource
+		@rdfs:label "is source of entity"
+		reverse isSourceOfEntity
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Supports"
+	@dc:description "[=Supports=] is a..."
+	relation entity Supports [
+		from Software
+		to pm:Task
+		@rdfs:label "supports"
+		forward supports
+		@rdfs:label "supportedBy"
+		reverse supportedBy
+		asymmetric
+		irreflexive
+	]
+	
+	
+	///// Scalar Properties
+	
+	@rdfs:label "has software version"
+	@dc:description "[=hasSoftwareVersion=] ..."
+	scalar property hasSoftwareVersion [
+		domain Software
+		range xsd:string
+	]
+	
+	
+	
+	///// Rules
+		
+	
+}

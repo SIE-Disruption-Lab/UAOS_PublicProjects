@@ -1,0 +1,1396 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#"
+     xml:base="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:oml="http://opencaesar.io/oml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:UAOS_TopLevel="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#"
+     xmlns:UAOS_INCOSERules="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#"
+     xmlns:UAOS_RequirementsQuality="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#">
+    <owl:Ontology rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules">
+        <owl:imports rdf:resource="http://purl.org/dc/elements/1.1"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel"/>
+        <oml:namespace rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#"/>
+        <oml:prefix>UAOS_INCOSERules</oml:prefix>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Description"/>
+        <dc:contributor>Joe Gregory</dc:contributor>
+        <dc:creator>SIE Disruption Lab</dc:creator>
+        <dc:description>Canonical instance library for the INCOSE Guide to Writing Requirements V4 (1 Jul 2023). Instantiates all 42 writing rules, 15 quality characteristics, 14 rule categories, 4 severity ratings, and 3 applicability levels defined in that guide. Cross-reference matrix (Rule x Characteristic) derived from Appendix E, p.137. Rule applicability and project dictionary requirements derived from Appendix D, pp.131-136. Source: incose-req-rules.ttl (Arizona SIE lab, v0.1.0).</dc:description>
+        <dc:hasVersion>0.1</dc:hasVersion>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#belongsToCategory -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#belongsToCategory"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#hasApplicability -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#hasApplicability"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#testsCharacteristic -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#testsCharacteristic"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#hasCharacteristicId -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#hasCharacteristicId"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#hasOrdinalRank -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#hasOrdinalRank"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#hasRuleId -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#hasRuleId"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#requiresProjectDictionary -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#requiresProjectDictionary"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasNaturalLanguageDescription -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasNaturalLanguageDescription"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C10_Complete -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C10_Complete">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#SetQualityCharacteristic"/>
+        <UAOS_RequirementsQuality:hasCharacteristicId>C10</UAOS_RequirementsQuality:hasCharacteristicId>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>The requirement set stands alone such that it sufficiently describes the necessary capabilities, characteristics, constraints, and/or quality factors.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Complete (Set)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C11_Consistent -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C11_Consistent">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#SetQualityCharacteristic"/>
+        <UAOS_RequirementsQuality:hasCharacteristicId>C11</UAOS_RequirementsQuality:hasCharacteristicId>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>The set of requirements contains individual requirements that are unique, do not conflict, and are not duplicated.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Consistent</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C12_Feasible -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C12_Feasible">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#SetQualityCharacteristic"/>
+        <UAOS_RequirementsQuality:hasCharacteristicId>C12</UAOS_RequirementsQuality:hasCharacteristicId>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>The requirement set can be realized within entity constraints with acceptable risk.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Feasible (Set)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C13_Comprehensible -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C13_Comprehensible">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#SetQualityCharacteristic"/>
+        <UAOS_RequirementsQuality:hasCharacteristicId>C13</UAOS_RequirementsQuality:hasCharacteristicId>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>The requirement set is written such that it is clear, structured, and readable.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Comprehensible</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C14_AbleToBeValidated -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C14_AbleToBeValidated">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#SetQualityCharacteristic"/>
+        <UAOS_RequirementsQuality:hasCharacteristicId>C14</UAOS_RequirementsQuality:hasCharacteristicId>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>The requirement set can be proven to satisfy its intended use in the operational environment.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Able to be Validated</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C15_Correct -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C15_Correct">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#SetQualityCharacteristic"/>
+        <UAOS_RequirementsQuality:hasCharacteristicId>C15</UAOS_RequirementsQuality:hasCharacteristicId>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>The requirement set accurately represents the entity needs from which it was transformed.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Correct (Set)</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C1_Necessary -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C1_Necessary">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#IndividualQualityCharacteristic"/>
+        <UAOS_RequirementsQuality:hasCharacteristicId>C1</UAOS_RequirementsQuality:hasCharacteristicId>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>The requirement defines an essential capability, characteristic, constraint, or quality factor.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Necessary</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C2_Appropriate -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C2_Appropriate">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#IndividualQualityCharacteristic"/>
+        <UAOS_RequirementsQuality:hasCharacteristicId>C2</UAOS_RequirementsQuality:hasCharacteristicId>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>The specific intent and amount of detail is appropriate to the level of the entity to which it refers.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Appropriate</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#IndividualQualityCharacteristic"/>
+        <UAOS_RequirementsQuality:hasCharacteristicId>C3</UAOS_RequirementsQuality:hasCharacteristicId>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>The requirement is stated such that it can be interpreted in only one way.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Unambiguous</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#IndividualQualityCharacteristic"/>
+        <UAOS_RequirementsQuality:hasCharacteristicId>C4</UAOS_RequirementsQuality:hasCharacteristicId>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>The requirement sufficiently describes the necessary capability, characteristic, constraint, or quality factor to meet the entity need.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Complete</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C5_Singular -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C5_Singular">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#IndividualQualityCharacteristic"/>
+        <UAOS_RequirementsQuality:hasCharacteristicId>C5</UAOS_RequirementsQuality:hasCharacteristicId>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>The requirement states a single capability, characteristic, constraint, or quality factor.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Singular</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C6_Feasible -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C6_Feasible">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#IndividualQualityCharacteristic"/>
+        <UAOS_RequirementsQuality:hasCharacteristicId>C6</UAOS_RequirementsQuality:hasCharacteristicId>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>The requirement can be realized within entity constraints with acceptable risk.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Feasible</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#IndividualQualityCharacteristic"/>
+        <UAOS_RequirementsQuality:hasCharacteristicId>C7</UAOS_RequirementsQuality:hasCharacteristicId>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>The requirement is structured and worded such that its realization can be proven to the stakeholders&apos; satisfaction.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Verifiable/Validatable</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#IndividualQualityCharacteristic"/>
+        <UAOS_RequirementsQuality:hasCharacteristicId>C8</UAOS_RequirementsQuality:hasCharacteristicId>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>The requirement is an accurate representation of the entity need from which it was transformed.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Correct</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C9_Conforming -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C9_Conforming">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#IndividualQualityCharacteristic"/>
+        <UAOS_RequirementsQuality:hasCharacteristicId>C9</UAOS_RequirementsQuality:hasCharacteristicId>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>The individual requirement conforms to an approved style guide or similar standard.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Conforming</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#RuleApplicability"/>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Compulsory for Needs and Compulsory for Requirements.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>CNCR</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CR -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CR">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#RuleApplicability"/>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Compulsory for Requirements (Optional for Needs).</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>CR</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Abstraction -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Abstraction">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#RuleCategory"/>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Rules ensuring solution-free expression at the appropriate level (R31).</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Abstraction</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Accuracy -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Accuracy">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#RuleCategory"/>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Rules ensuring accurate expression of needs and requirements (R1-R9).</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Accuracy</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Completeness -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Completeness">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#RuleCategory"/>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Rules ensuring complete expression of needs and requirements (R24-R25).</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Completeness</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Concision -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Concision">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#RuleCategory"/>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Rules ensuring concise expression (R10-R11).</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Concision</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Conditions -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Conditions">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#RuleCategory"/>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Rules ensuring conditions are stated explicitly (R27-R28).</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Conditions</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Modularity -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Modularity">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#RuleCategory"/>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Rules ensuring modular organization of requirement sets (R41-R42).</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Modularity</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_NonAmbiguity -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_NonAmbiguity">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#RuleCategory"/>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Rules ensuring non-ambiguous expression (R12-R17).</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Non-Ambiguity</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Quantification -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Quantification">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#RuleCategory"/>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Rules ensuring measurable and temporally precise statements (R34-R35).</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Quantification</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Quantifiers -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Quantifiers">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#RuleCategory"/>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Rules governing the use of universal quantifiers (R32).</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Quantifiers</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Realism -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Realism">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#RuleCategory"/>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Rules ensuring realistic, achievable statements (R26).</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Realism</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Singularity -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Singularity">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#RuleCategory"/>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Rules ensuring each statement expresses a single thought (R18-R23).</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Singularity</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Tolerance -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Tolerance">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#RuleCategory"/>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Rules ensuring quantities include appropriate ranges and tolerances (R33).</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Tolerance</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_UniformityOfLanguage -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_UniformityOfLanguage">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#RuleCategory"/>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Rules ensuring consistent terminology and style (R36-R40).</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Uniformity of Language</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Uniqueness -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Uniqueness">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#RuleCategory"/>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Rules ensuring each requirement is unique and expressed once (R29-R30).</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Uniqueness</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R01 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R01">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Accuracy"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C9_Conforming"/>
+        <UAOS_RequirementsQuality:hasRuleId>R1</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Need and requirement statements must conform to one of the agreed patterns, resulting in a well-structured complete statement.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Structured Statements</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R02 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R02">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Accuracy"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#RNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R2</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Use the active voice with the responsible entity clearly identified as the subject.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Active Voice</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R03 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R03">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Accuracy"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C14_AbleToBeValidated"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct"/>
+        <UAOS_RequirementsQuality:hasRuleId>R3</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Ensure the subject and verb are appropriate to the entity to which the statement refers.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Appropriate Subject-Verb</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R04 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R04">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Accuracy"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C11_Consistent"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C12_Feasible"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C13_Comprehensible"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C14_AbleToBeValidated"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C9_Conforming"/>
+        <UAOS_RequirementsQuality:hasRuleId>R4</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Define all terms used within the statement in an associated glossary and/or data dictionary.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Defined Terms</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R05 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R05">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Accuracy"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#RNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R5</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Use the definite article &apos;the&apos; rather than the indefinite article &apos;a&apos;.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Definite Articles</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R06 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R06">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Accuracy"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct"/>
+        <UAOS_RequirementsQuality:hasRuleId>R6</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>When stating quantities, use appropriate and consistent units of measure explicitly stated using a common measurement system.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Common Units of Measure</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R07 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R07">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Accuracy"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R7</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Avoid the use of vague terms.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Vague Terms</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R08 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R08">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Accuracy"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#RNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R8</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Avoid the inclusion of escape clauses that state vague conditions or possibilities.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Escape Clauses</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R09 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R09">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Accuracy"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C5_Singular"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R9</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Avoid open-ended, non-specific clauses such as &apos;including but not limited to&apos;, &apos;etc.&apos; and &apos;and so on&apos;.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Open-Ended Clauses</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R10 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R10">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Concision"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R10</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Avoid the use of superfluous infinitives such as &apos;to be designed to&apos;, &apos;to be able to&apos;, &apos;to enable&apos;.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Superfluous Infinitives</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R11 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R11">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Concision"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct"/>
+        <UAOS_RequirementsQuality:hasRuleId>R11</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Use a separate clause for each condition or qualification.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Separate Clauses</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R12 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R12">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_NonAmbiguity"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C9_Conforming"/>
+        <UAOS_RequirementsQuality:hasRuleId>R12</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Use correct grammar.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Correct Grammar</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R13 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R13">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_NonAmbiguity"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R13</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Use correct spelling.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Correct Spelling</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R14 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R14">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_NonAmbiguity"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct"/>
+        <UAOS_RequirementsQuality:hasRuleId>R14</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Use correct punctuation.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Correct Punctuation</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R15 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R15">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_NonAmbiguity"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R15</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Use a defined convention to express logical expressions such as &apos;[X AND Y]&apos;, &apos;[X OR Y]&apos;, &apos;[X XOR Y]&apos;, &apos;NOT [X OR Y]&apos;.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Logical Expressions</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R16 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R16">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_NonAmbiguity"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#RNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct"/>
+        <UAOS_RequirementsQuality:hasRuleId>R16</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Avoid the use of the word &apos;not&apos;.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Use of Not</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R17 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R17">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_NonAmbiguity"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R17</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Avoid the use of the oblique (&apos;/&apos;) symbol except in units or fractions.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Use of Oblique Symbol</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R18 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R18">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Singularity"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C14_AbleToBeValidated"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct"/>
+        <UAOS_RequirementsQuality:hasRuleId>R18</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Write a single sentence that contains a single thought conditioned and qualified by relevant sub-clauses.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Single Thought Sentence</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R19 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R19">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Singularity"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C5_Singular"/>
+        <UAOS_RequirementsQuality:hasRuleId>R19</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Avoid combinators that join clauses, such as &apos;and&apos;, &apos;or&apos;, &apos;then&apos;, &apos;unless&apos;, &apos;but&apos;, &apos;as well as&apos;, &apos;however&apos;, &apos;whether&apos;, &apos;whereas&apos;.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Combinators</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R20 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R20">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Singularity"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C1_Necessary"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C5_Singular"/>
+        <UAOS_RequirementsQuality:hasRuleId>R20</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Avoid phrases indicating purpose: &apos;purpose of&apos;, &apos;intent of&apos;, or &apos;reason for&apos;.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Purpose Phrases</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R21 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R21">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Singularity"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C5_Singular"/>
+        <UAOS_RequirementsQuality:hasRuleId>R21</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Avoid parentheses and brackets containing subordinate text.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Parentheses</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R22 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R22">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Singularity"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#RNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C5_Singular"/>
+        <UAOS_RequirementsQuality:hasRuleId>R22</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Enumerate sets explicitly instead of using a group noun to name the set.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Enumeration</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R23 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R23">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Singularity"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#RNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete"/>
+        <UAOS_RequirementsQuality:hasRuleId>R23</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>When a need or requirement is related to complex behavior, refer to the supporting diagram, model, or ICD.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Supporting Diagram, Model, or ICD</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R24 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R24">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Completeness"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R24</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Avoid the use of personal and indefinite pronouns.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Pronouns</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R25 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R25">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Completeness"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R25</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Avoid relying on headings to support explanation or understanding of the need or requirement.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Headings</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R26 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R26">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Realism"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C14_AbleToBeValidated"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C6_Feasible"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct"/>
+        <UAOS_RequirementsQuality:hasRuleId>R26</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Avoid using unachievable absolutes.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Absolutes</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R27 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R27">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Conditions"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#RNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct"/>
+        <UAOS_RequirementsQuality:hasRuleId>R27</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>State conditions&apos; applicability explicitly instead of leaving applicability to be inferred from context.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Explicit Conditions</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R28 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R28">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Conditions"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R28</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Express the propositional nature of a condition explicitly for a single action instead of giving lists of actions for a specific condition.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Multiple Conditions</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R29 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R29">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Uniqueness"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C10_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C11_Consistent"/>
+        <UAOS_RequirementsQuality:hasRuleId>R29</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Classify needs and requirements according to the aspects of the problem or system it addresses.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Classification</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R30 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R30">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Uniqueness"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C11_Consistent"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C1_Necessary"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct"/>
+        <UAOS_RequirementsQuality:hasRuleId>R30</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Express each need and requirement once and only once.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Unique Expression</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R31 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R31">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Abstraction"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C2_Appropriate"/>
+        <UAOS_RequirementsQuality:hasRuleId>R31</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Avoid stating implementation in a need or requirement statement unless there is rationale for constraining the design.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Solution Free</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R32 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R32">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Quantifiers"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#RNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct"/>
+        <UAOS_RequirementsQuality:hasRuleId>R32</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Use &apos;each&apos; instead of &apos;all&apos;, &apos;any&apos; or &apos;both&apos; when universal quantification is intended.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Universal Qualification</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R33 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R33">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Tolerance"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C14_AbleToBeValidated"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C6_Feasible"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct"/>
+        <UAOS_RequirementsQuality:hasRuleId>R33</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Define each quantity with a range of values appropriate to the entity to which it applies and against which it will be verified or validated.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Range of Values</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R34 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R34">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Quantification"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#RNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C14_AbleToBeValidated"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R34</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Provide specific measurable performance targets appropriate to the entity.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Measurable Performance</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R35 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R35">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Quantification"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#RNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R35</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Define temporal dependencies explicitly instead of using indefinite temporal keywords.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Temporal Dependencies</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R36 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R36">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_UniformityOfLanguage"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C10_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C12_Feasible"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C13_Comprehensible"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C14_AbleToBeValidated"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C15_Correct"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct"/>
+        <UAOS_RequirementsQuality:hasRuleId>R36</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Ensure each term and unit of measure is used consistently throughout the requirement set and associated models.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Consistent Terms and Units</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R37 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R37">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_UniformityOfLanguage"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C10_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C12_Feasible"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C13_Comprehensible"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C14_AbleToBeValidated"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R37</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>If acronyms are used, they must be consistent throughout the requirement set and associated models.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Acronyms</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R38 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R38">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_UniformityOfLanguage"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C10_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C12_Feasible"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C13_Comprehensible"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C14_AbleToBeValidated"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R38</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Avoid the use of abbreviations in need and requirement statements as well as associated models and other SE lifecycle artefacts.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Abbreviations</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R39 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R39">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_UniformityOfLanguage"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C10_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C12_Feasible"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C13_Comprehensible"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C14_AbleToBeValidated"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C5_Singular"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R39</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Use a project-wide style guide for individual need and requirement statements.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Style Guide</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R40 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R40">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_UniformityOfLanguage"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C10_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C1_Necessary"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C3_Unambiguous"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:hasRuleId>R40</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Use a consistent format and number of significant digits for the specification of decimal numbers.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Decimal Format</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R41 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R41">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Modularity"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C10_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C14_AbleToBeValidated"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C4_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C9_Conforming"/>
+        <UAOS_RequirementsQuality:hasRuleId>R41</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Group related needs and requirements together.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Related Needs and Requirements</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R42 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#R42">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#Rule"/>
+        <UAOS_RequirementsQuality:belongsToCategory rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#Cat_Modularity"/>
+        <UAOS_RequirementsQuality:hasApplicability rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#CNCR"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C10_Complete"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C11_Consistent"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C12_Feasible"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C13_Comprehensible"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C14_AbleToBeValidated"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C7_Verifiable"/>
+        <UAOS_RequirementsQuality:testsCharacteristic rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#C8_Correct"/>
+        <UAOS_RequirementsQuality:hasRuleId>R42</UAOS_RequirementsQuality:hasRuleId>
+        <UAOS_RequirementsQuality:requiresProjectDictionary rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</UAOS_RequirementsQuality:requiresProjectDictionary>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Conform to a defined structure or template for organizing sets of needs and requirements.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Structured Sets</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#RNCR -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#RNCR">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#RuleApplicability"/>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Recommended for Needs and Compulsory for Requirements.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>RNCR</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#SeverityCritical -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#SeverityCritical">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#SeverityRating"/>
+        <UAOS_RequirementsQuality:hasOrdinalRank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</UAOS_RequirementsQuality:hasOrdinalRank>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Severe issue that renders the requirement unusable or dangerous.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Critical</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#SeverityHigh -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#SeverityHigh">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#SeverityRating"/>
+        <UAOS_RequirementsQuality:hasOrdinalRank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</UAOS_RequirementsQuality:hasOrdinalRank>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Significant issue likely to cause problems in verification, implementation, or traceability.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>High</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#SeverityLow -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#SeverityLow">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#SeverityRating"/>
+        <UAOS_RequirementsQuality:hasOrdinalRank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</UAOS_RequirementsQuality:hasOrdinalRank>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Minor issue with minimal impact on requirement quality.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Low</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#SeverityMedium -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#SeverityMedium">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#SeverityRating"/>
+        <UAOS_RequirementsQuality:hasOrdinalRank rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</UAOS_RequirementsQuality:hasOrdinalRank>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Moderate issue that may affect downstream processes.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+        <rdfs:label>Medium</rdfs:label>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.5.0.2023-01-14T12:41:38Z) https://github.com/owlcs/owlapi/ -->
+
+

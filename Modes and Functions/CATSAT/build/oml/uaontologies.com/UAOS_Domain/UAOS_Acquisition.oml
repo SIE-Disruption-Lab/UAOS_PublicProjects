@@ -1,0 +1,111 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture data management patterns"
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_Acquisition#> as UAOS_Acquisition {
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+	
+	// Import standard vocabularies	
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+    
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+		
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	///// Aspects
+	
+			
+	
+	///// Concepts
+	
+	@rdfs:label "Acquisition"
+	@dc:description "A [=Acquisition=] is a..."
+	concept Acquisition < tlo:Process [
+		restricts some hasAcquisitionVendor to Vendor
+		restricts some hasAcquisitionPurchaser to Purchaser
+		restricts some hasAcquisitionItem to tlo:IdentifiedEntity
+	]
+	
+	@rdfs:label "Vendor"
+	@dc:description "A [=Vendor=] is a..."
+	concept Vendor < tlo:Role
+	
+	@rdfs:label "Purchaser"
+	@dc:description "A [=Purchaser=] is a..."
+	concept Purchaser < tlo:Role
+		
+	
+		
+	///// Relations
+	
+	@rdfs:label "Has Acquisition Item"
+	@dc:description "[=HasAcquisitionItem=] is a "
+	relation entity HasAcquisitionItem [
+		from Acquisition
+		to tlo:IdentifiedEntity
+		@rdfs:label "has acquisition item"
+		forward hasAcquisitionItem
+		@rdfs:label "is acquired by"
+		reverse isAcquiredBy
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Has Acquisition Vendor"
+	@dc:description "[=HasAcquisitionVendor=] is a "
+	relation entity HasAcquisitionVendor [
+		from Acquisition
+		to Vendor
+		@rdfs:label "has acquisition vendor"
+		forward hasAcquisitionVendor
+		@rdfs:label "is vendor for"
+		reverse isVendorFor
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Has Acquisition Purchaser"
+	@dc:description "[=HasAcquisitionPurchaser=] is a "
+	relation entity HasAcquisitionPurchaser [
+		from Acquisition
+		to Purchaser
+		@rdfs:label "has acquisition purchaser"
+		forward hasAcquisitionPurchaser
+		@rdfs:label "is purchaser for"
+		reverse isPurchaserFor
+		asymmetric
+		irreflexive
+	]
+		
+	
+	
+	///// Scalar Properties
+	
+	scalar ProcurementStatus [
+		oneOf "Buy", "Make"
+	]
+	
+	scalar property hasProcurementStatus [
+		domain tlo:IdentifiedEntity
+		range ProcurementStatus
+	]
+	
+	scalar property hasAcquisitionDate [
+		domain Acquisition
+		range xsd:dateTime
+	]		
+	
+	
+	///// Rules
+		
+	
+}

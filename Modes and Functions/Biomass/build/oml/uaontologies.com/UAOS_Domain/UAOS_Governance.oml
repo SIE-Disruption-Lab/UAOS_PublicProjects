@@ -1,0 +1,182 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "Governance vocabulary for the UAOS. Models access control (Need to Know), artefact classification, task assignment, and open-item (TBD/TBR) tracking needed for programme governance and provenance. Companion to UAOS_Provenance."
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_Governance#> as gov {
+
+    ////////////////////////////////////////////////////////////////////////////////////
+
+    /////// Vocabulary Imports ///////
+
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+    extends <http://uaontologies.com/UAOS_Core/UAOS_Agent#> as agent
+    extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+    extends <http://uaontologies.com/UAOS_Domain/UAOS_Requirements#> as req
+    extends <http://uaontologies.com/UAOS_Domain/UAOS_ProjectManagement#> as pm
+
+    ///////////////////////////////////////////////////////////////////////////////////
+
+    /////// Vocabulary Definitions ///////
+
+    ///// Concepts
+
+    @rdfs:label "Security Clearance"
+    @dc:description "A [=SecurityClearance=] is a GenericallyDependentContinuant representing an access classification level (e.g. Unclassified, Restricted Design Data, Programme Confidential). Clearance instances are shared across the description — a Person holds one via HasCredential; an InformationArtifact requires one via RequiresClearance."
+    concept SecurityClearance < tlo:GenericallyDependentContinuant
+
+    @rdfs:label "SE Task"
+    @dc:description "An [=SETask=] is a ProjectManagement Task representing an assigned system engineering work activity (e.g. subsystem design review, final assembly). Task-to-artefact access requirements are modelled via RequiresArtefact, enabling SWRL NTK inference."
+    concept SETask < pm:Task
+
+    @rdfs:label "Job Role"
+    @dc:description "A [=JobRole=] is a tlo:Role representing a formal position within a programme organisation (e.g., DA1 Design Lead, PA3 Assembly Engineer). SecurityClearances attach to JobRoles rather than directly to individual Persons, reflecting real-world practice where access rights are defined by position. NTK inference traverses: Person hasJobRole Role → Role roleCredential Clearance."
+    concept JobRole < tlo:Role
+
+
+    ///// Relations
+
+    @rdfs:label "Has Credential"
+    @dc:description "[=HasCredential=] relates a Person to a SecurityClearance they hold. Holding a clearance is necessary but not sufficient for artefact access — Need to Know must also be inferred."
+    relation entity HasCredential [
+        from agent:Person
+        to SecurityClearance
+        @rdfs:label "has credential"
+        forward hasCredential
+        @rdfs:label "is credential of"
+        reverse isCredentialOf
+        asymmetric
+        irreflexive
+    ]
+
+    @rdfs:label "Requires Clearance"
+    @dc:description "[=RequiresClearance=] relates an InformationArtifact to the minimum SecurityClearance required to access it. Combined with IsAssignedTo and RequiresArtefact, this drives the NTK SWRL rule."
+    relation entity RequiresClearance [
+        from info:InformationContentEntity
+        to SecurityClearance
+        @rdfs:label "requires clearance"
+        forward requiresClearance
+        @rdfs:label "is required clearance for"
+        reverse isRequiredClearanceFor
+        asymmetric
+        irreflexive
+        functional
+    ]
+
+    @rdfs:label "Is Assigned To"
+    @dc:description "[=IsAssignedTo=] relates a Person to an SETask they are assigned to perform. This is the 'need' half of Need to Know — without an active task assignment that requires the artefact, clearance alone is insufficient."
+    relation entity IsAssignedTo [
+        from agent:Person
+        to SETask
+        @rdfs:label "is assigned to"
+        forward isAssignedTo
+        @rdfs:label "has assignee"
+        reverse hasAssignee
+        asymmetric
+        irreflexive
+    ]
+
+    @rdfs:label "Requires Artefact"
+    @dc:description "[=RequiresArtefact=] relates an SETask to an InformationArtifact it requires access to in order to be performed. If a Person is assigned to the task and holds the required clearance for the artefact, NTK is inferred."
+    relation entity RequiresArtefact [
+        from SETask
+        to info:InformationContentEntity
+        @rdfs:label "requires artefact"
+        forward requiresArtefact
+        @rdfs:label "is required artefact for"
+        reverse isRequiredArtefactFor
+        asymmetric
+        irreflexive
+    ]
+
+    @rdfs:label "NTK Access"
+    @dc:description "[=NTKAccess=] is the inferred access right granted when a Person holds the required SecurityClearance AND is assigned to a task that requires the InformationArtifact with that clearance. This relation is NEVER asserted — it is always inferred by NTK_Inference. Its absence from the graph means access should be denied, not that it has not been checked."
+    relation entity NTKAccess [
+        from agent:Person
+        to info:InformationContentEntity
+        @rdfs:label "has NTK"
+        forward hasNTK
+        @rdfs:label "is NTK accessible to"
+        reverse isNTKAccessibleTo
+        asymmetric
+        irreflexive
+    ]
+
+    @rdfs:label "Person Has Job Role"
+    @dc:description "[=PersonHasJobRole=] relates a Person to the JobRole they fill in the programme. The NTK_Inference rule traverses this relation to reach the role's SecurityClearance."
+    relation entity PersonHasJobRole [
+        from agent:Person
+        to JobRole
+        @rdfs:label "has job role"
+        forward hasJobRole
+        @rdfs:label "is job role of"
+        reverse isJobRoleOf
+        asymmetric
+        irreflexive
+    ]
+
+    @rdfs:label "Job Role Has Credential"
+    @dc:description "[=JobRoleHasCredential=] relates a JobRole to the SecurityClearance associated with that role. All persons holding the role inherit this clearance for NTK inference purposes."
+    relation entity JobRoleHasCredential [
+        from JobRole
+        to SecurityClearance
+        @rdfs:label "role credential"
+        forward roleCredential
+        @rdfs:label "is role credential of"
+        reverse isRoleCredentialOf
+        asymmetric
+        irreflexive
+    ]
+
+
+    ///// Scalar Properties
+
+    @rdfs:label "has TBD count"
+    @dc:description "Count of unresolved To Be Determined placeholders within this Requirement. A value > 0 indicates the requirement cannot be used as a firm specification basis and may block downstream artefacts."
+    scalar property hasTBDCount [
+        domain req:Requirement
+        range xsd:integer
+    ]
+
+    @rdfs:label "has TBR count"
+    @dc:description "Count of unresolved To Be Resolved items within this Requirement. A TBR is a formally tracked open item under review, typically with a resolution deadline. A value > 0 blocks artefacts that depend on the resolved value."
+    scalar property hasTBRCount [
+        domain req:Requirement
+        range xsd:integer
+    ]
+
+    @rdfs:label "has open item risk"
+    @dc:description "Qualitative risk level of unresolved TBD/TBR items in this requirement: 'Low', 'Medium', or 'High'. Derived from the count and the criticality of downstream artefacts."
+    scalar property hasOpenItemRisk [
+        domain req:Requirement
+        range xsd:string
+    ]
+
+    @rdfs:label "has classification level"
+    @dc:description "A string label recording the minimum SecurityClearance name required to view this entity (e.g. 'Restricted Design Data', 'Unclassified'). Used on architecture elements where the formal requiresClearance relation (which applies to InformationContentEntity) cannot be used. The dashboard SPARQL uses this to filter content visibility."
+    scalar property hasClassificationLevel [
+        domain tlo:MaterialEntity
+        range xsd:string
+    ]
+
+    @rdfs:label "has verification method"
+    @dc:description "String label recording the verification method for this Requirement: 'Test', 'Analysis', 'Inspection', or 'Demonstration'."
+    scalar property hasVerificationMethod [
+        domain req:Requirement
+        range xsd:string
+    ]
+
+
+    ///// Rules
+
+    @rdfs:comment "NTK_Inference: a Person has Need to Know for an InformationArtifact if and only if (1) they hold the required SecurityClearance for that artefact, (2) they are assigned to an SETask, and (3) that task requires the artefact. Credential alone is not sufficient — the task assignment establishes the need. This rule infers hasNTK (forward of NTKAccess). Its absence means access should be denied."
+    rule NTK_Inference [
+        agent:Person(p) & JobRole(r) & SecurityClearance(cl) & SETask(t) & info:InformationContentEntity(a) &
+        hasJobRole(p, r) & roleCredential(r, cl) & isAssignedTo(p, t) & requiresArtefact(t, a) & requiresClearance(a, cl) ->
+        hasNTK(p, a)
+    ]
+
+}

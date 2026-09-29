@@ -1,0 +1,183 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture the organization patterns required by the SIE Disruption Lab."
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Core/UAOS_Agent#> as UAOS_Agent {
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+	
+	// Import standard vocabularies	
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+	
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	///// Aspects
+	
+	@rdfs:label "Producer"
+	@dc:description "A [=Producer=] is a ..."
+	aspect Producer
+	
+	@rdfs:label "Consumer"
+	@dc:description "A [=Consumer=] is a ..."
+	aspect Consumer
+	
+	@rdfs:label "Agent"
+	@dc:description "An [=Agent=]..."
+	aspect Agent < tlo:SDCCarrier
+
+
+	
+	///// Concepts
+	
+	ref concept tlo:Process < Producer, Consumer
+	
+	@rdfs:label "Organization"
+	@dc:description "A [=Organization=]..."
+	concept Organization < tlo:MaterialEntity, Agent [
+		restricts all tlo:hasContinuantPart to Organization
+		restricts all tlo:isContinuantPartOf to Organization
+	]
+	
+	@rdfs:label "Person"
+	@dc:description "A [=Person=]..."
+	concept Person < Agent, tlo:MaterialEntity
+	
+	@rdfs:label "ProcessOwner"
+	@dc:description "A [=ProcessOwner=] is a ..."
+	concept ProcessOwner < tlo:Role
+	
+	@rdfs:label "Managed Process"
+	@dc:description "A [=ManagedProcess=]..."
+	concept ManagedProcess < tlo:Process
+	
+	@rdfs:label "Plan"
+	@dc:description "A [=Plan=]..."
+	concept Plan < info:PrescriptiveICE [
+		restricts all info:prescribes to tlo:Process
+		restricts some tlo:hasContinuantPart to Procedure
+	]
+	
+	@rdfs:label "Procedure"
+	@dc:description "A [=Procedure=]..."
+	concept Procedure < info:PrescriptiveICE [
+		restricts all info:prescribes to tlo:Process
+		restricts some info:prescribes to tlo:Process
+	]
+	
+	
+	
+	///// Relations
+	
+	@rdfs:label "Belongs To"
+	@dc:description "[=BelongsTo=] is a..."
+	relation entity BelongsTo [
+		from Person
+		to Organization
+		@rdfs:label "belongs to"
+		forward belongsTo
+		@rdfs:label "has belonging"
+		reverse hasBelonging
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Responsible For"
+	@dc:description "[=ResponsibleFor=] is a..."
+	relation entity ResponsibleFor [
+		from ProcessOwner
+		to ManagedProcess
+		@rdfs:label "responsible for"
+		forward responsibleFor
+		@rdfs:label "is responsibility of"
+		reverse isResponsibilityOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Has Input"
+	@dc:description "[=HasInput=] is a..."
+	relation entity HasInput [
+		from Consumer
+		to tlo:Continuant
+		@rdfs:label "has input"
+		forward hasInput
+		@rdfs:label "is input of"
+		reverse isInputOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Has Output"
+	@dc:description "[=HasOutput=] is a..."
+	relation entity HasOutput [
+		from Producer
+		to tlo:Continuant
+		@rdfs:label "has output"
+		forward hasOutput
+		@rdfs:label "is output of"
+		reverse isOutputOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Is Role Of"
+	@dc:description "[=IsRoleOf=] is a..."
+	relation entity IsRoleOf [
+		from tlo:Role
+		to Agent
+		@rdfs:label "is role of"
+		forward isRoleOf
+		@rdfs:label "has role"
+		reverse hasRole
+		asymmetric
+		irreflexive
+	]
+	< tlo:SpecificallyDependentOn
+	
+	@rdfs:label "Has Organizational Context"
+	@dc:description "[=HasOrganizationContext=] is a "
+	relation entity HasOrganizationalContext [
+		from tlo:Role
+		to Organization
+		@rdfs:label "has organizational context"
+		forward hasOrganizationalContext
+		@rdfs:label "is organizational context of"
+		reverse isOrganizationalContextOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Has Planned Temporal Region"
+	@dc:description "[=HasPlannedTemporalRegion=] is a "
+	relation entity HasPlannedTemporalRegion [
+		from Plan
+		to tlo:TemporalRegion
+		@rdfs:label "has planned temporal region"
+		forward hasPlannedTemporalRegion
+		@rdfs:label "is planned temporal region of"
+		reverse isPlannedTemporalRegionOf
+		asymmetric
+		irreflexive
+	]
+	
+		
+	
+	///// Scalar Properties
+	
+	
+	
+	
+	///// Rules
+			
+	
+}

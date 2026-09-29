@@ -1,0 +1,1401 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#"
+     xml:base="http://uaontologies.com/UAOS_Domain/UAOS_TEMP"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:oml="http://opencaesar.io/oml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:UAOS_TEMP="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#">
+    <owl:Ontology rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP">
+        <owl:imports rdf:resource="http://purl.org/dc/elements/1.1"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Agent"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Assessment"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel"/>
+        <oml:namespace rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#"/>
+        <oml:prefix>UAOS_TEMP</oml:prefix>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Vocabulary"/>
+        <dc:contributor>Joe Gregory</dc:contributor>
+        <dc:contributor>Paul Wach</dc:contributor>
+        <dc:creator>SIE Disruption Lab</dc:creator>
+        <dc:description>A vocabulary defining the Test and Evaluation Master Plan (TEMP) framework — the overarching T&amp;E planning document, its lifecycle phases (Developmental, Operational, Live Fire), test articles, resource requirements, milestones, and evidence produced. Formalises TEMP structure per DoD Instruction 5000.89 (Test and Evaluation, 2020) and the DAU Test and Evaluation Master Plan Guidebook (2021). Part of the 4D Assessment ontology family.</dc:description>
+        <dc:hasVersion>0.1</dc:hasVersion>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestMissionType -->
+
+
+    <rdfs:Datatype rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestMissionType">
+        <dc:description>[=TestMissionType=] enumerates the mission classification types applicable to a TestProcedure, corresponding to the SysML MissionType enum.</dc:description>
+        <rdfs:label>Test Mission Type</rdfs:label>
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>AFTD Flight Test</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Other</rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestPhase -->
+
+
+    <rdfs:Datatype rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestPhase">
+        <dc:description>[=TestPhase=] enumerates the three mission-sequence positions a TestProcedure can occupy, corresponding to the SysML Stage enum: Preflight, Execution, and Postflight.</dc:description>
+        <rdfs:label>Test Phase</rdfs:label>
+        <owl:equivalentClass>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>Execution</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Postflight</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>Preflight</rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </owl:equivalentClass>
+    </rdfs:Datatype>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasPlannedTestSubject -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasPlannedTestSubject">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestProcedure"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestSubjectRole"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasPlannedTestSubject"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>has planned test subject</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTEMPMilestone -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTEMPMilestone">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestAndEvaluationMasterPlan"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPMilestone"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTEMPMilestone"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>has TEMP milestone</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTEMPPhase -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTEMPPhase">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestAndEvaluationMasterPlan"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTEMPPhase"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>has TEMP phase</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTEMPResourceRequirement -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTEMPResourceRequirement">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPResourceRequirement"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTEMPResourceRequirement"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>has TEMP resource requirement</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTestActor -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTestActor">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestProcedure"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestPersonnelRole"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTestActor"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>has test actor</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTestArticle -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTestArticle">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestArticle"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTestArticle"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>has test article</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTestInfrastructure -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTestInfrastructure">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestProcedure"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestInfrastructureRole"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTestInfrastructure"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>has test infrastructure</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#isPlannedTestSubjectOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#isPlannedTestSubjectOf">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasPlannedTestSubject"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestSubjectRole"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestProcedure"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasPlannedTestSubject"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>is planned test subject of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#isTestActorIn -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#isTestActorIn">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTestActor"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestPersonnelRole"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestProcedure"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTestActor"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>is test actor in</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#isTestInfrastructureOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#isTestInfrastructureOf">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTestInfrastructure"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestInfrastructureRole"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestProcedure"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTestInfrastructure"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>is test infrastructure of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#phaseFollowedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#phaseFollowedBy">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#phaseFollows"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#PhaseFollows"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>phase followed by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#phaseFollows -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#phaseFollows">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#PhaseFollows"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>phase follows</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#producesTEMPEvidence -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#producesTEMPEvidence">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPEvidence"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#ProducesTEMPEvidence"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>produces TEMP evidence</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#tempEvidenceProducedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#tempEvidenceProducedBy">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#producesTEMPEvidence"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPEvidence"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#ProducesTEMPEvidence"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>TEMP evidence produced by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#tempMilestoneOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#tempMilestoneOf">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTEMPMilestone"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPMilestone"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestAndEvaluationMasterPlan"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTEMPMilestone"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>TEMP milestone of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#tempPhaseOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#tempPhaseOf">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTEMPPhase"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestAndEvaluationMasterPlan"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTEMPPhase"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>TEMP phase of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#tempResourceRequirementOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#tempResourceRequirementOf">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTEMPResourceRequirement"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPResourceRequirement"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTEMPResourceRequirement"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>TEMP resource requirement of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#testArticleOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#testArticleOf">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTestArticle"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestArticle"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTestArticle"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>test article of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#cameoId -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#cameoId">
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>[=cameoId=] records the globally unique identifier assigned to this element in a Cameo Systems Modeler or Rhapsody tool instance, enabling round-trip traceability between OML descriptions and the originating SysML model.</dc:description>
+        <rdfs:label>cameo ID</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#derivedFromRequirement -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#derivedFromRequirement">
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#TestRequirement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>[=derivedFromRequirement=] records the source requirement identifier from which this TestRequirement was derived, preserving the SysML &apos;derivedFrom&apos; attribute as a string reference.</dc:description>
+        <rdfs:label>derived from requirement</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTestMissionType -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTestMissionType">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestProcedure"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestMissionType"/>
+        <dc:description>[=hasTestMissionType=] classifies a TestProcedure by the type of test mission it supports. Corresponds to the SysML missionType attribute on a verification case.</dc:description>
+        <rdfs:label>has test mission type</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTestPhase -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTestPhase">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestProcedure"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestPhase"/>
+        <dc:description>[=hasTestPhase=] classifies a TestProcedure by its position in the overall test mission sequence (Preflight, Execution, or Postflight). Corresponds to the SysML Stage attribute on a verification case.</dc:description>
+        <rdfs:label>has test phase</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasVerificationLevel -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasVerificationLevel">
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#TestRequirement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>[=hasVerificationLevel=] records the verification level (e.g., system, subsystem, component) applicable to a TestRequirement.</dc:description>
+        <rdfs:label>has verification level</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasVerificationMethod -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasVerificationMethod">
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#TestRequirement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>[=hasVerificationMethod=] records one verification method applicable to a TestRequirement. Multiple assertions of this property capture the SysML [1..*] multiplicity on verificationMethods.</dc:description>
+        <rdfs:label>has verification method</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasVerificationResponsibility -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasVerificationResponsibility">
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#TestRequirement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>[=hasVerificationResponsibility=] records the organisation or role responsible for executing the verification activity associated with a TestRequirement.</dc:description>
+        <rdfs:label>has verification responsibility</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#isAirworthinessRelevant -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#isAirworthinessRelevant">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#TestRequirement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <dc:description>[=isAirworthinessRelevant=] flags whether a TestRequirement is relevant to airworthiness certification or compliance.</dc:description>
+        <rdfs:label>is airworthiness relevant</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#isFirstFlight -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#isFirstFlight">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#TestRequirement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <dc:description>[=isFirstFlight=] flags whether a TestRequirement must be satisfied prior to or during first flight of the test article.</dc:description>
+        <rdfs:label>is first flight</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#isPhaseComplete -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#isPhaseComplete">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <dc:description>[=isPhaseComplete=] flags whether a TEMPPhase has been completed — all planned test events executed, data collected, and phase evidence package delivered.</dc:description>
+        <rdfs:label>is phase complete</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#isSafetyRelevant -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#isSafetyRelevant">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Verification#TestRequirement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <dc:description>[=isSafetyRelevant=] flags whether a TestRequirement is classified as safety-relevant, requiring elevated scrutiny and traceability in the test programme.</dc:description>
+        <rdfs:label>is safety relevant</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#milestoneDate -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#milestoneDate">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPMilestone"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <dc:description>[=milestoneDate=] records the planned or actual calendar date of a TEMPMilestone event.</dc:description>
+        <rdfs:label>milestone date</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#phaseOrder -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#phaseOrder">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#positiveInteger"/>
+        <dc:description>[=phaseOrder=] records the numeric position of a TEMPPhase in the programme&apos;s T&amp;E execution sequence. Lower values precede higher values. Used alongside PhaseFollows to establish the programme-specific ordering of T&amp;E phases.</dc:description>
+        <rdfs:label>phase order</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#CrewRole -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#CrewRole">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestPersonnelRole"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=CrewRole=] is a TestPersonnelRole played by a crew member participant in a test event.</dc:description>
+        <rdfs:label>Crew Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#DevelopmentalTestPhase -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#DevelopmentalTestPhase">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=DevelopmentalTestPhase=] is a TEMPPhase constituting the developmental test and evaluation (DT&amp;E) activity for a programme — testing conducted by the developer to verify that the system meets engineering design specifications before proceeding to operational test. DT data may be credited toward OT evaluation via DT/OT integration criteria (DTOT-01 through DTOT-06).</dc:description>
+        <rdfs:label>Developmental Test Phase</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#FlightTestEngineerRole -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#FlightTestEngineerRole">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestPersonnelRole"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=FlightTestEngineerRole=] is a TestPersonnelRole played by the flight test engineer participant in a test event.</dc:description>
+        <rdfs:label>Flight Test Engineer Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasPlannedTestSubject -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasPlannedTestSubject">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=HasPlannedTestSubject=] relates a TestProcedure to the TestSubjectRole identifying the system or component planned to be the subject under test. Captures the SysML &apos;subject&apos; feature at the procedure planning level, distinct from the execution-level test:hasTestSubject on test:Test.</dc:description>
+        <rdfs:label>Has Planned Test Subject</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTEMPMilestone -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTEMPMilestone">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=HasTEMPMilestone=] relates a TestAndEvaluationMasterPlan to its defined TEMPMilestones — the formal decision points that gate progression through the T&amp;E lifecycle and connect T&amp;E completion to programme acquisition decisions.</dc:description>
+        <rdfs:label>Has TEMP Milestone</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTEMPPhase -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTEMPPhase">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=HasTEMPPhase=] relates a TestAndEvaluationMasterPlan to its constituent TEMPPhases. A TEMP typically includes at least one DevelopmentalTestPhase and one OperationalTestPhase; programmes subject to 10 U.S.C. § 4172 additionally include a LiveFireTestPhase.</dc:description>
+        <rdfs:label>Has TEMP Phase</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTEMPResourceRequirement -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTEMPResourceRequirement">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=HasTEMPResourceRequirement=] relates a TEMPPhase to the TEMPResourceRequirements specifying what resources are needed to execute that phase.</dc:description>
+        <rdfs:label>Has TEMP Resource Requirement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTestActor -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTestActor">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=HasTestActor=] relates a TestProcedure to a TestPersonnelRole, identifying a person who plays a defined role in the execution of the procedure. Captures the SysML &apos;actor&apos; usages on a verification case.</dc:description>
+        <rdfs:label>Has Test Actor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTestArticle -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTestArticle">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=HasTestArticle=] relates a TEMPPhase to the TestArticle evaluated during that phase. Different phases may evaluate different test articles (e.g., engineering development model in DT, production-representative unit in OT), reflecting the increasing maturity of the system under test.</dc:description>
+        <rdfs:label>Has Test Article</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTestInfrastructure -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTestInfrastructure">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=HasTestInfrastructure=] relates a TestProcedure to a TestInfrastructureRole, identifying a physical item playing a support role during the test. Captures the SysML &apos;item&apos; usages on a verification case that represent test infrastructure rather than the system under test.</dc:description>
+        <rdfs:label>Has Test Infrastructure</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#LiveFireTestPhase -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#LiveFireTestPhase">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=LiveFireTestPhase=] is a TEMPPhase constituting the live fire test and evaluation (LFT&amp;E) activity for programmes subject to the statutory live fire test requirement (10 U.S.C. § 4172). LFT&amp;E assesses the vulnerability and lethality of the system under realistic combat conditions before full-rate production.</dc:description>
+        <rdfs:label>Live Fire Test Phase</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#OperationalTestPhase -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#OperationalTestPhase">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>An [=OperationalTestPhase=] is a TEMPPhase constituting the operational test and evaluation (OT&amp;E) activity for a programme — testing conducted by an operationally representative user under realistic operational conditions to assess military utility, operational suitability, and operational effectiveness. OT is typically conducted by an independent operational test agency.</dc:description>
+        <rdfs:label>Operational Test Phase</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#PhaseFollows -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#PhaseFollows">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=PhaseFollows=] is an ordering relation indicating that the domain TEMPPhase temporally follows the range TEMPPhase in the TEMP execution sequence. This asymmetric, irreflexive relation encodes the programme-specific T&amp;E sequence (e.g., DT before OT). The relation is programme-specific: LFT&amp;E may be interleaved with DT or OT depending on statutory requirements and programme structure.</dc:description>
+        <rdfs:label>Phase Follows</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#PilotRole -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#PilotRole">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestPersonnelRole"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=PilotRole=] is a TestPersonnelRole played by the pilot participant in a test event.</dc:description>
+        <rdfs:label>Pilot Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#ProducesTEMPEvidence -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#ProducesTEMPEvidence">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=ProducesTEMPEvidence=] relates a TEMPPhase to the TEMPEvidence it generates during execution — the test reports, data records, and evaluation findings that support milestone decisions and statutory reporting.</dc:description>
+        <rdfs:label>Produces TEMP Evidence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPEvidence -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPEvidence">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Test#TestResult"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=TEMPEvidence=] is a TestResult (DescriptiveICE) that records evidence produced during a TEMPPhase — including test reports, raw data collection records, analysis results, evaluation findings, and DOT&amp;E reports. TEMPEvidence is the primary evidentiary input to programme milestone decisions and to the OSD Director of Operational Test and Evaluation (DOT&amp;E) statutory reporting.</dc:description>
+        <rdfs:label>TEMP Evidence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPMilestone -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPMilestone">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Assessment#ProgramMilestone"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=TEMPMilestone=] is a ProgramMilestone that marks a defined formal decision point in the TEMP lifecycle — such as a Test Readiness Review (TRR), a Critical Test Event (CTE), an Initial Operational Test and Evaluation (IOT&amp;E) completion, or a programme Milestone decision (MS-B, MS-C, FRP). TEMPMilestones inherit the formal review gate semantics of ProgramMilestone and provide the primary link from T&amp;E activities to programme acquisition decisions.</dc:description>
+        <rdfs:label>TEMP Milestone</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPPhase">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Process"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=TEMPPhase=] is a Process that constitutes one named phase of T&amp;E activity within a TEMP. TEMP phases are genuine temporal activities — test personnel, test articles, facilities, and instrumentation all participate in the phase. Each phase occupies a temporal region and may have temporal parts (individual test events). The three primary TEMP phases are DevelopmentalTestPhase, OperationalTestPhase, and LiveFireTestPhase.</dc:description>
+        <rdfs:label>TEMP Phase</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPResourceRequirement -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TEMPResourceRequirement">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Requirements#Requirement"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=TEMPResourceRequirement=] is a Requirement that specifies the resources needed to execute a TEMPPhase — including test personnel, test ranges and facilities, instrumentation, test support equipment, programme funding, and schedule. TEMPResourceRequirements are prescriptive information entities that generically depend on the TEMP document and resource allocation databases.</dc:description>
+        <rdfs:label>TEMP Resource Requirement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestAndEvaluationMasterPlan -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestAndEvaluationMasterPlan">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Agent#Plan"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=TestAndEvaluationMasterPlan=] is a Plan (PrescriptiveICE) that is the overarching document defining the test and evaluation strategy for a programme — its phases, milestones, test articles, resource requirements, and evidence requirements across the full T&amp;E lifecycle. A TEMP is a generically dependent continuant: it can be concretised in many bearers (printed copies, electronic files, programme databases). It prescribes the sequence and scope of DT, OT, and LFT activity required to support programme Milestone decisions per DoD Instruction 5000.89.</dc:description>
+        <rdfs:label>Test and Evaluation Master Plan</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestArticle -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestArticle">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Object"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=TestArticle=] is a material entity (tlo:Object) that is the item under test during a TEMPPhase — a prototype, engineering development model, limited production unit, or production-representative system. Even when the primary test subject is software, it is instantiated on a material bearer (hardware platform) during testing. The TestArticle bears the qualities (performance, survivability, suitability) that the TEMPPhase is designed to evaluate.</dc:description>
+        <rdfs:label>Test Article</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestInfrastructureRole -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestInfrastructureRole">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Role"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=TestInfrastructureRole=] is a Role played by any physical object that supports or enables the execution of a TestProcedure — including test range equipment, threat simulators, data collection systems, and launch infrastructure. This is not a type of object; it is a role any tlo:Object can play.</dc:description>
+        <rdfs:label>Test Infrastructure Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestPersonnelRole -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestPersonnelRole">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Role"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=TestPersonnelRole=] is a Role played by a Person during a TestProcedure, capturing the functional position that individual occupies in the test event. This is the UAOS equivalent of the SysML PersonnelRole part def.</dc:description>
+        <rdfs:label>Test Personnel Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestSubjectRole -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#TestSubjectRole">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Role"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=TestSubjectRole=] is a Role played by a system or component that is the primary subject under test in a TestProcedure. Any tlo:Continuant may bear this role. Captures the SysML &apos;subject&apos; feature of a verification case.</dc:description>
+        <rdfs:label>Test Subject Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="urn:swrl:var#r">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#s">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#t">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>hasTEMPMilestone derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTEMPMilestone"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTEMPMilestone"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>hasTEMPPhase derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTEMPPhase"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTEMPPhase"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>hasTEMPResourceRequirement derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTEMPResourceRequirement"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTEMPResourceRequirement"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>hasTestActor derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTestActor"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTestActor"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>hasTestArticle derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTestArticle"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTestArticle"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>hasTestInfrastructure derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasTestInfrastructure"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasTestInfrastructure"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>phaseFollows derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#PhaseFollows"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#phaseFollows"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>hasPlannedTestSubject derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#HasPlannedTestSubject"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#hasPlannedTestSubject"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>producesTEMPEvidence derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#ProducesTEMPEvidence"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_TEMP#producesTEMPEvidence"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.5.0.2023-01-14T12:41:38Z) https://github.com/owlcs/owlapi/ -->
+
+

@@ -1,0 +1,59 @@
+##############################################################################
+# Query 01: Mode-Function Availability Matrix
+#
+# For each Mode in the model, retrieves all Functions that are available
+# in that Mode, together with the System on which the Mode is specifically
+# dependent. This query presents the complete availability matrix as asserted
+# by the modeller and inferred by the TransitionAvailability rule:
+#
+#   TransitionAvailability: exits(t, m) -> availableIn(t, m)
+#
+# Transitions that exit a given Mode are therefore included in its available
+# Function set automatically — no manual availableIn assertion required for
+# them. Non-transition Functions require an explicit availableIn assertion.
+#
+# This query operates purely structurally: it requires no hasActiveMode
+# assertion and no runtime state. It reports the allocation of Functions to
+# Modes as defined in the model.
+#
+# Expected result for CATSAT-2 Scenario A (partial):
+#   CATSAT-2 Spacecraft / Science Mode  => Science Data Collection,
+#                                          Ground Communication,
+#                                          Power Management,
+#                                          SC Science-to-Nominal Transition (inferred)
+#   ADCS Subsystem / ADCS Science Mode  => Precision Pointing,
+#                                          Coarse Attitude Maintenance,
+#                                          ADCS Science-to-Nominal Transition (inferred)
+#   Reaction Wheel Assembly / RWA Science Mode => Precision Torque,
+#                                                 Wheel Spin Maintenance,
+#                                                 RWA Science-to-Nominal Transition (inferred)
+#
+# Expected result for CATSAT-2 Scenario B:
+#   RWA-B modes have no inferred Transition availability (T_rwa_b_sci_to_nom
+#   has no source mode; TransitionAvailability rule does not fire for it).
+##############################################################################
+
+PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tlo:    <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#>
+PREFIX States: <http://uaontologies.com/UAOS_Domain/UAOS_States#>
+PREFIX sa:     <http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#>
+PREFIX modes:  <http://uaontologies.com/UAOS_Domain/UAOS_Modes#>
+
+SELECT ?system ?systemName
+       ?mode   ?modeName
+       ?function ?functionName
+WHERE {
+    # Find all Modes and the Systems they are specifically dependent on
+    ?mode    a modes:Mode ;
+             tlo:hasName ?modeName ;
+             tlo:sdo ?system .
+
+    ?system  tlo:hasName ?systemName .
+
+    # Retrieve all Functions available in that Mode (asserted + inferred)
+    ?function modes:availableIn ?mode .
+
+    OPTIONAL { ?function tlo:hasName ?functionName }
+}
+ORDER BY ?systemName ?modeName ?functionName

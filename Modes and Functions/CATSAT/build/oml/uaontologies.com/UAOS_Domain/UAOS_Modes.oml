@@ -1,0 +1,130 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary capturing the Modes and Functions ontological pattern for spacecraft systems engineering. A Mode is a kind of State — a Disposition specifically dependent on a System — that determines which Functions are available for execution. A FunctionalChain is a specification (PrescriptiveICE) of an ordered sequence of function invocations; validity is checked structurally against the mode-function availability model, with no reference to runtime state. State machine transitions (Transition instances, already defined in UAOS_States as a subclass of Function) carry their availability in the mode they exit, derived by the TransitionAvailability rule. The HasSubTransition relation captures the hierarchical trigger requirement for reconfiguring lower-level elements during a mode transition — formalized here with reference to ECSS-E-ST-70-11C Table 5.2 Step 1b, but applicable wherever spacecraft or complex system behavior is organized around discrete operational states with hierarchical reconfiguration requirements. The vocabulary is standard-agnostic in structure: ECSS provides terminological grounding, not a constraint on applicability."
+@dc:hasVersion "0.2"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_Modes#> as modes {
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	/////// Vocabulary Imports ///////
+
+	extends <http://purl.org/dc/elements/1.1/> as dc
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_States#> as States
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#> as sa
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Vocabulary Definitions ///////
+
+
+	///// Concepts
+
+	@rdfs:label "Mode"
+	@dc:description "A [=Mode=] is a kind of State that is specifically dependent on a System at a given level of the logical architecture (spacecraft, subsystem, or assembly). A Mode determines which Functions are available for execution by that System: only Functions declared as availableIn that Mode may be performed while the System occupies it. This formalises the ECSS-E-ST-70-11C definition: 'the operational state of a spacecraft, subsystem or payload in which certain functions can be performed'. Note the distinction between Mode (system/subsystem/assembly level) and State (component level): components have States whose values are determined by the Mode of the parent assembly. Mode is modelled as a Disposition rather than a role or quality because, like all Dispositions, it inheres in a specific bearer (the System), is persistent (it holds until explicitly changed by a Transition), and is realisable (it is realised whenever the System is in that operational configuration)."
+	concept Mode < States:State [
+		restricts some tlo:sdo to sa:System
+		restricts all tlo:hasContinuantPart to Mode
+		restricts all tlo:isContinuantPartOf to Mode
+	]
+
+	@rdfs:label "FunctionalChain"
+	@dc:description "A [=FunctionalChain=] is a PrescriptiveICE — a specification prescribing an ordered sequence of function invocations to be performed by specific Systems. It corresponds to an On-Board Control Procedure (OBCP) as defined in ECSS-E-ST-70-11C. A FunctionalChain is a specification, not an execution: it exists independently of whether it has been or will be executed. Validity is assessed structurally: a FunctionalChain is valid if, for every FunctionalChainStep it contains, the specified Function is available in at least one Mode of the specified executing System. Steps that specify a Function not available in any Mode of the executor represent a structural error — the function can never be performed by that system regardless of its current mode."
+	concept FunctionalChain < info:PrescriptiveICE
+
+	@rdfs:label "FunctionalChainStep"
+	@dc:description "A [=FunctionalChainStep=] is a PrescriptiveICE that forms a single ordered step within a FunctionalChain. Each step specifies: (1) the Function to be performed, via specifiesFunction; (2) the System that should perform it, via specifiesExecutor; and (3) its position in the execution sequence, via hasSequencePosition. A FunctionalChainStep is a specification — it is not a FunctionOccurrence. Validity checking operates entirely at the disposition and specification level: the question is whether the specified Function is available in any Mode of the specified System, not whether the Function has been or is being executed."
+	concept FunctionalChainStep < info:PrescriptiveICE
+
+
+	///// Relations
+
+	@rdfs:label "AvailableIn"
+	@dc:description "[=AvailableIn=] relates a Function to a Mode in which it is available for execution. A Function may be available in multiple Modes. For non-transition Functions this relation must be explicitly asserted by the modeller. For Transition instances (subclass of Function via UAOS_States), availableIn is automatically inferred by the TransitionAvailability rule from the state machine structure: if a Transition exits a Mode, it is available in that Mode. This unifies the state machine and the availability model under a single relation, with the state machine serving as the authoritative source for transition availability."
+	relation entity AvailableIn [
+		from tlo:Function
+		to Mode
+		@rdfs:label "available in"
+		forward availableIn
+		@rdfs:label "makes available"
+		reverse makesAvailable
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "HasSubTransition"
+	@dc:description "[=HasSubTransition=] relates a parent-level Transition to a child-level Transition that must execute as part of the parent transition. This captures ECSS-E-ST-70-11C Table 5.2 Step 1b (Reconfiguring Lower Levels): when a System transitions to a new Mode, all lower-level elements it contains must also transition to their corresponding Modes, and each such child transition is a HasSubTransition of the parent. The completeness of the HasSubTransition hierarchy — specifically, that every parent Transition has a declared sub-transition for every child System — is the key structural invariant checked by Query 02. If a parent Transition lacks a sub-transition for some child System, the mode transition cannot complete, regardless of which mode the system is currently in."
+	relation entity HasSubTransition [
+		from States:Transition
+		to States:Transition
+		@rdfs:label "has sub-transition"
+		forward hasSubTransition
+		@rdfs:label "is sub-transition of"
+		reverse isSubTransitionOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "HasStep"
+	@dc:description "[=HasStep=] relates a FunctionalChain to its constituent FunctionalChainSteps. The set of steps, together with their hasSequencePosition values, fully defines the ordered specification of the chain."
+	relation entity HasStep [
+		from FunctionalChain
+		to FunctionalChainStep
+		@rdfs:label "has step"
+		forward hasStep
+		@rdfs:label "is step of"
+		reverse isStepOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "SpecifiesFunction"
+	@dc:description "[=SpecifiesFunction=] relates a FunctionalChainStep to the Function it specifies should be performed. Because this relation targets a Function (a Disposition), not a FunctionOccurrence (a Process), the specification is mode-checkable: validity reduces to asking whether the specified Function is available in at least one Mode of the specified executor."
+	relation entity SpecifiesFunction [
+		from FunctionalChainStep
+		to tlo:Function
+		@rdfs:label "specifies function"
+		forward specifiesFunction
+		@rdfs:label "is function specified by"
+		reverse isFunctionSpecifiedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "SpecifiesExecutor"
+	@dc:description "[=SpecifiesExecutor=] relates a FunctionalChainStep to the System that the step specifies should perform the Function. Combined with SpecifiesFunction and the AvailableIn relation, this enables structural validation: for a step to be structurally valid, the specified Function must be available in at least one Mode of the specified System."
+	relation entity SpecifiesExecutor [
+		from FunctionalChainStep
+		to sa:System
+		@rdfs:label "specifies executor"
+		forward specifiesExecutor
+		@rdfs:label "is executor specified by"
+		reverse isExecutorSpecifiedBy
+		asymmetric
+		irreflexive
+	]
+
+
+	///// Scalar Properties
+
+	@rdfs:label "has sequence position"
+	@dc:description "[=hasSequencePosition=] assigns an integer execution position to a FunctionalChainStep within its parent FunctionalChain. Position 1 is the first step to be executed; steps are executed in ascending order of position."
+	scalar property hasSequencePosition [
+		domain FunctionalChainStep
+		range xsd:integer
+	]
+
+
+	///// Rules
+
+	@rdfs:comment "TRANSITION AVAILABILITY RULE: A Transition t is available in Mode m if t exits m. This rule derives availableIn for all Transitions from the state machine structure alone, making the state machine the single source of truth for transition availability. Non-transition Functions require explicit availableIn assertions. This rule, together with the HasSubTransition relation, enables structural checking of hierarchical mode transition completeness via SPARQL without any runtime state assertions."
+	rule TransitionAvailability [
+		States:exits(t, m) -> availableIn(t, m)
+	]
+
+}

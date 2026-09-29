@@ -1,0 +1,75 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture the organization patterns required by the SIE Disruption Lab."
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_BayesianNetworks#> as UAOS_BayesianNetworks {
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+	
+	// Import standard vocabularies	
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+    
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo	
+	
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	///// Aspects
+	
+	
+	
+	///// Concepts
+	
+	
+	
+	///// Relations
+	
+	@rdfs:label "Has Bayesian Child"
+	@dc:description "[=HasBayesianChild=] is a..."
+	relation entity HasBayesianChild [
+		from tlo:IdentifiedEntity
+		to tlo:IdentifiedEntity
+		@rdfs:label "has Bayesian child"
+		forward hasBayesianChild
+		@rdfs:label "has Bayesian parent"
+		reverse hasBayesianParent
+		asymmetric
+		irreflexive
+	]
+	
+	
+	///// Scalar Properties
+	
+	scalar property hasBayesianWeight [
+		domain HasBayesianChild
+		range xsd:decimal
+	]
+	
+	scalar property hasBayesianNodeVisibility [
+		domain tlo:IdentifiedEntity
+		range xsd:boolean
+	]
+	
+	scalar property hasBayesianTrueStateValue [
+		domain tlo:IdentifiedEntity
+		range xsd:decimal
+	]
+	
+	scalar property hasBayesianFalseStateValue [
+		domain tlo:IdentifiedEntity
+		range xsd:decimal
+	]
+	
+	
+	
+	///// Rules
+	
+	
+}

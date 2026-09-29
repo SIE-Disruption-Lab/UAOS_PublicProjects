@@ -1,0 +1,55 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture entities associated with locations"
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Core/UAOS_Location#> as UAOS_Location {
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+	
+	// Import standard vocabularies	
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+		
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	///// Aspects
+		
+	
+	
+	///// Concepts
+	
+	
+	
+	///// Relations
+	
+	@rdfs:label "Located At"
+	@dc:description "[=LocatedAt=] is a "
+	relation entity LocatedAt [
+		from tlo:IndependentContinuant
+		to tlo:Site
+		@rdfs:label "located at"
+		forward locatedAt
+		@rdfs:label "is location of"
+		reverse isLocationOf
+		asymmetric
+		irreflexive
+	]
+
+		
+	///// Scalar Properties
+	
+	
+	
+	///// Rules
+	
+
+	
+}

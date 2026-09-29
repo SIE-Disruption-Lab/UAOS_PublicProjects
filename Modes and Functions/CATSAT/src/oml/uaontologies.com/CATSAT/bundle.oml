@@ -1,0 +1,5 @@
+description bundle <http://uaontologies.com/CATSAT/bundle#> as ^bundle {
+	
+	includes <http://uaontologies.com/CATSAT/CATSAT#>
+	
+}

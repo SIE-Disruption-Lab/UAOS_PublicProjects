@@ -1,0 +1,769 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:contributor "Hunter Fiore"
+@dc:description "A vocabulary capturing Mission Engineering concepts aligned with the strategic, operational, and resource layers of UAF, corrected for BFO/UAOS ontological compliance."
+@dc:hasVersion "0.4"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_MissionEngineering#> as UAOS_MissionEngineering {
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	/////// Vocabulary Imports ///////
+
+	// Import standard vocabularies
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Event#> as event
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_Interfaces#> as iface
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_Requirements#> as req
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Vocabulary Definitions ///////
+
+
+	//////////////////////////////////////////////////////////////////////////////////////
+	// STRATEGIC SECTION
+	//
+	// Captures enterprise-level intent, goals, and drivers that motivate and constrain
+	// mission engineering activities. Strategic entities are either information content
+	// entities (visions, goals, descriptions of context) or processes (phases, missions,
+	// operations) or temporal regions (epochs).
+	//////////////////////////////////////////////////////////////////////////////////////
+
+
+	///// Aspects
+
+	// No new aspects in the strategic section.
+
+
+	///// Concepts
+
+	@rdfs:label "Mission"
+	@dc:description "A [=Mission=] is a bounded, goal-directed Process prosecuted by one or more agents against an operational Environment to achieve DesiredEffects. Mission is classified as a Process because it unfolds over time, has temporal parts (MissionPhases, MissionThreads), and is realised by participating agents. NOTE: supersedes the bare tlo:Occurrent classification in UAOS_Mission.oml."
+	concept Mission < tlo:Process
+
+	@rdfs:label "Environment"
+	@dc:description "An [=Environment=] is an IndependentContinuant comprising the entities — terrain, adversaries, infrastructure, weather systems, airspace, electromagnetic spectrum, cyberspace — that constitute the operational context within which a Mission is conducted. Classified as IndependentContinuant (not ObjectAggregate) to allow both material and immaterial components as parts without the MaterialEntity-only part restriction that ObjectAggregate imposes."
+	concept Environment < tlo:IndependentContinuant
+
+	@rdfs:label "StrategicPhase"
+	@dc:description "A [=StrategicPhase=] is a temporally bounded phase of enterprise-level activity comprising one or more Operations or Missions directed toward a common strategic intent. It is a Process because it unfolds over time and has Operations and Missions as temporal parts."
+	concept StrategicPhase < tlo:Process
+
+	@rdfs:label "Operation"
+	@dc:description "An [=Operation=] is a Process comprising a coordinated set of Missions conducted in a common operational area toward a unified military objective. Operations are temporal parts of a StrategicPhase and are temporal wholes of which Missions may be parts. Example: Operation DESERT STORM is the strategic operation containing the individual raid missions of Task Force Normandy."
+	concept Operation < tlo:Process
+
+	@rdfs:label "EnterpriseVision"
+	@dc:description "An [=EnterpriseVision=] is a PrescriptiveICE that prescribes an intended future state of the enterprise. It provides the overarching strategic intent that bounds enterprise goals and missions. It has no specific bearer (generically dependent) — it is a specification, not a realised state."
+	concept EnterpriseVision < info:PrescriptiveICE
+
+	@rdfs:label "EnterpriseGoal"
+	@dc:description "An [=EnterpriseGoal=] is a PrescriptiveICE that prescribes a strategic outcome the enterprise seeks to achieve within a StrategicPhase. Enterprise goals are motivated by Drivers and give rise to CapabilityRequirements."
+	concept EnterpriseGoal < info:PrescriptiveICE
+
+	@rdfs:label "EnterpriseObjective"
+	@dc:description "An [=EnterpriseObjective=] is an EnterpriseGoal that is specific, measurable, and time-bounded — a concrete milestone that operationalises a broader enterprise goal."
+	concept EnterpriseObjective < EnterpriseGoal
+
+	@rdfs:label "Driver"
+	@dc:description "A [=Driver=] is a DescriptiveICE that describes a force — internal or external — that motivates or compels strategic change, giving rise to Challenges and Opportunities. Examples: a competitive threat, a regulatory mandate, a technological shift. Classified as DescriptiveICE (not Role) because a Driver is an information entity describing a causal factor, not a role played by an entity."
+	concept Driver < info:DescriptiveICE
+
+	@rdfs:label "Challenge"
+	@dc:description "A [=Challenge=] is a DescriptiveICE that describes an adverse condition or obstacle presented by a Driver that the enterprise must address in pursuing its goals. It is an information entity — a description of a problematic state of affairs — not a process or disposition."
+	concept Challenge < info:DescriptiveICE
+
+	@rdfs:label "Opportunity"
+	@dc:description "An [=Opportunity=] is a DescriptiveICE that describes a favourable circumstance or potential advantage that arises from a Driver or Challenge and that could be exploited to advance enterprise goals. It is an information entity — a description of a beneficial possibility — not a realised capability."
+	concept Opportunity < info:DescriptiveICE
+
+	@rdfs:label "DesiredEffect"
+	@dc:description "A [=DesiredEffect=] is a DescriptiveICE that describes a state of affairs the enterprise wishes to bring about through mission execution. DesiredEffects represent intended outcomes at the strategic/operational boundary and provide the motivating rationale for Missions and CapabilityRequirements. DISTINCTION: DesiredEffect is the information entity specifying the change that is wanted; Effect is the actual change event (a Process)."
+	concept DesiredEffect < info:DescriptiveICE
+
+	@rdfs:label "Effect"
+	@dc:description "An [=Effect=] is a Process constituting an actual change brought about in the operational environment through mission execution. It is an occurrent — a change event that unfolds in time — not a description of one. DISTINCTION: Effect (this class) is the actual causal occurrence; DesiredEffect is the information entity specifying the change that is wanted. A Mission ProducesEffect an Effect, and that Effect may CorrespondToDesiredEffect one or more DesiredEffects."
+	concept Effect < tlo:Process
+
+	@rdfs:label "CapabilityRequirement"
+	@dc:description "A [=CapabilityRequirement=] is a PrescriptiveICE specifying a capability the enterprise requires to achieve a DesiredEffect. It is a type-level specification — generically dependent, requiring no specific bearer — and is satisfied when a corresponding Capability disposition is instantiated in an appropriate agent or system."
+	concept CapabilityRequirement < req:Requirement
+
+	@rdfs:label "Capability"
+	@dc:description "A [=Capability=] is a Disposition that inheres in a specific agent or system, enabling it to perform a class of operational activities under specified conditions. Capability is specifically dependent on its bearer (an SDCCarrier such as an OperationalPerformer). It satisfies a CapabilityRequirement when the bearer possesses the relevant functional basis. When executed, the Capability manifestsIn a MissionEngineeringThread or ResourceService (via event:manifestsIn). DISTINCTION: CapabilityRequirement is the desire/specification (no bearer); Capability is the actual disposition (requires a bearer)."
+	concept Capability < tlo:Disposition
+
+	@rdfs:label "Scenario"
+	@dc:description "A [=Scenario=] is a DescriptiveICE that describes a hypothetical or anticipated situation — including the operational environment, forces, objectives, constraints, and context — within which a Mission or set of Missions is analysed or executed. A Scenario is an information entity: it exists as a description even when the situation it describes has not yet been enacted. The Scenario hierarchy (Scenario → Operation → Vignette → Mission → MissionThread → MET) structures the analytical decomposition of mission architecture. Reference: DoD MEG v2; Mission Architecture Style Guide."
+	concept Scenario < info:DescriptiveICE
+
+	@rdfs:label "Vignette"
+	@dc:description "A [=Vignette=] is a Scenario that is focused on a specific, bounded operational situation — a targeted slice of a larger Scenario used to analyse a particular aspect of mission execution, such as a specific force interaction or timeline segment. Example: the Task Force Normandy SEAD raid is a Vignette within the Operation DESERT STORM Scenario."
+	concept Vignette < Scenario
+
+	@rdfs:label "Epoch"
+	@dc:description "An [=Epoch=] is a TemporalRegion bounding the time interval during which the conditions of a Scenario remain constant. When scenario conditions change — due to capability introduction, environmental change, or operational phase transition — a new Epoch begins. Epochs allow a model to capture before/during/after states without creating separate Scenario instances for each condition. Reference: DoD MEG v2."
+	concept Epoch < tlo:TemporalRegion
+
+	@rdfs:label "OrderOfBattle"
+	@dc:description "An [=OrderOfBattle=] is a DescriptiveICE that describes the composition, organisation, and disposition of forces involved in an Operation or Mission — specifying which OperationalPerformers are present, their command relationships, and their assigned roles."
+	concept OrderOfBattle < info:DescriptiveICE
+
+
+	//////////////////////////////////////////////////////////////////////////////////////
+	// OPERATIONAL SECTION
+	//
+	// Captures the specification and execution of mission activities, the roles played
+	// by performers, and the exchanges of information and materiel between performers.
+	// The type/token distinction is resolved: OperationalActivity is the specification
+	// (PrescriptiveICE); OperationalActivityAction is the execution (Process).
+	//////////////////////////////////////////////////////////////////////////////////////
+
+
+	///// Aspects
+
+	// No new aspects in the operational section.
+	// OperationalPerformer is now a Role (< tlo:SpecificallyDependentContinuant), following
+	// the OperationalActivity/OperationalActivityAction spec/token pattern:
+	//   OperationalPerformerSpec < PrescriptiveICE  — planning-level, no bearer required
+	//   OperationalPerformer < tlo:Role              — execution-level, bearer (MaterialEntity) required
+
+
+	///// Concepts
+
+	@rdfs:label "OperationalActivity"
+	@dc:description "An [=OperationalActivity=] is a PrescriptiveICE that specifies a coherent unit of work to be performed in pursuit of a mission objective. It is a type-level construct — a specification — not a concrete process execution. Executions are OperationalActivityActions. This resolves the UAF type/token conflation, mirroring the UAOS Plan/ManagedProcess pattern."
+	concept OperationalActivity < info:PrescriptiveICE [
+		restricts all info:prescribes to tlo:Process
+	]
+
+	@rdfs:label "OperationalActivityAction"
+	@dc:description "An [=OperationalActivityAction=] is a Process constituting a concrete execution of an OperationalActivity specification. It is the token-level counterpart of the type-level OperationalActivity and is related to its prescribing OperationalActivity via info:isPrescribedBy."
+	concept OperationalActivityAction < tlo:Process [
+		restricts some info:isPrescribedBy to OperationalActivity
+	]
+
+	@rdfs:label "MissionThread"
+	@dc:description "A [=MissionThread=] is a PrescriptiveICE that prescribes an end-to-end mission execution sequence as an ordered set of OperationalActivities, independent of which systems or capability configurations perform them. MissionThreads are solution-agnostic specifications: they define what must happen without identifying how. Solution-specific realisation is captured by MissionEngineeringThread (a Process) via ImplementsMissionThread."
+	concept MissionThread < info:PrescriptiveICE
+
+	@rdfs:label "MissionTask"
+	@dc:description "A [=MissionTask=] is an atomic MissionThread — a minimal, indivisible unit of prescribed mission activity that cannot be further decomposed into finer-grained MissionThread specifications."
+	concept MissionTask < MissionThread
+
+	@rdfs:label "MissionPhase"
+	@dc:description "A [=MissionPhase=] is a temporally bounded Process that is a temporal part of a Mission, representing a distinct period of mission execution characterised by a coherent set of activities and objectives. Example phases: ingress, engagement, egress. MissionPhases partition the Mission timeline and may contain MissionThreads as sub-processes."
+	concept MissionPhase < tlo:Process
+
+	@rdfs:label "MissionEngineeringThread"
+	@dc:description "A [=MissionEngineeringThread=] (MET) is a Process that is a solution-specific realisation of a MissionThread: it specifies which CapabilityConfigurations (systems, organisations, and resources) are allocated to execute the mission activities. The MissionThread says what must happen; the MissionEngineeringThread says which systems will do it and how. Multiple METs (Baseline, Alternative, Excursion) may implement the same MissionThread, enabling architectural trade-space analysis. NOTE: UAF DMM v1.2 classifies MET as a 'generalisation of Function' — this is an ontological error (Function is a Disposition/SDC; it cannot be executed). This classification corrects that error: MET is a Process (occurrent)."
+	concept MissionEngineeringThread < tlo:Process
+
+	@rdfs:label "OperationalRole"
+	@dc:description "An [=OperationalRole=] is a Role played by an agent in the context of an OperationalActivity. It specifies the function a performer is expected to fulfil without identifying a specific performer instance."
+	concept OperationalRole < tlo:Role
+
+	@rdfs:label "ForceDesignation"
+	@dc:description "A [=ForceDesignation=] is a Role played by an OperationalPerformer within the context of a specific Mission or Scenario that designates its adversarial or cooperative standing. Canonical designations: Blue (friendly), Red (adversary), Green (neutral/host nation). ForceDesignation is context-dependent: the same OperationalPerformer may play different ForceDesignation roles in different Scenarios."
+	concept ForceDesignation < tlo:Role
+
+	@rdfs:label "OperationalPerformer"
+	@dc:description "An [=OperationalPerformer=] is a Role played by a MaterialEntity in the context of a Mission — the role of being an agent that executes operational activities. OperationalPerformer is specifically dependent on its bearer (a tlo:MaterialEntity such as a system, platform, or organisation). DISTINCTION: OperationalPerformerSpec (< PrescriptiveICE) is the planning-level specification of a required performer slot, requiring no bearer; OperationalPerformer (this class) is the execution-level role token, instantiated when a specific MaterialEntity is assigned to fill the slot. Mirrors the OperationalActivity (spec) / OperationalActivityAction (token) pattern."
+	concept OperationalPerformer < tlo:Role [
+		restricts some tlo:sdo to tlo:MaterialEntity
+	]
+
+	@rdfs:label "OperationalPerformerSpec"
+	@dc:description "An [=OperationalPerformerSpec=] is a PrescriptiveICE that specifies a required performer slot in a Mission or OperationalActivity — prescribing the role to be played — without yet identifying the specific MaterialEntity that will fill it. It is a planning-level construct: generically dependent, requiring no bearer. When a specific system or platform is assigned, an OperationalPerformer role token is created with the material entity as its bearer. PATTERN: mirrors OperationalActivity (spec, PrescriptiveICE) / OperationalActivityAction (token, Process). NOTE: previously, OperationalPerformer was classified as tlo:MaterialEntity, which forced a bearer at the planning stage. This class resolves that gap."
+	concept OperationalPerformerSpec < info:PrescriptiveICE
+
+	@rdfs:label "KnownResource"
+	@dc:description "A [=KnownResource=] is a Role representing a generic resource type known to be required for an OperationalActivity but whose specific physical instantiation has not yet been identified. It is a planning-level construct — a role placeholder, not a material entity. NOTE: not a subtype of OperationalPerformer; it is the role that a future resource will play."
+	concept KnownResource < tlo:Role
+
+	@rdfs:label "OperationalPort"
+	@dc:description "An [=OperationalPort=] is a Port belonging to an OperationalPerformer through which an OperationalExchange flows. It specialises iface:Port to the operational domain."
+	concept OperationalPort < iface:Port
+
+	@rdfs:label "OperationalInterface"
+	@dc:description "An [=OperationalInterface=] is an InterfaceType that specifies the protocol, format, and constraints for an OperationalExchange between OperationalPorts. Narrows the iface:InterfaceType prescribes target to OperationalPort."
+	concept OperationalInterface < iface:InterfaceType [
+		restricts all info:prescribes to OperationalPort
+	]
+
+	@rdfs:label "OperationalExchange"
+	@dc:description "An [=OperationalExchange=] is a Process representing the transfer of operationally significant items — information, materiel, energy, or services — between OperationalPerformers via OperationalPorts."
+	concept OperationalExchange < tlo:Process
+
+	@rdfs:label "OperationalInformation"
+	@dc:description "An [=OperationalInformation=] is an InformationContentEntity carried by or exchanged between OperationalPerformers during an OperationalExchange."
+	concept OperationalInformation < info:InformationContentEntity
+
+	@rdfs:label "KillChain"
+	@dc:description "A [=KillChain=] is a PrescriptiveICE that prescribes a structured, ordered sequence of OperationalActivities constituting a complete targeting or effects-delivery process. The canonical DoD kill chain is F2T2EA (Find, Fix, Track, Target, Engage, Assess). A KillChain is a prescriptive specification — the actual executions of its steps are OperationalActivityActions. KillChains may be composed into a KillWeb."
+	concept KillChain < info:PrescriptiveICE
+
+	@rdfs:label "KillWeb"
+	@dc:description "A [=KillWeb=] is a DescriptiveICE that describes a network of interconnected KillChains, sensors, shooters, and command nodes that collectively provide redundant and distributed effects-delivery capability across multiple operational domains. Unlike the linear KillChain, the KillWeb describes actual networked capability relationships and is therefore descriptive rather than prescriptive."
+	concept KillWeb < info:DescriptiveICE
+
+
+	//////////////////////////////////////////////////////////////////////////////////////
+	// RESOURCE SECTION
+	//
+	// Captures the physical and organisational resources that realise operational
+	// activities, the functions they perform, and how they are configured and
+	// connected to deliver fielded capability.
+	//////////////////////////////////////////////////////////////////////////////////////
+
+
+	///// Aspects
+
+	@rdfs:label "ResourcePerformer"
+	@dc:description "A [=ResourcePerformer=] is a mixin aspect marking an entity as capable of performing operational activities at the resource (physical/system) level. Useful as a query tag across heterogeneous resource types."
+	aspect ResourcePerformer
+
+
+	///// Concepts
+
+	@rdfs:label "ResourceRole"
+	@dc:description "A [=ResourceRole=] is an OperationalRole played at the resource level — a role assigned to a physical or organisational resource within a resource architecture."
+	concept ResourceRole < OperationalRole
+
+	@rdfs:label "PhysicalResource"
+	@dc:description "A [=PhysicalResource=] is a MaterialEntity with the ResourcePerformer aspect — a tangible, physical entity (platform, vehicle, sensor, or human) that performs resource-level functions."
+	concept PhysicalResource < tlo:MaterialEntity, ResourcePerformer
+
+	@rdfs:label "NaturalResource"
+	@dc:description "A [=NaturalResource=] is a PhysicalResource whose existence is not the result of deliberate human manufacture — e.g. a geographical feature, terrain, or environmental phenomenon exploited in mission execution."
+	concept NaturalResource < PhysicalResource
+
+	@rdfs:label "ResourceArtifact"
+	@dc:description "A [=ResourceArtifact=] is a designed or manufactured Object with the ResourcePerformer aspect — a human-made physical resource (platform, weapon system, sensor, communication node) employed in mission execution."
+	concept ResourceArtifact < tlo:Object, ResourcePerformer
+
+	@rdfs:label "CapabilityConfiguration"
+	@dc:description "A [=CapabilityConfiguration=] is a DescriptiveICE that describes a specific arrangement of resources — their types, quantities, and interconnections — that together realise one or more Capabilities. It is a descriptive information entity because configuration is a pattern or description; the physical resources described by it carry the actual dispositions."
+	concept CapabilityConfiguration < info:DescriptiveICE [
+		restricts some info:describes to Capability
+	]
+
+	@rdfs:label "ResourceFunction"
+	@dc:description "A [=ResourceFunction=] is a Function that inheres in a physical resource and represents the designed or assigned functional capacity of that resource to perform a specific class of resource-level activity."
+	concept ResourceFunction < tlo:Function
+
+	@rdfs:label "ResourceService"
+	@dc:description "A [=ResourceService=] is a Process representing a discrete, defined service delivered by a resource to support mission execution — the resource-level realisation of an OperationalActivity."
+	concept ResourceService < tlo:Process
+
+	@rdfs:label "ResourceExchange"
+	@dc:description "A [=ResourceExchange=] is a Process that implements an OperationalExchange at the resource level — the concrete transfer of materiel, energy, information, or services between physical resources."
+	concept ResourceExchange < tlo:Process
+
+	@rdfs:label "ResourceInformation"
+	@dc:description "A [=ResourceInformation=] is an InformationContentEntity carried by or exchanged between resource performers at the resource level."
+	concept ResourceInformation < info:InformationContentEntity
+
+	@rdfs:label "ResourcePort"
+	@dc:description "A [=ResourcePort=] is a Port belonging to a PhysicalResource or ResourceArtifact through which a ResourceExchange flows."
+	concept ResourcePort < iface:Port
+
+	@rdfs:label "ResourceInterface"
+	@dc:description "A [=ResourceInterface=] is an InterfaceType that specifies the constraints for a ResourceExchange between ResourcePorts. Narrows the iface:InterfaceType prescribes target to ResourcePort."
+	concept ResourceInterface < iface:InterfaceType [
+		restricts all info:prescribes to ResourcePort
+	]
+
+	@rdfs:label "ResourceConnector"
+	@dc:description "A [=ResourceConnector=] is a physical Object that connects two ResourcePorts, providing the material substrate over which a ResourceExchange occurs."
+	concept ResourceConnector < tlo:Object
+
+
+	//////////////////////////////////////////////////////////////////////////////////////
+	// MISSION ENGINEERING MEASURES SECTION
+	//
+	// Captures the measurement and evaluation framework used to assess mission
+	// effectiveness and suitability. Two-tier pattern:
+	//   MeasurementSpecification < PrescriptiveICE  — prescribes what to measure and the threshold criterion
+	//   meas:Measurement (from UAOS_Measurement)    — the actual observed datum (linked via HasMeasurementResult)
+	// Threshold/pass-fail criteria are captured as req:Constraint instances (linked via HasConstraint).
+	// Hierarchy: MOP feeds MOE; MOE feeds MOS. COI prescribes what must be determined.
+	//////////////////////////////////////////////////////////////////////////////////////
+
+
+	///// Concepts
+
+	
+
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Relations ///////
+
+
+	//////// STRATEGIC RELATIONS ////////
+
+	@rdfs:label "DefinedFor"
+	@dc:description "[=DefinedFor=] relates an EnterpriseVision to the StrategicPhase for which it prescribes an intended future state."
+	relation entity DefinedFor [
+		from EnterpriseVision
+		to StrategicPhase
+		@rdfs:label "defined for"
+		forward definedFor
+		@rdfs:label "is defined by"
+		reverse isDefinedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "AssignedTo"
+	@dc:description "[=AssignedTo=] relates an EnterpriseGoal to the StrategicPhase to which it is assigned."
+	relation entity AssignedTo [
+		from EnterpriseGoal
+		to StrategicPhase
+		@rdfs:label "assigned to"
+		forward assignedTo
+		@rdfs:label "assigned by"
+		reverse assignedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "MotivatedBy"
+	@dc:description "[=MotivatedBy=] relates an EnterpriseGoal to the Driver that motivates it."
+	relation entity MotivatedBy [
+		from EnterpriseGoal
+		to Driver
+		@rdfs:label "motivated by"
+		forward motivatedBy
+		@rdfs:label "motivates"
+		reverse motivates
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "HasCapabilityRequirement"
+	@dc:description "[=HasCapabilityRequirement=] relates an EnterpriseGoal to the CapabilityRequirement it generates — the key traceability link connecting strategic intent to capability planning."
+	relation entity HasCapabilityRequirement [
+		from EnterpriseGoal
+		to CapabilityRequirement
+		@rdfs:label "has capability requirement"
+		forward hasCapabilityRequirement
+		@rdfs:label "capability requirement of"
+		reverse capabilityRequirementOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "PresentedBy"
+	@dc:description "[=PresentedBy=] relates a Challenge to the Driver that presents or gives rise to it."
+	relation entity PresentedBy [
+		from Challenge
+		to Driver
+		@rdfs:label "presented by"
+		forward presentedBy
+		@rdfs:label "presents"
+		reverse presents
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "ArisesFrom"
+	@dc:description "[=ArisesFrom=] relates an Opportunity to the Challenge from which it arises."
+	relation entity ArisesFrom [
+		from Opportunity
+		to Challenge
+		@rdfs:label "arises from"
+		forward arisesFrom
+		@rdfs:label "gives rise to"
+		reverse givesRiseTo
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "TargetsEffect"
+	@dc:description "[=TargetsEffect=] relates a CapabilityRequirement to the DesiredEffect it aims to achieve, establishing traceability from capability planning to intended mission outcomes."
+	relation entity TargetsEffect [
+		from CapabilityRequirement
+		to DesiredEffect
+		@rdfs:label "targets effect"
+		forward targetsEffect
+		@rdfs:label "effect targeted by"
+		reverse effectTargetedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "SatisfiesCapabilityRequirement"
+	@dc:description "[=SatisfiesCapabilityRequirement=] relates a Capability (an actual disposition inhering in a specific bearer) to the CapabilityRequirement (a specification) it satisfies — the traceability bridge from desired to actual capability."
+	relation entity SatisfiesCapabilityRequirement [
+		from Capability
+		to CapabilityRequirement
+		@rdfs:label "satisfies capability requirement"
+		forward satisfiesCapabilityRequirement
+		@rdfs:label "capability requirement satisfied by"
+		reverse capabilityRequirementSatisfiedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "AchievesEffect"
+	@dc:description "[=AchievesEffect=] relates a Mission to the DesiredEffect it is intended to bring about — the strategic intent link connecting mission execution to its specified outcome."
+	relation entity AchievesEffect [
+		from Mission
+		to DesiredEffect
+		@rdfs:label "achieves effect"
+		forward achievesEffect
+		@rdfs:label "effect achieved by"
+		reverse effectAchievedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "ProducesEffect"
+	@dc:description "[=ProducesEffect=] relates a Mission to an actual Effect — a change event — that the Mission produces in the operational environment. DISTINCTION: AchievesEffect relates Mission to the desired specification (DesiredEffect < DescriptiveICE); ProducesEffect relates Mission to the actual occurrence (Effect < Process). Sub-relation of event:Causes (Mission < tlo:Process ✓; Effect < tlo:Process ✓)."
+	relation entity ProducesEffect [
+		from Mission
+		to Effect
+		@rdfs:label "produces effect"
+		forward producesEffect
+		@rdfs:label "effect produced by"
+		reverse effectProducedBy
+		asymmetric
+		irreflexive
+	]
+	< event:Causes
+
+	@rdfs:label "CorrespondsToDesiredEffect"
+	@dc:description "[=CorrespondsToDesiredEffect=] relates an actual Effect to the DesiredEffect it fulfils or partially fulfils — the assessment link connecting what was achieved to what was intended. This relation is the basis for mission effectiveness evaluation."
+	relation entity CorrespondsToDesiredEffect [
+		from Effect
+		to DesiredEffect
+		@rdfs:label "corresponds to desired effect"
+		forward correspondsToDesiredEffect
+		@rdfs:label "desired effect corresponded to by"
+		reverse desiredEffectCorrespondedToBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "HasMission"
+	@dc:description "[=HasMission=] relates a StrategicPhase to the Missions that are its temporal parts. Sub-relation of tlo:HasOccurrentPart (both domain and range are Processes)."
+	relation entity HasMission [
+		from StrategicPhase
+		to Mission
+		@rdfs:label "has mission"
+		forward hasMission
+		@rdfs:label "mission of"
+		reverse missionOf
+		asymmetric
+		irreflexive
+	]
+	< tlo:HasOccurrentPart
+
+	@rdfs:label "HasOperation"
+	@dc:description "[=HasOperation=] relates a StrategicPhase to an Operation that is its temporal part. Sub-relation of tlo:HasOccurrentPart (both domain and range are Processes)."
+	relation entity HasOperation [
+		from StrategicPhase
+		to Operation
+		@rdfs:label "has operation"
+		forward hasOperation
+		@rdfs:label "operation of"
+		reverse operationOf
+		asymmetric
+		irreflexive
+	]
+	< tlo:HasOccurrentPart
+
+	@rdfs:label "HasEnvironment"
+	@dc:description "[=HasEnvironment=] relates a Mission to the Environment within which it is conducted."
+	relation entity HasEnvironment [
+		from Mission
+		to Environment
+		@rdfs:label "has environment"
+		forward hasEnvironment
+		@rdfs:label "is environment of"
+		reverse isEnvironmentOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Depicts"
+	@dc:description "[=Depicts=] relates a Scenario to the Mission it describes — the Scenario is a DescriptiveICE characterising the context, forces, objectives, and constraints of a specific Mission situation."
+	relation entity Depicts [
+		from Scenario
+		to Mission
+		@rdfs:label "depicts"
+		forward depicts
+		@rdfs:label "depicted by"
+		reverse depictedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "BoundedByEpoch"
+	@dc:description "[=BoundedByEpoch=] relates a Scenario to the Epoch that bounds the time interval during which its conditions are held constant."
+	relation entity BoundedByEpoch [
+		from Scenario
+		to Epoch
+		@rdfs:label "bounded by epoch"
+		forward boundedByEpoch
+		@rdfs:label "epoch bounds"
+		reverse epochBounds
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "IncludesInForce"
+	@dc:description "[=IncludesInForce=] relates an OrderOfBattle to the OperationalPerformerSpecs it describes as members of the force structure. Range is OperationalPerformerSpec (the planning-level slot) because an OrderOfBattle is a DescriptiveICE that describes which performer slots are planned, not which specific role tokens are filled."
+	relation entity IncludesInForce [
+		from OrderOfBattle
+		to OperationalPerformerSpec
+		@rdfs:label "includes in force"
+		forward includesInForce
+		@rdfs:label "included in order of battle"
+		reverse includedInOrderOfBattle
+		asymmetric
+		irreflexive
+	]
+
+
+	//////// OPERATIONAL RELATIONS ////////
+
+	@rdfs:label "MapsToCapability"
+	@dc:description "[=MapsToCapability=] relates an OperationalActivity specification to the Capability required to execute it, establishing traceability between the operational specification layer and the resource disposition layer."
+	relation entity MapsToCapability [
+		from OperationalActivity
+		to Capability
+		@rdfs:label "maps to capability"
+		forward mapsToCapability
+		@rdfs:label "capability mapped from"
+		reverse capabilityMappedFrom
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "PerformsInContext"
+	@dc:description "[=PerformsInContext=] relates an OperationalRole to the OperationalActivity that defines the context in which that role performs."
+	relation entity PerformsInContext [
+		from OperationalRole
+		to OperationalActivity
+		@rdfs:label "performs in context of"
+		forward performsInContext
+		@rdfs:label "performed in context by"
+		reverse performedInContextBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "IsCapableToPerform"
+	@dc:description "[=IsCapableToPerform=] relates an OperationalPerformer to the OperationalActivity it is capable of performing, grounded in its Capability dispositions."
+	relation entity IsCapableToPerform [
+		from OperationalPerformer
+		to OperationalActivity
+		@rdfs:label "is capable to perform"
+		forward isCapableToPerform
+		@rdfs:label "is capable to be performed by"
+		reverse isCapableToBePerformedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "ParticipatesInMission"
+	@dc:description "[=ParticipatesInMission=] relates a Mission to the OperationalPerformers that participate in it. Sub-relation of event:HasParticipant (Mission < Occurrent ✓; OperationalPerformer < MaterialEntity < Continuant ✓)."
+	relation entity ParticipatesInMission [
+		from Mission
+		to OperationalPerformer
+		@rdfs:label "has participating performer"
+		forward hasParticipatingPerformer
+		@rdfs:label "participates in mission"
+		reverse participatesInMission
+		asymmetric
+		irreflexive
+	]
+	< event:HasParticipant
+
+	@rdfs:label "HasMissionThread"
+	@dc:description "[=HasMissionThread=] relates a Mission (Process) to a MissionThread (PrescriptiveICE) that it executes. This is a cross-category relation between an Occurrent and a GenericallyDependentContinuant; no BFO mereological parent applies across these categories."
+	relation entity HasMissionThread [
+		from Mission
+		to MissionThread
+		@rdfs:label "has mission thread"
+		forward hasMissionThread
+		@rdfs:label "mission thread of"
+		reverse missionThreadOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "HasMissionPhase"
+	@dc:description "[=HasMissionPhase=] relates a Mission to a MissionPhase that is a temporal part of it. Sub-relation of tlo:HasOccurrentPart (both domain and range are Processes)."
+	relation entity HasMissionPhase [
+		from Mission
+		to MissionPhase
+		@rdfs:label "has mission phase"
+		forward hasMissionPhase
+		@rdfs:label "mission phase of"
+		reverse missionPhaseOf
+		asymmetric
+		irreflexive
+	]
+	< tlo:HasOccurrentPart
+
+	@rdfs:label "ImplementsMissionThread"
+	@dc:description "[=ImplementsMissionThread=] relates a MissionEngineeringThread (solution-specific) to the MissionThread (solution-agnostic) it implements — the core traceability link between solution-agnostic mission design and solution-specific mission architecture. Multiple METs (Baseline, Alternative, Excursion) may implement the same MissionThread."
+	relation entity ImplementsMissionThread [
+		from MissionEngineeringThread
+		to MissionThread
+		@rdfs:label "implements mission thread"
+		forward implementsMissionThread
+		@rdfs:label "mission thread implemented by"
+		reverse missionThreadImplementedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "AllocatesCapability"
+	@dc:description "[=AllocatesCapability=] relates a MissionEngineeringThread to the CapabilityConfiguration it allocates for execution — specifying which specific resource arrangement is assigned to deliver the capability required by the MissionThread."
+	relation entity AllocatesCapability [
+		from MissionEngineeringThread
+		to CapabilityConfiguration
+		@rdfs:label "allocates capability"
+		forward allocatesCapability
+		@rdfs:label "capability allocated by"
+		reverse capabilityAllocatedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "HasForceDesignation"
+	@dc:description "[=HasForceDesignation=] relates an OperationalPerformer to the ForceDesignation Role it plays in the context of a given Mission or Scenario — asserting the performer's adversarial or cooperative standing (Blue, Red, or Green)."
+	relation entity HasForceDesignation [
+		from OperationalPerformer
+		to ForceDesignation
+		@rdfs:label "has force designation"
+		forward hasForceDesignation
+		@rdfs:label "force designation of"
+		reverse forceDesignationOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Opposes"
+	@dc:description "[=Opposes=] relates two OperationalPerformers in an adversarial relationship. Symmetric: if A opposes B then B opposes A."
+	relation entity Opposes [
+		from OperationalPerformer
+		to OperationalPerformer
+		@rdfs:label "opposes"
+		forward opposes
+		@rdfs:label "is opposed by"
+		reverse isOpposedBy
+		symmetric
+		irreflexive
+	]
+
+	@rdfs:label "ComposedOfActivity"
+	@dc:description "[=ComposedOfActivity=] relates a KillChain to an OperationalActivity that is one of its prescribed steps — enabling traceability from kill chain steps to specific operational activities and their capability requirements. Sub-relation of tlo:HasContinuantPart (both KillChain and OperationalActivity are PrescriptiveICEs, i.e., GenericallyDependentContinuants)."
+	relation entity ComposedOfActivity [
+		from KillChain
+		to OperationalActivity
+		@rdfs:label "composed of activity"
+		forward composedOfActivity
+		@rdfs:label "activity of kill chain"
+		reverse activityOfKillChain
+		asymmetric
+		irreflexive
+	]
+	< tlo:HasContinuantPart
+
+	@rdfs:label "HasKillChain"
+	@dc:description "[=HasKillChain=] relates a KillWeb to a KillChain that is a component part of it. Sub-relation of tlo:HasContinuantPart (both KillWeb and KillChain are GenericallyDependentContinuants). Direction: KillWeb hasContinuantPart KillChain, consistent with figure conventions."
+	relation entity HasKillChain [
+		from KillWeb
+		to KillChain
+		@rdfs:label "has kill chain"
+		forward hasKillChain
+		@rdfs:label "part of kill web"
+		reverse partOfKillWeb
+		asymmetric
+		irreflexive
+	]
+	< tlo:HasContinuantPart
+
+	@rdfs:label "ExchangeViaPort"
+	@dc:description "[=ExchangeViaPort=] relates an OperationalExchange to the OperationalPort through which it flows."
+	relation entity ExchangeViaPort [
+		from OperationalExchange
+		to OperationalPort
+		@rdfs:label "exchange via port"
+		forward exchangeViaPort
+		@rdfs:label "port carries exchange"
+		reverse portCarriesExchange
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "CarriesOperationalInformation"
+	@dc:description "[=CarriesOperationalInformation=] relates an OperationalExchange to the OperationalInformation it carries."
+	relation entity CarriesOperationalInformation [
+		from OperationalExchange
+		to OperationalInformation
+		@rdfs:label "carries operational information"
+		forward carriesOperationalInformation
+		@rdfs:label "operational information carried by"
+		reverse operationalInformationCarriedBy
+		asymmetric
+		irreflexive
+	]
+
+
+	//////// RESOURCE RELATIONS ////////
+
+	@rdfs:label "ImplementsExchange"
+	@dc:description "[=ImplementsExchange=] relates a ResourceExchange to the OperationalExchange it implements — the resource-level realisation of an operational-level exchange."
+	relation entity ImplementsExchange [
+		from ResourceExchange
+		to OperationalExchange
+		@rdfs:label "implements exchange"
+		forward implementsExchange
+		@rdfs:label "exchange implemented by"
+		reverse exchangeImplementedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "RealisesActivity"
+	@dc:description "[=RealisesActivity=] relates a ResourceService to the OperationalActivity it realises — traceability from physical resource behaviour to operational specification."
+	relation entity RealisesActivity [
+		from ResourceService
+		to OperationalActivity
+		@rdfs:label "realises activity"
+		forward realisesActivity
+		@rdfs:label "activity realised by"
+		reverse activityRealisedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "CarriesResourceInformation"
+	@dc:description "[=CarriesResourceInformation=] relates a ResourceExchange to the ResourceInformation it carries."
+	relation entity CarriesResourceInformation [
+		from ResourceExchange
+		to ResourceInformation
+		@rdfs:label "carries resource information"
+		forward carriesResourceInformation
+		@rdfs:label "resource information carried by"
+		reverse resourceInformationCarriedBy
+		asymmetric
+		irreflexive
+	]
+
+
+}

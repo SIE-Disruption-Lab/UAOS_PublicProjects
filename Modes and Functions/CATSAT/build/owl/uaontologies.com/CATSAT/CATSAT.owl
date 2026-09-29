@@ -1,0 +1,1509 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://uaontologies.com/CATSAT/CATSAT#"
+     xml:base="http://uaontologies.com/CATSAT/CATSAT"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:oml="http://opencaesar.io/oml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:catsat="http://uaontologies.com/CATSAT/CATSAT#"
+     xmlns:UAOS_Modes="http://uaontologies.com/UAOS_Domain/UAOS_Modes#"
+     xmlns:UAOS_TopLevel="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#">
+    <owl:Ontology rdf:about="http://uaontologies.com/CATSAT/CATSAT">
+        <owl:imports rdf:resource="http://purl.org/dc/elements/1.1"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel"/>
+        <oml:namespace rdf:resource="http://uaontologies.com/CATSAT/CATSAT#"/>
+        <oml:prefix>catsat</oml:prefix>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Description"/>
+        <dc:contributor>Joe Gregory</dc:contributor>
+        <dc:creator>SIE Disruption Lab</dc:creator>
+        <dc:description>A description instantiating the UAOS_Modes vocabulary for the CATSAT notional CubeSat spacecraft.</dc:description>
+        <dc:hasVersion>0.4</dc:hasVersion>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://opencaesar.io/oml#hasSource -->
+
+
+    <owl:ObjectProperty rdf:about="http://opencaesar.io/oml#hasSource"/>
+    
+
+
+    <!-- http://opencaesar.io/oml#hasTarget -->
+
+
+    <owl:ObjectProperty rdf:about="http://opencaesar.io/oml#hasTarget"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Modes#isStepOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Modes#isStepOf"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Modes#specifiesExecutor -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Modes#specifiesExecutor"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Modes#specifiesFunction -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Modes#specifiesFunction"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasContinuantPart -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasContinuantPart"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Modes#hasSequencePosition -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Modes#hasSequencePosition"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasID -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasID"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasName -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasName"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs"/>
+        <UAOS_TopLevel:hasName>ADCS Nominal-to-Safe Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_safe_sub_rwa -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_safe_sub_rwa">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_safe"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_rwa_nom_to_safe"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_sci -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_sci">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs"/>
+        <UAOS_TopLevel:hasName>ADCS Nominal-to-Science Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_sci_sub_rwa_wrongdir -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_sci_sub_rwa_wrongdir">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_sci"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_rwa_sci_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_adcs_safe_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_adcs_safe_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs"/>
+        <UAOS_TopLevel:hasName>ADCS Safe-to-Nominal Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_adcs_safe_to_nom_sub_rwa -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_adcs_safe_to_nom_sub_rwa">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_adcs_safe_to_nom"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_rwa_safe_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_adcs_sci_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_adcs_sci_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs"/>
+        <UAOS_TopLevel:hasName>ADCS Science-to-Nominal Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_adcs_sci_to_nom_sub_rwa -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_adcs_sci_to_nom_sub_rwa">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_adcs_sci_to_nom"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_rwa_sci_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_comms_nom_to_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_comms_nom_to_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms"/>
+        <UAOS_TopLevel:hasName>Comms Nominal-to-Safe Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_comms_nom_to_sci -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_comms_nom_to_sci">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms"/>
+        <UAOS_TopLevel:hasName>Comms Nominal-to-Science Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_comms_safe_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_comms_safe_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms"/>
+        <UAOS_TopLevel:hasName>Comms Safe-to-Nominal Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_comms_sci_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_comms_sci_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms"/>
+        <UAOS_TopLevel:hasName>Comms Science-to-Nominal Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_rwa_nom_to_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_rwa_nom_to_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa"/>
+        <UAOS_TopLevel:hasName>RWA Nominal-to-Safe Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_rwa_nom_to_sci -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_rwa_nom_to_sci">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa"/>
+        <UAOS_TopLevel:hasName>RWA Nominal-to-Science Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_rwa_safe_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_rwa_safe_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa"/>
+        <UAOS_TopLevel:hasName>RWA Safe-to-Nominal Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_rwa_sci_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_rwa_sci_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa"/>
+        <UAOS_TopLevel:hasName>RWA Science-to-Nominal Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#catsat"/>
+        <UAOS_TopLevel:hasName>SC Nominal-to-Safe Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_safe_sub_adcs -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_safe_sub_adcs">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_safe"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_safe"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_safe_sub_comms -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_safe_sub_comms">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_safe"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_comms_nom_to_safe"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_sci -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_sci">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#catsat"/>
+        <UAOS_TopLevel:hasName>SC Nominal-to-Science Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_sci_sub_adcs -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_sci_sub_adcs">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_sci"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_sci"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_sci_sub_comms -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_sci_sub_comms">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_sci"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_comms_nom_to_sci"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_sc_safe_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_sc_safe_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#catsat"/>
+        <UAOS_TopLevel:hasName>SC Safe-to-Nominal Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_sc_safe_to_nom_sub_adcs -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_sc_safe_to_nom_sub_adcs">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_sc_safe_to_nom"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_adcs_safe_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_sc_safe_to_nom_sub_comms -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_sc_safe_to_nom_sub_comms">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_sc_safe_to_nom"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_comms_safe_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_sc_sci_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_sc_sci_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#catsat"/>
+        <UAOS_TopLevel:hasName>SC Science-to-Nominal Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_sc_sci_to_nom_sub_adcs -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_sc_sci_to_nom_sub_adcs">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_sc_sci_to_nom"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_adcs_sci_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#T_sc_sci_to_nom_sub_comms -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#T_sc_sci_to_nom_sub_comms">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_sc_sci_to_nom"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_comms_sci_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#adcs -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#adcs">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#System"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa"/>
+        <UAOS_TopLevel:hasID>CATSAT-ADCS</UAOS_TopLevel:hasID>
+        <UAOS_TopLevel:hasName>ADCS Subsystem</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#adcs_nominal -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#adcs_nominal">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa_nominal"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs"/>
+        <UAOS_TopLevel:hasName>ADCS Nominal Mode</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#adcs_nominal_enteredBy_T_adcs_safe_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#adcs_nominal_enteredBy_T_adcs_safe_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs_nominal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_adcs_safe_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#adcs_nominal_enteredBy_T_adcs_sci_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#adcs_nominal_enteredBy_T_adcs_sci_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs_nominal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_adcs_sci_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#adcs_nominal_exitedBy_T_adcs_nom_to_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#adcs_nominal_exitedBy_T_adcs_nom_to_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs_nominal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_safe"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#adcs_nominal_exitedBy_T_adcs_nom_to_sci -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#adcs_nominal_exitedBy_T_adcs_nom_to_sci">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs_nominal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_sci"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#adcs_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#adcs_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa_safe"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs"/>
+        <UAOS_TopLevel:hasName>ADCS Safe Mode</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#adcs_safe_enteredBy_T_adcs_nom_to_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#adcs_safe_enteredBy_T_adcs_nom_to_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs_safe"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_safe"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#adcs_safe_exitedBy_T_adcs_safe_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#adcs_safe_exitedBy_T_adcs_safe_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs_safe"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_adcs_safe_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#adcs_science -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#adcs_science">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa_science"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs"/>
+        <UAOS_TopLevel:hasName>ADCS Science Mode</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#adcs_science_enteredBy_T_adcs_nom_to_sci -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#adcs_science_enteredBy_T_adcs_nom_to_sci">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs_science"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_sci"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#adcs_science_exitedBy_T_adcs_sci_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#adcs_science_exitedBy_T_adcs_sci_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs_science"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_adcs_sci_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#catsat -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#catsat">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#System"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms"/>
+        <UAOS_TopLevel:hasID>CATSAT</UAOS_TopLevel:hasID>
+        <UAOS_TopLevel:hasName>CATSAT Spacecraft</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#chain_recoveryOBCP -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#chain_recoveryOBCP">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#FunctionalChain"/>
+        <UAOS_TopLevel:hasName>Safe Mode Recovery OBCP</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#chain_scienceOBCP -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#chain_scienceOBCP">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#FunctionalChain"/>
+        <UAOS_TopLevel:hasName>Science Observation OBCP</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#comms -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#comms">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#System"/>
+        <UAOS_TopLevel:hasID>CATSAT-COMMS</UAOS_TopLevel:hasID>
+        <UAOS_TopLevel:hasName>Communications Subsystem</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#comms_nominal -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#comms_nominal">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms"/>
+        <UAOS_TopLevel:hasName>Comms Nominal Mode</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#comms_nominal_enteredBy_T_comms_safe_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#comms_nominal_enteredBy_T_comms_safe_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms_nominal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_comms_safe_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#comms_nominal_enteredBy_T_comms_sci_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#comms_nominal_enteredBy_T_comms_sci_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms_nominal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_comms_sci_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#comms_nominal_exitedBy_T_comms_nom_to_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#comms_nominal_exitedBy_T_comms_nom_to_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms_nominal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_comms_nom_to_safe"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#comms_nominal_exitedBy_T_comms_nom_to_sci -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#comms_nominal_exitedBy_T_comms_nom_to_sci">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms_nominal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_comms_nom_to_sci"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#comms_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#comms_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms"/>
+        <UAOS_TopLevel:hasName>Comms Safe Mode</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#comms_safe_enteredBy_T_comms_nom_to_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#comms_safe_enteredBy_T_comms_nom_to_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms_safe"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_comms_nom_to_safe"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#comms_safe_exitedBy_T_comms_safe_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#comms_safe_exitedBy_T_comms_safe_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms_safe"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_comms_safe_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#comms_science -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#comms_science">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms"/>
+        <UAOS_TopLevel:hasName>Comms Science Mode</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#comms_science_enteredBy_T_comms_nom_to_sci -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#comms_science_enteredBy_T_comms_nom_to_sci">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms_science"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_comms_nom_to_sci"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#comms_science_exitedBy_T_comms_sci_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#comms_science_exitedBy_T_comms_sci_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms_science"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_comms_sci_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_coarseAttitude -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_coarseAttitude">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs"/>
+        <UAOS_TopLevel:hasName>Coarse Attitude Maintenance</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_coarseAttitude_in_adcs_nominal -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_coarseAttitude_in_adcs_nominal">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_coarseAttitude"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs_nominal"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_coarseAttitude_in_adcs_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_coarseAttitude_in_adcs_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_coarseAttitude"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs_safe"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_coarseAttitude_in_adcs_science -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_coarseAttitude_in_adcs_science">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_coarseAttitude"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs_science"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_groundComms -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_groundComms">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#catsat"/>
+        <UAOS_TopLevel:hasName>Ground Communication</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_groundComms_in_sc_nominal -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_groundComms_in_sc_nominal">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_groundComms"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#sc_nominal"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_groundComms_in_sc_science -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_groundComms_in_sc_science">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_groundComms"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#sc_science"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_groundLink -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_groundLink">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms"/>
+        <UAOS_TopLevel:hasName>Ground Link</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_groundLink_in_comms_nominal -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_groundLink_in_comms_nominal">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_groundLink"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms_nominal"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_groundLink_in_comms_science -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_groundLink_in_comms_science">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_groundLink"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms_science"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_highRateDownlink -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_highRateDownlink">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms"/>
+        <UAOS_TopLevel:hasName>High-Rate Downlink</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_highRateDownlink_in_comms_science -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_highRateDownlink_in_comms_science">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_highRateDownlink"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms_science"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_powerMgmt -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_powerMgmt">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#catsat"/>
+        <UAOS_TopLevel:hasName>Power Management</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_powerMgmt_in_sc_nominal -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_powerMgmt_in_sc_nominal">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_powerMgmt"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#sc_nominal"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_powerMgmt_in_sc_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_powerMgmt_in_sc_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_powerMgmt"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#sc_safe"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_powerMgmt_in_sc_science -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_powerMgmt_in_sc_science">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_powerMgmt"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#sc_science"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_precisionPointing -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_precisionPointing">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs"/>
+        <UAOS_TopLevel:hasName>Precision Pointing</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_precisionPointing_in_adcs_science -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_precisionPointing_in_adcs_science">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_precisionPointing"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs_science"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_precisionTorque -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_precisionTorque">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa"/>
+        <UAOS_TopLevel:hasName>Precision Torque</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_precisionTorque_in_rwa_science -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_precisionTorque_in_rwa_science">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_precisionTorque"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa_science"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_scienceCollection -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_scienceCollection">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#catsat"/>
+        <UAOS_TopLevel:hasName>Science Data Collection</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_scienceCollection_in_sc_science -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_scienceCollection_in_sc_science">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_scienceCollection"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#sc_science"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_telemetryBeacon -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_telemetryBeacon">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms"/>
+        <UAOS_TopLevel:hasName>Telemetry Beacon</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_telemetryBeacon_in_comms_nominal -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_telemetryBeacon_in_comms_nominal">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_telemetryBeacon"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms_nominal"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_telemetryBeacon_in_comms_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_telemetryBeacon_in_comms_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_telemetryBeacon"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms_safe"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_telemetryBeacon_in_comms_science -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_telemetryBeacon_in_comms_science">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_telemetryBeacon"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms_science"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_wheelSpin -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_wheelSpin">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa"/>
+        <UAOS_TopLevel:hasName>Wheel Spin Maintenance</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_wheelSpin_in_rwa_nominal -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_wheelSpin_in_rwa_nominal">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_wheelSpin"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa_nominal"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_wheelSpin_in_rwa_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_wheelSpin_in_rwa_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_wheelSpin"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa_safe"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#fn_wheelSpin_in_rwa_science -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#fn_wheelSpin_in_rwa_science">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_wheelSpin"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa_science"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#rwa -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#rwa">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#System"/>
+        <UAOS_TopLevel:hasID>CATSAT-ADCS-RWA</UAOS_TopLevel:hasID>
+        <UAOS_TopLevel:hasName>Reaction Wheel Assembly</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#rwa_nominal -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#rwa_nominal">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa"/>
+        <UAOS_TopLevel:hasName>RWA Nominal Mode</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#rwa_nominal_enteredBy_T_rwa_safe_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#rwa_nominal_enteredBy_T_rwa_safe_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa_nominal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_rwa_safe_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#rwa_nominal_enteredBy_T_rwa_sci_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#rwa_nominal_enteredBy_T_rwa_sci_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa_nominal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_rwa_sci_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#rwa_nominal_exitedBy_T_rwa_nom_to_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#rwa_nominal_exitedBy_T_rwa_nom_to_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa_nominal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_rwa_nom_to_safe"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#rwa_nominal_exitedBy_T_rwa_nom_to_sci -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#rwa_nominal_exitedBy_T_rwa_nom_to_sci">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa_nominal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_rwa_nom_to_sci"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#rwa_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#rwa_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa"/>
+        <UAOS_TopLevel:hasName>RWA Safe Mode</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#rwa_safe_enteredBy_T_rwa_nom_to_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#rwa_safe_enteredBy_T_rwa_nom_to_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa_safe"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_rwa_nom_to_safe"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#rwa_safe_exitedBy_T_rwa_safe_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#rwa_safe_exitedBy_T_rwa_safe_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa_safe"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_rwa_safe_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#rwa_science -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#rwa_science">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa"/>
+        <UAOS_TopLevel:hasName>RWA Science Mode</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#rwa_science_enteredBy_T_rwa_nom_to_sci -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#rwa_science_enteredBy_T_rwa_nom_to_sci">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa_science"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_rwa_nom_to_sci"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#sc_nominal -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#sc_nominal">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs_nominal"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms_nominal"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#catsat"/>
+        <UAOS_TopLevel:hasName>Nominal Mode</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#sc_nominal_enteredBy_T_sc_safe_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#sc_nominal_enteredBy_T_sc_safe_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#sc_nominal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_sc_safe_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#sc_nominal_enteredBy_T_sc_sci_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#sc_nominal_enteredBy_T_sc_sci_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#sc_nominal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_sc_sci_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#sc_nominal_exitedBy_T_sc_nom_to_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#sc_nominal_exitedBy_T_sc_nom_to_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#sc_nominal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_safe"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#sc_nominal_exitedBy_T_sc_nom_to_sci -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#sc_nominal_exitedBy_T_sc_nom_to_sci">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#sc_nominal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_sci"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#sc_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#sc_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs_safe"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms_safe"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#catsat"/>
+        <UAOS_TopLevel:hasName>Safe Mode</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#sc_safe_enteredBy_T_sc_nom_to_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#sc_safe_enteredBy_T_sc_nom_to_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#sc_safe"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_safe"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#sc_safe_exitedBy_T_sc_safe_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#sc_safe_exitedBy_T_sc_safe_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#sc_safe"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_sc_safe_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#sc_science -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#sc_science">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs_science"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/CATSAT/CATSAT#comms_science"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/CATSAT/CATSAT#catsat"/>
+        <UAOS_TopLevel:hasName>Science Mode</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#sc_science_enteredBy_T_sc_nom_to_sci -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#sc_science_enteredBy_T_sc_nom_to_sci">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#sc_science"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_sci"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#sc_science_exitedBy_T_sc_sci_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#sc_science_exitedBy_T_sc_sci_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/CATSAT/CATSAT#sc_science"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/CATSAT/CATSAT#T_sc_sci_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#step_rec_1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#step_rec_1">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#FunctionalChainStep"/>
+        <UAOS_Modes:isStepOf rdf:resource="http://uaontologies.com/CATSAT/CATSAT#chain_recoveryOBCP"/>
+        <UAOS_Modes:specifiesExecutor rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs"/>
+        <UAOS_Modes:specifiesFunction rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_coarseAttitude"/>
+        <UAOS_Modes:hasSequencePosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</UAOS_Modes:hasSequencePosition>
+        <UAOS_TopLevel:hasName>Step 1 - Coarse Attitude Maintenance</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#step_rec_2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#step_rec_2">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#FunctionalChainStep"/>
+        <UAOS_Modes:isStepOf rdf:resource="http://uaontologies.com/CATSAT/CATSAT#chain_recoveryOBCP"/>
+        <UAOS_Modes:specifiesExecutor rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs"/>
+        <UAOS_Modes:specifiesFunction rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_precisionTorque"/>
+        <UAOS_Modes:hasSequencePosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</UAOS_Modes:hasSequencePosition>
+        <UAOS_TopLevel:hasName>Step 2 - Precision Torque (wrong executor)</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#step_sci_1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#step_sci_1">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#FunctionalChainStep"/>
+        <UAOS_Modes:isStepOf rdf:resource="http://uaontologies.com/CATSAT/CATSAT#chain_scienceOBCP"/>
+        <UAOS_Modes:specifiesExecutor rdf:resource="http://uaontologies.com/CATSAT/CATSAT#catsat"/>
+        <UAOS_Modes:specifiesFunction rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_scienceCollection"/>
+        <UAOS_Modes:hasSequencePosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</UAOS_Modes:hasSequencePosition>
+        <UAOS_TopLevel:hasName>Step 1 - Science Data Collection</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#step_sci_2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#step_sci_2">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#FunctionalChainStep"/>
+        <UAOS_Modes:isStepOf rdf:resource="http://uaontologies.com/CATSAT/CATSAT#chain_scienceOBCP"/>
+        <UAOS_Modes:specifiesExecutor rdf:resource="http://uaontologies.com/CATSAT/CATSAT#adcs"/>
+        <UAOS_Modes:specifiesFunction rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_precisionPointing"/>
+        <UAOS_Modes:hasSequencePosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</UAOS_Modes:hasSequencePosition>
+        <UAOS_TopLevel:hasName>Step 2 - Precision Pointing</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/CATSAT/CATSAT#step_sci_3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/CATSAT/CATSAT#step_sci_3">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#FunctionalChainStep"/>
+        <UAOS_Modes:isStepOf rdf:resource="http://uaontologies.com/CATSAT/CATSAT#chain_scienceOBCP"/>
+        <UAOS_Modes:specifiesExecutor rdf:resource="http://uaontologies.com/CATSAT/CATSAT#rwa"/>
+        <UAOS_Modes:specifiesFunction rdf:resource="http://uaontologies.com/CATSAT/CATSAT#fn_precisionTorque"/>
+        <UAOS_Modes:hasSequencePosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</UAOS_Modes:hasSequencePosition>
+        <UAOS_TopLevel:hasName>Step 3 - Precision Torque</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.5.0.2023-01-14T12:41:38Z) https://github.com/owlcs/owlapi/ -->
+
+

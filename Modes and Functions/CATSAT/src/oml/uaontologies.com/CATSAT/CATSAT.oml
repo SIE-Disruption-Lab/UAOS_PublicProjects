@@ -1,0 +1,607 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A description instantiating the UAOS_Modes vocabulary for the CATSAT notional CubeSat spacecraft."
+@dc:hasVersion "0.4"
+description <http://uaontologies.com/CATSAT/CATSAT#> as catsat {
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	/////// Vocabulary Imports ///////
+
+	uses <http://purl.org/dc/elements/1.1/> as dc
+	uses <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	uses <http://uaontologies.com/UAOS_Domain/UAOS_States#> as States
+	uses <http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#> as sa
+	uses <http://uaontologies.com/UAOS_Domain/UAOS_Modes#> as modes
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+
+	////////////////////////////////////////////////////////////////////////////////////
+	// SECTION 1: LOGICAL ARCHITECTURE
+	////////////////////////////////////////////////////////////////////////////////////
+
+	instance catsat : sa:System [
+		tlo:hasName "CATSAT Spacecraft"
+		tlo:hasID "CATSAT"
+		tlo:hasContinuantPart adcs
+		tlo:hasContinuantPart comms
+	]
+
+	instance adcs : sa:System [
+		tlo:hasName "ADCS Subsystem"
+		tlo:hasID "CATSAT-ADCS"
+		tlo:hasContinuantPart rwa
+	]
+
+	instance comms : sa:System [
+		tlo:hasName "Communications Subsystem"
+		tlo:hasID "CATSAT-COMMS"
+	]
+
+	instance rwa : sa:System [
+		tlo:hasName "Reaction Wheel Assembly"
+		tlo:hasID "CATSAT-ADCS-RWA"
+	]
+
+
+	////////////////////////////////////////////////////////////////////////////////////
+	// SECTION 2: MODES
+	////////////////////////////////////////////////////////////////////////////////////
+
+	// --- CATSAT Spacecraft modes ---
+
+	instance sc_safe : modes:Mode [
+		tlo:hasName "Safe Mode"
+		tlo:sdo catsat
+		tlo:hasContinuantPart adcs_safe
+		tlo:hasContinuantPart comms_safe
+	]
+
+	instance sc_nominal : modes:Mode [
+		tlo:hasName "Nominal Mode"
+		tlo:sdo catsat
+		tlo:hasContinuantPart adcs_nominal
+		tlo:hasContinuantPart comms_nominal
+	]
+
+	instance sc_science : modes:Mode [
+		tlo:hasName "Science Mode"
+		tlo:sdo catsat
+		tlo:hasContinuantPart adcs_science
+		tlo:hasContinuantPart comms_science
+	]
+
+	// --- ADCS Subsystem modes ---
+
+	instance adcs_safe : modes:Mode [
+		tlo:hasName "ADCS Safe Mode"
+		tlo:sdo adcs
+		tlo:hasContinuantPart rwa_safe
+	]
+
+	instance adcs_nominal : modes:Mode [
+		tlo:hasName "ADCS Nominal Mode"
+		tlo:sdo adcs
+		tlo:hasContinuantPart rwa_nominal
+	]
+
+	instance adcs_science : modes:Mode [
+		tlo:hasName "ADCS Science Mode"
+		tlo:sdo adcs
+		tlo:hasContinuantPart rwa_science
+	]
+
+	// --- Communications Subsystem modes ---
+
+	instance comms_safe : modes:Mode [
+		tlo:hasName "Comms Safe Mode"
+		tlo:sdo comms
+	]
+
+	instance comms_nominal : modes:Mode [
+		tlo:hasName "Comms Nominal Mode"
+		tlo:sdo comms
+	]
+
+	instance comms_science : modes:Mode [
+		tlo:hasName "Comms Science Mode"
+		tlo:sdo comms
+	]
+
+	// --- Reaction Wheel Assembly modes ---
+
+	instance rwa_safe : modes:Mode [
+		tlo:hasName "RWA Safe Mode"
+		tlo:sdo rwa
+	]
+
+	instance rwa_nominal : modes:Mode [
+		tlo:hasName "RWA Nominal Mode"
+		tlo:sdo rwa
+	]
+
+	instance rwa_science : modes:Mode [
+		tlo:hasName "RWA Science Mode"
+		tlo:sdo rwa
+	]
+
+
+	////////////////////////////////////////////////////////////////////////////////////
+	// SECTION 3: STATE MACHINE TRANSITIONS
+	////////////////////////////////////////////////////////////////////////////////////
+
+	// --- CATSAT Spacecraft transitions ---
+
+	instance T_sc_safe_to_nom : States:Transition [
+		tlo:hasName "SC Safe-to-Nominal Transition"
+		tlo:sdo catsat
+	]
+	relation instance sc_safe_exitedBy_T_sc_safe_to_nom : States:ExitedBy [
+		from sc_safe
+		to T_sc_safe_to_nom
+	]
+	relation instance sc_nominal_enteredBy_T_sc_safe_to_nom : States:EnteredBy [
+		from sc_nominal
+		to T_sc_safe_to_nom
+	]
+
+	instance T_sc_nom_to_safe : States:Transition [
+		tlo:hasName "SC Nominal-to-Safe Transition"
+		tlo:sdo catsat
+	]
+	relation instance sc_nominal_exitedBy_T_sc_nom_to_safe : States:ExitedBy [
+		from sc_nominal
+		to T_sc_nom_to_safe
+	]
+	relation instance sc_safe_enteredBy_T_sc_nom_to_safe : States:EnteredBy [
+		from sc_safe
+		to T_sc_nom_to_safe
+	]
+
+	instance T_sc_nom_to_sci : States:Transition [
+		tlo:hasName "SC Nominal-to-Science Transition"
+		tlo:sdo catsat
+	]
+	relation instance sc_nominal_exitedBy_T_sc_nom_to_sci : States:ExitedBy [
+		from sc_nominal
+		to T_sc_nom_to_sci
+	]
+	relation instance sc_science_enteredBy_T_sc_nom_to_sci : States:EnteredBy [
+		from sc_science
+		to T_sc_nom_to_sci
+	]
+
+	instance T_sc_sci_to_nom : States:Transition [
+		tlo:hasName "SC Science-to-Nominal Transition"
+		tlo:sdo catsat
+	]
+	relation instance sc_science_exitedBy_T_sc_sci_to_nom : States:ExitedBy [
+		from sc_science
+		to T_sc_sci_to_nom
+	]
+	relation instance sc_nominal_enteredBy_T_sc_sci_to_nom : States:EnteredBy [
+		from sc_nominal
+		to T_sc_sci_to_nom
+	]
+
+	// --- ADCS Subsystem transitions ---
+
+	instance T_adcs_safe_to_nom : States:Transition [
+		tlo:hasName "ADCS Safe-to-Nominal Transition"
+		tlo:sdo adcs
+	]
+	relation instance adcs_safe_exitedBy_T_adcs_safe_to_nom : States:ExitedBy [
+		from adcs_safe
+		to T_adcs_safe_to_nom
+	]
+	relation instance adcs_nominal_enteredBy_T_adcs_safe_to_nom : States:EnteredBy [
+		from adcs_nominal
+		to T_adcs_safe_to_nom
+	]
+
+	instance T_adcs_nom_to_safe : States:Transition [
+		tlo:hasName "ADCS Nominal-to-Safe Transition"
+		tlo:sdo adcs
+	]
+	relation instance adcs_nominal_exitedBy_T_adcs_nom_to_safe : States:ExitedBy [
+		from adcs_nominal
+		to T_adcs_nom_to_safe
+	]
+	relation instance adcs_safe_enteredBy_T_adcs_nom_to_safe : States:EnteredBy [
+		from adcs_safe
+		to T_adcs_nom_to_safe
+	]
+
+	instance T_adcs_nom_to_sci : States:Transition [
+		tlo:hasName "ADCS Nominal-to-Science Transition"
+		tlo:sdo adcs
+	]
+	relation instance adcs_nominal_exitedBy_T_adcs_nom_to_sci : States:ExitedBy [
+		from adcs_nominal
+		to T_adcs_nom_to_sci
+	]
+	relation instance adcs_science_enteredBy_T_adcs_nom_to_sci : States:EnteredBy [
+		from adcs_science
+		to T_adcs_nom_to_sci
+	]
+
+	instance T_adcs_sci_to_nom : States:Transition [
+		tlo:hasName "ADCS Science-to-Nominal Transition"
+		tlo:sdo adcs
+	]
+	relation instance adcs_science_exitedBy_T_adcs_sci_to_nom : States:ExitedBy [
+		from adcs_science
+		to T_adcs_sci_to_nom
+	]
+	relation instance adcs_nominal_enteredBy_T_adcs_sci_to_nom : States:EnteredBy [
+		from adcs_nominal
+		to T_adcs_sci_to_nom
+	]
+
+	// --- Communications Subsystem transitions ---
+
+	instance T_comms_safe_to_nom : States:Transition [
+		tlo:hasName "Comms Safe-to-Nominal Transition"
+		tlo:sdo comms
+	]
+	relation instance comms_safe_exitedBy_T_comms_safe_to_nom : States:ExitedBy [
+		from comms_safe
+		to T_comms_safe_to_nom
+	]
+	relation instance comms_nominal_enteredBy_T_comms_safe_to_nom : States:EnteredBy [
+		from comms_nominal
+		to T_comms_safe_to_nom
+	]
+
+	instance T_comms_nom_to_safe : States:Transition [
+		tlo:hasName "Comms Nominal-to-Safe Transition"
+		tlo:sdo comms
+	]
+	relation instance comms_nominal_exitedBy_T_comms_nom_to_safe : States:ExitedBy [
+		from comms_nominal
+		to T_comms_nom_to_safe
+	]
+	relation instance comms_safe_enteredBy_T_comms_nom_to_safe : States:EnteredBy [
+		from comms_safe
+		to T_comms_nom_to_safe
+	]
+
+	instance T_comms_nom_to_sci : States:Transition [
+		tlo:hasName "Comms Nominal-to-Science Transition"
+		tlo:sdo comms
+	]
+	relation instance comms_nominal_exitedBy_T_comms_nom_to_sci : States:ExitedBy [
+		from comms_nominal
+		to T_comms_nom_to_sci
+	]
+	relation instance comms_science_enteredBy_T_comms_nom_to_sci : States:EnteredBy [
+		from comms_science
+		to T_comms_nom_to_sci
+	]
+
+	instance T_comms_sci_to_nom : States:Transition [
+		tlo:hasName "Comms Science-to-Nominal Transition"
+		tlo:sdo comms
+	]
+	relation instance comms_science_exitedBy_T_comms_sci_to_nom : States:ExitedBy [
+		from comms_science
+		to T_comms_sci_to_nom
+	]
+	relation instance comms_nominal_enteredBy_T_comms_sci_to_nom : States:EnteredBy [
+		from comms_nominal
+		to T_comms_sci_to_nom
+	]
+
+	// --- Reaction Wheel Assembly transitions ---
+
+	instance T_rwa_safe_to_nom : States:Transition [
+		tlo:hasName "RWA Safe-to-Nominal Transition"
+		tlo:sdo rwa
+	]
+	relation instance rwa_safe_exitedBy_T_rwa_safe_to_nom : States:ExitedBy [
+		from rwa_safe
+		to T_rwa_safe_to_nom
+	]
+	relation instance rwa_nominal_enteredBy_T_rwa_safe_to_nom : States:EnteredBy [
+		from rwa_nominal
+		to T_rwa_safe_to_nom
+	]
+
+	instance T_rwa_nom_to_safe : States:Transition [
+		tlo:hasName "RWA Nominal-to-Safe Transition"
+		tlo:sdo rwa
+	]
+	relation instance rwa_nominal_exitedBy_T_rwa_nom_to_safe : States:ExitedBy [
+		from rwa_nominal
+		to T_rwa_nom_to_safe
+	]
+	relation instance rwa_safe_enteredBy_T_rwa_nom_to_safe : States:EnteredBy [
+		from rwa_safe
+		to T_rwa_nom_to_safe
+	]
+
+	instance T_rwa_nom_to_sci : States:Transition [
+		tlo:hasName "RWA Nominal-to-Science Transition"
+		tlo:sdo rwa
+	]
+	relation instance rwa_nominal_exitedBy_T_rwa_nom_to_sci : States:ExitedBy [
+		from rwa_nominal
+		to T_rwa_nom_to_sci
+	]
+	relation instance rwa_science_enteredBy_T_rwa_nom_to_sci : States:EnteredBy [
+		from rwa_science
+		to T_rwa_nom_to_sci
+	]
+
+	instance T_rwa_sci_to_nom : States:Transition [
+		tlo:hasName "RWA Science-to-Nominal Transition"
+		tlo:sdo rwa
+	]
+
+	relation instance rwa_nominal_enteredBy_T_rwa_sci_to_nom : States:EnteredBy [
+		from rwa_nominal
+		to T_rwa_sci_to_nom
+	]
+
+
+	////////////////////////////////////////////////////////////////////////////////////
+	// SECTION 4: HIERARCHICAL TRANSITION TRIGGERS (HasSubTransition)
+	////////////////////////////////////////////////////////////////////////////////////
+
+	// SC transitions trigger ADCS transitions (complete)
+	relation instance T_sc_safe_to_nom_sub_adcs : modes:HasSubTransition [
+		from T_sc_safe_to_nom
+		to T_adcs_safe_to_nom
+	]
+	relation instance T_sc_nom_to_safe_sub_adcs : modes:HasSubTransition [
+		from T_sc_nom_to_safe
+		to T_adcs_nom_to_safe
+	]
+	relation instance T_sc_nom_to_sci_sub_adcs : modes:HasSubTransition [
+		from T_sc_nom_to_sci
+		to T_adcs_nom_to_sci
+	]
+	relation instance T_sc_sci_to_nom_sub_adcs : modes:HasSubTransition [
+		from T_sc_sci_to_nom
+		to T_adcs_sci_to_nom
+	]
+
+	// SC transitions trigger Comms transitions (complete)
+	relation instance T_sc_safe_to_nom_sub_comms : modes:HasSubTransition [
+		from T_sc_safe_to_nom
+		to T_comms_safe_to_nom
+	]
+	relation instance T_sc_nom_to_safe_sub_comms : modes:HasSubTransition [
+		from T_sc_nom_to_safe
+		to T_comms_nom_to_safe
+	]
+	relation instance T_sc_nom_to_sci_sub_comms : modes:HasSubTransition [
+		from T_sc_nom_to_sci
+		to T_comms_nom_to_sci
+	]
+	relation instance T_sc_sci_to_nom_sub_comms : modes:HasSubTransition [
+		from T_sc_sci_to_nom
+		to T_comms_sci_to_nom
+	]
+
+	// ADCS transitions trigger RWA transitions
+	relation instance T_adcs_safe_to_nom_sub_rwa : modes:HasSubTransition [
+		from T_adcs_safe_to_nom
+		to T_rwa_safe_to_nom
+	]
+	relation instance T_adcs_nom_to_safe_sub_rwa : modes:HasSubTransition [
+		from T_adcs_nom_to_safe
+		to T_rwa_nom_to_safe
+	]
+
+	relation instance T_adcs_nom_to_sci_sub_rwa_wrongdir : modes:HasSubTransition [
+		from T_adcs_nom_to_sci
+		to T_rwa_sci_to_nom
+	]
+	relation instance T_adcs_sci_to_nom_sub_rwa : modes:HasSubTransition [
+		from T_adcs_sci_to_nom
+		to T_rwa_sci_to_nom
+	]
+
+
+	////////////////////////////////////////////////////////////////////////////////////
+	// SECTION 5: FUNCTIONS AND AVAILABILITY
+	////////////////////////////////////////////////////////////////////////////////////
+
+	// --- Spacecraft-level functions ---
+
+	instance fn_powerMgmt : tlo:Function [
+		tlo:hasName "Power Management"
+		tlo:sdo catsat
+	]
+	relation instance fn_powerMgmt_in_sc_safe : modes:AvailableIn [
+		from fn_powerMgmt
+		to sc_safe
+	]
+	relation instance fn_powerMgmt_in_sc_nominal : modes:AvailableIn [
+		from fn_powerMgmt
+		to sc_nominal
+	]
+	relation instance fn_powerMgmt_in_sc_science : modes:AvailableIn [
+		from fn_powerMgmt
+		to sc_science
+	]
+
+	instance fn_groundComms : tlo:Function [
+		tlo:hasName "Ground Communication"
+		tlo:sdo catsat
+	]
+	relation instance fn_groundComms_in_sc_nominal : modes:AvailableIn [
+		from fn_groundComms
+		to sc_nominal
+	]
+	relation instance fn_groundComms_in_sc_science : modes:AvailableIn [
+		from fn_groundComms
+		to sc_science
+	]
+
+	instance fn_scienceCollection : tlo:Function [
+		tlo:hasName "Science Data Collection"
+		tlo:sdo catsat
+	]
+	relation instance fn_scienceCollection_in_sc_science : modes:AvailableIn [
+		from fn_scienceCollection
+		to sc_science
+	]
+
+	// --- ADCS-level functions ---
+
+	instance fn_coarseAttitude : tlo:Function [
+		tlo:hasName "Coarse Attitude Maintenance"
+		tlo:sdo adcs
+	]
+	relation instance fn_coarseAttitude_in_adcs_safe : modes:AvailableIn [
+		from fn_coarseAttitude
+		to adcs_safe
+	]
+	relation instance fn_coarseAttitude_in_adcs_nominal : modes:AvailableIn [
+		from fn_coarseAttitude
+		to adcs_nominal
+	]
+	relation instance fn_coarseAttitude_in_adcs_science : modes:AvailableIn [
+		from fn_coarseAttitude
+		to adcs_science
+	]
+
+	instance fn_precisionPointing : tlo:Function [
+		tlo:hasName "Precision Pointing"
+		tlo:sdo adcs
+	]
+	relation instance fn_precisionPointing_in_adcs_science : modes:AvailableIn [
+		from fn_precisionPointing
+		to adcs_science
+	]
+
+	// --- Communications-level functions ---
+
+	instance fn_telemetryBeacon : tlo:Function [
+		tlo:hasName "Telemetry Beacon"
+		tlo:sdo comms
+	]
+	relation instance fn_telemetryBeacon_in_comms_safe : modes:AvailableIn [
+		from fn_telemetryBeacon
+		to comms_safe
+	]
+	relation instance fn_telemetryBeacon_in_comms_nominal : modes:AvailableIn [
+		from fn_telemetryBeacon
+		to comms_nominal
+	]
+	relation instance fn_telemetryBeacon_in_comms_science : modes:AvailableIn [
+		from fn_telemetryBeacon
+		to comms_science
+	]
+
+	instance fn_groundLink : tlo:Function [
+		tlo:hasName "Ground Link"
+		tlo:sdo comms
+	]
+	relation instance fn_groundLink_in_comms_nominal : modes:AvailableIn [
+		from fn_groundLink
+		to comms_nominal
+	]
+	relation instance fn_groundLink_in_comms_science : modes:AvailableIn [
+		from fn_groundLink
+		to comms_science
+	]
+
+	instance fn_highRateDownlink : tlo:Function [
+		tlo:hasName "High-Rate Downlink"
+		tlo:sdo comms
+	]
+	relation instance fn_highRateDownlink_in_comms_science : modes:AvailableIn [
+		from fn_highRateDownlink
+		to comms_science
+	]
+
+	// --- RWA-level functions ---
+
+	instance fn_wheelSpin : tlo:Function [
+		tlo:hasName "Wheel Spin Maintenance"
+		tlo:sdo rwa
+	]
+	relation instance fn_wheelSpin_in_rwa_safe : modes:AvailableIn [
+		from fn_wheelSpin
+		to rwa_safe
+	]
+	relation instance fn_wheelSpin_in_rwa_nominal : modes:AvailableIn [
+		from fn_wheelSpin
+		to rwa_nominal
+	]
+	relation instance fn_wheelSpin_in_rwa_science : modes:AvailableIn [
+		from fn_wheelSpin
+		to rwa_science
+	]
+
+	instance fn_precisionTorque : tlo:Function [
+		tlo:hasName "Precision Torque"
+		tlo:sdo rwa
+	]
+	relation instance fn_precisionTorque_in_rwa_science : modes:AvailableIn [
+		from fn_precisionTorque
+		to rwa_science
+	]
+
+
+	////////////////////////////////////////////////////////////////////////////////////
+	// SECTION 6: FUNCTIONAL CHAINS
+	////////////////////////////////////////////////////////////////////////////////////
+
+	// --- Science Observation OBCP (valid) ---
+
+	instance chain_scienceOBCP : modes:FunctionalChain [
+		tlo:hasName "Science Observation OBCP"
+	]
+
+	instance step_sci_1 : modes:FunctionalChainStep [
+		tlo:hasName "Step 1 - Science Data Collection"
+		modes:hasSequencePosition 1
+		modes:specifiesFunction fn_scienceCollection
+		modes:specifiesExecutor catsat
+		modes:isStepOf chain_scienceOBCP
+	]
+
+	instance step_sci_2 : modes:FunctionalChainStep [
+		tlo:hasName "Step 2 - Precision Pointing"
+		modes:hasSequencePosition 2
+		modes:specifiesFunction fn_precisionPointing
+		modes:specifiesExecutor adcs
+		modes:isStepOf chain_scienceOBCP
+	]
+
+	instance step_sci_3 : modes:FunctionalChainStep [
+		tlo:hasName "Step 3 - Precision Torque"
+		modes:hasSequencePosition 3
+		modes:specifiesFunction fn_precisionTorque
+		modes:specifiesExecutor rwa
+		modes:isStepOf chain_scienceOBCP
+	]
+
+	// --- Safe Mode Recovery OBCP (Q04 defect in Step 2) ---
+
+	instance chain_recoveryOBCP : modes:FunctionalChain [
+		tlo:hasName "Safe Mode Recovery OBCP"
+	]
+
+	instance step_rec_1 : modes:FunctionalChainStep [
+		tlo:hasName "Step 1 - Coarse Attitude Maintenance"
+		modes:hasSequencePosition 1
+		modes:specifiesFunction fn_coarseAttitude
+		modes:specifiesExecutor adcs
+		modes:isStepOf chain_recoveryOBCP
+	]
+
+	instance step_rec_2 : modes:FunctionalChainStep [
+		tlo:hasName "Step 2 - Precision Torque (wrong executor)"
+		modes:hasSequencePosition 2
+		modes:specifiesFunction fn_precisionTorque
+		modes:specifiesExecutor adcs
+		modes:isStepOf chain_recoveryOBCP
+	]
+
+}

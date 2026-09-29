@@ -1,0 +1,32 @@
+{ "head": {
+    "vars": [ "parentTransition" , "parentTransitionName" , "parentSystem" , "parentSystemName" , "childSystem" , "childSystemName" , "expectedChildSourceMode" , "expectedChildSourceModeName" , "expectedChildTargetMode" , "expectedChildTargetModeName" ]
+  } ,
+  "results": {
+    "bindings": [
+      { 
+        "parentTransition": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#T_sc_pom_to_saf" } ,
+        "parentTransitionName": { "type": "literal" , "value": "SC POM-to-Safe Transition" } ,
+        "parentSystem": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#biomass" } ,
+        "parentSystemName": { "type": "literal" , "value": "Biomass Spacecraft" } ,
+        "childSystem": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#aocs" } ,
+        "childSystemName": { "type": "literal" , "value": "AOCS Subsystem" } ,
+        "expectedChildSourceMode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#aocs_nmg" } ,
+        "expectedChildSourceModeName": { "type": "literal" , "value": "AOCS Normal Mode GAP" } ,
+        "expectedChildTargetMode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#aocs_ash" } ,
+        "expectedChildTargetModeName": { "type": "literal" , "value": "AOCS Acquisition and Safe Hold Mode" }
+      } ,
+      { 
+        "parentTransition": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#T_sc_saf_to_pom" } ,
+        "parentTransitionName": { "type": "literal" , "value": "SC Safe-to-POM Transition" } ,
+        "parentSystem": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#biomass" } ,
+        "parentSystemName": { "type": "literal" , "value": "Biomass Spacecraft" } ,
+        "childSystem": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sar" } ,
+        "childSystemName": { "type": "literal" , "value": "P-Band SAR Instrument" } ,
+        "expectedChildSourceMode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sar_off" } ,
+        "expectedChildSourceModeName": { "type": "literal" , "value": "SAR Off" } ,
+        "expectedChildTargetMode": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#sar_ready" } ,
+        "expectedChildTargetModeName": { "type": "literal" , "value": "SAR Ready" }
+      }
+    ]
+  }
+}

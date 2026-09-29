@@ -1,0 +1,204 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture testing patterns"
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_Test#> as UAOS_Test {
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+	
+	// Import standard vocabularies	
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+    
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Agent#> as agent
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Event#> as event
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Measurement#> as meas
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_Requirements#> as req
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_Verification#> as ver
+		
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	///// Aspects
+	
+			
+	
+	///// Concepts
+	
+	@rdfs:label "Test Strategy"
+	@dc:description "A [=Test Strategy=] is a..."
+	concept TestStrategy < agent:ManagedProcess [
+		restricts some tlo:hasOccurrentPart to Test
+		restricts all tlo:isOccurrentPartOf to Test
+	]
+	
+	@rdfs:label "Test"
+	@dc:description "A [=Test=] is a..."
+	concept Test < agent:ManagedProcess, ver:VerificationActivity [
+		restricts all event:occursAt to TestSite
+		restricts some hasTestSubject to tlo:Continuant
+	]
+	
+	@rdfs:label "Tester"
+	@dc:description "A [=Tester=]..."
+	concept Tester < tlo:Role
+	
+	@rdfs:label "Test Site"
+	@dc:description "A [=TestSite=] is a..."
+	concept TestSite < tlo:Site 
+	
+	@rdfs:label "Test Condition"
+	@dc:description "A [=TestCondition=] is a..."
+	concept TestCondition < tlo:IdentifiedEntity
+	// This needs to be reviewed - how to model qualities of events?
+	
+	@rdfs:label "Test Procedure"
+	@dc:description "A [=TestProcedure=] is a..."
+	concept TestProcedure < agent:Procedure [
+		restricts all info:prescribes to Test
+		restricts some info:prescribes to Test
+	]
+	
+	@rdfs:label "Test Objective"
+	@dc:description "A [=TestObjective=] is a..."
+	concept TestObjective < req:Objective [
+		restricts some info:prescribes to Test
+		restricts some tlo:isContinuantPartOf to TestProcedure 
+	]
+	
+	@rdfs:label "Site Plan"
+	@dc:description "A [=SitePlan=] is a..."
+	concept SitePlan < info:PrescriptiveICE [
+		restricts some info:prescribes to TestSite
+		restricts some tlo:isContinuantPartOf to TestProcedure 
+	]
+	
+	@rdfs:label "Test Equipment Plan"
+	@dc:description "A [=TestEquipmentPlan=] is a..."
+	concept TestEquipmentPlan < info:PrescriptiveICE [
+		restricts some info:prescribes to tlo:Object
+		restricts some tlo:isContinuantPartOf to TestProcedure 
+	]
+	
+	@rdfs:label "Planned Test Condition"
+	@dc:description "A [=PlannedTestCondition=] is a..."
+	concept PlannedTestCondition < info:PrescriptiveICE [
+		restricts some info:prescribes to TestCondition
+		restricts some tlo:isContinuantPartOf to TestProcedure 
+	]
+	
+	@rdfs:label "Test Result"
+	@dc:description "A [=TestResult=] is a..."
+	concept TestResult < info:DescriptiveICE [
+		restricts all info:describes to Test
+		restricts some info:describes to Test
+	]
+	
+	@rdfs:label "Boolean Test Result"
+	@dc:description "A [=BooleanTestResult=] is a..."
+	concept BooleanTestResult < info:DescriptiveICE [
+		restricts all info:describes to Test
+		restricts some info:describes to Test
+	]
+	
+	@rdfs:label "Site Data"
+	@dc:description "A [=SiteData=] is a..."
+	concept SiteData < meas:Measurement [
+		restricts some info:describes to TestSite
+		restricts some tlo:isContinuantPartOf to TestResult 
+	]
+	
+	@rdfs:label "Test Equipment Data"
+	@dc:description "A [=TestEquipmentData=] is a..."
+	concept TestEquipmentData < meas:Measurement [
+		restricts some info:describes to tlo:Object
+		restricts some tlo:isContinuantPartOf to TestResult 
+	]
+	
+	@rdfs:label "Actual Test Condition"
+	@dc:description "A [=ActualTestCondition=] is a..."
+	concept ActualTestCondition < meas:Measurement [
+		restricts some info:describes to TestCondition
+		restricts some tlo:isContinuantPartOf to TestResult 
+	]
+	
+	
+	
+	///// Relations
+	
+	@rdfs:label "Has Test Condition"
+	@dc:description "[=HasTestCondition=] is a "
+	relation entity HasTestCondition [
+		from Test
+		to tlo:IdentifiedEntity
+		@rdfs:label "has test condition"
+		forward hasTestCondition
+		@rdfs:label "is condition of test"
+		reverse isConditionOfTest
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Triggers Test"
+	@dc:description "[=TriggersTest=] is a "
+	relation entity TriggersTest [
+		from Tester
+		to Test
+		@rdfs:label "triggers test"
+		forward triggersTest
+		@rdfs:label "test is triggered by"
+		reverse testIsTriggeredBy
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Has Test Subject"
+	@dc:description "[=HasTestSubject=] is a "
+	relation entity HasTestSubject [
+		from Test
+		to tlo:Continuant
+		@rdfs:label "has test subject"
+		forward hasTestSubject
+		@rdfs:label "is subject of test"
+		reverse isSubjectOfTest
+		asymmetric
+		irreflexive
+	]
+	< event:HasParticipant
+
+	
+	
+	///// Scalar Properties
+	
+	scalar property hasBooleanResult [
+		domain BooleanTestResult
+		range xsd:boolean
+	]
+	
+	scalar property hasTestStatus [
+		domain Test
+		range TestStatus
+	]
+	
+	scalar TestStatus [
+        oneOf "Planned", "Completed"
+    ]
+	
+	
+	///// Redefine Concepts
+	
+	// note: TestSite is a role, not a type of site
+	
+	///// Rules
+	
+	// add a rule that if a test is a verification method of a requirement, and the test output contains a BooleanTestResult, then the BooleanTestResult is about that requirement
+    
+    }

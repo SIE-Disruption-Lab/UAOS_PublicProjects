@@ -1,0 +1,196 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A library description to define relevant Units."
+@dc:hasVersion "0.1"
+description <http://uaontologies.com/UAOS_Libraries/UAOS_Units#> as Units {
+	
+////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+	
+	// Import standard vocabularies	
+	uses <http://purl.org/dc/elements/1.1/> as dc	
+	
+	// Import relevant vocabularies
+	uses <http://uaontologies.com/UAOS_Core/UAOS_Measurement#> as meas
+	extends <http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#> as dim
+	
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	///// Flat list of units
+
+	instance n-a : meas:Unit [
+		meas:hasApplicableDimension dim:Dimensionless
+	]
+	
+	instance dB : meas:Unit [
+	meas:hasApplicableDimension dim:Gain
+	]
+
+	instance day : meas:Unit [
+		meas:hasApplicableDimension dim:Time
+	]
+	
+	instance degC : meas:Unit [
+		meas:hasApplicableDimension dim:Temperature
+	]
+	
+	instance degF : meas:Unit [
+		meas:hasApplicableDimension dim:Temperature
+	]
+	
+	instance degK : meas:Unit [
+		meas:hasApplicableDimension dim:Temperature
+	]
+	
+	instance degrees : meas:Unit [
+		meas:hasApplicableDimension dim:Angle
+	]
+	
+	instance feet : meas:Unit [
+		meas:hasApplicableDimension dim:Length
+	]
+	
+	instance feetpermin : meas:Unit [
+		meas:hasApplicableDimension dim:Speed
+	]
+	
+	instance Gbps : meas:Unit [
+		meas:hasApplicableDimension dim:DataRate
+	]
+	
+	instance GHz : meas:Unit [
+		meas:hasApplicableDimension dim:Frequency
+	]
+	
+	instance gbp : meas:Unit [
+		meas:hasApplicableDimension dim:Cost
+	]
+	
+	instance Hz : meas:Unit [
+		meas:hasApplicableDimension dim:Frequency
+	]
+	
+	instance hour : meas:Unit [
+		meas:hasApplicableDimension dim:Time
+	]
+	
+	instance year : meas:Unit [
+		meas:hasApplicableDimension dim:Time
+	]
+	
+	instance kbps : meas:Unit [
+		meas:hasApplicableDimension dim:DataRate
+	]
+	
+	instance kHz : meas:Unit [
+		meas:hasApplicableDimension dim:Frequency
+	]
+	
+	instance kilogram : meas:Unit [
+		meas:hasApplicableDimension dim:Mass
+	]
+	
+	instance km : meas:Unit [
+		meas:hasApplicableDimension dim:Length
+	]
+	
+	instance knot : meas:Unit [
+		meas:hasApplicableDimension dim:Speed
+	]
+	
+	instance Mbps : meas:Unit [
+		meas:hasApplicableDimension dim:DataRate
+	]
+	
+	instance MHz : meas:Unit [
+		meas:hasApplicableDimension dim:Frequency
+	]
+	
+	instance metre : meas:Unit [
+		meas:hasApplicableDimension dim:Length
+	]
+	
+	instance metresquared : meas:Unit [
+		meas:hasApplicableDimension dim:Area
+	]
+	
+	instance metrespersecondsquared : meas:Unit [
+		meas:hasApplicableDimension dim:Acceleration
+	]
+	
+	instance millisecond : meas:Unit [
+		meas:hasApplicableDimension dim:Time
+	]
+	
+	instance minute : meas:Unit [
+		meas:hasApplicableDimension dim:Time
+	]
+	
+	instance na : meas:Unit [
+		meas:hasApplicableDimension dim:Boolean
+	]
+	
+	instance percentage : meas:Unit [
+		meas:hasApplicableDimension dim:Efficiency
+		meas:hasApplicableDimension dim:Probability
+	]
+	
+	instance pound : meas:Unit [
+		meas:hasApplicableDimension dim:Mass
+	]
+	
+	instance poundperhour : meas:Unit [
+		meas:hasApplicableDimension dim:MassFlow
+	]
+	
+	instance radians : meas:Unit [
+		meas:hasApplicableDimension dim:Angle
+	]
+	
+	instance rpm : meas:Unit [
+		meas:hasApplicableDimension dim:AngularSpeed
+	]
+	
+	instance second : meas:Unit [
+		meas:hasApplicableDimension dim:Time
+	]
+	
+	instance usd : meas:Unit [
+		meas:hasApplicableDimension dim:Cost
+	]
+	
+	instance V : meas:Unit [
+		meas:hasApplicableDimension dim:Voltage
+	]
+	
+	instance W : meas:Unit [
+		meas:hasApplicableDimension dim:Power
+	]
+	
+	instance Wh : meas:Unit [
+		meas:hasApplicableDimension dim:Capacity
+	]
+	
+	instance kmh : meas:Unit [
+		meas:hasApplicableDimension dim:Speed
+	]
+
+	instance kW : meas:Unit [
+		meas:hasApplicableDimension dim:Power
+	]
+
+	instance litre : meas:Unit [
+		meas:hasApplicableDimension dim:Volume
+	]
+
+	instance bar : meas:Unit [
+		meas:hasApplicableDimension dim:Pressure
+	]
+
+	instance mm : meas:Unit [
+		meas:hasApplicableDimension dim:Length
+	]
+	
+}

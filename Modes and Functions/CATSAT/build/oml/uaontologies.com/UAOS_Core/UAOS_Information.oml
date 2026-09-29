@@ -1,0 +1,148 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture the information patterns required by the SIE Disruption Lab. Note that this is essentially a simplified IEO."
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Core/UAOS_Information#> as UAOS_Information {
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+	
+	// Import standard vocabularies	
+	
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	///// Aspects
+	
+	
+	
+	///// Concepts
+	
+	@rdfs:label "Information Content Entity"
+	@dc:description "A [=InformationContentEntity=]..."
+	concept InformationContentEntity < tlo:GenericallyDependentContinuant [
+		restricts all tlo:hasContinuantPart to InformationContentEntity
+		restricts all tlo:isContinuantPartOf to InformationContentEntity
+	]
+		
+	@rdfs:label "Descriptive Information Content Entity"
+	@dc:description "A [=DescriptiveICE=]..."
+	concept DescriptiveICE < InformationContentEntity
+	
+	@rdfs:label "Prescriptive Information Content Entity"
+	@dc:description "A [=PrescriptiveICE=]..."
+	concept PrescriptiveICE < InformationContentEntity 
+	
+	@rdfs:label "Representational Information Content Entity"
+	@dc:description "A [=RepresentationalICE=]..."
+	concept RepresentationalICE < InformationContentEntity [
+		restricts some represents to tlo:IdentifiedEntity
+	]
+		
+	@rdfs:label "Information Artifact"
+	@dc:description "A [=InformationArtifact=]..."
+	concept InformationArtifact < tlo:Object [
+		restricts some tlo:hgd to InformationContentEntity
+	]
+		
+	@rdfs:label "Document"
+	@dc:description "A [=Document=]..."
+	concept Document < InformationArtifact
+	
+	
+	
+	///// Relations
+	
+	@rdfs:label "Is About"
+	@dc:description "[=IsAbout=] is a..."
+	relation entity IsAbout [
+		from InformationContentEntity
+		to tlo:IdentifiedEntity
+		@rdfs:label "is about"
+		forward isAbout
+		@rdfs:label "is subject of"
+		reverse isSubjectOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Describes"
+	@dc:description "[=Describes=] is a..."
+	relation entity Describes [
+		from DescriptiveICE
+		to tlo:IdentifiedEntity
+		@rdfs:label "describes"
+		forward describes
+		@rdfs:label "is described by"
+		reverse isDescribedBy
+		asymmetric
+		irreflexive
+	]
+	< IsAbout 
+	
+	@rdfs:label "Prescribes"
+	@dc:description "[=Prescribes=] is a..."
+	relation entity Prescribes [
+		from PrescriptiveICE
+		to tlo:IdentifiedEntity
+		@rdfs:label "prescribes"
+		forward prescribes
+		@rdfs:label "is Prescribed by"
+		reverse isPrescribedBy
+		asymmetric
+		irreflexive
+	]
+	< IsAbout
+	
+	@rdfs:label "Represents"
+	@dc:description "[=Represents=] is a..."
+	relation entity Represents [
+		from RepresentationalICE
+		to tlo:IdentifiedEntity
+		@rdfs:label "represents"
+		forward represents
+		@rdfs:label "is represented by"
+		reverse isRepresentedBy
+		asymmetric
+		irreflexive
+	]
+	< IsAbout  
+
+	
+	///// Scalar Properties
+	
+	
+	
+	///// Rules
+	
+	@rdfs:comment "When an IE represents something, all things contained by the IE also represent it."
+	rule IE-Inherits-Representation [
+	isAbout(a, b) & tlo:hasContinuantPart(a, c) -> isAbout(c, b)
+	]
+	
+	@rdfs:comment "When an IE represents a thing, everything contained within that thing are also represented by the IE."
+	rule Representation-is-inherited [
+	isAbout(a, b) & tlo:hasContinuantPart(b, c) -> isAbout(a, c)
+	]
+	
+	@rdfs:comment "When an IE represents a thing, everything that contains that thing are also represented by the IE."
+	rule Representation-is-owned [
+	isAbout(a, b) & tlo:hasContinuantPart(c, b) -> isAbout(a, c)
+	]
+	
+	@rdfs:comment "When an IE represents a thing, everything that contains that thing are also represented by the IE."
+	rule Dependence-is-inherited [
+	InformationArtifact(a) & tlo:hgd(a, b) & tlo:hasContinuantPart(b, c) -> tlo:hgd(a, c)
+	]
+	
+	
+}

@@ -1,0 +1,20 @@
+PREFIX tlo:    <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#>
+PREFIX modes:  <http://uaontologies.com/UAOS_Domain/UAOS_Modes#>
+
+SELECT ?system ?systemName
+       ?mode   ?modeName
+       ?function ?functionName
+WHERE {
+    # Find all Modes and the Systems they are specifically dependent on
+    ?mode    a modes:Mode ;
+             tlo:hasName ?modeName ;
+             tlo:sdo ?system .
+
+    ?system  tlo:hasName ?systemName .
+
+    # Retrieve all Functions available in that Mode (asserted + inferred)
+    ?function modes:availableIn ?mode .
+
+    OPTIONAL { ?function tlo:hasName ?functionName }
+}
+ORDER BY ?systemName ?modeName ?functionName

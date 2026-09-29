@@ -1,0 +1,423 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#"
+     xml:base="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:oml="http://opencaesar.io/oml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:UAOS_GRL="http://uaontologies.com/UAOS_Domain/UAOS_GRL#"
+     xmlns:UAOS_GRLLevels="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#">
+    <owl:Ontology rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels">
+        <owl:imports rdf:resource="http://purl.org/dc/elements/1.1"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL"/>
+        <oml:namespace rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#"/>
+        <oml:prefix>UAOS_GRLLevels</oml:prefix>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Description"/>
+        <dc:contributor>Joe Gregory</dc:contributor>
+        <dc:creator>SIE Disruption Lab</dc:creator>
+        <dc:description>A library description defining the canonical instances of GRLPhase, GRLLevel, and AssessmentThread for the General Readiness Level (GRL) framework. Provides the three phases (Foundation, Development, Operational), nine GRL levels (GRL-1 through GRL-9), and six canonical assessment threads (T, P, I, H, O, K). Source: WRT-2516 v2, Chapter 6.</dc:description>
+        <dc:hasVersion>0.1</dc:hasVersion>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://opencaesar.io/oml#hasSource -->
+
+
+    <owl:ObjectProperty rdf:about="http://opencaesar.io/oml#hasSource"/>
+    
+
+
+    <!-- http://opencaesar.io/oml#hasTarget -->
+
+
+    <owl:ObjectProperty rdf:about="http://opencaesar.io/oml#hasTarget"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasGRLValue -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasGRLValue"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasOrdinalPosition -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasOrdinalPosition"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasPhaseLabel -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasPhaseLabel"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasThreadCode -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasThreadCode"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#DevelopmentPhase -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#DevelopmentPhase">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLPhase"/>
+        <UAOS_GRL:hasPhaseLabel>Development</UAOS_GRL:hasPhaseLabel>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#FoundationPhase -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#FoundationPhase">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLPhase"/>
+        <UAOS_GRL:hasPhaseLabel>Foundation</UAOS_GRL:hasPhaseLabel>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL1">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLLevel"/>
+        <UAOS_GRL:hasGRLValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</UAOS_GRL:hasGRLValue>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL1_Phase -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL1_Phase">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasGRLPhase"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL1"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#FoundationPhase"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL2">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLLevel"/>
+        <UAOS_GRL:hasGRLValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</UAOS_GRL:hasGRLValue>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">2</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL2_Phase -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL2_Phase">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasGRLPhase"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL2"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#FoundationPhase"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL3">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLLevel"/>
+        <UAOS_GRL:hasGRLValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</UAOS_GRL:hasGRLValue>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">3</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL3_Phase -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL3_Phase">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasGRLPhase"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL3"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#FoundationPhase"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL4 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL4">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLLevel"/>
+        <UAOS_GRL:hasGRLValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</UAOS_GRL:hasGRLValue>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">4</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL4_Phase -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL4_Phase">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasGRLPhase"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL4"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#DevelopmentPhase"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL5 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL5">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLLevel"/>
+        <UAOS_GRL:hasGRLValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</UAOS_GRL:hasGRLValue>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">5</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL5_Phase -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL5_Phase">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasGRLPhase"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL5"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#DevelopmentPhase"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL6 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL6">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLLevel"/>
+        <UAOS_GRL:hasGRLValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</UAOS_GRL:hasGRLValue>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">6</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL6_Phase -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL6_Phase">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasGRLPhase"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL6"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#DevelopmentPhase"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL7 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL7">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLLevel"/>
+        <UAOS_GRL:hasGRLValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</UAOS_GRL:hasGRLValue>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">7</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL7_Phase -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL7_Phase">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasGRLPhase"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL7"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#OperationalPhase"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL8 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL8">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLLevel"/>
+        <UAOS_GRL:hasGRLValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</UAOS_GRL:hasGRLValue>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">8</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL8_Phase -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL8_Phase">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasGRLPhase"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL8"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#OperationalPhase"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL9 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL9">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLLevel"/>
+        <UAOS_GRL:hasGRLValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">9</UAOS_GRL:hasGRLValue>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">9</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL9_Phase -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL9_Phase">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasGRLPhase"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#GRL9"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#OperationalPhase"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#HumanSystemsThread -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#HumanSystemsThread">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#AssessmentThread"/>
+        <UAOS_GRL:hasThreadCode>H</UAOS_GRL:hasThreadCode>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#IntegrationThread -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#IntegrationThread">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#AssessmentThread"/>
+        <UAOS_GRL:hasThreadCode>I</UAOS_GRL:hasThreadCode>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#KnowledgeThread -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#KnowledgeThread">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#AssessmentThread"/>
+        <UAOS_GRL:hasThreadCode>K</UAOS_GRL:hasThreadCode>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#OperationalPhase -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#OperationalPhase">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLPhase"/>
+        <UAOS_GRL:hasPhaseLabel>Operational</UAOS_GRL:hasPhaseLabel>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#OrganizationalThread -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#OrganizationalThread">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#AssessmentThread"/>
+        <UAOS_GRL:hasThreadCode>O</UAOS_GRL:hasThreadCode>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#ProductionThread -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#ProductionThread">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#AssessmentThread"/>
+        <UAOS_GRL:hasThreadCode>P</UAOS_GRL:hasThreadCode>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#TechnologyThread -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#TechnologyThread">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#AssessmentThread"/>
+        <UAOS_GRL:hasThreadCode>T</UAOS_GRL:hasThreadCode>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.5.0.2023-01-14T12:41:38Z) https://github.com/owlcs/owlapi/ -->
+
+

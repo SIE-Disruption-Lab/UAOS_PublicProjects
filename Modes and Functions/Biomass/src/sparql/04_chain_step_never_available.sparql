@@ -1,0 +1,32 @@
+PREFIX tlo:    <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#>
+PREFIX modes:  <http://uaontologies.com/UAOS_Domain/UAOS_Modes#>
+
+SELECT ?chain    ?chainName
+       ?step     ?stepName
+       ?stepPos
+       ?function ?functionName
+       ?executor ?executorName
+WHERE {
+    # Locate each FunctionalChain
+    ?chain    a modes:FunctionalChain ;
+              tlo:hasName ?chainName .
+
+    # Locate each FunctionalChainStep within the chain
+    ?step     a modes:FunctionalChainStep ;
+              modes:isStepOf ?chain ;
+              modes:hasSequencePosition ?stepPos ;
+              modes:specifiesFunction ?function ;
+              modes:specifiesExecutor ?executor .
+
+    OPTIONAL { ?step     tlo:hasName ?stepName     }
+    OPTIONAL { ?function tlo:hasName ?functionName }
+    ?executor tlo:hasName ?executorName .
+
+    # VALIDITY FILTER: retain only INVALID steps — those where the specified
+    # Function is not available in any Mode of the specified executor System.
+    FILTER NOT EXISTS {
+        ?function modes:availableIn ?m .
+        ?m        tlo:sdo ?executor
+    }
+}
+ORDER BY ?chainName ?stepPos

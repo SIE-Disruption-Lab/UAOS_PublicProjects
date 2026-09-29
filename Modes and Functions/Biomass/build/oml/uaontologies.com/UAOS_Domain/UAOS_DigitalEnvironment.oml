@@ -1,0 +1,334 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary for Digital Engineering (DE) environments. Models the tool ecosystems, integration patterns, exchange standards, and DE-specific capabilities needed to compare environments across organisations and reason about digital thread continuity and interoperability. Capabilities are modelled as Disposition subclasses (SDCs) at three levels: DEToolCapability (inheres in a DETool — asserted in descriptions), DEEnvironmentCapability (inheres in a DigitalEnvironment — emerges from connected tool combinations, materialised by SPARQL UPDATE), and DEProgramCapability (inheres in an EngineeringProgramme — emerges from multi-organisation interactions, materialised by SPARQL UPDATE). This three-tier SDC pattern replaces the previous DEToolCategory/DECapability/FederatedCapability hierarchy."
+@dc:hasVersion "0.4"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_DigitalEnvironment#> as UAOS_DE {
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	/////// Vocabulary Imports ///////
+
+	// Import standard vocabularies
+	extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+    // Import relevant UAOS vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Agent#> as agent
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_EnterpriseArchitecture#> as ea
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Types#> as types
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Vocabulary Definitions ///////
+
+	///// Concepts — Tools and Environment
+
+	@rdfs:label "DE Tool"
+	@dc:description "A [=DETool=] is an ApplicationComponent used specifically within a Digital Engineering environment."
+	concept DETool < ea:ApplicationComponent
+
+	@rdfs:label "Digital Environment"
+	@dc:description "A [=DigitalEnvironment=] is the configured collection of DETools, integrations, and data structures operated by an Organisation to support its digital engineering activities."
+	concept DigitalEnvironment < tlo:Object
+
+
+	///// Concepts — DE Capability Hierarchy (three-tier SDC model)
+	//
+	// All capabilities are Dispositions (tlo:Disposition < tlo:SpecificallyDependentContinuant).
+	// Each tier is specifically dependent on a different bearer type via tlo:sdo:
+	//   DEToolCapability        → bearer: DETool              (asserted directly in descriptions)
+	//   DEEnvironmentCapability → bearer: DigitalEnvironment  (materialised by update_l2_env_capabilities.sparql)
+	//   DEProgramCapability     → bearer: EngineeringProgramme (materialised by update_l3_prog_capabilities.sparql)
+	// Subclasses are not related to each other across tiers.
+
+
+	// ── Tier 0: Tool Capability Kinds ──────────────────────────────────────────
+	// DEToolCapabilityKind instances are GDC types (DescriptiveICE + types:Type).
+	// They classify DEToolCapability SDC tokens via types:isOfType.
+	// Kind instances carry no bearer constraint — safe to assert in any description
+	// and use as phase-requirement markers in NNSA_Phase6X.oml without OWL violations.
+
+	@rdfs:label "DE Tool Capability Kind"
+	@dc:description "A [=DEToolCapabilityKind=] is a types:Type that classifies DEToolCapability instances by functional category. As a DescriptiveICE (GDC) it has no bearer constraint, making kind instances suitable as phase-requirement markers without OWL consistency issues. DEToolCapability instances are linked to their kind via types:isOfType."
+	concept DEToolCapabilityKind < info:DescriptiveICE, types:Type
+
+	@rdfs:label "Requirement Traceability Capability Kind"
+	concept RequirementTraceabilityCapabilityKind < DEToolCapabilityKind
+
+	@rdfs:label "Digital Thread Capability Kind"
+	concept DigitalThreadCapabilityKind < DEToolCapabilityKind
+
+	@rdfs:label "Data Integration Capability Kind"
+	concept DataIntegrationCapabilityKind < DEToolCapabilityKind
+
+	@rdfs:label "Architecture Modeling Capability Kind"
+	concept ArchitectureModelingCapabilityKindDE < DEToolCapabilityKind
+
+	@rdfs:label "Project Management Capability Kind"
+	concept ProjectManagementCapabilityKindDE < DEToolCapabilityKind
+
+	@rdfs:label "Simulation and Analysis Capability Kind"
+	concept SimulationAndAnalysisCapabilityKindDE < DEToolCapabilityKind
+
+	@rdfs:label "Semantic Querying Capability Kind"
+	concept SemanticQueryingCapabilityKind < DEToolCapabilityKind
+
+	@rdfs:label "Verification and Test Capability Kind"
+	concept VerificationAndTestCapabilityKind < DEToolCapabilityKind
+
+	@rdfs:label "PLM Capability Kind"
+	concept PLMCapabilityKindDE < DEToolCapabilityKind
+
+
+	// ── Tier 1: Tool Capabilities ─────────────────────────────────────────────
+
+	@rdfs:label "DE Tool Capability"
+	@dc:description "A [=DEToolCapability=] is a Disposition that inheres in a specific DETool instance (via tlo:sdo). It is also classified by a DEToolCapabilityKind instance (via types:isOfType), enabling phase-gap SPARQL queries to navigate from kind to capability token without rdf:type subclass traversal. Tool capabilities are asserted directly in descriptions."
+	concept DEToolCapability < tlo:Disposition [
+		restricts some tlo:sdo to DETool
+		restricts some types:isOfType to DEToolCapabilityKind
+	]
+
+	@rdfs:label "Requirement Traceability Capability"
+	@dc:description "The ability to capture, link, and trace requirements from stakeholder level through to verification evidence."
+	concept RequirementTraceabilityCapability < DEToolCapability
+
+	@rdfs:label "Digital Thread Capability"
+	@dc:description "The ability to maintain a connected, queryable chain of data across the full engineering lifecycle."
+	concept DigitalThreadCapability < DEToolCapability
+
+	@rdfs:label "Data Integration Capability"
+	@dc:description "The ability to automatically aggregate data from multiple tools into a unified data model via REST APIs or similar mechanisms."
+	concept DataIntegrationCapability < DEToolCapability
+
+	@rdfs:label "Architecture Modeling Capability"
+	@dc:description "The ability to create, manage, and query system architecture models."
+	concept ArchitectureModelingCapabilityDE < DEToolCapability
+
+	@rdfs:label "Project Management Capability"
+	@dc:description "The ability to plan, track, and manage engineering project tasks and milestones."
+	concept ProjectManagementCapabilityDE < DEToolCapability
+
+	@rdfs:label "Simulation and Analysis Capability"
+	@dc:description "The ability to run physics-based simulations or quantitative analyses of system designs."
+	concept SimulationAndAnalysisCapabilityDE < DEToolCapability
+
+	@rdfs:label "Semantic Querying Capability"
+	@dc:description "The ability to query engineering data using semantic web technologies (SPARQL, OWL reasoning)."
+	concept SemanticQueryingCapability < DEToolCapability
+
+	@rdfs:label "Verification and Test Capability"
+	@dc:description "The ability to manage test cases, test campaigns, and verification evidence within the DE environment."
+	concept VerificationAndTestCapability < DEToolCapability
+
+	@rdfs:label "PLM Capability"
+	@dc:description "The ability to manage product lifecycle data including product structure, bill of materials, configuration items, change control, and model visualisation."
+	concept PLMCapabilityDE < DEToolCapability
+
+
+	// ── Tier 2: Environment Capabilities ──────────────────────────────────────
+
+	@rdfs:label "DE Environment Capability"
+	@dc:description "A [=DEEnvironmentCapability=] is a Disposition that inheres in a DigitalEnvironment. It emerges from the specific combination and connectivity of DETools within that environment. Environment capabilities are NOT asserted directly in descriptions — they are materialised by SPARQL UPDATE queries (update_l2_env_capabilities.sparql) after OWL reasoning and owlLoad."
+	concept DEEnvironmentCapability < tlo:Disposition [
+		restricts some tlo:sdo to DigitalEnvironment
+	]
+
+	@rdfs:label "Verification Traceability Capability"
+	@dc:description "Emergent environment capability: the environment has both a requirements management tool and a V&T tool connected (via shared integration hub or directly), enabling end-to-end traceability from test result back to requirement."
+	concept VerificationTraceabilityCapability < DEEnvironmentCapability
+
+	@rdfs:label "Design Analysis Loop Capability"
+	@dc:description "Emergent environment capability: the environment has both an architecture modelling tool and a simulation/analysis tool connected (via hub or directly), enabling iterative model-based design analysis."
+	concept DesignAnalysisLoopCapability < DEEnvironmentCapability
+
+	@rdfs:label "Digital Thread Readiness Capability"
+	@dc:description "Emergent environment capability: all five discipline tools (requirements, architecture, PM, simulation, and V&T) are connected to a shared integration hub, producing a fully queryable digital thread across the engineering lifecycle."
+	concept DigitalThreadReadinessCapability < DEEnvironmentCapability
+
+
+	// ── Tier 3: Programme Capabilities ────────────────────────────────────────
+
+	@rdfs:label "DE Programme Capability"
+	@dc:description "A [=DEProgramCapability=] is a Disposition that inheres in an EngineeringProgramme. It emerges from the combined capabilities and integration pathways of multiple member organisations. Programme capabilities are NOT asserted directly in descriptions — they are materialised by SPARQL UPDATE queries (update_l3_prog_capabilities.sparql) after Tier 2 materialisation."
+	concept DEProgramCapability < tlo:Disposition [
+		restricts some tlo:sdo to ea:EngineeringProgramme
+	]
+
+	@rdfs:label "Federated Requirements Management"
+	@dc:description "Emergent programme capability: two or more member organisations share requirements via a semantically-grounded integration (OSLC or UAOS-backed hub), enabling live cross-organisational traceability."
+	concept FederatedRequirementsManagement < DEProgramCapability
+
+	@rdfs:label "Cross-Org Semantic Continuity"
+	@dc:description "Emergent programme capability: two or more member organisations both operate hub-based DE environments with at least one cross-org hub-to-hub link, producing a shared semantic graph spanning organisational boundaries."
+	concept CrossOrgSemanticContinuity < DEProgramCapability
+
+	@rdfs:label "Joint Design Analysis"
+	@dc:description "Emergent programme capability: two or more member organisations each have a DesignAnalysisLoopCapability and share at least one cross-org integration, enabling coordinated model-based analysis across the programme."
+	concept JointDesignAnalysis < DEProgramCapability
+
+
+	///// Concepts — Integration and Exchange
+
+	@rdfs:label "Data Exchange Standard"
+	@dc:description "A [=DataExchangeStandard=] is a PrescriptiveICE that specifies how data is formatted and transmitted between DETools."
+	concept DataExchangeStandard < info:PrescriptiveICE
+
+	@rdfs:label "OSLC"
+	concept OSLC < DataExchangeStandard
+
+	@rdfs:label "ReqIF"
+	concept ReqIF < DataExchangeStandard
+
+	@rdfs:label "REST JSON"
+	concept REST_JSON < DataExchangeStandard
+
+	@rdfs:label "OML RDF"
+	concept OML_RDF < DataExchangeStandard
+
+	@rdfs:label "SysML XMI"
+	concept SysML_XMI < DataExchangeStandard
+
+	@rdfs:label "MS Project Format"
+	concept MSProjectFormat < DataExchangeStandard
+
+	@rdfs:label "Tool Integration"
+	@dc:description "A [=ToolIntegration=] represents a configured data exchange pathway between a source DETool and a target DETool, using a specified DataExchangeStandard."
+	concept ToolIntegration < tlo:GenericallyDependentContinuant [
+		restricts some hasSourceTool to DETool
+		restricts some hasTargetTool to DETool
+		restricts some usesExchangeStandard to DataExchangeStandard
+	]
+
+
+	///// Relations
+
+	@rdfs:label "Has Installed Tool"
+	@dc:description "[=HasInstalledTool=] relates a DigitalEnvironment to a DETool deployed within it."
+	relation entity HasInstalledTool [
+		from DigitalEnvironment
+		to DETool
+		@rdfs:label "has installed tool"
+		forward hasInstalledTool
+		@rdfs:label "is installed in"
+		reverse isInstalledIn
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Operated By"
+	@dc:description "[=OperatedBy=] relates a DigitalEnvironment to the Organisation that operates it."
+	relation entity OperatedBy [
+		from DigitalEnvironment
+		to agent:Organization
+		@rdfs:label "operated by"
+		forward operatedBy
+		@rdfs:label "operates"
+		reverse operates
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Source Tool"
+	@dc:description "[=HasSourceTool=] identifies the source DETool in a ToolIntegration."
+	relation entity HasSourceTool [
+		from ToolIntegration
+		to DETool
+		@rdfs:label "has source tool"
+		forward hasSourceTool
+		@rdfs:label "is source tool of"
+		reverse isSourceToolOf
+		asymmetric
+		irreflexive
+		functional
+	]
+
+	@rdfs:label "Has Target Tool"
+	@dc:description "[=HasTargetTool=] identifies the target DETool in a ToolIntegration."
+	relation entity HasTargetTool [
+		from ToolIntegration
+		to DETool
+		@rdfs:label "has target tool"
+		forward hasTargetTool
+		@rdfs:label "is target tool of"
+		reverse isTargetToolOf
+		asymmetric
+		irreflexive
+		functional
+	]
+
+	@rdfs:label "Uses Exchange Standard"
+	@dc:description "[=UsesExchangeStandard=] relates a ToolIntegration to the DataExchangeStandard it uses."
+	relation entity UsesExchangeStandard [
+		from ToolIntegration
+		to DataExchangeStandard
+		@rdfs:label "uses exchange standard"
+		forward usesExchangeStandard
+		@rdfs:label "is exchange standard of"
+		reverse isExchangeStandardOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Environment Integration"
+	@dc:description "[=HasEnvironmentIntegration=] relates a DigitalEnvironment to a ToolIntegration that operates within or from it."
+	relation entity HasEnvironmentIntegration [
+		from DigitalEnvironment
+		to ToolIntegration
+		@rdfs:label "has environment integration"
+		forward hasEnvironmentIntegration
+		@rdfs:label "is integration of environment"
+		reverse isIntegrationOfEnvironment
+		asymmetric
+		irreflexive
+	]
+
+
+	///// Scalar Properties
+
+	@rdfs:label "has tool vendor"
+	scalar property hasToolVendor [
+		domain DETool
+		range xsd:string
+	]
+
+	@rdfs:label "is open source"
+	scalar property isOpenSource [
+		domain DETool
+		range xsd:boolean
+	]
+
+	@rdfs:label "integration is bidirectional"
+	scalar property isBidirectional [
+		domain ToolIntegration
+		range xsd:boolean
+	]
+
+	@rdfs:label "integration fidelity"
+	@dc:description "Qualitative fidelity level: 'Full', 'Partial', or 'Manual'."
+	scalar property integrationFidelity [
+		domain ToolIntegration
+		range xsd:string
+	]
+
+	@rdfs:label "is semantic integration"
+	@dc:description "True if this ToolIntegration carries semantically-grounded data — either via the UAOS-backed hub or via OSLC (which preserves linked-data semantics). False for purely syntactic formats such as ReqIF, SysML XMI, or MS Project format."
+	scalar property isSemanticIntegration [
+		domain ToolIntegration
+		range xsd:boolean
+	]
+
+
+	///// Rules
+
+	@rdfs:comment "If a DigitalEnvironment has a tool with an integration whose source is that tool, the environment has that integration. This populates hasEnvironmentIntegration for SPARQL navigation."
+	rule Environment_inherits_integrations [
+		hasInstalledTool(env, tool) & hasSourceTool(integ, tool) -> hasEnvironmentIntegration(env, integ)
+	]
+
+
+}

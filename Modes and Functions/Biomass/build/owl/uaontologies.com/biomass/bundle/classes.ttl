@@ -1,0 +1,488 @@
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#isOccurrentPartOf>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_States#triggeredBy>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasOccurrentPart>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#isRepresentedBy>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasStep>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasStep> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Disposition> , <http://uaontologies.com/UAOS_Domain/UAOS_States#State> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentContinuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#RealizableEntity> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#TemporalRegion>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Occurrent> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#TemporalRegion> .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#InformationArtifact>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#MaterialEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_Core/UAOS_Information#InformationArtifact> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Object> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IndependentContinuant> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentOn>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentOn> .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#describes>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#canOutput>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#Prescribes>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Core/UAOS_Information#IsAbout> , <http://uaontologies.com/UAOS_Core/UAOS_Information#Prescribes> .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#isSiteOf>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#IsAbout>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Core/UAOS_Information#IsAbout> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasMemberPart>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#canBeOutputOf>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#isTemporalRegionOf>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#hasSequencePosition>
+        rdf:type  owl:DatatypeProperty .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#occursOn>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasEndInstant>
+        rdf:type  owl:DatatypeProperty .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#OccursBefore>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Core/UAOS_Event#OccursBefore> .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#occursAfter>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#hasSubTransition>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentContinuant>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentContinuant> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#SOIRole>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#RealizableEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentContinuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Role> , <http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#SOIRole> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasSpatialPart>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_States#enters>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#gdo>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#causes>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasMemberPart>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasContinuantPart> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasMemberPart> .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#ManifestsIn>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Core/UAOS_Event#ManifestsIn> .
+
+owl:Nothing  rdf:type  owl:Class .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#isSubTransitionOf>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#isStepOf>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IndependentContinuant>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IndependentContinuant> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Disposition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#RealizableEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentContinuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Disposition> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Object>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IndependentContinuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#MaterialEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Object> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_States#exits>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentOn>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentOn> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_States#Incorporates>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Domain/UAOS_States#Incorporates> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hsd>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#interactsWith>
+        rdf:type  owl:SymmetricProperty , owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#executes>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#isCauseOf>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#isManifestationOf>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentContinuant>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentContinuant> .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#OccursOn>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Core/UAOS_Event#OccursOn> .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#PrescriptiveICE>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentContinuant> , <http://uaontologies.com/UAOS_Core/UAOS_Information#InformationContentEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_Core/UAOS_Information#PrescriptiveICE> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Role>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#RealizableEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentContinuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Role> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_States#enteredBy>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GDCCarrier>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GDCCarrier> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#ObjectAggregate>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IndependentContinuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#MaterialEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#ObjectAggregate> .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#occursAt>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#isSubjectOf>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasID>
+        rdf:type  owl:DatatypeProperty .
+
+owl:Thing  rdf:type  owl:Class .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentContinuant> , <http://uaontologies.com/UAOS_Core/UAOS_Information#InformationContentEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE> .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#represents>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#manifestsIn>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_States#incorporates>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#isPrescribedBy>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#Document>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Object> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_Core/UAOS_Information#InformationArtifact> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#MaterialEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IndependentContinuant> , <http://uaontologies.com/UAOS_Core/UAOS_Information#Document> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#canInput>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#HasParticipant>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Core/UAOS_Event#HasParticipant> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_States#triggers>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasNaturalLanguageDescription>
+        rdf:type  owl:DatatypeProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#InteractsWith>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#InteractsWith> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_States#TransitionOccurrence>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Occurrent> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Process> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_Domain/UAOS_States#TransitionOccurrence> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#isMemberPartOf>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#hasStep>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#executedBy>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasContinuantPart>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#occupies>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Occurrent>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Occurrent> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#ImmaterialEntity>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IndependentContinuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#ImmaterialEntity> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn> .
+
+<http://uaontologies.com/biomass/bundle/classes>
+        rdf:type         owl:Ontology ;
+        rdfs:comment     "Generated by Owl Reason 2.15.0" ;
+        owl:imports      <http://uaontologies.com/biomass/bundle> ;
+        owl:versionInfo  "1787030026" .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#occursBefore>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#makesAvailable>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_States#State>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#RealizableEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentContinuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Disposition> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_Domain/UAOS_States#State> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#specifiesFunction>
+        rdf:type  owl:ObjectProperty .
+
+owl:topObjectProperty
+        rdf:type  owl:SymmetricProperty , owl:TransitiveProperty , owl:ObjectProperty .
+
+owl:topDataProperty  rdf:type  owl:DatatypeProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasOccurrentPart>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasOccurrentPart> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#isContinuantPartOf>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#ExternalEntity>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#RealizableEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentContinuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Role> , <http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#ExternalEntity> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#specifiesExecutor>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasSpatialPart>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasContinuantPart> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasSpatialPart> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#FunctionalChainStep>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentContinuant> , <http://uaontologies.com/UAOS_Core/UAOS_Information#PrescriptiveICE> , <http://uaontologies.com/UAOS_Core/UAOS_Information#InformationContentEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_Domain/UAOS_Modes#FunctionalChainStep> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_States#Transition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#RealizableEntity> , <http://uaontologies.com/UAOS_Domain/UAOS_States#Transition> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Disposition> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentContinuant> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasName>
+        rdf:type  owl:DatatypeProperty .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#InformationContentEntity>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentContinuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_Core/UAOS_Information#InformationContentEntity> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#canBeInputOf>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#isAbout>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#RealizableEntity>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentContinuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#RealizableEntity> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#MaterialEntity>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IndependentContinuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#MaterialEntity> .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#OccursAt>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Core/UAOS_Event#OccursAt> .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#isDescribedBy>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#Causes>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Core/UAOS_Event#Causes> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_States#TriggeredBy>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Domain/UAOS_States#TriggeredBy> .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#prescribes>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#isExecutorSpecifiedBy>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_States#exitedBy>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#CanInput>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#CanInput> .
+
+<http://opencaesar.io/oml#hasSource>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#availableIn>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#RealizableEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentContinuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Disposition> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function> .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#Describes>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Core/UAOS_Information#IsAbout> , <http://uaontologies.com/UAOS_Core/UAOS_Information#Describes> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hgd>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasBeginInstant>
+        rdf:type  owl:DatatypeProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Occupies>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Occupies> .
+
+<http://opencaesar.io/oml#hasTarget>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#CanOutput>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#CanOutput> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#System>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IndependentContinuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Object> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#System> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#MaterialEntity> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_States#incorporatedIn>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Quality>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentContinuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Quality> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasContinuantPart>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasContinuantPart> .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#RepresentationalICE>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentContinuant> , <http://uaontologies.com/UAOS_Core/UAOS_Information#InformationContentEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_Core/UAOS_Information#RepresentationalICE> .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Information#Represents>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Core/UAOS_Information#IsAbout> , <http://uaontologies.com/UAOS_Core/UAOS_Information#Represents> .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#isParticipantOf>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition> .
+
+<http://uaontologies.com/UAOS_Core/UAOS_Event#hasParticipant>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Energy>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IndependentContinuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#ImmaterialEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Energy> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Process>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Occurrent> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Process> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#isSpatialPartOf>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#ExecutedBy>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Core/UAOS_Event#HasParticipant> , <http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#ExecutedBy> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#SpecifiesFunction>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Domain/UAOS_Modes#SpecifiesFunction> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#isFunctionSpecifiedBy>
+        rdf:type  owl:ObjectProperty .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Site>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IndependentContinuant> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#ImmaterialEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GDCCarrier> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Site> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#FunctionalChain>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentContinuant> , <http://uaontologies.com/UAOS_Core/UAOS_Information#PrescriptiveICE> , <http://uaontologies.com/UAOS_Core/UAOS_Information#InformationContentEntity> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant> , <http://uaontologies.com/UAOS_Domain/UAOS_Modes#FunctionalChain> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_Modes#SpecifiesExecutor>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_Domain/UAOS_Modes#SpecifiesExecutor> .
+
+<http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#FunctionOccurrence>
+        rdf:type         owl:Class ;
+        rdfs:subClassOf  <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Occurrent> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Process> , <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity> , <http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#FunctionOccurrence> .
+
+<http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#isOccupiedBy>
+        rdf:type  owl:ObjectProperty .

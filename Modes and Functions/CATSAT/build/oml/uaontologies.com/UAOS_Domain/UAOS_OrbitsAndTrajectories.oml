@@ -1,0 +1,107 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture orbits and trajectories"
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_OrbitsAndTrajectories#> as UAOS_OrbitsAndTrajectories {
+
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+		
+	// Import standard vocabularies	
+	extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Event#> as event
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Measurement#> as meas
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_MissionEngineering#> as me
+		
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions /////// TO BE UPDATED IN LINE WITH MEOntology
+	
+	///// Aspects
+	
+	
+	///// Concepts
+	
+	@rdfs:label "SpaceMission"
+	@dc:description "A [=SpaceMission=] is a..."
+	concept SpaceMission < me:Mission [
+		restricts some hasSpaceFlightPhase to SpaceFlight
+		restricts all hasSpaceFlightPhase to SpaceFlight
+	]
+	
+	@rdfs:label "SpaceFlight"
+	@dc:description "A [=SpaceFlight=] is a..."
+	concept SpaceFlight < tlo:Process[
+		restricts some event:hasParticipant to tlo:MaterialEntity
+	]	
+	
+	@rdfs:label "Orbit"
+	@dc:description "A [=Orbit=] is a..."
+	concept Orbit < SpaceFlight [
+		restricts some event:occursAt to OrbitalPath
+	]
+	
+	@rdfs:label "OrbitalPath"
+	@dc:description "A [=OrbitalPath=] is a..."
+	concept OrbitalPath < tlo:Site
+	
+	@rdfs:label "Orbital SMA"
+	@dc:description "A [=OrbitalSMA=] is a..."
+	concept Orbital_SMA < meas:Quantity [
+		restricts some tlo:sdo to OrbitalPath
+	]
+	
+	@rdfs:label "Orbital ECC"
+	@dc:description "A [=OrbitalECC=] is a..."
+	concept Orbital_ECC < meas:Quantity [
+		restricts some tlo:sdo to OrbitalPath
+	]
+	
+	@rdfs:label "Orbital INC"
+	@dc:description "A [=OrbitalINC=] is a..."
+	concept Orbital_INC < meas:Quantity [
+		restricts some tlo:sdo to OrbitalPath
+	]
+	
+	@rdfs:label "Orbital AOP"
+	@dc:description "A [=OrbitalAOP=] is a..."
+	concept Orbital_AOP < meas:Quantity [
+		restricts some tlo:sdo to OrbitalPath
+	]
+	
+	@rdfs:label "Orbital LAN"
+	@dc:description "A [=OrbitalLAN=] is a..."
+	concept Orbital_LAN < meas:Quantity [
+		restricts some tlo:sdo to OrbitalPath
+	]
+	
+	@rdfs:label "Orbital TA"
+	@dc:description "A [=OrbitalTA=] is a..."
+	concept Orbital_TA < meas:Quantity [
+		restricts some tlo:sdo to OrbitalPath
+	]
+	
+
+	///// Relations
+	
+	@rdfs:label "HasSpaceFlightPhase"
+	@dc:description "[=HasSpaceFlightPhase=] is a..."
+	relation entity HasSpaceFlightPhase [
+		from SpaceMission
+		to SpaceFlight
+		@rdfs:label "has spaceflight phase"
+		forward hasSpaceFlightPhase
+		@rdfs:label "spaceflight phase of"
+		reverse spaceFlightPhaseOf
+		asymmetric
+		irreflexive
+	]
+
+
+}

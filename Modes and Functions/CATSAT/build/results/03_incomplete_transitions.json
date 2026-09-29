@@ -1,0 +1,14 @@
+{ "head": {
+    "vars": [ "transition" , "transitionName" , "system" , "systemName" ]
+  } ,
+  "results": {
+    "bindings": [
+      { 
+        "transition": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_rwa_sci_to_nom" } ,
+        "transitionName": { "type": "literal" , "value": "RWA Science-to-Nominal Transition" } ,
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa" } ,
+        "systemName": { "type": "literal" , "value": "Reaction Wheel Assembly" }
+      }
+    ]
+  }
+}

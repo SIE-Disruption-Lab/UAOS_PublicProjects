@@ -1,0 +1,416 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Paul Wach"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary defining the 4D Assessment Framework — a multi-dimensional readiness scoring methodology that combines evidence quality (D1), system readiness via GRL (D2), governance compliance (D3), and product/process quality (D4) into a score vector a(x) = (d1, d2, d3, d4). Includes score vectors, governance domain and policy machinery, quality profiles and sub-characteristics, a structural and dimensional gap taxonomy, binding constraints per Theory of Constraints, and data provenance roles. Formalises the 4D framework from WRT-2516 Chapter 8."
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_4DAssessment#> as UAOS_4DAssessment {
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	/////// Vocabulary Imports ///////
+
+	// Import standard vocabularies
+	extends <http://purl.org/dc/elements/1.1/> as dc
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	// Import relevant vocabularies
+	extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_Requirements#> as req
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_GRL#> as grl
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Vocabulary Definitions ///////
+
+
+	///// Aspects
+
+
+	///// Concepts
+
+	// --- Assessment framework and element ---
+
+	@rdfs:label "Assessed Element"
+	@dc:description "An [=AssessedElement=] is a Role borne by a material entity (system, subsystem, component, or capability) in the context of a 4D assessment — the role of 'being the entity under assessment'. As a role, it is intentionally tool-agnostic (no Cameo, Jama, or vendor-specific subtypes). The bearer of this role has qualities (actual readiness, quality sub-characteristics) that are measured and recorded as ScoreVectors."
+	concept AssessedElement < tlo:Role
+
+	@rdfs:label "Capability Thread Instance"
+	@dc:description "A [=CapabilityThreadInstance=] is a Role borne by an AssessedElement in the context of a specific assessment thread — it is the role of 'being the T-thread participant' (or P, I, H, O, K) for a given element in the framework hierarchy. As a role, it is a realizable entity that enables thread-level GRL scoring for each applicable dimension of readiness concern."
+	concept CapabilityThreadInstance < tlo:Role
+
+	@rdfs:label "Framework Layer"
+	@dc:description "A [=FrameworkLayer=] is a Role borne by an AssessedElement in the context of the readiness roadmap hierarchy — it is the role of 'occupying level L' (e.g., Mission, Capability, System, Subsystem) within the framework. As a role, it is a realizable entity that enables VerticalGap and HorizontalGap analysis across adjacent hierarchy levels."
+	concept FrameworkLayer < tlo:Role
+
+	// --- Score vector ---
+
+	@rdfs:label "Score Vector"
+	@dc:description "A [=ScoreVector=] is a DescriptiveICE that records the 4D assessment result for one AssessedElement as an ordered tuple a(x) = (d1, d2, d3, d4) across the four assessment axes. ScoreVectors are information content entities — they record the measurement result, distinct from the actual readiness quality inhering in the system. Multiple assessors may produce different ScoreVectors for the same element at the same time, enabling provenance tracking and assessor disagreement analysis."
+	concept ScoreVector < info:DescriptiveICE
+
+	// --- Evidence quality categories ---
+
+	@rdfs:label "Evidence Quality Category"
+	@dc:description "An [=EvidenceQualityCategory=] is a DescriptiveICE that represents one of the nine categories on the D1 evidence quality scale (EQ-0 through EQ-8). Categories are ordered ordinally by their evidenceNumeric and hasOrdinalPosition values (from UAOS_GRL). EQ-0 represents no usable evidence; EQ-8 represents the highest-quality operational evidence. The D1 scale is non-monotonic: evidence quality can regress. Canonical instances are defined in the UAOS_EvidenceCategories library description."
+	concept EvidenceQualityCategory < info:DescriptiveICE
+
+	// --- Governance machinery ---
+
+	@rdfs:label "Governance Domain"
+	@dc:description "A [=GovernanceDomain=] is a PrescriptiveICE that specifies a regulatory or governance domain applicable to an AssessedElement — for example, cybersecurity (RMF, CMMC), safety (MIL-STD-882), or acquisition policy (DoD 5000 series). Governance domains define the scope and compliance scale for D3 (GovernanceAxis) scoring. A GovernanceDomain carries its own ComplianceScale because different regulatory bodies use different scoring conventions."
+	concept GovernanceDomain < info:PrescriptiveICE
+
+	@rdfs:label "Compliance Scale"
+	@dc:description "A [=ComplianceScale=] is a DescriptiveICE that specifies the scoring scale used by a GovernanceDomain to express compliance levels (e.g., binary yes/no, 5-point Likert, percentage 0-100). Each GovernanceDomain carries exactly one ComplianceScale so that D3 scores can be normalised across domains."
+	concept ComplianceScale < info:DescriptiveICE
+
+	@rdfs:label "Tailoring Set"
+	@dc:description "A [=TailoringSet=] is a PrescriptiveICE that specifies the configuration of governance domains applicable to a particular programme or assessment context. The tailoring set identifies which GovernanceDomains are active and therefore which RegulatoryRequirements and ComplianceScales apply. Tailoring sets enable programme-specific D3 scoring without modifying the underlying governance domain specifications."
+	concept TailoringSet < info:PrescriptiveICE
+
+	@rdfs:label "Regulatory Requirement"
+	@dc:description "A [=RegulatoryRequirement=] is a Requirement derived from a regulatory or policy mandate within a GovernanceDomain. Regulatory requirements are traceable to authoritative sources (statutes, directives, standards) and serve as the targets of D3 compliance scoring."
+	concept RegulatoryRequirement < req:Requirement
+
+	@rdfs:label "Policy Requirement"
+	@dc:description "A [=PolicyRequirement=] is a RegulatoryRequirement that represents a specific policy mandate. PolicyRequirements carry an isAntiquated flag to support detection of outdated policy that may artificially inflate or depress D3 compliance scores. An antiquated PolicyRequirement should be accompanied by a PolicyCorrection documenting the proposed update."
+	concept PolicyRequirement < RegulatoryRequirement
+
+	@rdfs:label "Policy Correction"
+	@dc:description "A [=PolicyCorrection=] is a PrescriptiveICE that documents a proposed correction to an antiquated PolicyRequirement — recording the rationale for the correction and the recommended updated requirement text. PolicyCorrections support D3 gap analysis by surfacing policy issues that distort compliance scores and cannot be resolved by the programme alone."
+	concept PolicyCorrection < info:PrescriptiveICE
+
+	// --- Quality profile machinery ---
+
+	@rdfs:label "Quality Profile"
+	@dc:description "A [=QualityProfile=] is a DescriptiveICE that records the D4 quality assessment result for an AssessedElement — a multi-attribute record of quality scores across applicable QualitySubCharacteristics aligned with ISO 25010 and ISO 25012. The aggregate D4 score is the median of constituent sub-characteristic scores (ordinal-valid and robust to outliers)."
+	concept QualityProfile < info:DescriptiveICE
+
+	@rdfs:label "Quality Family"
+	@dc:description "A [=QualityFamily=] is a DescriptiveICE that groups related QualitySubCharacteristics under a named ISO 25010 / ISO 25012 family heading. Example families: Reliability, Usability, Performance Efficiency, Security, Maintainability, Portability, Functional Suitability."
+	concept QualityFamily < info:DescriptiveICE
+
+	@rdfs:label "Quality Sub-Characteristic"
+	@dc:description "A [=QualitySubCharacteristic=] is a Quality that inheres in the product or process being assessed. It represents one of the ISO 25010 / ISO 25012 quality attributes (e.g., Availability, Fault Tolerance, Operability, Confidentiality) at which D4 scoring is targeted. As a BFO Quality, it inheres in its bearer and cannot be separated from it — the QualityProfile records the measured value, not the quality itself."
+	concept QualitySubCharacteristic < tlo:Quality
+
+	// --- Gap taxonomy ---
+
+	@rdfs:label "Gap"
+	@dc:description "A [=Gap=] is a Process constituting a gap analysis — the comparison of current state against target state that reveals a discrepancy across dimensions, threads, or hierarchy layers. Gaps are processes because they unfold through assessment as discrepancies are discovered. The gap report that records the finding is a DescriptiveICE; the Gap class represents the analysis activity that produces it."
+	concept Gap < tlo:Process
+
+	@rdfs:label "Structural Gap"
+	@dc:description "A [=StructuralGap=] is a Gap analysis process that reveals a discrepancy in the hierarchical structure of the assessment framework — between layers (VerticalGap), within a layer (HorizontalGap), or between resource availability and programme ambition (FeasibilityGap)."
+	concept StructuralGap < Gap
+
+	@rdfs:label "Vertical Gap"
+	@dc:description "A [=VerticalGap=] is a StructuralGap that reveals a readiness discrepancy between hierarchy layers — for example, a subsystem scored GRL 5 while the system it belongs to is claimed at GRL 7. Vertical gaps indicate that parent-level claims are not supported by child-level evidence and are detected by comparing GRL scores across adjacent FrameworkLayers."
+	concept VerticalGap < StructuralGap
+
+	@rdfs:label "Horizontal Gap"
+	@dc:description "A [=HorizontalGap=] is a StructuralGap that reveals a readiness discrepancy within a single hierarchy layer — for example, elements at the same layer scored significantly differently across threads or assessors. Horizontal gaps indicate uneven readiness that may mask systemic weaknesses hidden by averaging."
+	concept HorizontalGap < StructuralGap
+
+	@rdfs:label "Feasibility Gap"
+	@dc:description "A [=FeasibilityGap=] is a StructuralGap that reveals a mismatch between programme resource availability and the readiness ambition encoded in the assessment roadmap. Feasibility gaps apply the Goldratt Theory of Constraints lens to the programme resource-ambition ratio, flagging programmes where ambitions cannot be met with available resources."
+	concept FeasibilityGap < StructuralGap
+
+	@rdfs:label "Dimensional Gap"
+	@dc:description "A [=DimensionalGap=] is a Gap analysis process that reveals a cross-dimension discrepancy in the ScoreVector — for example, a system scored high on D2 (GRL) but low on D1 (evidence quality), suggesting over-claimed readiness. Three canonical cross-dimension gaps are defined."
+	concept DimensionalGap < Gap
+
+	@rdfs:label "Quality Readiness Gap"
+	@dc:description "A [=QualityReadinessGap=] is a DimensionalGap revealing a discrepancy between D4 (product quality) and D2 (system readiness/GRL) scores — for example, a GRL 7 claim accompanied by poor ISO quality sub-characteristic scores, suggesting that operational readiness is claimed without commensurate product quality."
+	concept QualityReadinessGap < DimensionalGap
+
+	@rdfs:label "Quality Evidence Gap"
+	@dc:description "A [=QualityEvidenceGap=] is a DimensionalGap revealing a discrepancy between D4 (product quality) and D1 (evidence quality) scores — for example, high quality sub-characteristic scores that are unsupported by adequate evidence, indicating that quality claims are asserted rather than demonstrated."
+	concept QualityEvidenceGap < DimensionalGap
+
+	@rdfs:label "Quality Compliance Gap"
+	@dc:description "A [=QualityComplianceGap=] is a DimensionalGap revealing a discrepancy between D4 (product quality) and D3 (governance compliance) scores — for example, high ISO product quality scores paired with inadequate regulatory compliance, suggesting that quality is achieved in ways that are not governance-compliant."
+	concept QualityComplianceGap < DimensionalGap
+
+	// --- Binding constraint ---
+
+	@rdfs:label "Binding Constraint"
+	@dc:description "A [=BindingConstraint=] is a DescriptiveICE that records the bottleneck finding from a 4D assessment — the single element, thread, or dimension that most constrains the overall readiness score, analogous to the constraint in Goldratt's Theory of Constraints. A BindingConstraint is a documented finding (information artifact) distinct from the bottleneck phenomenon itself. The overall programme GRL is bounded by its BindingConstraint."
+	concept BindingConstraint < info:DescriptiveICE
+
+	// --- Data provenance roles ---
+
+	@rdfs:label "Data Owner"
+	@dc:description "A [=DataOwner=] is a Role borne by an agent that is responsible for the accuracy, currency, and governance of 4D assessment data for an AssessedElement. The DataOwner role confers accountability for the ScoreVector and its supporting evidence in the context of a specific assessment."
+	concept DataOwner < tlo:Role
+
+	@rdfs:label "Data Originator"
+	@dc:description "A [=DataOriginator=] is a Role borne by an agent that is responsible for creating and submitting the original assessment data for an AssessedElement. Distinct from DataOwner: the originator produces the data; the owner is accountable for it. Multiple originators may contribute to a single element's assessment."
+	concept DataOriginator < tlo:Role
+
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Relations ///////
+
+	@rdfs:label "Has Score Vector"
+	@dc:description "[=HasScoreVector=] relates an AssessedElement to a ScoreVector that records its 4D assessment result. An element may accumulate multiple ScoreVectors over time (versioned assessments) or from different assessors, enabling trend analysis and assessor disagreement tracking."
+	relation entity HasScoreVector [
+		from AssessedElement
+		to ScoreVector
+		@rdfs:label "has score vector"
+		forward hasScoreVector
+		@rdfs:label "score vector of"
+		reverse scoreVectorOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Evidence Category"
+	@dc:description "[=HasEvidenceCategory=] relates a ScoreVector to the EvidenceQualityCategory recording its D1 evidence quality score. Exactly one EvidenceQualityCategory per ScoreVector."
+	relation entity HasEvidenceCategory [
+		from ScoreVector
+		to EvidenceQualityCategory
+		@rdfs:label "has evidence category"
+		forward hasEvidenceCategory
+		@rdfs:label "evidence category of"
+		reverse evidenceCategoryOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has GRL Level"
+	@dc:description "[=HasGRLLevel=] relates a ScoreVector to the GRLLevel recording its D2 system readiness score. Exactly one GRLLevel per ScoreVector."
+	relation entity HasGRLLevel [
+		from ScoreVector
+		to grl:GRLLevel
+		@rdfs:label "has GRL level"
+		forward hasGRLLevel
+		@rdfs:label "GRL level of"
+		reverse grlLevelOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Quality Profile"
+	@dc:description "[=HasQualityProfile=] relates a ScoreVector to the QualityProfile recording its D4 product/process quality score. Exactly one QualityProfile per ScoreVector."
+	relation entity HasQualityProfile [
+		from ScoreVector
+		to QualityProfile
+		@rdfs:label "has quality profile"
+		forward hasQualityProfile
+		@rdfs:label "quality profile of"
+		reverse qualityProfileOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Quality Sub-Characteristic"
+	@dc:description "[=HasQualitySubCharacteristic=] relates a QualityProfile to a QualitySubCharacteristic whose score is recorded within it. A profile may include scores for any applicable subset of ISO 25010 / ISO 25012 sub-characteristics."
+	relation entity HasQualitySubCharacteristic [
+		from QualityProfile
+		to QualitySubCharacteristic
+		@rdfs:label "has quality sub-characteristic"
+		forward hasQualitySubCharacteristic
+		@rdfs:label "quality sub-characteristic of"
+		reverse qualitySubCharacteristicOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "In Family"
+	@dc:description "[=InFamily=] relates a QualitySubCharacteristic to the QualityFamily that groups it per ISO 25010 / ISO 25012. Each sub-characteristic belongs to exactly one family."
+	relation entity InFamily [
+		from QualitySubCharacteristic
+		to QualityFamily
+		@rdfs:label "in family"
+		forward inFamily
+		@rdfs:label "family of"
+		reverse familyOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Governance Domain"
+	@dc:description "[=HasGovernanceDomain=] relates a TailoringSet to the GovernanceDomains it activates for a specific programme or assessment context."
+	relation entity HasGovernanceDomain [
+		from TailoringSet
+		to GovernanceDomain
+		@rdfs:label "has governance domain"
+		forward hasGovernanceDomain
+		@rdfs:label "governance domain of"
+		reverse governanceDomainOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Compliance Scale"
+	@dc:description "[=HasComplianceScale=] relates a GovernanceDomain to the ComplianceScale specifying how compliance with that domain is scored."
+	relation entity HasComplianceScale [
+		from GovernanceDomain
+		to ComplianceScale
+		@rdfs:label "has compliance scale"
+		forward hasComplianceScale
+		@rdfs:label "compliance scale of"
+		reverse complianceScaleOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Traces To Regulatory Requirement"
+	@dc:description "[=TracesToRegulatoryRequirement=] relates a GovernanceDomain to the RegulatoryRequirements it imposes, establishing traceability from governance domain specification to specific policy mandates."
+	relation entity TracesToRegulatoryRequirement [
+		from GovernanceDomain
+		to RegulatoryRequirement
+		@rdfs:label "traces to regulatory requirement"
+		forward tracesToRegulatoryRequirement
+		@rdfs:label "regulatory requirement traced to by"
+		reverse regulatoryRequirementTracedToBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Proposes Correction"
+	@dc:description "[=ProposesCorrection=] relates an antiquated PolicyRequirement to the PolicyCorrection documenting the proposed policy update."
+	relation entity ProposesCorrection [
+		from PolicyRequirement
+		to PolicyCorrection
+		@rdfs:label "proposes correction"
+		forward proposesCorrection
+		@rdfs:label "correction proposed by"
+		reverse correctionProposedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Gap"
+	@dc:description "[=HasGap=] relates an AssessedElement to a Gap analysis process that reveals a discrepancy in its 4D assessment. Gaps may be structural (Vertical, Horizontal, Feasibility) or dimensional (QualityReadiness, QualityEvidence, QualityCompliance)."
+	relation entity HasGap [
+		from AssessedElement
+		to Gap
+		@rdfs:label "has gap"
+		forward hasGap
+		@rdfs:label "gap of"
+		reverse gapOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Binding Constraint"
+	@dc:description "[=HasBindingConstraint=] relates an AssessedElement to the BindingConstraint that identifies the bottleneck constraining its overall 4D readiness score per Theory of Constraints."
+	relation entity HasBindingConstraint [
+		from AssessedElement
+		to BindingConstraint
+		@rdfs:label "has binding constraint"
+		forward hasBindingConstraint
+		@rdfs:label "binding constraint of"
+		reverse bindingConstraintOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Capability Thread Instance"
+	@dc:description "[=HasCapabilityThreadInstance=] relates an AssessedElement to a CapabilityThreadInstance that binds a specific AssessmentThread to that element for thread-level GRL scoring."
+	relation entity HasCapabilityThreadInstance [
+		from AssessedElement
+		to CapabilityThreadInstance
+		@rdfs:label "has capability thread instance"
+		forward hasCapabilityThreadInstance
+		@rdfs:label "capability thread instance of"
+		reverse capabilityThreadInstanceOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "In Framework Layer"
+	@dc:description "[=InFrameworkLayer=] relates a CapabilityThreadInstance to the FrameworkLayer it occupies in the readiness roadmap hierarchy, enabling vertical and horizontal gap analysis across layers."
+	relation entity InFrameworkLayer [
+		from CapabilityThreadInstance
+		to FrameworkLayer
+		@rdfs:label "in framework layer"
+		forward inFrameworkLayer
+		@rdfs:label "framework layer of"
+		reverse frameworkLayerOf
+		asymmetric
+		irreflexive
+	]
+
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Scalar Properties ///////
+
+	@rdfs:label "has evidence numeric"
+	@dc:description "[=hasEvidenceNumeric=] records the integer code of an EvidenceQualityCategory on the D1 scale (0-8). EQ-0 indicates no usable evidence; EQ-8 indicates the highest-quality operational evidence. Used with hasOrdinalPosition (defined in UAOS_GRL) for ordering and gap computations."
+	scalar property hasEvidenceNumeric [
+		domain EvidenceQualityCategory
+		range xsd:integer
+		functional
+	]
+
+	@rdfs:label "has compliance level"
+	@dc:description "[=hasComplianceLevel=] records the numeric D3 governance compliance score within a ScoreVector, normalised to the applicable ComplianceScale."
+	scalar property hasComplianceLevel [
+		domain ScoreVector
+		range xsd:double
+		functional
+	]
+
+	@rdfs:label "has quality score"
+	@dc:description "[=hasQualityScore=] records the aggregate numeric D4 quality score for a QualityProfile, computed as the median of all constituent QualitySubCharacteristic scores."
+	scalar property hasQualityScore [
+		domain QualityProfile
+		range xsd:double
+		functional
+	]
+
+	@rdfs:label "has gap magnitude"
+	@dc:description "[=hasGapMagnitude=] records the magnitude of a discrepancy identified by a Gap analysis process — the numeric difference between current state and target state on the relevant axis or layer."
+	scalar property hasGapMagnitude [
+		domain Gap
+		range xsd:double
+		functional
+	]
+
+	@rdfs:label "has threshold value"
+	@dc:description "[=hasThresholdValue=] records the threshold value defining when a gap is considered significant (e.g., a VerticalGap is flagged when the GRL score difference across adjacent layers exceeds this threshold)."
+	scalar property hasThresholdValue [
+		domain Gap
+		range xsd:double
+		functional
+	]
+
+	@rdfs:label "has feasibility ratio"
+	@dc:description "[=hasFeasibilityRatio=] records the ratio of available resources to required resources for a FeasibilityGap. A ratio below 1.0 indicates that the programme does not have sufficient resources to meet its readiness ambition."
+	scalar property hasFeasibilityRatio [
+		domain FeasibilityGap
+		range xsd:double
+		functional
+	]
+
+	@rdfs:label "is antiquated"
+	@dc:description "[=isAntiquated=] flags a PolicyRequirement as outdated or superseded — a policy no longer fit for purpose in the current regulatory environment. When true, a PolicyCorrection should be associated via ProposesCorrection."
+	scalar property isAntiquated [
+		domain PolicyRequirement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "has correction rationale"
+	@dc:description "[=hasCorrectionRationale=] records the textual rationale explaining why a PolicyRequirement is antiquated and what the associated PolicyCorrection proposes to change."
+	scalar property hasCorrectionRationale [
+		domain PolicyCorrection
+		range xsd:string
+		functional
+	]
+
+
+	///// Rules
+
+
+}

@@ -1,0 +1,953 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://uaontologies.com/UAOS_Core/bundle#"
+     xml:base="http://uaontologies.com/UAOS_Core/bundle"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:oml="http://opencaesar.io/oml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:bundle="http://uaontologies.com/UAOS_Core/bundle#">
+    <owl:Ontology rdf:about="http://uaontologies.com/UAOS_Core/bundle">
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Agent"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Event"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Location"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Ownership"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Provenance"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Software"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Types"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_TopLevel/bundle"/>
+        <oml:namespace rdf:resource="http://uaontologies.com/UAOS_Core/bundle#"/>
+        <oml:prefix>bundle</oml:prefix>
+        <oml:type rdf:resource="http://opencaesar.io/oml#VocabularyBundle"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Agent#BelongsTo -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#BelongsTo">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Agent#HasInput -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#HasInput">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Agent#HasOrganizationalContext -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#HasOrganizationalContext">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Agent#HasOutput -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#HasOutput">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Agent#HasPlannedTemporalRegion -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#HasPlannedTemporalRegion">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Agent#IsRoleOf -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#IsRoleOf">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentOn"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Agent#ManagedProcess -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#ManagedProcess">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Process"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Agent#Organization -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#Organization">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#MaterialEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Agent#Person -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#Person">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#MaterialEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Agent#Plan -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#Plan">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#PrescriptiveICE"/>
+        <owl:disjointWith rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Agent#Procedure"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Agent#Procedure -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#Procedure">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#PrescriptiveICE"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Agent#ProcessOwner -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#ProcessOwner">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Role"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Agent#ResponsibleFor -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#ResponsibleFor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Event#Causes -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Event#Causes">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Event#HasParticipant -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Event#HasParticipant">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Event#ManifestsIn -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Event#ManifestsIn">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Event#OccursAt -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Event#OccursAt">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Event#OccursBefore -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Event#OccursBefore">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Event#OccursOn -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Event#OccursOn">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Information#Describes -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Information#Describes">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#IsAbout"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#InformationContentEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Information#Document -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Information#Document">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#InformationArtifact"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Information#InformationArtifact -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Information#InformationArtifact">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Object"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Information#InformationContentEntity -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Information#InformationContentEntity">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentContinuant"/>
+        <owl:disjointWith rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Software#Software"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Information#IsAbout -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Information#IsAbout">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Information#Prescribes -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Information#Prescribes">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#IsAbout"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Information#PrescriptiveICE -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Information#PrescriptiveICE">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#InformationContentEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Information#RepresentationalICE -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Information#RepresentationalICE">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#InformationContentEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Information#Represents -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Information#Represents">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#IsAbout"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Location#LocatedAt -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Location#LocatedAt">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Measurement#CalculatedUsing -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#CalculatedUsing">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Measurement#ConfidenceInterval -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#ConfidenceInterval">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Range"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Measurement#Dimension -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Dimension">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Measurement#HasApplicableDimension -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#HasApplicableDimension">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#Describes"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Measurement#HasUnit -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#HasUnit">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Measurement#IsDimensionOf -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#IsDimensionOf">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#Describes"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Measurement#Measurement -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Measurement">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Measurement#MeasurementOf -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#MeasurementOf">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#Describes"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Measurement#Quantity -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Quantity">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Quality"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Measurement#Range -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Range">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Measurement"/>
+        <owl:disjointWith rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#SimpleMeasurement"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Measurement#SimpleMeasurement -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#SimpleMeasurement">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Measurement"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Ownership#Owns -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Ownership#Owns">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Provenance#ApprovedBy -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Provenance#ApprovedBy">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Provenance#GeneratedBy -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Provenance#GeneratedBy">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Provenance#Used -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Provenance#Used">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Provenance#WasAssociatedWith -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Provenance#WasAssociatedWith">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Provenance#WasDerivedFrom -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Provenance#WasDerivedFrom">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Provenance#WasGeneratedByProcess -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Provenance#WasGeneratedByProcess">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Software#HasEntitySource -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Software#HasEntitySource">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Software#HasSoftwareVendor -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Software#HasSoftwareVendor">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Software#OperatingSystem -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Software#OperatingSystem">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Software#Software"/>
+        <owl:disjointWith rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Software#SoftwareAgent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Software#Software -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Software#Software">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentContinuant"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Software#SoftwareAgent -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Software#SoftwareAgent">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Software#Software"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Software#Supports -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Software#Supports">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Types#Estimate -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Types#Estimate">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Types#EstimateOf -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Types#EstimateOf">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#Describes"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Types#EstimateOfQuantity -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Types#EstimateOfQuantity">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#Describes"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Types#ObjectType -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Types#ObjectType">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Types#QuantityType -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Types#QuantityType">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Types#TypeHasDimension -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Types#TypeHasDimension">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Types#Types -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Types#Types">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#Describes"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity"/>
+        <owl:disjointWith rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Occurrent"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Disposition -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Disposition">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#RealizableEntity"/>
+        <owl:disjointWith rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Role"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Energy -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Energy">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#ImmaterialEntity"/>
+        <owl:disjointWith rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Site"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Disposition"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentContinuant -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentContinuant">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentOn -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentOn">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasContinuantPart -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasContinuantPart">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasMemberPart -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasMemberPart">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasContinuantPart"/>
+        <owl:disjointWith rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasSpatialPart"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasOccurrentPart -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasOccurrentPart">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasSpatialPart -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasSpatialPart">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasContinuantPart"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#ImmaterialEntity -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#ImmaterialEntity">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IndependentContinuant"/>
+        <owl:disjointWith rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#MaterialEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IndependentContinuant -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IndependentContinuant">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#MaterialEntity -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#MaterialEntity">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IndependentContinuant"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Object -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Object">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#MaterialEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#ObjectAggregate -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#ObjectAggregate">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#MaterialEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Occupies -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Occupies">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Occurrent -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Occurrent">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Process -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Process">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Occurrent"/>
+        <owl:disjointWith rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#TemporalRegion"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Quality -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Quality">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentContinuant"/>
+        <owl:disjointWith rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#RealizableEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#RealizableEntity -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#RealizableEntity">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentContinuant"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Role -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Role">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#RealizableEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Site -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Site">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#ImmaterialEntity"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentContinuant -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentContinuant">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Continuant"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentOn -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentOn">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#TemporalRegion -->
+
+
+    <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#TemporalRegion">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Occurrent"/>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#BelongsTo"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#HasInput"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#HasOrganizationalContext"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#HasOutput"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#HasPlannedTemporalRegion"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#ResponsibleFor"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Event#Causes"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Event#HasParticipant"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Event#ManifestsIn"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Event#OccursAt"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Event#OccursBefore"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Event#OccursOn"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Information#IsAbout"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Location#LocatedAt"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#CalculatedUsing"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#HasUnit"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Ownership#Owns"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Provenance#ApprovedBy"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Provenance#GeneratedBy"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Provenance#Used"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Provenance#WasAssociatedWith"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Provenance#WasDerivedFrom"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Provenance#WasGeneratedByProcess"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Software#HasEntitySource"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Software#HasSoftwareVendor"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Software#Supports"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Types#TypeHasDimension"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentOn"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasContinuantPart"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#HasOccurrentPart"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IdentifiedEntity"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Occupies"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentOn"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#Organization"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Agent#Person"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Object"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#ObjectAggregate"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Information#Describes"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Information#Prescribes"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Information#Represents"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Information#PrescriptiveICE"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Information#RepresentationalICE"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Dimension"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Measurement"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Types#Estimate"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Types#ObjectType"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Types#QuantityType"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#HasApplicableDimension"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#IsDimensionOf"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#MeasurementOf"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Types#EstimateOf"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Types#EstimateOfQuantity"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Types#Types"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#GenericallyDependentContinuant"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#IndependentContinuant"/>
+            <rdf:Description rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#SpecificallyDependentContinuant"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.5.0.2023-01-14T12:41:38Z) https://github.com/owlcs/owlapi/ -->
+
+

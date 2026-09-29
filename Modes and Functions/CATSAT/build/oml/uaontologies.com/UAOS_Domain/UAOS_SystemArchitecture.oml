@@ -1,0 +1,127 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture system architecture patterns"
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#> as UAOS_SystemArchitecture {
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+	
+	// Import standard vocabularies	
+	extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Event#> as event	
+	
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	///// Aspects
+	
+	
+	
+	///// Concepts
+	
+	 @rdfs:label "System"
+	@dc:description "A [=System=]..."
+	concept System < tlo:Object
+	
+	@rdfs:label "SOI Role"
+	@dc:description "A [=SOIRole=]..."
+	concept SOIRole < tlo:Role [
+		restricts some tlo:sdo to System
+	]
+	
+	@rdfs:label "External Entity"
+	@dc:description "A [=ExternalEntity=]..."
+	concept ExternalEntity < tlo:Role [
+		restricts some tlo:sdo to tlo:IndependentContinuant
+	]
+	
+	@rdfs:label "Function Occurrence"
+	@dc:description "A [=FunctionOccurrence=]..."
+	concept FunctionOccurrence < tlo:Process [
+		restricts all event:isManifestationOf to tlo:Function
+		restricts some event:isManifestationOf to tlo:Function
+		restricts all tlo:hasOccurrentPart to FunctionOccurrence 
+		restricts all tlo:isOccurrentPartOf to FunctionOccurrence 
+	]
+	
+		
+		
+	///// Relations
+	
+	@rdfs:label "Executed By"
+	@dc:description "[=ExecutedBy=] is a..."
+	relation entity ExecutedBy [
+		from FunctionOccurrence
+		to tlo:Continuant
+		@rdfs:label "executed by"
+		forward executedBy
+		@rdfs:label "executes"
+		reverse executes
+		asymmetric
+		irreflexive
+	]
+	< event:HasParticipant
+	
+	@rdfs:label "CanInput"
+	@dc:description "[=CanInput=] is a..."
+	relation entity CanInput [
+		from tlo:Function
+		to tlo:Continuant
+		@rdfs:label "can input"
+		forward canInput
+		@rdfs:label "can be input of"
+		reverse canBeInputOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "CanOutput"
+	@dc:description "[=CanOutput=] is a..."
+	relation entity CanOutput [
+		from tlo:Function
+		to tlo:Continuant
+		@rdfs:label "can output"
+		forward canOutput
+		@rdfs:label "can be output of"
+		reverse canBeOutputOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Interacts With"
+	@dc:description "[=InteractsWith=] is a..."
+	relation entity InteractsWith [
+		from System
+		to tlo:IndependentContinuant
+		@rdfs:label "interacts with"
+		forward interactsWith
+		symmetric
+		irreflexive
+	]
+	
+
+	///// Scalar Properties
+	
+	
+	
+	///// Refined Concepts
+	
+	
+	
+	///// Rules
+	
+	@rdfs:comment "If B is a manifestation of Function A, and C can execute Function B, then C executes Function A"
+	rule Function_manifestation [
+		event:manifestsIn(a,b) & tlo:sdo(a,c) -> executes(c,b)
+	]
+	
+	
+}

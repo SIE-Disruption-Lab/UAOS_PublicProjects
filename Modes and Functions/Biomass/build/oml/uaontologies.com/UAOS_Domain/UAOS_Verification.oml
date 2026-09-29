@@ -1,0 +1,91 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture system requirements patterns"
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_Verification#> as UAOS_Verification {
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+	
+	// Import standard vocabularies	
+	
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+    
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+    extends <http://uaontologies.com/UAOS_Core/UAOS_Agent#> as agent
+    extends <http://uaontologies.com/UAOS_Domain/UAOS_Requirements#> as req
+    extends <http://uaontologies.com/UAOS_Domain/UAOS_Test#> as tes
+    extends <http://uaontologies.com/UAOS_Domain/UAOS_ModelingAndSimulation#> as mas
+	
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	///// Aspects
+	
+	@rdfs:label "Verification Activity"
+	@dc:description "A [=VerificationActivity=]..."
+	aspect VerificationActivity
+	
+	
+	///// Concepts
+	
+	concept VerificationRequirement < req:Requirement
+	
+	concept TestRequirement < VerificationRequirement [
+		restricts all info:prescribes to tes:Test
+	]
+	
+	concept AnalysisRequirement < VerificationRequirement [
+		restricts all info:prescribes to mas:Analysis
+	]
+	
+	concept InspectionRequirement < VerificationRequirement [
+		restricts all info:prescribes to Inspection
+	]
+	
+	concept DemonstrationRequirement < VerificationRequirement [
+		restricts all info:prescribes to Demonstration
+	]
+	
+	concept Inspection < agent:ManagedProcess, VerificationActivity
+	
+	concept Demonstration < agent:ManagedProcess, VerificationActivity
+	
+		
+	///// Relations
+	
+	@rdfs:label "Verifies"
+	@dc:description "[=Verifies=] is a "
+	relation entity Verifies [
+		from VerificationActivity
+		to req:Requirement
+		@rdfs:label "verifies"
+		forward verifies
+		@rdfs:label "is verified by"
+		reverse isVerifiedBy
+		asymmetric
+		irreflexive
+	]
+	
+		
+	///// Scalar Properties
+	
+
+	@rdfs:label "has verification status"
+	@dc:description "[=hasVerificationStatus=] ..."
+	scalar property hasVerificationStatus [
+		domain VerificationActivity
+		range xsd:string
+	]
+	
+		
+	///// Rules
+
+	
+}

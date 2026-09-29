@@ -1,0 +1,158 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture the most common characteristics of 'Measures' (e.g., MoPs"
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_Measures#> as UAOS_Measures {
+
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+	
+	// Import standard vocabularies	
+	extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs	
+	
+	// Import relevant vocabularies
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Measurement#> as meas
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_Requirements#> as req
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_MissionEngineering#> as me
+
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	///// Aspects
+	
+	
+	///// Concepts
+	
+	@rdfs:label "MeasurementSpecification"
+	@dc:description "A [=MeasurementSpecification=] is a PrescriptiveICE that prescribes a measurement criterion — specifying what Quantity is to be observed, how it is to be quantified, and the threshold or target value constituting success. Subtypes: MOS (suitability), MOE (effectiveness), MOP (performance). Generically dependent — exists as a specification independent of any specific measurement event. Actual measurement results are captured as meas:Measurement instances linked via HasMeasurementResult."
+	concept MeasurementSpecification < info:PrescriptiveICE [
+		restricts some info:prescribes to meas:Quantity
+	]
+
+	@rdfs:label "MOS"
+	@dc:description "A [=MOS=] (Measure of Suitability) is a MeasurementSpecification that prescribes a criterion for evaluating whether a system or solution is suitable for operational use — assessing factors such as maintainability, supportability, logistics, and human factors. MOS sits at the top of the DoD MOS/MOE/MOP hierarchy and aggregates evidence from MOEs. Reference: DoD MEG v2."
+	concept MOS < MeasurementSpecification
+
+	@rdfs:label "MOE"
+	@dc:description "An [=MOE=] (Measure of Effectiveness) is a MeasurementSpecification that prescribes a criterion for evaluating the degree to which a mission achieves its intended operational objectives — assessing whether the right effects are produced. MOEs are informed by MOPs and contribute to MOS. Reference: DoD MEG v2."
+	concept MOE < MeasurementSpecification
+
+	@rdfs:label "MOP"
+	@dc:description "A [=MOP=] (Measure of Performance) is a MeasurementSpecification that prescribes a criterion for evaluating the technical or behavioural performance of a specific system function or activity. MOP is the lowest level in the hierarchy; results contribute to MOEs. Reference: DoD MEG v2."
+	concept MOP < MeasurementSpecification
+
+	@rdfs:label "COI"
+	@dc:description "A [=COI=] (Critical Operational Issue) is a PrescriptiveICE that poses a specific, testable question whose answer is necessary to evaluate mission suitability or effectiveness. COIs structure the evaluation framework by identifying what must be determined through analysis or test; they are addressed by examining MeasurementSpecifications."
+	concept COI < info:PrescriptiveICE
+		
+	
+	///// Relations
+	
+	@rdfs:label "EvaluatedBy"
+	@dc:description "[=EvaluatedBy=] relates a Mission to a MeasurementSpecification (MOS, MOE, or MOP) used to evaluate it."
+	relation entity EvaluatedBy [
+		from me:Mission
+		to MeasurementSpecification
+		@rdfs:label "evaluated by"
+		forward evaluatedBy
+		@rdfs:label "evaluates"
+		reverse evaluates
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "HasCOI"
+	@dc:description "[=HasCOI=] relates a Mission to a Critical Operational Issue that must be resolved to assess the mission's suitability or effectiveness."
+	relation entity HasCOI [
+		from me:Mission
+		to COI
+		@rdfs:label "has COI"
+		forward hasCOI
+		@rdfs:label "COI of"
+		reverse coiOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "AddressedByCOI"
+	@dc:description "[=AddressedByCOI=] relates a COI to the MeasurementSpecification that addresses it — the COI is answered by examining results of a specific MOS, MOE, or MOP."
+	relation entity AddressedByCOI [
+		from COI
+		to MeasurementSpecification
+		@rdfs:label "addressed by"
+		forward addressedBy
+		@rdfs:label "addresses COI"
+		reverse addressesCOI
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "ContributesToMOE"
+	@dc:description "[=ContributesToMOE=] relates a MOP to the MOE it contributes evidence toward — the performance measurement is a constituent indicator for the higher-level effectiveness measure."
+	relation entity ContributesToMOE [
+		from MOP
+		to MOE
+		@rdfs:label "contributes to MOE"
+		forward contributesToMOE
+		@rdfs:label "has contributing MOP"
+		reverse hasContributingMOP
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "ContributesToMOS"
+	@dc:description "[=ContributesToMOS=] relates an MOE to the MOS it contributes evidence toward — the effectiveness measurement is a constituent indicator for the higher-level suitability measure."
+	relation entity ContributesToMOS [
+		from MOE
+		to MOS
+		@rdfs:label "contributes to MOS"
+		forward contributesToMOS
+		@rdfs:label "has contributing MOE"
+		reverse hasContributingMOE
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "HasMeasurementResult"
+	@dc:description "[=HasMeasurementResult=] relates a MeasurementSpecification to a meas:Measurement that is the result of executing the measurement criterion — connecting the prescriptive specification to an actual observed datum. Uses meas:Measurement (from UAOS_Measurement) which carries the value via meas:hasValue and relates to the measured Quantity via meas:measurementOf."
+	relation entity HasMeasurementResult [
+		from MeasurementSpecification
+		to meas:Measurement
+		@rdfs:label "has measurement result"
+		forward hasMeasurementResult
+		@rdfs:label "measurement result of"
+		reverse measurementResultOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "HasConstraint"
+	@dc:description "[=HasConstraint=] relates a MeasurementSpecification to a req:Constraint that sets the threshold or pass-fail criterion for that measure — specifying the value boundary against which an actual measurement result is judged. The Constraint may be further represented mathematically by a req:ConstraintExpression (which carries the value, unit, and comparison operator). This relation provides the traceability link between the measurement framework (MOS/MOE/MOP) and the requirements framework (req:Constraint)."
+	relation entity HasConstraint [
+		from MeasurementSpecification
+		to req:Constraint
+		@rdfs:label "has constraint"
+		forward hasConstraint
+		@rdfs:label "constraint of"
+		reverse constraintOf
+		asymmetric
+		irreflexive
+	]	
+	
+	
+	///// Scalar Properties
+	
+	// no scalar properties
+	
+	
+	///// Rules
+	
+	// include that says what can flow over a connection based on the types of its ports
+		
+	
+}

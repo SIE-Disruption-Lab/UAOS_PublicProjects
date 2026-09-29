@@ -1,0 +1,100 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture data management patterns"
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_DataManagement#> as UAOS_DataManagement {
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+	
+	// Import standard vocabularies	
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+    
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo	
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Agent#> as agent
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_Software#> as sw
+	
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	///// Aspects
+	
+			
+	
+	///// Concepts
+	
+	@rdfs:label "Digital Location"
+	@dc:description "A [=DigitalLocation=] is a..."
+	concept DigitalLocation < tlo:ImmaterialEntity
+	
+	@rdfs:label "Repository"
+	@dc:description "A [=Repository=] is a..."
+	concept Repository < DigitalLocation
+	
+	
+		
+	///// Relations
+	
+	@rdfs:label "Has Access"
+	@dc:description "[=HasAccess=] is a "
+	relation entity HasAccess [
+		from agent:Agent
+		to DigitalLocation
+		@rdfs:label "has access"
+		forward hasAccess
+		@rdfs:label "is accessible by"
+		reverse isAccessibleBy
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Has Digital Location"
+	@dc:description "[=HasDigitalLocation=] is a "
+	relation entity HasDigitalLocation [
+		from info:InformationArtifact
+		to DigitalLocation
+		@rdfs:label "has digital location"
+		forward hasDigitalLocation
+		@rdfs:label "is digital location of"
+		reverse isDigitalLocationOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Supports Repository"
+	@dc:description "[=SupportsRepository=] is a "
+	relation entity SupportsRepository [
+		from sw:Software
+		to DigitalLocation
+		@rdfs:label "supports repository"
+		forward supportsRepository
+		@rdfs:label "is supported by software"
+		reverse isSupportedBySoftware
+		asymmetric
+		irreflexive
+	]
+	
+	
+	
+	///// Scalar Properties
+	
+	@rdfs:label "has URL"
+	@dc:description "[=hasURL=] ..."
+	scalar property hasURL [
+		domain DigitalLocation
+		range xsd:string
+	]
+		
+	
+	
+	///// Rules
+		
+	
+}

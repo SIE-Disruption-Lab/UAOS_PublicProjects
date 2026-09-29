@@ -1,0 +1,68 @@
+##############################################################################
+# Query 04: FunctionalChainSteps with Structurally Unavailable Functions
+#
+# Identifies FunctionalChainSteps that are STRUCTURALLY INVALID — i.e., steps
+# where the specified Function is not available in ANY Mode of the specified
+# executor System. Such a step can never be executed regardless of the System's
+# current mode: there is no mode in which the step could validly execute.
+#
+# A FunctionalChainStep is structurally valid if:
+#   EXISTS a Mode m such that:
+#     (1) specifiesFunction f, and f availableIn m
+#     (2) specifiesExecutor s, and m tlo:sdo s
+#
+# A step is structurally INVALID if no such Mode m exists. This is a design
+# error in the FunctionalChain specification: the chain prescribes a function
+# invocation that the executor System can never perform in any of its defined
+# operational modes.
+#
+# This query operates purely structurally: no runtime state (hasActiveMode)
+# is needed. Validity is a property of the model definition, not of any
+# particular execution state.
+#
+# Expected result for CATSAT-2 Scenario A (chain_scienceOBCP): zero rows.
+#   - Step 1: fn_scienceCollection availableIn sc_science (sdo catsat2) ✓
+#   - Step 2: fn_precisionPointing  availableIn adcs_science (sdo adcs) ✓
+#   - Step 3: fn_precisionTorque    availableIn rwa_science  (sdo rwa)  ✓
+#
+# Example violation (hypothetical): if step_sci_2 specified fn_precisionTorque
+# (an RWA function) as the Function but adcs as the executor, then
+# fn_precisionTorque would not be available in any Mode of adcs — violation.
+##############################################################################
+
+PREFIX rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tlo:    <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#>
+PREFIX States: <http://uaontologies.com/UAOS_Domain/UAOS_States#>
+PREFIX sa:     <http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#>
+PREFIX modes:  <http://uaontologies.com/UAOS_Domain/UAOS_Modes#>
+
+SELECT ?chain    ?chainName
+       ?step     ?stepName
+       ?stepPos
+       ?function ?functionName
+       ?executor ?executorName
+WHERE {
+    # Locate each FunctionalChain
+    ?chain    a modes:FunctionalChain ;
+              tlo:hasName ?chainName .
+
+    # Locate each FunctionalChainStep within the chain
+    ?step     a modes:FunctionalChainStep ;
+              modes:isStepOf ?chain ;
+              modes:hasSequencePosition ?stepPos ;
+              modes:specifiesFunction ?function ;
+              modes:specifiesExecutor ?executor .
+
+    OPTIONAL { ?step     tlo:hasName ?stepName     }
+    OPTIONAL { ?function tlo:hasName ?functionName }
+    ?executor tlo:hasName ?executorName .
+
+    # VALIDITY FILTER: retain only INVALID steps — those where the specified
+    # Function is not available in any Mode of the specified executor System.
+    FILTER NOT EXISTS {
+        ?function modes:availableIn ?m .
+        ?m        tlo:sdo ?executor
+    }
+}
+ORDER BY ?chainName ?stepPos

@@ -1,0 +1,486 @@
+@dc:creator "Joe Gregory"
+@dc:description "A description instantiating the UAOS_Modes vocabulary for a partial model of the ESA Biomass spacecraft, drawn from the published case studies in Chapters 7 and 8 of Gregory PhD Thesis (2022)."
+@dc:hasVersion "0.2"
+description <http://uaontologies.com/biomass/Biomass#> as bio {
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	/////// Vocabulary Imports ///////
+
+	uses <http://purl.org/dc/elements/1.1/> as dc
+	uses <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	uses <http://uaontologies.com/UAOS_Domain/UAOS_States#> as States
+	uses <http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#> as sa
+	uses <http://uaontologies.com/UAOS_Domain/UAOS_Modes#> as modes
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+
+	////////////////////////////////////////////////////////////////////////////////////
+	// SECTION 1: LOGICAL ARCHITECTURE
+	////////////////////////////////////////////////////////////////////////////////////
+
+	instance biomass : sa:System [
+		tlo:hasName "Biomass Spacecraft"
+		tlo:hasID "BIOMASS-SC"
+		tlo:hasContinuantPart aocs
+		tlo:hasContinuantPart sar
+		tlo:hasContinuantPart rdiu
+	]
+
+	instance aocs : sa:System [
+		tlo:hasName "AOCS Subsystem"
+		tlo:hasID "BIOMASS-AOCS"
+	]
+
+	instance sar : sa:System [
+		tlo:hasName "P-Band SAR Instrument"
+		tlo:hasID "BIOMASS-SAR"
+	]
+
+	instance rdiu : sa:System [
+		tlo:hasName "Reflector Deployment Interface Unit"
+		tlo:hasID "BIOMASS-RDIU"
+	]
+
+
+	////////////////////////////////////////////////////////////////////////////////////
+	// SECTION 2: MODES
+	////////////////////////////////////////////////////////////////////////////////////
+
+	instance sc_safe : modes:Mode [
+		tlo:hasName "Safe Mode"
+		tlo:sdo biomass
+		tlo:hasContinuantPart aocs_ash
+		tlo:hasContinuantPart sar_off
+		tlo:hasContinuantPart rdiu_off
+	]
+
+	instance sc_pom : modes:Mode [
+		tlo:hasName "Pre-Operational Mode"
+		tlo:sdo biomass
+		tlo:hasContinuantPart aocs_nmg
+		tlo:hasContinuantPart sar_ready
+		tlo:hasContinuantPart rdiu_operational
+	]
+
+	instance sc_nom : modes:Mode [
+		tlo:hasName "Nominal Mode"
+		tlo:sdo biomass
+		tlo:hasContinuantPart aocs_nmc
+		tlo:hasContinuantPart sar_measurement
+		tlo:hasContinuantPart rdiu_off
+	]
+
+	// --- AOCS Subsystem modes ---
+
+	instance aocs_ash : modes:Mode [
+		tlo:hasName "AOCS Acquisition and Safe Hold Mode"
+		tlo:sdo aocs
+	]
+
+	instance aocs_nmg : modes:Mode [
+		tlo:hasName "AOCS Normal Mode GAP"
+		tlo:sdo aocs
+	]
+
+	instance aocs_nmc : modes:Mode [
+		tlo:hasName "AOCS Normal Mode CAP"
+		tlo:sdo aocs
+	]
+
+	// --- P-Band SAR Instrument modes ---
+
+	instance sar_off : modes:Mode [
+		tlo:hasName "SAR Off"
+		tlo:sdo sar
+	]
+
+	instance sar_ready : modes:Mode [
+		tlo:hasName "SAR Ready"
+		tlo:sdo sar
+	]
+
+	instance sar_measurement : modes:Mode [
+		tlo:hasName "SAR Measurement"
+		tlo:sdo sar
+	]
+
+	// --- Reflector Deployment Interface Unit modes ---
+
+	instance rdiu_off : modes:Mode [
+		tlo:hasName "RDIU Off"
+		tlo:sdo rdiu
+	]
+
+	instance rdiu_operational : modes:Mode [
+		tlo:hasName "RDIU Operational"
+		tlo:sdo rdiu
+	]
+
+
+	////////////////////////////////////////////////////////////////////////////////////
+	// SECTION 3: STATE MACHINE TRANSITIONS
+	////////////////////////////////////////////////////////////////////////////////////
+
+	// --- Biomass Spacecraft transitions ---
+
+	instance T_sc_saf_to_pom : States:Transition [
+		tlo:hasName "SC Safe-to-POM Transition"
+		tlo:sdo biomass
+	]
+	relation instance sc_safe_exitedBy_T_sc_saf_to_pom : States:ExitedBy [
+		from sc_safe
+		to T_sc_saf_to_pom
+	]
+	relation instance sc_pom_enteredBy_T_sc_saf_to_pom : States:EnteredBy [
+		from sc_pom
+		to T_sc_saf_to_pom
+	]
+
+	instance T_sc_pom_to_nom : States:Transition [
+		tlo:hasName "SC POM-to-Nominal Transition"
+		tlo:sdo biomass
+	]
+	relation instance sc_pom_exitedBy_T_sc_pom_to_nom : States:ExitedBy [
+		from sc_pom
+		to T_sc_pom_to_nom
+	]
+	relation instance sc_nom_enteredBy_T_sc_pom_to_nom : States:EnteredBy [
+		from sc_nom
+		to T_sc_pom_to_nom
+	]
+
+	instance T_sc_pom_to_saf : States:Transition [
+		tlo:hasName "SC POM-to-Safe Transition"
+		tlo:sdo biomass
+	]
+	relation instance sc_pom_exitedBy_T_sc_pom_to_saf : States:ExitedBy [
+		from sc_pom
+		to T_sc_pom_to_saf
+	]
+	relation instance sc_safe_enteredBy_T_sc_pom_to_saf : States:EnteredBy [
+		from sc_safe
+		to T_sc_pom_to_saf
+	]
+
+	// --- AOCS Subsystem transitions ---
+
+	instance T_aocs_ash_to_nmg : States:Transition [
+		tlo:hasName "AOCS ASH-to-NM-GAP Transition"
+		tlo:sdo aocs
+	]
+	relation instance aocs_ash_exitedBy_T_aocs_ash_to_nmg : States:ExitedBy [
+		from aocs_ash
+		to T_aocs_ash_to_nmg
+	]
+	relation instance aocs_nmg_enteredBy_T_aocs_ash_to_nmg : States:EnteredBy [
+		from aocs_nmg
+		to T_aocs_ash_to_nmg
+	]
+
+	instance T_aocs_nmg_to_ash : States:Transition [
+		tlo:hasName "AOCS NM-GAP-to-ASH Transition"
+		tlo:hasNaturalLanguageDescription "Intended recovery transition from Normal Mode (GAP) back to ASH. In the MOCD, this path existed only as an alarm-triggered (FDIR) transition, not as a TC-commandable route. The SEAM deployment simulation failed when this transition was requested (thesis §8.6, p.147): no TC-commandable NM-to-ASH path was defined. The absence of exitedBy models this: the transition is not available in aocs_nmg, and the TransitionAvailability rule does not fire. Query Q03 detects the missing source mode."
+		tlo:sdo aocs
+	]
+
+	relation instance aocs_ash_enteredBy_T_aocs_nmg_to_ash : States:EnteredBy [
+		from aocs_ash
+		to T_aocs_nmg_to_ash
+	]
+
+	instance T_aocs_nmg_to_nmc : States:Transition [
+		tlo:hasName "AOCS NM-GAP-to-NM-CAP Transition"
+		tlo:hasNaturalLanguageDescription "Transitions AOCS from Geocentric Pointing (GAP) to Custom Accurate Pointing (CAP) sub-mode. Commanded when spacecraft enters Nominal Mode, enabling precision attitude for SAR acquisitions."
+		tlo:sdo aocs
+	]
+	relation instance aocs_nmg_exitedBy_T_aocs_nmg_to_nmc : States:ExitedBy [
+		from aocs_nmg
+		to T_aocs_nmg_to_nmc
+	]
+	relation instance aocs_nmc_enteredBy_T_aocs_nmg_to_nmc : States:EnteredBy [
+		from aocs_nmc
+		to T_aocs_nmg_to_nmc
+	]
+
+	// --- P-Band SAR Instrument transitions ---
+
+	instance T_sar_off_to_ready : States:Transition [
+		tlo:hasName "SAR Off-to-Ready Transition"
+		tlo:hasNaturalLanguageDescription "Powers on and initialises the SAR instrument to Ready mode. Executed during POM entry sequence. Includes boot, application software load, and thermal stabilisation."
+		tlo:sdo sar
+	]
+	relation instance sar_off_exitedBy_T_sar_off_to_ready : States:ExitedBy [
+		from sar_off
+		to T_sar_off_to_ready
+	]
+	relation instance sar_ready_enteredBy_T_sar_off_to_ready : States:EnteredBy [
+		from sar_ready
+		to T_sar_off_to_ready
+	]
+
+	instance T_sar_ready_to_meas : States:Transition [
+		tlo:hasName "SAR Ready-to-Measurement Transition"
+		tlo:sdo sar
+	]
+	relation instance sar_ready_exitedBy_T_sar_ready_to_meas : States:ExitedBy [
+		from sar_ready
+		to T_sar_ready_to_meas
+	]
+	relation instance sar_meas_enteredBy_T_sar_ready_to_meas : States:EnteredBy [
+		from sar_measurement
+		to T_sar_ready_to_meas
+	]
+
+	instance T_sar_meas_to_ready : States:Transition [
+		tlo:hasName "SAR Measurement-to-Ready Transition"
+		tlo:sdo sar
+	]
+	relation instance sar_meas_exitedBy_T_sar_meas_to_ready : States:ExitedBy [
+		from sar_measurement
+		to T_sar_meas_to_ready
+	]
+	relation instance sar_ready_enteredBy_T_sar_meas_to_ready : States:EnteredBy [
+		from sar_ready
+		to T_sar_meas_to_ready
+	]
+
+	instance T_sar_ready_to_off : States:Transition [
+		tlo:hasName "SAR Ready-to-Off Transition"
+		tlo:sdo sar
+	]
+	relation instance sar_ready_exitedBy_T_sar_ready_to_off : States:ExitedBy [
+		from sar_ready
+		to T_sar_ready_to_off
+	]
+	relation instance sar_off_enteredBy_T_sar_ready_to_off : States:EnteredBy [
+		from sar_off
+		to T_sar_ready_to_off
+	]
+
+	// --- Reflector Deployment Interface Unit transitions ---
+
+	instance T_rdiu_off_to_oper : States:Transition [
+		tlo:hasName "RDIU Off-to-Operational Transition"
+		tlo:sdo rdiu
+	]
+	relation instance rdiu_off_exitedBy_T_rdiu_off_to_oper : States:ExitedBy [
+		from rdiu_off
+		to T_rdiu_off_to_oper
+	]
+	relation instance rdiu_oper_enteredBy_T_rdiu_off_to_oper : States:EnteredBy [
+		from rdiu_operational
+		to T_rdiu_off_to_oper
+	]
+
+	instance T_rdiu_oper_to_off : States:Transition [
+		tlo:hasName "RDIU Operational-to-Off Transition"
+		tlo:sdo rdiu
+	]
+	relation instance rdiu_oper_exitedBy_T_rdiu_oper_to_off : States:ExitedBy [
+		from rdiu_operational
+		to T_rdiu_oper_to_off
+	]
+	relation instance rdiu_off_enteredBy_T_rdiu_oper_to_off : States:EnteredBy [
+		from rdiu_off
+		to T_rdiu_oper_to_off
+	]
+
+
+	////////////////////////////////////////////////////////////////////////////////////
+	// SECTION 4: HIERARCHICAL TRANSITION TRIGGERS (HasSubTransition)
+	////////////////////////////////////////////////////////////////////////////////////
+
+	relation instance T_sc_saf_to_pom_sub_aocs : modes:HasSubTransition [
+		from T_sc_saf_to_pom
+		to T_aocs_ash_to_nmg
+	]
+
+	relation instance T_sc_saf_to_pom_sub_rdiu : modes:HasSubTransition [
+		from T_sc_saf_to_pom
+		to T_rdiu_off_to_oper
+	]
+
+	relation instance T_sc_pom_to_nom_sub_aocs : modes:HasSubTransition [
+		from T_sc_pom_to_nom
+		to T_aocs_nmg_to_nmc
+	]
+	relation instance T_sc_pom_to_nom_sub_sar : modes:HasSubTransition [
+		from T_sc_pom_to_nom
+		to T_sar_ready_to_meas
+	]
+	relation instance T_sc_pom_to_nom_sub_rdiu : modes:HasSubTransition [
+		from T_sc_pom_to_nom
+		to T_rdiu_oper_to_off
+	]
+
+	relation instance T_sc_pom_to_saf_sub_aocs : modes:HasSubTransition [
+		from T_sc_pom_to_saf
+		to T_aocs_nmg_to_ash
+	]
+	relation instance T_sc_pom_to_saf_sub_sar : modes:HasSubTransition [
+		from T_sc_pom_to_saf
+		to T_sar_ready_to_off
+	]
+	relation instance T_sc_pom_to_saf_sub_rdiu : modes:HasSubTransition [
+		from T_sc_pom_to_saf
+		to T_rdiu_oper_to_off
+	]
+
+
+	////////////////////////////////////////////////////////////////////////////////////
+	// SECTION 5: FUNCTIONS AND AVAILABILITY
+	////////////////////////////////////////////////////////////////////////////////////
+
+	// --- Spacecraft-level functions ---
+
+	instance fn_telemetry : tlo:Function [
+		tlo:hasName "Housekeeping Telemetry"
+		tlo:sdo biomass
+	]
+	relation instance fn_telemetry_in_sc_safe : modes:AvailableIn [
+		from fn_telemetry
+		to sc_safe
+	]
+	relation instance fn_telemetry_in_sc_pom : modes:AvailableIn [
+		from fn_telemetry
+		to sc_pom
+	]
+	relation instance fn_telemetry_in_sc_nom : modes:AvailableIn [
+		from fn_telemetry
+		to sc_nom
+	]
+
+	instance fn_deployment : tlo:Function [
+		tlo:hasName "LDR Deployment"
+		tlo:sdo biomass
+	]
+	relation instance fn_deployment_in_sc_pom : modes:AvailableIn [
+		from fn_deployment
+		to sc_pom
+	]
+
+	instance fn_sar_acquisition : tlo:Function [
+		tlo:hasName "SAR Data Acquisition"
+		tlo:sdo biomass
+	]
+	relation instance fn_sar_acquisition_in_sc_nom : modes:AvailableIn [
+		from fn_sar_acquisition
+		to sc_nom
+	]
+
+	// --- AOCS-level functions ---
+
+	instance fn_attitude_safe : tlo:Function [
+		tlo:hasName "Attitude Safe Hold"
+		tlo:sdo aocs
+	]
+	relation instance fn_attitude_safe_in_aocs_ash : modes:AvailableIn [
+		from fn_attitude_safe
+		to aocs_ash
+	]
+
+	instance fn_attitude_normal : tlo:Function [
+		tlo:hasName "Attitude Normal Control"
+		tlo:sdo aocs
+	]
+	relation instance fn_attitude_normal_in_aocs_nmg : modes:AvailableIn [
+		from fn_attitude_normal
+		to aocs_nmg
+	]
+	relation instance fn_attitude_normal_in_aocs_nmc : modes:AvailableIn [
+		from fn_attitude_normal
+		to aocs_nmc
+	]
+
+	instance fn_orbit_control : tlo:Function [
+		tlo:hasName "Orbit Correction Manoeuvre"
+		tlo:sdo aocs
+	]
+	relation instance fn_orbit_control_in_aocs_nmc : modes:AvailableIn [
+		from fn_orbit_control
+		to aocs_nmc
+	]
+
+	// --- SAR Instrument functions ---
+
+	instance fn_sar_standby : tlo:Function [
+		tlo:hasName "SAR Standby Operations"
+		tlo:sdo sar
+	]
+	relation instance fn_sar_standby_in_sar_ready : modes:AvailableIn [
+		from fn_sar_standby
+		to sar_ready
+	]
+
+	instance fn_sar_imaging : tlo:Function [
+		tlo:hasName "SAR Polarimetric Imaging"
+		tlo:sdo sar
+	]
+	relation instance fn_sar_imaging_in_sar_measurement : modes:AvailableIn [
+		from fn_sar_imaging
+		to sar_measurement
+	]
+
+	// --- RDIU functions ---
+
+	instance fn_ldr_motor : tlo:Function [
+		tlo:hasName "LDR Motor Activation"
+		tlo:sdo rdiu
+	]
+	relation instance fn_ldr_motor_in_rdiu_operational : modes:AvailableIn [
+		from fn_ldr_motor
+		to rdiu_operational
+	]
+
+
+	////////////////////////////////////////////////////////////////////////////////////
+	// SECTION 6: FUNCTIONAL CHAINS
+	////////////////////////////////////////////////////////////////////////////////////
+
+	// --- SAR Acquisition OBCP (valid) ---
+
+	instance chain_sarAcquisitionOBCP : modes:FunctionalChain [
+		tlo:hasName "SAR Acquisition OBCP"
+	]
+
+	instance step_sar_1 : modes:FunctionalChainStep [
+		tlo:hasName "Step 1 - SAR Polarimetric Imaging"
+		modes:hasSequencePosition 1
+		modes:specifiesFunction fn_sar_imaging
+		modes:specifiesExecutor sar
+		modes:isStepOf chain_sarAcquisitionOBCP
+	]
+
+	instance step_sar_2 : modes:FunctionalChainStep [
+		tlo:hasName "Step 2 - Housekeeping Telemetry"
+		modes:hasSequencePosition 2
+		modes:specifiesFunction fn_telemetry
+		modes:specifiesExecutor biomass
+		modes:isStepOf chain_sarAcquisitionOBCP
+	]
+
+	// --- LDR Deployment OBCP (Q04 defect in Step 2) ---
+
+	instance chain_ldrDeployOBCP : modes:FunctionalChain [
+		tlo:hasName "LDR Deployment OBCP"
+	]
+
+	instance step_ldr_1 : modes:FunctionalChainStep [
+		tlo:hasName "Step 1 - LDR Deployment"
+		modes:hasSequencePosition 1
+		modes:specifiesFunction fn_deployment
+		modes:specifiesExecutor biomass
+		modes:isStepOf chain_ldrDeployOBCP
+	]
+
+	instance step_ldr_2 : modes:FunctionalChainStep [
+		tlo:hasName "Step 2 - LDR Motor Activation (wrong executor)"
+		modes:hasSequencePosition 2
+		modes:specifiesFunction fn_ldr_motor
+		modes:specifiesExecutor aocs
+		modes:isStepOf chain_ldrDeployOBCP
+	]
+
+}

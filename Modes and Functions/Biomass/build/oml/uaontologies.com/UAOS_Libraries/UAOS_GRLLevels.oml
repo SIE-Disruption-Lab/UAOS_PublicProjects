@@ -1,0 +1,163 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A library description defining the canonical instances of GRLPhase, GRLLevel, and AssessmentThread for the General Readiness Level (GRL) framework. Provides the three phases (Foundation, Development, Operational), nine GRL levels (GRL-1 through GRL-9), and six canonical assessment threads (T, P, I, H, O, K). Source: WRT-2516 v2, Chapter 6."
+@dc:hasVersion "0.1"
+description <http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#> as UAOS_GRLLevels {
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	/////// Vocabulary Imports ///////
+
+	// Import relevant vocabularies
+	uses <http://purl.org/dc/elements/1.1/> as dc
+	uses <http://uaontologies.com/UAOS_Domain/UAOS_GRL#> as grl
+	uses <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	///// GRL Phases
+
+	instance FoundationPhase : grl:GRLPhase [
+		grl:hasPhaseLabel "Foundation"
+	]
+
+	instance DevelopmentPhase : grl:GRLPhase [
+		grl:hasPhaseLabel "Development"
+	]
+
+	instance OperationalPhase : grl:GRLPhase [
+		grl:hasPhaseLabel "Operational"
+	]
+
+
+	///// GRL Levels — Foundation Phase (GRL 1-3)
+	// Conceptual and analytical work. Boundary to Development: controlled empirical demonstration begins.
+
+	instance GRL1 : grl:GRLLevel [
+		grl:hasGRLValue "1"^^xsd:integer
+		grl:hasOrdinalPosition "1"^^xsd:nonNegativeInteger
+	]
+
+	relation instance GRL1_Phase : grl:HasGRLPhase [
+		from GRL1
+		to FoundationPhase
+	]
+
+	instance GRL2 : grl:GRLLevel [
+		grl:hasGRLValue "2"^^xsd:integer
+		grl:hasOrdinalPosition "2"^^xsd:nonNegativeInteger
+	]
+
+	relation instance GRL2_Phase : grl:HasGRLPhase [
+		from GRL2
+		to FoundationPhase
+	]
+
+	instance GRL3 : grl:GRLLevel [
+		grl:hasGRLValue "3"^^xsd:integer
+		grl:hasOrdinalPosition "3"^^xsd:nonNegativeInteger
+	]
+
+	relation instance GRL3_Phase : grl:HasGRLPhase [
+		from GRL3
+		to FoundationPhase
+	]
+
+
+	///// GRL Levels — Development Phase (GRL 4-6)
+	// Empirical demonstration in controlled and representative settings.
+	// Boundary to Operational: transition to real-world operational conditions.
+
+	instance GRL4 : grl:GRLLevel [
+		grl:hasGRLValue "4"^^xsd:integer
+		grl:hasOrdinalPosition "4"^^xsd:nonNegativeInteger
+	]
+
+	relation instance GRL4_Phase : grl:HasGRLPhase [
+		from GRL4
+		to DevelopmentPhase
+	]
+
+	instance GRL5 : grl:GRLLevel [
+		grl:hasGRLValue "5"^^xsd:integer
+		grl:hasOrdinalPosition "5"^^xsd:nonNegativeInteger
+	]
+
+	relation instance GRL5_Phase : grl:HasGRLPhase [
+		from GRL5
+		to DevelopmentPhase
+	]
+
+	instance GRL6 : grl:GRLLevel [
+		grl:hasGRLValue "6"^^xsd:integer
+		grl:hasOrdinalPosition "6"^^xsd:nonNegativeInteger
+	]
+
+	relation instance GRL6_Phase : grl:HasGRLPhase [
+		from GRL6
+		to DevelopmentPhase
+	]
+
+
+	///// GRL Levels — Operational Phase (GRL 7-9)
+	// Proven in real-world operational conditions.
+
+	instance GRL7 : grl:GRLLevel [
+		grl:hasGRLValue "7"^^xsd:integer
+		grl:hasOrdinalPosition "7"^^xsd:nonNegativeInteger
+	]
+
+	relation instance GRL7_Phase : grl:HasGRLPhase [
+		from GRL7
+		to OperationalPhase
+	]
+
+	instance GRL8 : grl:GRLLevel [
+		grl:hasGRLValue "8"^^xsd:integer
+		grl:hasOrdinalPosition "8"^^xsd:nonNegativeInteger
+	]
+
+	relation instance GRL8_Phase : grl:HasGRLPhase [
+		from GRL8
+		to OperationalPhase
+	]
+
+	instance GRL9 : grl:GRLLevel [
+		grl:hasGRLValue "9"^^xsd:integer
+		grl:hasOrdinalPosition "9"^^xsd:nonNegativeInteger
+	]
+
+	relation instance GRL9_Phase : grl:HasGRLPhase [
+		from GRL9
+		to OperationalPhase
+	]
+
+
+	///// Assessment Threads — Six Canonical Threads (D2 / SystemReadinessAxis)
+
+	instance TechnologyThread : grl:AssessmentThread [
+		grl:hasThreadCode "T"
+	]
+
+	instance ProductionThread : grl:AssessmentThread [
+		grl:hasThreadCode "P"
+	]
+
+	instance IntegrationThread : grl:AssessmentThread [
+		grl:hasThreadCode "I"
+	]
+
+	instance HumanSystemsThread : grl:AssessmentThread [
+		grl:hasThreadCode "H"
+	]
+
+	instance OrganizationalThread : grl:AssessmentThread [
+		grl:hasThreadCode "O"
+	]
+
+	instance KnowledgeThread : grl:AssessmentThread [
+		grl:hasThreadCode "K"
+	]
+
+}

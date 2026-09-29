@@ -1,0 +1,65 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture project management patterns"
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_ProjectManagement#> as UAOS_ProjectManagement {
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+		
+	// Import standard vocabularies	
+	extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Agent#> as agent
+		
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	///// Aspects
+	
+			
+	
+	///// Concepts
+	
+	@rdfs:label "Program"
+	@dc:description "A [=Program=] is a..."
+	concept Program < tlo:Occurrent, agent:Producer, agent:Consumer
+	
+	@rdfs:label "Project"
+	@dc:description "A [=Project=] is a..."
+	concept Project < agent:ManagedProcess, agent:Producer, agent:Consumer [
+		restricts all tlo:hasOccurrentPart to Task
+	]
+	
+	@rdfs:label "Task"
+	@dc:description "A [=Task=] is a..."
+	concept Task < agent:ManagedProcess, agent:Producer, agent:Consumer [
+		restricts all tlo:hasOccurrentPart to Task
+	]
+	
+	@rdfs:label "Activity"
+	@dc:description "A [=Activity=] is a..."
+	concept Activity < Task [
+		restricts some agent:isResponsibilityOf to agent:ProcessOwner
+	]
+	
+	
+		
+	///// Relations
+
+	
+	
+	///// Scalar Properties
+	
+	
+	
+	///// Rules
+		
+	
+}

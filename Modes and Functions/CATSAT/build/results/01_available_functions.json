@@ -1,0 +1,288 @@
+{ "head": {
+    "vars": [ "system" , "systemName" , "mode" , "modeName" , "function" , "functionName" ]
+  } ,
+  "results": {
+    "bindings": [
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs" } ,
+        "systemName": { "type": "literal" , "value": "ADCS Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs_nominal" } ,
+        "modeName": { "type": "literal" , "value": "ADCS Nominal Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_safe" } ,
+        "functionName": { "type": "literal" , "value": "ADCS Nominal-to-Safe Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs" } ,
+        "systemName": { "type": "literal" , "value": "ADCS Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs_nominal" } ,
+        "modeName": { "type": "literal" , "value": "ADCS Nominal Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_sci" } ,
+        "functionName": { "type": "literal" , "value": "ADCS Nominal-to-Science Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs" } ,
+        "systemName": { "type": "literal" , "value": "ADCS Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs_nominal" } ,
+        "modeName": { "type": "literal" , "value": "ADCS Nominal Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_coarseAttitude" } ,
+        "functionName": { "type": "literal" , "value": "Coarse Attitude Maintenance" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs" } ,
+        "systemName": { "type": "literal" , "value": "ADCS Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs_safe" } ,
+        "modeName": { "type": "literal" , "value": "ADCS Safe Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_adcs_safe_to_nom" } ,
+        "functionName": { "type": "literal" , "value": "ADCS Safe-to-Nominal Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs" } ,
+        "systemName": { "type": "literal" , "value": "ADCS Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs_safe" } ,
+        "modeName": { "type": "literal" , "value": "ADCS Safe Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_coarseAttitude" } ,
+        "functionName": { "type": "literal" , "value": "Coarse Attitude Maintenance" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs" } ,
+        "systemName": { "type": "literal" , "value": "ADCS Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs_science" } ,
+        "modeName": { "type": "literal" , "value": "ADCS Science Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_adcs_sci_to_nom" } ,
+        "functionName": { "type": "literal" , "value": "ADCS Science-to-Nominal Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs" } ,
+        "systemName": { "type": "literal" , "value": "ADCS Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs_science" } ,
+        "modeName": { "type": "literal" , "value": "ADCS Science Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_coarseAttitude" } ,
+        "functionName": { "type": "literal" , "value": "Coarse Attitude Maintenance" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs" } ,
+        "systemName": { "type": "literal" , "value": "ADCS Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs_science" } ,
+        "modeName": { "type": "literal" , "value": "ADCS Science Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_precisionPointing" } ,
+        "functionName": { "type": "literal" , "value": "Precision Pointing" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#catsat" } ,
+        "systemName": { "type": "literal" , "value": "CATSAT Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#sc_nominal" } ,
+        "modeName": { "type": "literal" , "value": "Nominal Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_groundComms" } ,
+        "functionName": { "type": "literal" , "value": "Ground Communication" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#catsat" } ,
+        "systemName": { "type": "literal" , "value": "CATSAT Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#sc_nominal" } ,
+        "modeName": { "type": "literal" , "value": "Nominal Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_powerMgmt" } ,
+        "functionName": { "type": "literal" , "value": "Power Management" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#catsat" } ,
+        "systemName": { "type": "literal" , "value": "CATSAT Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#sc_nominal" } ,
+        "modeName": { "type": "literal" , "value": "Nominal Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_safe" } ,
+        "functionName": { "type": "literal" , "value": "SC Nominal-to-Safe Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#catsat" } ,
+        "systemName": { "type": "literal" , "value": "CATSAT Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#sc_nominal" } ,
+        "modeName": { "type": "literal" , "value": "Nominal Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_sc_nom_to_sci" } ,
+        "functionName": { "type": "literal" , "value": "SC Nominal-to-Science Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#catsat" } ,
+        "systemName": { "type": "literal" , "value": "CATSAT Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#sc_safe" } ,
+        "modeName": { "type": "literal" , "value": "Safe Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_powerMgmt" } ,
+        "functionName": { "type": "literal" , "value": "Power Management" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#catsat" } ,
+        "systemName": { "type": "literal" , "value": "CATSAT Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#sc_safe" } ,
+        "modeName": { "type": "literal" , "value": "Safe Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_sc_safe_to_nom" } ,
+        "functionName": { "type": "literal" , "value": "SC Safe-to-Nominal Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#catsat" } ,
+        "systemName": { "type": "literal" , "value": "CATSAT Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#sc_science" } ,
+        "modeName": { "type": "literal" , "value": "Science Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_groundComms" } ,
+        "functionName": { "type": "literal" , "value": "Ground Communication" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#catsat" } ,
+        "systemName": { "type": "literal" , "value": "CATSAT Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#sc_science" } ,
+        "modeName": { "type": "literal" , "value": "Science Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_powerMgmt" } ,
+        "functionName": { "type": "literal" , "value": "Power Management" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#catsat" } ,
+        "systemName": { "type": "literal" , "value": "CATSAT Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#sc_science" } ,
+        "modeName": { "type": "literal" , "value": "Science Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_sc_sci_to_nom" } ,
+        "functionName": { "type": "literal" , "value": "SC Science-to-Nominal Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#catsat" } ,
+        "systemName": { "type": "literal" , "value": "CATSAT Spacecraft" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#sc_science" } ,
+        "modeName": { "type": "literal" , "value": "Science Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_scienceCollection" } ,
+        "functionName": { "type": "literal" , "value": "Science Data Collection" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms" } ,
+        "systemName": { "type": "literal" , "value": "Communications Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms_nominal" } ,
+        "modeName": { "type": "literal" , "value": "Comms Nominal Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_comms_nom_to_safe" } ,
+        "functionName": { "type": "literal" , "value": "Comms Nominal-to-Safe Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms" } ,
+        "systemName": { "type": "literal" , "value": "Communications Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms_nominal" } ,
+        "modeName": { "type": "literal" , "value": "Comms Nominal Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_comms_nom_to_sci" } ,
+        "functionName": { "type": "literal" , "value": "Comms Nominal-to-Science Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms" } ,
+        "systemName": { "type": "literal" , "value": "Communications Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms_nominal" } ,
+        "modeName": { "type": "literal" , "value": "Comms Nominal Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_groundLink" } ,
+        "functionName": { "type": "literal" , "value": "Ground Link" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms" } ,
+        "systemName": { "type": "literal" , "value": "Communications Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms_nominal" } ,
+        "modeName": { "type": "literal" , "value": "Comms Nominal Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_telemetryBeacon" } ,
+        "functionName": { "type": "literal" , "value": "Telemetry Beacon" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms" } ,
+        "systemName": { "type": "literal" , "value": "Communications Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms_safe" } ,
+        "modeName": { "type": "literal" , "value": "Comms Safe Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_comms_safe_to_nom" } ,
+        "functionName": { "type": "literal" , "value": "Comms Safe-to-Nominal Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms" } ,
+        "systemName": { "type": "literal" , "value": "Communications Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms_safe" } ,
+        "modeName": { "type": "literal" , "value": "Comms Safe Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_telemetryBeacon" } ,
+        "functionName": { "type": "literal" , "value": "Telemetry Beacon" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms" } ,
+        "systemName": { "type": "literal" , "value": "Communications Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms_science" } ,
+        "modeName": { "type": "literal" , "value": "Comms Science Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_comms_sci_to_nom" } ,
+        "functionName": { "type": "literal" , "value": "Comms Science-to-Nominal Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms" } ,
+        "systemName": { "type": "literal" , "value": "Communications Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms_science" } ,
+        "modeName": { "type": "literal" , "value": "Comms Science Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_groundLink" } ,
+        "functionName": { "type": "literal" , "value": "Ground Link" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms" } ,
+        "systemName": { "type": "literal" , "value": "Communications Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms_science" } ,
+        "modeName": { "type": "literal" , "value": "Comms Science Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_highRateDownlink" } ,
+        "functionName": { "type": "literal" , "value": "High-Rate Downlink" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms" } ,
+        "systemName": { "type": "literal" , "value": "Communications Subsystem" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#comms_science" } ,
+        "modeName": { "type": "literal" , "value": "Comms Science Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_telemetryBeacon" } ,
+        "functionName": { "type": "literal" , "value": "Telemetry Beacon" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa" } ,
+        "systemName": { "type": "literal" , "value": "Reaction Wheel Assembly" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa_nominal" } ,
+        "modeName": { "type": "literal" , "value": "RWA Nominal Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_rwa_nom_to_safe" } ,
+        "functionName": { "type": "literal" , "value": "RWA Nominal-to-Safe Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa" } ,
+        "systemName": { "type": "literal" , "value": "Reaction Wheel Assembly" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa_nominal" } ,
+        "modeName": { "type": "literal" , "value": "RWA Nominal Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_rwa_nom_to_sci" } ,
+        "functionName": { "type": "literal" , "value": "RWA Nominal-to-Science Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa" } ,
+        "systemName": { "type": "literal" , "value": "Reaction Wheel Assembly" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa_nominal" } ,
+        "modeName": { "type": "literal" , "value": "RWA Nominal Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_wheelSpin" } ,
+        "functionName": { "type": "literal" , "value": "Wheel Spin Maintenance" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa" } ,
+        "systemName": { "type": "literal" , "value": "Reaction Wheel Assembly" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa_safe" } ,
+        "modeName": { "type": "literal" , "value": "RWA Safe Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_rwa_safe_to_nom" } ,
+        "functionName": { "type": "literal" , "value": "RWA Safe-to-Nominal Transition" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa" } ,
+        "systemName": { "type": "literal" , "value": "Reaction Wheel Assembly" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa_safe" } ,
+        "modeName": { "type": "literal" , "value": "RWA Safe Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_wheelSpin" } ,
+        "functionName": { "type": "literal" , "value": "Wheel Spin Maintenance" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa" } ,
+        "systemName": { "type": "literal" , "value": "Reaction Wheel Assembly" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa_science" } ,
+        "modeName": { "type": "literal" , "value": "RWA Science Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_precisionTorque" } ,
+        "functionName": { "type": "literal" , "value": "Precision Torque" }
+      } ,
+      { 
+        "system": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa" } ,
+        "systemName": { "type": "literal" , "value": "Reaction Wheel Assembly" } ,
+        "mode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa_science" } ,
+        "modeName": { "type": "literal" , "value": "RWA Science Mode" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_wheelSpin" } ,
+        "functionName": { "type": "literal" , "value": "Wheel Spin Maintenance" }
+      }
+    ]
+  }
+}

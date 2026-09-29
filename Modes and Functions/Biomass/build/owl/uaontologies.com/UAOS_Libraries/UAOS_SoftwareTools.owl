@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#"
+     xml:base="http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:SWT="http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#"
+     xmlns:oml="http://opencaesar.io/oml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools">
+        <owl:imports rdf:resource="http://purl.org/dc/elements/1.1"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Software"/>
+        <oml:namespace rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#"/>
+        <oml:prefix>SWT</oml:prefix>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Description"/>
+        <dc:contributor>Joe Gregory</dc:contributor>
+        <dc:creator>SIE Disruption Lab</dc:creator>
+        <dc:description>A library description to define relevant Units.</dc:description>
+        <dc:hasVersion>0.1</dc:hasVersion>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#CEA_24x -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#CEA_24x">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Software#Software"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#Duro -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#Duro">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Software#Software"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#GENESYS -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#GENESYS">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Software#Software"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#GMAT -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#GMAT">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Software#Software"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#Jama -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#Jama">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Software#Software"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#Jira -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#Jira">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Software#Software"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#JupyterLab -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#JupyterLab">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Software#Software"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#JupyterLab_SysMLv2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#JupyterLab_SysMLv2">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Software#Software"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#SatCatalog -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#SatCatalog">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Software#Software"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#Sedaro -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#Sedaro">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Software#Software"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#Valispace -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#Valispace">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Software#Software"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#Violet -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#Violet">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Software#Software"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.5.0.2023-01-14T12:41:38Z) https://github.com/owlcs/owlapi/ -->
+
+

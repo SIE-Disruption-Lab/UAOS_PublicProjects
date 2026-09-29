@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modes and Functions: Structural Validation Dashboard</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    font-size: 11.5px; line-height: 1.4;
+    background: #edf0f5; color: #1a1a2e; padding: 10px;
+  }
+
+  /* ── Page header ── */
+  .page-header {
+    background: #1a1a2e; color: #fff;
+    border-radius: 5px 5px 0 0; padding: 9px 14px;
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 2px;
+  }
+  .page-header h1 { font-size: 13.5px; font-weight: 700; }
+  .page-header .sub { font-size: 9.5px; color: #a0aec0; margin-top: 2px; }
+  .page-header .ts  { font-size: 9.5px; color: #718096; font-style: italic; white-space: nowrap; margin-left: 20px; }
+
+  /* ── Status strip ── */
+  .status-strip { display: flex; gap: 2px; margin-bottom: 6px; }
+  .sc { flex: 1; background: #fff; border-bottom: 3px solid #e2e8f0; padding: 5px 10px; }
+  .sc .sl { font-size: 8.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #718096; }
+  .sc .sv { font-size: 13px; font-weight: 700; margin-top: 1px; }
+  .sc.sp { border-bottom-color: #38a169; } .sc.sp .sv { color: #276749; }
+  .sc.sf { border-bottom-color: #e53e3e; } .sc.sf .sv { color: #c53030; }
+  .sc.si { border-bottom-color: #3182ce; } .sc.si .sv { color: #2b6cb0; }
+
+  /* ── Section header (dark band) ── */
+  .sh {
+    background: #2d3748; color: #fff; padding: 5px 12px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+    display: flex; align-items: center; gap: 8px; border-radius: 4px 4px 0 0;
+  }
+  .sh .qb { background: rgba(255,255,255,.18); border-radius: 3px; padding: 1px 6px; font-size: 9px; }
+  .sh .sd { font-weight: 400; font-size: 9px; color: #a0aec0; margin-left: auto; text-transform: none; letter-spacing: 0; }
+
+  /* ── Panels ── */
+  .panel { background: #fff; border: 1px solid #dde2ea; border-radius: 4px; overflow: hidden; margin-bottom: 8px; }
+  .pb { padding: 8px 10px; }
+
+  /* ── 3-column grid ── */
+  .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+  .g3 .panel { margin-bottom: 0; }
+
+  /* ── Tables ── */
+  table { width: 100%; border-collapse: collapse; font-size: 10.5px; }
+  th {
+    text-align: left; font-size: 9px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.04em;
+    color: #4a5568; background: #f7fafc;
+    padding: 3px 6px; border-bottom: 2px solid #e2e8f0;
+  }
+  td { padding: 3px 6px; border-bottom: 1px solid #edf2f7; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  .vrow td { background: #fff5f5; }
+
+  /* ── Pass / fail summaries ── */
+  .ipass { display: flex; align-items: center; gap: 6px; padding: 6px 8px; border-radius: 4px; background: #f0fff4; border: 1px solid #c6f6d5; color: #276749; font-size: 10.5px; }
+  .ifail { display: flex; align-items: center; gap: 6px; padding: 4px 8px; margin-bottom: 5px; border-radius: 4px; background: #fff5f5; border: 1px solid #fed7d7; color: #c53030; font-size: 10.5px; }
+
+  /* ── Q01 table ── */
+  .q01t { width: 100%; border-collapse: collapse; }
+  .q01t td { padding: 2px 6px; border-bottom: 1px solid #edf2f7; vertical-align: middle; }
+  .q01t tr:last-child td { border-bottom: none; }
+  .q01t .sn { font-size: 10.5px; font-weight: 600; color: #2d3748; white-space: nowrap; }
+
+  /* Level pill */
+  .lp { font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; border-radius: 3px; padding: 1px 4px; margin-left: 4px; vertical-align: middle; }
+  .lp-sc  { background: #bee3f8; color: #2c5282; }
+  .lp-sub { background: #b2f5ea; color: #234e52; }
+  .lp-asm { background: #e9d8fd; color: #44337a; }
+  .lp-unk { background: #e2e8f0; color: #4a5568; }
+
+  /* Mode count pills */
+  .mp { display: inline-flex; align-items: baseline; gap: 1px; border-radius: 3px; padding: 1px 5px; margin: 1px 1px 1px 0; font-size: 9px; white-space: nowrap; }
+  .mp .ml { font-weight: 400; opacity: .8; }
+  .mp .mc { font-weight: 700; }
+  .mp-g { background: #f0fff4; color: #276749; border: 1px solid #c6f6d5; }
+  .mp-a { background: #fffaf0; color: #744210; border: 1px solid #fbd38d; }
+  .mp-r { background: #fff5f5; color: #c53030; border: 1px solid #fed7d7; }
+
+  /* Explicit/inferred bar */
+  .fnbar { display: flex; height: 6px; border-radius: 3px; overflow: hidden; }
+  .fnbar .ex  { background: #3182ce; }
+  .fnbar .inf { background: #dd6b20; }
+
+  /* Q01 footer */
+  .q01f {
+    border-top: 1px solid #e2e8f0; padding: 4px 10px;
+    background: #f7fafc; display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+    font-size: 9.5px; color: #4a5568;
+  }
+  .q01f .li { display: flex; align-items: center; gap: 4px; }
+  .swatch { width: 8px; height: 8px; border-radius: 2px; display: inline-block; }
+
+  .error { color:#c53030; font-size:11px; padding:12px; background:#fff5f5; border:1px solid #fed7d7; border-radius:4px; }
+
+  /* ── Upload panel ── */
+  #upload-panel { margin-bottom: 8px; }
+  .upload-grid {
+    display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 8px; padding: 12px 10px;
+  }
+  .file-slot { display: flex; flex-direction: column; gap: 4px; }
+  .file-slot label {
+    font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #4a5568;
+  }
+  .file-slot .fname { font-size: 9px; color: #718096; font-style: italic; margin-bottom: 2px; }
+  .file-slot input[type="file"] { font-size: 10px; width: 100%; cursor: pointer; }
+  .file-slot.ready label { color: #276749; }
+  .upload-note {
+    padding: 0 10px 10px; font-size: 9.5px; color: #718096;
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="page-header">
+  <div>
+    <h1>Modes &amp; Functions: Structural Validation Dashboard</h1>
+    <div class="sub">UAOS_Modes vocabulary &middot; SPARQL structural queries: sub-transition alignment &middot; transition completeness &middot; functional chain validity</div>
+  </div>
+  <div class="ts" id="ts">Select files to load&hellip;</div>
+</div>
+
+<!-- Upload panel -->
+<div class="panel" id="upload-panel">
+  <div class="sh">Load Result Files</div>
+  <div class="upload-grid">
+    <div class="file-slot" id="slot01">
+      <label>Q01 &mdash; Available Functions</label>
+      <div class="fname">01_available_functions.json</div>
+      <input type="file" accept=".json" id="f01">
+    </div>
+    <div class="file-slot" id="slot02">
+      <label>Q02 &mdash; Sub-Transition Alignment</label>
+      <div class="fname">02_missing_sub_transitions.json</div>
+      <input type="file" accept=".json" id="f02">
+    </div>
+    <div class="file-slot" id="slot03">
+      <label>Q03 &mdash; Incomplete Transitions</label>
+      <div class="fname">03_incomplete_transitions.json</div>
+      <input type="file" accept=".json" id="f03">
+    </div>
+    <div class="file-slot" id="slot04">
+      <label>Q04 &mdash; Chain Step Validity</label>
+      <div class="fname">04_chain_step_never_available.json</div>
+      <input type="file" accept=".json" id="f04">
+    </div>
+  </div>
+  <div class="upload-note">Select all four JSON files. The dashboard will render automatically once all files are loaded.</div>
+</div>
+
+<!-- Dashboard (hidden until files loaded) -->
+<div id="dashboard" style="display:none">
+
+<!-- Status strip -->
+<div class="status-strip" id="status-strip"></div>
+
+<!-- Q01 -->
+<div class="panel">
+  <div class="sh">
+    <span class="qb">Q01</span>
+    Mode&ndash;Function Availability Matrix
+    <span class="sd">Asserted availableIn + inferred by TransitionAvailability rule &middot; count per mode</span>
+  </div>
+  <div id="q01-body"></div>
+</div>
+
+<!-- Q02 / Q03 / Q04 -->
+<div class="g3">
+  <div class="panel">
+    <div class="sh"><span class="qb">Q02</span> Sub-Transition Alignment <span class="sd">Misaligned source or target mode</span></div>
+    <div class="pb" id="q02-body"></div>
+  </div>
+  <div class="panel">
+    <div class="sh"><span class="qb">Q03</span> Transition Completeness <span class="sd">Missing source or target mode</span></div>
+    <div class="pb" id="q03-body"></div>
+  </div>
+  <div class="panel">
+    <div class="sh"><span class="qb">Q04</span> Functional Chain Validity <span class="sd">Unavailable executor function</span></div>
+    <div class="pb" id="q04-body"></div>
+  </div>
+</div>
+
+</div><!-- /dashboard -->
+
+<script>
+// ── Utilities ──────────────────────────────────────────────────────────────
+function val(b,k){ return b[k]?b[k].value:''; }
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function isTransition(n){ return /transition/i.test(n); }
+
+function levelClass(n){
+  const s=n.toLowerCase();
+  if(s.includes('spacecraft')) return 'lp-sc';
+  if(s.includes('subsystem'))  return 'lp-sub';
+  if(s.includes('assembly'))   return 'lp-asm';
+  return 'lp-unk';
+}
+function levelLabel(n){
+  const s=n.toLowerCase();
+  if(s.includes('spacecraft')) return 'SC';
+  if(s.includes('subsystem'))  return 'SUB';
+  if(s.includes('assembly'))   return 'ASM';
+  return 'SYS';
+}
+function shortMode(m){
+  const x=m.match(/(\w+)\s+Mode\s*$/i);
+  return x?x[1]:m.replace(/\s*Mode\s*$/i,'');
+}
+
+// ── Q01 ────────────────────────────────────────────────────────────────────
+function renderQ01(d01, d03){
+  const bins=d01.results.bindings;
+  const sys=new Map();
+  for(const b of bins){
+    const su=val(b,'system'), sn=val(b,'systemName');
+    const mu=val(b,'mode'),   mn=val(b,'modeName');
+    if(!sys.has(su)) sys.set(su,{name:sn,uri:su,modes:new Map()});
+    const s=sys.get(su);
+    if(!s.modes.has(mu)) s.modes.set(mu,{name:mn,ex:0,inf:0});
+    if(val(b,'function')){
+      const fn=val(b,'functionName')||val(b,'function').split('#')[1];
+      const m=s.modes.get(mu);
+      if(isTransition(fn)) m.inf++; else m.ex++;
+    }
+  }
+  const vSys=new Set(d03.results.bindings.map(b=>val(b,'system')));
+  let totEx=0, totInf=0;
+  for(const[,s] of sys) for(const[,m] of s.modes){ totEx+=m.ex; totInf+=m.inf; }
+  const totAll=totEx+totInf;
+  let rows='';
+  for(const[,s] of sys){
+    const lc=levelClass(s.name), ll=levelLabel(s.name);
+    const warn=vSys.has(s.uri)
+      ?`<span style="color:#c53030;margin-left:4px" title="Q03: a transition in this system has no source mode">&#9888;</span>`
+      :'';
+    let pills='', sysTotEx=0, sysTotInf=0;
+    for(const[,m] of s.modes){
+      const tot=m.ex+m.inf;
+      const cls=tot===0?'mp-r':tot<=1?'mp-a':'mp-g';
+      pills+=`<span class="mp ${cls}"><span class="ml">${esc(shortMode(m.name))}</span><span class="mc">&thinsp;${tot}</span></span>`;
+      sysTotEx+=m.ex; sysTotInf+=m.inf;
+    }
+    const sysTot=sysTotEx+sysTotInf;
+    const barW=totAll>0?Math.max(Math.round(sysTot/totAll*80),4):4;
+    const exPct=sysTot>0?Math.round(100*sysTotEx/sysTot):0;
+    rows+=`<tr>
+      <td class="sn">${esc(s.name)}<span class="lp ${lc}">${ll}</span>${warn}</td>
+      <td>${pills}</td>
+      <td style="width:105px">
+        <div class="fnbar" style="width:${barW}px"><div class="ex" style="width:${exPct}%"></div><div class="inf" style="width:${100-exPct}%"></div></div>
+        <span style="font-size:9px;color:#718096;margin-left:4px">${sysTotEx}+${sysTotInf}</span>
+      </td>
+    </tr>`;
+  }
+  const missingQ01=d03.results.bindings
+    .filter(b=>!sys.has(val(b,'system')))
+    .map(b=>val(b,'systemName'));
+  const footerRight=missingQ01.length>0
+    ?`<span style="color:#c53030;margin-left:auto">&#9888; Zero-function systems (absent from matrix): ${missingQ01.map(esc).join(', ')} (see Q03)</span>`
+    :`<span style="margin-left:auto;color:#718096">${totEx} explicit + ${totInf} inferred = ${totAll} pairs</span>`;
+  document.getElementById('q01-body').innerHTML=`
+    <table class="q01t">
+      <thead><tr>
+        <th>System</th>
+        <th>Functions per mode &nbsp;<span style="font-weight:400;text-transform:none;letter-spacing:0">(<span style="color:#276749">&#9632; &ge;2</span> <span style="color:#744210">&#9632; 1</span> <span style="color:#c53030">&#9632; 0</span>)</span></th>
+        <th style="width:105px">Explicit + Inferred</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <div class="q01f">
+      <span class="li"><span class="swatch" style="background:#3182ce"></span>Explicit <code>availableIn</code></span>
+      <span class="li"><span class="swatch" style="background:#dd6b20"></span>Inferred (TransitionAvailability)</span>
+      ${footerRight}
+    </div>`;
+  return {rows:totAll};
+}
+
+// ── Q02 ────────────────────────────────────────────────────────────────────
+function renderQ02(d){
+  const b=d.results.bindings, el=document.getElementById('q02-body');
+  if(!b.length){
+    el.innerHTML=`<div class="ipass"><span>&#10003;</span><span>All parent transitions have a correctly aligned sub-transition (source and target) for every child system.</span></div>`;
+    return {violations:0};
+  }
+  const rows=b.map(r=>`<tr class="vrow">
+    <td>${esc(val(r,'parentTransitionName'))}</td>
+    <td>${esc(val(r,'childSystemName'))}</td>
+    <td style="color:#718096;font-size:9.5px">${esc(val(r,'expectedChildSourceModeName'))} &rarr; ${esc(val(r,'expectedChildTargetModeName'))}</td>
+  </tr>`).join('');
+  el.innerHTML=`<div class="ifail"><span>&#10007;</span><strong>${b.length} violation${b.length!==1?'s':''}</strong>: no sub-transition spans declared mode correspondence</div>
+    <table><thead><tr><th>Parent Transition</th><th>Child System</th><th>Expected (source &rarr; target)</th></tr></thead>
+    <tbody>${rows}</tbody></table>`;
+  return {violations:b.length};
+}
+
+// ── Q03 ────────────────────────────────────────────────────────────────────
+function renderQ03(d){
+  const b=d.results.bindings, el=document.getElementById('q03-body');
+  if(!b.length){
+    el.innerHTML=`<div class="ipass"><span>&#10003;</span><span>All transitions have declared source and target modes.</span></div>`;
+    return {violations:0};
+  }
+  const rows=b.map(r=>`<tr class="vrow">
+    <td>${esc(val(r,'transitionName'))}</td>
+    <td>${esc(val(r,'systemName'))}</td>
+    <td>${esc(val(r,'violationType'))}</td>
+  </tr>`).join('');
+  el.innerHTML=`<div class="ifail"><span>&#10007;</span><strong>${b.length} violation${b.length!==1?'s':''}</strong>: missing source or target mode</div>
+    <table><thead><tr><th>Transition</th><th>System</th><th>Violation type</th></tr></thead>
+    <tbody>${rows}</tbody></table>`;
+  return {violations:b.length};
+}
+
+// ── Q04 ────────────────────────────────────────────────────────────────────
+function renderQ04(d){
+  const b=d.results.bindings, el=document.getElementById('q04-body');
+  if(!b.length){
+    el.innerHTML=`<div class="ipass"><span>&#10003;</span><span>All chain steps specify a function available in at least one mode of the executor.</span></div>`;
+    return {violations:0};
+  }
+  const rows=b.map(r=>`<tr class="vrow">
+    <td>${esc(val(r,'chainName'))}&nbsp;<span style="color:#718096;font-size:9px">#${esc(val(r,'stepPos'))}</span></td>
+    <td>${esc(val(r,'functionName'))}</td>
+    <td>${esc(val(r,'executorName'))}</td>
+  </tr>`).join('');
+  el.innerHTML=`<div class="ifail"><span>&#10007;</span><strong>${b.length} violation${b.length!==1?'s':''}</strong>: function never available in executor</div>
+    <table><thead><tr><th>Chain (step)</th><th>Function</th><th>Executor</th></tr></thead>
+    <tbody>${rows}</tbody></table>`;
+  return {violations:b.length};
+}
+
+// ── Status strip ───────────────────────────────────────────────────────────
+function renderStatus(s01,s02,s03,s04){
+  const v=s02.violations+s03.violations+s04.violations, ok=v===0;
+  const cards=[
+    {c:ok?'sp':'sf', l:'Overall', v:ok?'All checks pass':`${v} violation${v!==1?'s':''}`},
+    {c:'si', l:'Q01 entries', v:`${s01.rows} fn\u00d7mode pairs`},
+    {c:s02.violations?'sf':'sp', l:'Q02 Sub-transition alignment', v:s02.violations?`${s02.violations} violation${s02.violations!==1?'s':''}`:'&#10003; Pass'},
+    {c:s03.violations?'sf':'sp', l:'Q03 Transitions',       v:s03.violations?`${s03.violations} violation${s03.violations!==1?'s':''}`:'&#10003; Pass'},
+    {c:s04.violations?'sf':'sp', l:'Q04 Chain steps',        v:s04.violations?`${s04.violations} violation${s04.violations!==1?'s':''}`:'&#10003; Pass'},
+  ];
+  document.getElementById('status-strip').innerHTML=cards.map(c=>
+    `<div class="sc ${c.c}"><div class="sl">${esc(c.l)}</div><div class="sv">${c.v}</div></div>`
+  ).join('');
+  document.getElementById('ts').textContent=new Date().toLocaleString();
+}
+
+// ── File loading ────────────────────────────────────────────────────────────
+const loaded = { d01: null, d02: null, d03: null, d04: null };
+
+function tryRender(){
+  const { d01, d02, d03, d04 } = loaded;
+  if (!d01 || !d02 || !d03 || !d04) return;
+  document.getElementById('upload-panel').style.display = 'none';
+  document.getElementById('dashboard').style.display = '';
+  const s01 = renderQ01(d01, d03);
+  const s02 = renderQ02(d02);
+  const s03 = renderQ03(d03);
+  const s04 = renderQ04(d04);
+  renderStatus(s01, s02, s03, s04);
+}
+
+function attachFileInput(inputId, slotId, key){
+  document.getElementById(inputId).addEventListener('change', function(e){
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = function(ev){
+      try {
+        loaded[key] = JSON.parse(ev.target.result);
+        document.getElementById(slotId).classList.add('ready');
+        tryRender();
+      } catch(err) {
+        alert('Could not parse ' + file.name + ':\n' + err.message);
+      }
+    };
+    reader.readAsText(file);
+  });
+}
+
+attachFileInput('f01', 'slot01', 'd01');
+attachFileInput('f02', 'slot02', 'd02');
+attachFileInput('f03', 'slot03', 'd03');
+attachFileInput('f04', 'slot04', 'd04');
+</script>
+</body>
+</html>

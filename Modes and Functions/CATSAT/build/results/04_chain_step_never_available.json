@@ -1,0 +1,19 @@
+{ "head": {
+    "vars": [ "chain" , "chainName" , "step" , "stepName" , "stepPos" , "function" , "functionName" , "executor" , "executorName" ]
+  } ,
+  "results": {
+    "bindings": [
+      { 
+        "chain": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#chain_recoveryOBCP" } ,
+        "chainName": { "type": "literal" , "value": "Safe Mode Recovery OBCP" } ,
+        "step": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#step_rec_2" } ,
+        "stepName": { "type": "literal" , "value": "Step 2 - Precision Torque (wrong executor)" } ,
+        "stepPos": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "2" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#fn_precisionTorque" } ,
+        "functionName": { "type": "literal" , "value": "Precision Torque" } ,
+        "executor": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs" } ,
+        "executorName": { "type": "literal" , "value": "ADCS Subsystem" }
+      }
+    ]
+  }
+}

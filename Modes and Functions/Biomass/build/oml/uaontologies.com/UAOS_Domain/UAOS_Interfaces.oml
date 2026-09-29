@@ -1,0 +1,98 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:contributor "Ahmed Alhamadah"
+@dc:description "A vocabulary to capture interface types, ports, and their relations."
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_Interfaces#> as UAOS_Interfaces {
+
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+	
+	// Import standard vocabularies	
+	extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs	
+	
+	// Import relevant vocabularies
+	extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	///// Aspects
+	
+	
+	///// Concepts
+	
+	concept	InterfaceType < info:PrescriptiveICE [
+		restricts all info:prescribes to Port
+	]
+	
+	concept MatterInterface < InterfaceType
+	
+	concept EnergyInterface < InterfaceType
+	
+	concept InformationInterface < InterfaceType
+	
+	concept PhysicalInterface < InterfaceType
+		
+	concept Port < tlo:MaterialEntity [
+		restricts some exposedBy to tlo:MaterialEntity
+		restricts some info:isPrescribedBy to InterfaceType
+	]
+			
+	
+	///// Relations
+	
+	@rdfs:label "Exposes"
+	@dc:description "[=Exposes=] is a..."
+	relation entity Exposes [
+		from tlo:MaterialEntity
+		to Port
+		forward exposes
+		reverse exposedBy
+		irreflexive
+		asymmetric
+	]
+	
+	@rdfs:label "ConnectsTo"
+	@dc:description "[=ConnectsTo=] is a..."
+	relation entity ConnectsTo [
+		from Port
+		to Port
+		@rdfs:label "connects to A"
+		forward connectsToA
+		@rdfs:label "connects to B"
+		reverse connectsToB
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Has Item Flow"
+	@dc:description "[=HasItemFlow=] is a..."
+	relation entity HasItemFlow [
+		from ConnectsTo
+		to tlo:IndependentContinuant
+		@rdfs:label "has item flow"
+		forward hasItemFlow
+		@rdfs:label "item flow of connection"
+		reverse itemFlowOfConnection
+		asymmetric
+		irreflexive
+	]
+		
+	
+	///// Scalar Properties
+	
+	// no scalar properties
+	
+	
+	///// Rules
+	
+	// include rule that says what can flow over a connection based on the types of its ports
+		
+	
+}

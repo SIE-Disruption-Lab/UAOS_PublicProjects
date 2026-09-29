@@ -1,0 +1,536 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://uaontologies.com/UAOS_Libraries/UAOS_Units#"
+     xml:base="http://uaontologies.com/UAOS_Libraries/UAOS_Units"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:oml="http://opencaesar.io/oml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:Units="http://uaontologies.com/UAOS_Libraries/UAOS_Units#"
+     xmlns:UAOS_Measurement="http://uaontologies.com/UAOS_Core/UAOS_Measurement#">
+    <owl:Ontology rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units">
+        <owl:imports rdf:resource="http://purl.org/dc/elements/1.1"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions"/>
+        <oml:namespace rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Units#"/>
+        <oml:prefix>Units</oml:prefix>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Description"/>
+        <dc:contributor>Joe Gregory</dc:contributor>
+        <dc:creator>SIE Disruption Lab</dc:creator>
+        <dc:description>A library description to define relevant Units.</dc:description>
+        <dc:hasVersion>0.1</dc:hasVersion>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Core/UAOS_Measurement#hasApplicableDimension -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Core/UAOS_Measurement#hasApplicableDimension"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#GHz -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#GHz">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Frequency"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#Gbps -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#Gbps">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#DataRate"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#Hz -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#Hz">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Frequency"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#MHz -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#MHz">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Frequency"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#Mbps -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#Mbps">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#DataRate"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#V -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#V">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Voltage"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#W -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#W">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Power"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#Wh -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#Wh">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Capacity"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#bar -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#bar">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Pressure"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#dB -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#dB">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Gain"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#day -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#day">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Time"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#degC -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#degC">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Temperature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#degF -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#degF">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Temperature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#degK -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#degK">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Temperature"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#degrees -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#degrees">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Angle"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#feet -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#feet">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Length"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#feetpermin -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#feetpermin">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Speed"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#gbp -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#gbp">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Cost"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#hour -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#hour">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Time"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#kHz -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#kHz">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Frequency"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#kW -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#kW">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Power"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#kbps -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#kbps">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#DataRate"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#kilogram -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#kilogram">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Mass"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#km -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#km">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Length"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#kmh -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#kmh">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Speed"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#knot -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#knot">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Speed"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#litre -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#litre">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Volume"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#metre -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#metre">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Length"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#metrespersecondsquared -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#metrespersecondsquared">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Acceleration"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#metresquared -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#metresquared">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Area"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#millisecond -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#millisecond">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Time"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#minute -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#minute">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Time"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#mm -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#mm">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Length"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#n-a -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#n-a">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Dimensionless"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#na -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#na">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Boolean"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#percentage -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#percentage">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Efficiency"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Probability"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#pound -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#pound">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Mass"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#poundperhour -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#poundperhour">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#MassFlow"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#radians -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#radians">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Angle"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#rpm -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#rpm">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#AngularSpeed"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#second -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#second">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Time"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#usd -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#usd">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Cost"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_Units#year -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_Units#year">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Measurement#Unit"/>
+        <UAOS_Measurement:hasApplicableDimension rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#Time"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.5.0.2023-01-14T12:41:38Z) https://github.com/owlcs/owlapi/ -->
+
+

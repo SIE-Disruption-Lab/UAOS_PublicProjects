@@ -1,0 +1,14 @@
+{ "head": {
+    "vars": [ "transition" , "transitionName" , "system" , "systemName" ]
+  } ,
+  "results": {
+    "bindings": [
+      { 
+        "transition": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#T_aocs_nmg_to_ash" } ,
+        "transitionName": { "type": "literal" , "value": "AOCS NM-GAP-to-ASH Transition" } ,
+        "system": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#aocs" } ,
+        "systemName": { "type": "literal" , "value": "AOCS Subsystem" }
+      }
+    ]
+  }
+}

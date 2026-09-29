@@ -1,0 +1,137 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Paul Wach"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary defining the General Readiness Level (GRL) scale and the four assessment axes of the 4D Assessment framework. GRL is a domain-agnostic 9-level readiness framework (Foundation 1-3, Development 4-6, Operational 7-9) from which all existing readiness level frameworks are recoverable via thread restriction. The four assessment axes (Evidence D1, System Readiness D2, Governance D3, Product Quality D4) are the scoring dimensions of the 4D Assessment methodology. Source: WRT-2516 v2, Chapters 6-8."
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_GRL#> as UAOS_GRL {
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	/////// Vocabulary Imports ///////
+
+	// Import standard vocabularies
+	extends <http://purl.org/dc/elements/1.1/> as dc
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	// Import relevant vocabularies
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Vocabulary Definitions ///////
+
+
+	///// Aspects
+
+
+	///// Concepts
+
+	@rdfs:label "Assessment Axis"
+	@dc:description "An [=AssessmentAxis=] is a PrescriptiveICE that specifies one axis along which readiness is scored in the 4D Assessment framework. An AssessmentAxis defines what is to be measured and the scoring rules along that axis. The four concrete axes are EvidenceAxis (D1), SystemReadinessAxis (D2), GovernanceAxis (D3), and ProductQualityAxis (D4). Named 'AssessmentAxis' rather than 'Dimension' to avoid collision with the UAOS_Measurement 'Dimension' concept (physical measurement dimensions)."
+	concept AssessmentAxis < info:PrescriptiveICE
+
+	@rdfs:label "Evidence Axis"
+	@dc:description "An [=EvidenceAxis=] is an AssessmentAxis that specifies Dimension 1 (D1) of the 4D Assessment framework — evidence quality. D1 scores the quality of evidence supporting a readiness claim using a non-monotonic 9-category ordinal scale (EQ-0 through EQ-8). D1 is non-monotonic: evidence quality can regress if evidence becomes outdated or invalidated. Canonical EvidenceQualityCategory instances are defined in the UAOS_EvidenceCategories library description."
+	concept EvidenceAxis < AssessmentAxis
+
+	@rdfs:label "System Readiness Axis"
+	@dc:description "A [=SystemReadinessAxis=] is an AssessmentAxis that specifies Dimension 2 (D2) of the 4D Assessment framework — system readiness assessed via the General Readiness Level (GRL) scale. D2 subsumes six core assessment threads (Technology T, Production P, Integration I, Human Systems H, Organizational O, Knowledge K) plus any programme-specific extended threads. GRL level instances are defined in the UAOS_GRLLevels library description."
+	concept SystemReadinessAxis < AssessmentAxis
+
+	@rdfs:label "Governance Axis"
+	@dc:description "A [=GovernanceAxis=] is an AssessmentAxis that specifies Dimension 3 (D3) of the 4D Assessment framework — governance and regulatory compliance. D3 scores conformance to applicable governance domains and policy requirements. A key D3 function is detection of antiquated policy requirements that may artificially inflate or depress compliance scores."
+	concept GovernanceAxis < AssessmentAxis
+
+	@rdfs:label "Product Quality Axis"
+	@dc:description "A [=ProductQualityAxis=] is an AssessmentAxis that specifies Dimension 4 (D4) of the 4D Assessment framework — product and process quality aligned with ISO 25010 (product quality, quality in use) and ISO 25012 (data quality). D4 scores quality sub-characteristics; the aggregate D4 readiness uses the median — the only ordinal-valid central tendency measure robust to outliers."
+	concept ProductQualityAxis < AssessmentAxis
+
+	@rdfs:label "GRL Phase"
+	@dc:description "A [=GRLPhase=] is a DescriptiveICE that names a partition of the GRL ordinal scale. The three canonical phases are Foundation (GRL 1-3: conceptual and analytical work), Development (GRL 4-6: empirical demonstration in controlled and representative settings), and Operational (GRL 7-9: proven in real-world operational conditions). Phase boundaries encode universal semantic transitions shared across all readiness level frameworks. Each GRLLevel belongs to exactly one GRLPhase."
+	concept GRLPhase < info:DescriptiveICE
+
+	@rdfs:label "GRL Level"
+	@dc:description "A [=GRLLevel=] is a DescriptiveICE that represents one position on the General Readiness Level ordinal scale (integers 1-9). GRL levels are information content entities — they record the result of an assessment, distinct from the actual readiness quality inhering in the assessed system. Multiple assessors may assign different GRL levels to the same element at the same time; only ordinal-valid operations (min, max, median, mode) apply across levels."
+	concept GRLLevel < info:DescriptiveICE
+
+	@rdfs:label "Assessment Thread"
+	@dc:description "An [=AssessmentThread=] is a PrescriptiveICE that specifies one named dimension of readiness concern within the SystemReadinessAxis (D2). The six canonical threads are: Technology (T) — does the technology work?; Production (P) — can it be produced at required scale?; Integration (I) — do components integrate properly?; Human Systems (H) — can humans effectively operate this?; Organizational (O) — is the organisation ready?; Knowledge (K) — is the underlying knowledge mature? Extended threads (e.g., Transition TC, Requirements RQ) follow the same pattern and can be added without creating new frameworks."
+	concept AssessmentThread < info:PrescriptiveICE
+
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Relations ///////
+
+	@rdfs:label "Has GRL Phase"
+	@dc:description "[=HasGRLPhase=] relates a GRLLevel to the GRLPhase to which it belongs. Each GRL level belongs to exactly one phase: Foundation (GRL 1-3), Development (GRL 4-6), or Operational (GRL 7-9). Phase membership is fixed and does not vary across programmes."
+	relation entity HasGRLPhase [
+		from GRLLevel
+		to GRLPhase
+		@rdfs:label "has GRL phase"
+		forward hasGRLPhase
+		@rdfs:label "GRL phase of"
+		reverse grlPhaseOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Assessment Thread"
+	@dc:description "[=HasAssessmentThread=] relates a SystemReadinessAxis to an AssessmentThread that it subsumes. The D2 axis subsumes the six canonical threads (T, P, I, H, O, K) and any programme-specific extended threads. This relation enables a SystemReadinessAxis to be tailored by activating a subset of threads for a given programme."
+	relation entity HasAssessmentThread [
+		from SystemReadinessAxis
+		to AssessmentThread
+		@rdfs:label "has assessment thread"
+		forward hasAssessmentThread
+		@rdfs:label "assessment thread of"
+		reverse assessmentThreadOf
+		asymmetric
+		irreflexive
+	]
+
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Scalar Properties ///////
+
+	@rdfs:label "has GRL value"
+	@dc:description "[=hasGRLValue=] records the integer position of a GRLLevel on the 1-9 ordinal scale. GRL 1 is the lowest (fundamental principles identified) and GRL 9 is the highest (proven in sustained operational mission). Only ordinal-valid operations (min, max, median, mode) are applicable to GRL values; weighted averages are measurement-theoretically invalid for ordinal data (Stevens 1946)."
+	scalar property hasGRLValue [
+		domain GRLLevel
+		range xsd:integer
+		functional
+	]
+
+	@rdfs:label "has phase label"
+	@dc:description "[=hasPhaseLabel=] records the name of a GRLPhase: 'Foundation', 'Development', or 'Operational'."
+	scalar property hasPhaseLabel [
+		domain GRLPhase
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "has thread code"
+	@dc:description "[=hasThreadCode=] records the abbreviated identifier of an AssessmentThread. Canonical codes: T (Technology), P (Production), I (Integration), H (Human Systems), O (Organizational), K (Knowledge). Extended thread codes (e.g., TC, RQ, WF) follow the same convention."
+	scalar property hasThreadCode [
+		domain AssessmentThread
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "has ordinal position"
+	@dc:description "[=hasOrdinalPosition=] records the non-negative integer ordinal rank of a DescriptiveICE within its scale. Used by GRLLevel (ordinal positions 1-9 matching GRL value) and EvidenceQualityCategory (ordinal positions 0-8 matching evidence numeric code) to provide a uniform ordering key across scales for gap analysis and comparison operations."
+	scalar property hasOrdinalPosition [
+		domain info:DescriptiveICE
+		range xsd:nonNegativeInteger
+		functional
+	]
+
+
+	///// Rules
+
+
+}

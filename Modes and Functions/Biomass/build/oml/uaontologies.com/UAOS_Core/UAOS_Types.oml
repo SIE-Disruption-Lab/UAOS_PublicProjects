@@ -1,0 +1,125 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description ""
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Core/UAOS_Types#> as UAOS_Types {
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	/////// Vocabulary Imports ///////
+
+	// Import standard vocabularies
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Measurement#> as meas
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Vocabulary Definitions ///////
+
+	///// Aspects
+	
+	aspect Type
+	
+	
+	///// Concepts
+
+	@rdfs:label "Object Type"
+	@dc:description "A [=ObjectType=] is Descriptive ICE that describes a type of object."
+	concept ObjectType < info:DescriptiveICE, Type [
+		restricts all types to tlo:Object
+	]
+	
+	@rdfs:label "Quantity Type"
+	@dc:description "A [=QuantityType=] is Descriptive ICE that describes a type of quantity."
+	concept QuantityType < info:DescriptiveICE, Type [
+		restricts all types to meas:Quantity
+		restricts some typeHasDimension to meas:Dimension
+	]
+	
+	@rdfs:label "Estimate"
+	@dc:description "A [=Estimate=] is a Descriptive ICE and Value describes a quantity by predicting its value."
+	concept Estimate < info:DescriptiveICE, meas:Value [
+		restricts some meas:hasUnit to meas:Unit
+		restricts some estimateOf to QuantityType
+	]
+
+
+	///// Relations
+
+	@rdfs:label "Types"
+	@dc:description "[=Types=] relates a..."
+	relation entity Types [
+		from Type
+		to tlo:IdentifiedEntity
+		@rdfs:label "types"
+		forward types
+		@rdfs:label "is of type"
+		reverse isOfType
+		asymmetric
+		irreflexive
+	]
+	< info:Describes
+	
+	@rdfs:label "Type Has Dimension"
+	@dc:description "[=TypeHasDimension=] relates a..."
+	relation entity TypeHasDimension [
+		from QuantityType
+		to meas:Dimension
+		@rdfs:label "type has dimension"
+		forward typeHasDimension
+		@rdfs:label "is dimension of type"
+		reverse isDimensionOfType
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Estimate Of"
+	@dc:description "[=EstimateOf=] is a..."
+	relation entity EstimateOf [
+		from Estimate
+		to QuantityType
+		@rdfs:label "estimate of"
+		forward estimateOf
+		@rdfs:label "estimated by"
+		reverse estimatedBy
+		asymmetric
+		irreflexive
+	]
+	< info:Describes
+	
+	@rdfs:label "Estimate Of Quantity"
+	@dc:description "[=EstimateOfQuantity=] is a..."
+	relation entity EstimateOfQuantity [
+		from Estimate
+		to meas:Quantity
+		@rdfs:label "estimate of quantity"
+		forward estimateOfQuantity
+		@rdfs:label "quantity estimated by"
+		reverse quantityEstimatedBy
+		asymmetric
+		irreflexive
+	]
+	< info:Describes  
+
+	
+	///// Scalar Properties
+
+	
+
+	///// Rules
+	
+	@rdfs:comment "Estimates of quantity types are also estimates of quantities"
+	rule Estimates-of-quantity-types-are-also-estimates-of-quantities  [
+	estimateOf(a, b) & isOfType(c, b) -> estimateOfQuantity(a,c)
+	]
+	
+	/// eventually, add another rule that dimension of the quantity type must be identical to dimension of the quantity
+
+
+}

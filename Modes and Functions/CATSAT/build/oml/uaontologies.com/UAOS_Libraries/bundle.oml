@@ -1,0 +1,18 @@
+@dc:description "A description bundle that bundles together all libraries"
+description bundle <http://uaontologies.com/UAOS_Libraries/bundle#> as ^bundle {
+	
+	uses <http://uaontologies.com/UAOS_TopLevel/bundle#>
+	uses <http://uaontologies.com/UAOS_Core/bundle#>
+	uses <http://uaontologies.com/UAOS_Domain/bundle#>
+	
+	uses <http://purl.org/dc/elements/1.1/> as dc
+	
+	// All libraries bundled together
+	includes <http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#>
+	includes <http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#>
+	includes <http://uaontologies.com/UAOS_Libraries/UAOS_GRLLevels#>
+	includes <http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#>
+	includes <http://uaontologies.com/UAOS_Libraries/UAOS_Units#>
+	includes <http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#>
+	
+}

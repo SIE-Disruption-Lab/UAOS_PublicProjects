@@ -1,0 +1,42 @@
+PREFIX tlo:    <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#>
+PREFIX States: <http://uaontologies.com/UAOS_Domain/UAOS_States#>
+PREFIX modes:  <http://uaontologies.com/UAOS_Domain/UAOS_Modes#>
+
+SELECT DISTINCT ?parentTransition  ?parentTransitionName
+                ?parentSystem      ?parentSystemName
+                ?childSystem       ?childSystemName
+                ?expectedChildSourceMode ?expectedChildSourceModeName
+                ?expectedChildTargetMode ?expectedChildTargetModeName
+WHERE {
+    ?parentTransition  a States:Transition ;
+                       tlo:hasName ?parentTransitionName ;
+                       tlo:sdo ?parentSystem .
+    ?parentSystem      tlo:hasName ?parentSystemName ;
+                       tlo:hasContinuantPart ?childSystem .
+    ?childSystem       tlo:hasName ?childSystemName .
+
+    # Parent source mode → expected child source mode via hasContinuantPart
+    ?parentSourceMode  States:exitedBy ?parentTransition .
+    ?parentSourceMode  tlo:hasContinuantPart ?expectedChildSourceMode .
+    ?expectedChildSourceMode a modes:Mode ;
+                              tlo:sdo ?childSystem ;
+                              tlo:hasName ?expectedChildSourceModeName .
+
+    # Parent target mode → expected child target mode via hasContinuantPart
+    ?parentTargetMode  States:enteredBy ?parentTransition .
+    ?parentTargetMode  tlo:hasContinuantPart ?expectedChildTargetMode .
+    ?expectedChildTargetMode a modes:Mode ;
+                              tlo:sdo ?childSystem ;
+                              tlo:hasName ?expectedChildTargetModeName .
+
+    # ALIGNMENT FILTER: retain (parentTransition, childSystem) pairs where
+    # NO sub-transition both exits the expected child source mode AND enters
+    # the expected child target mode. Detects missing, wrong-direction, and
+    # wrong-source sub-transitions.
+    FILTER NOT EXISTS {
+        ?parentTransition modes:hasSubTransition ?childTransition .
+        ?expectedChildSourceMode States:exitedBy ?childTransition .
+        ?expectedChildTargetMode States:enteredBy ?childTransition .
+    }
+}
+ORDER BY ?parentSystemName ?parentTransitionName ?childSystemName

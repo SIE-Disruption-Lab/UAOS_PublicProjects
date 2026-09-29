@@ -1,0 +1,76 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A library description to define relevant Dimensions."
+@dc:hasVersion "0.1"
+description <http://uaontologies.com/UAOS_Libraries/UAOS_Dimensions#> as Dimensions {
+
+////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+	
+	// Import standard vocabularies	
+	uses <http://purl.org/dc/elements/1.1/> as dc
+	
+	// Import relevant vocabularies
+	uses <http://uaontologies.com/UAOS_Core/UAOS_Measurement#> as meas
+	
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	///// Flat list of dimensions
+
+	instance Dimensionless : meas:Dimension
+	
+	instance Acceleration : meas:Dimension
+
+	instance Angle : meas:Dimension
+
+	instance AngularSpeed : meas:Dimension
+
+	instance Area : meas:Dimension
+
+	instance Boolean : meas:Dimension
+
+	instance Capacity : meas:Dimension
+
+	instance Cost : meas:Dimension
+
+	instance DataRate : meas:Dimension
+
+	instance Density : meas:Dimension
+
+	instance Efficiency : meas:Dimension
+
+	instance Force : meas:Dimension
+
+	instance Frequency : meas:Dimension
+
+	instance Gain : meas:Dimension
+
+	instance Inertia : meas:Dimension
+
+	instance Length : meas:Dimension
+
+	instance Mass : meas:Dimension
+
+	instance MassFlow : meas:Dimension
+
+	instance Power : meas:Dimension
+
+	instance Pressure : meas:Dimension
+	
+	instance Probability : meas:Dimension
+
+	instance Speed : meas:Dimension
+
+	instance Temperature : meas:Dimension
+
+	instance Time : meas:Dimension
+
+	instance Velocity : meas:Dimension
+
+	instance Voltage : meas:Dimension
+
+	instance Volume : meas:Dimension
+
+}

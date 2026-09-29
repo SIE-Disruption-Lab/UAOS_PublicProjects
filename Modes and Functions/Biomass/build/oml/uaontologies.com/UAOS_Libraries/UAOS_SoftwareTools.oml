@@ -1,0 +1,47 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A library description to define relevant Units."
+@dc:hasVersion "0.1"
+description <http://uaontologies.com/UAOS_Libraries/UAOS_SoftwareTools#> as SWT {
+	
+////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+		
+	// Import standard vocabularies	
+	uses <http://purl.org/dc/elements/1.1/> as dc	
+	
+	// Import relevant vocabularies
+	uses <http://uaontologies.com/UAOS_Domain/UAOS_Software#> as sw
+			
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	///// Flat list of Software tools
+
+	instance CEA_24x : sw:Software
+	
+	instance Jama : sw:Software
+	
+	instance Jira : sw:Software
+	
+	instance Valispace : sw:Software
+	
+	instance Duro : sw:Software
+	
+	instance GENESYS : sw:Software
+	
+	instance GMAT : sw:Software
+	
+	instance Violet : sw:Software
+	
+	instance Sedaro : sw:Software
+	
+	instance JupyterLab : sw:Software
+	
+	instance JupyterLab_SysMLv2 : sw:Software
+	
+	instance SatCatalog : sw:Software
+
+	
+}

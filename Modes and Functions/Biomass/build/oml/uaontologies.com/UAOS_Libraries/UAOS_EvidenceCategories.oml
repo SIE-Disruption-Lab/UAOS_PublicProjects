@@ -1,0 +1,70 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A library description defining the nine canonical instances of EvidenceQualityCategory for the D1 Evidence Quality axis of the 4D Assessment framework (EQ-0 through EQ-8). EQ-0 represents no usable evidence; EQ-8 represents the highest-quality operational evidence. The D1 scale is non-monotonic: evidence quality can regress if evidence becomes outdated or invalidated. Source: WRT-2516 v2, Chapter 8."
+@dc:hasVersion "0.1"
+description <http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#> as UAOS_EvidenceCategories {
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	/////// Vocabulary Imports ///////
+
+	// Import standard vocabularies
+	uses <http://purl.org/dc/elements/1.1/> as dc
+
+	// Import relevant vocabularies
+	uses <http://uaontologies.com/UAOS_Domain/UAOS_GRL#> as grl
+	uses <http://uaontologies.com/UAOS_Domain/UAOS_4DAssessment#> as a4d
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	///// Evidence Quality Categories — D1 scale EQ-0 through EQ-8
+	// Ordered by evidenceNumeric (0-8) and hasOrdinalPosition (0-8).
+	// Higher values indicate higher evidence quality.
+
+	instance EQ0 : a4d:EvidenceQualityCategory [
+		a4d:hasEvidenceNumeric 0
+		grl:hasOrdinalPosition 0
+	]
+
+	instance EQ1 : a4d:EvidenceQualityCategory [
+		a4d:hasEvidenceNumeric 1
+		grl:hasOrdinalPosition 1
+	]
+
+	instance EQ2 : a4d:EvidenceQualityCategory [
+		a4d:hasEvidenceNumeric 2
+		grl:hasOrdinalPosition 2
+	]
+
+	instance EQ3 : a4d:EvidenceQualityCategory [
+		a4d:hasEvidenceNumeric 3
+		grl:hasOrdinalPosition 3
+	]
+
+	instance EQ4 : a4d:EvidenceQualityCategory [
+		a4d:hasEvidenceNumeric 4
+		grl:hasOrdinalPosition 4
+	]
+
+	instance EQ5 : a4d:EvidenceQualityCategory [
+		a4d:hasEvidenceNumeric 5
+		grl:hasOrdinalPosition 5
+	]
+
+	instance EQ6 : a4d:EvidenceQualityCategory [
+		a4d:hasEvidenceNumeric 6
+		grl:hasOrdinalPosition 6
+	]
+
+	instance EQ7 : a4d:EvidenceQualityCategory [
+		a4d:hasEvidenceNumeric 7
+		grl:hasOrdinalPosition 7
+	]
+
+	instance EQ8 : a4d:EvidenceQualityCategory [
+		a4d:hasEvidenceNumeric 8
+		grl:hasOrdinalPosition 8
+	]
+
+}

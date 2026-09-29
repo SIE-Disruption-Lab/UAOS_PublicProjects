@@ -1,0 +1,100 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "Core vocabulary for software entities. Promoted from Domain to Core layer to support both EnterpriseArchitecture and DigitalEnvironment domain ontologies. The Supports relation now targets tlo:Process rather than a domain-specific task type."
+@dc:hasVersion "0.2"
+vocabulary <http://uaontologies.com/UAOS_Core/UAOS_Software#> as UAOS_Software {
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	/////// Vocabulary Imports ///////
+
+	// Import standard vocabularies
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Agent#> as agent
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Vocabulary Definitions ///////
+
+	///// Aspects
+
+
+	///// Concepts
+
+	@rdfs:label "Software"
+	@dc:description "A [=Software=] is a generically dependent continuant — an information structure that can be instantiated on multiple material carriers (computers, servers, etc.)."
+	concept Software < tlo:GenericallyDependentContinuant [
+		restricts all tlo:gdo to tlo:Object
+	]
+
+	@rdfs:label "Software Agent"
+	@dc:description "A [=SoftwareAgent=] is software that also acts as an agent — it can participate in processes and bear roles."
+	concept SoftwareAgent < Software, agent:Agent
+
+	@rdfs:label "Operating System"
+	@dc:description "An [=OperatingSystem=] is software that provides platform services to other software."
+	concept OperatingSystem < Software
+
+
+	///// Relations
+
+	@rdfs:label "Has Software Vendor"
+	@dc:description "[=HasSoftwareVendor=] relates a Software to the Organisation that develops or distributes it."
+	relation entity HasSoftwareVendor [
+		from Software
+		to agent:Organization
+		@rdfs:label "has software vendor"
+		forward hasSoftwareVendor
+		@rdfs:label "is software vendor of"
+		reverse isSoftwareVendorOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Entity Source"
+	@dc:description "[=HasEntitySource=] relates any IdentifiedEntity to the Software from which it originated."
+	relation entity HasEntitySource [
+		from tlo:IdentifiedEntity
+		to Software
+		@rdfs:label "has entity source"
+		forward hasEntitySource
+		@rdfs:label "is source of entity"
+		reverse isSourceOfEntity
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Supports"
+	@dc:description "[=Supports=] relates a Software to a Process it is capable of enabling. Generalised from domain-specific task reference."
+	relation entity Supports [
+		from Software
+		to tlo:Process
+		@rdfs:label "supports"
+		forward supports
+		@rdfs:label "is supported by"
+		reverse isSupportedBy
+		asymmetric
+		irreflexive
+	]
+
+
+	///// Scalar Properties
+
+	@rdfs:label "has software version"
+	@dc:description "[=hasSoftwareVersion=] records the version string of a Software."
+	scalar property hasSoftwareVersion [
+		domain Software
+		range xsd:string
+	]
+
+
+	///// Rules
+
+
+}

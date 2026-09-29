@@ -1,0 +1,184 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture the measurement patterns required by the SIE Disruption Lab. Note that this is essentially a simplified Measurement CCO."
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Core/UAOS_Measurement#> as UAOS_Measurement {
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+		
+	// Import standard vocabularies	
+	extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+    
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+	
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	///// Aspects
+	
+	aspect Value	
+	
+	
+	///// Concepts
+	
+	@rdfs:label "Dimension"
+	@dc:description "A [=Dimension=]..."
+	concept Dimension < info:DescriptiveICE
+	
+	@rdfs:label "Quantity"
+	@dc:description "A [=Quantity=]..."
+	concept Quantity < tlo:Quality [
+		restricts some hasDimension to Dimension
+	]
+	
+	@rdfs:label "Measurement"
+	@dc:description "A [=Measurement=]..."
+	concept Measurement < info:DescriptiveICE, Value [
+		restricts some hasUnit to Unit
+		restricts some measurementOf to Quantity
+	]
+	
+	@rdfs:label "Unit"
+	@dc:description "A [=Unit=]..."
+	concept Unit < info:DescriptiveICE [
+		restricts some hasApplicableDimension to Dimension
+	]
+	
+	@rdfs:label "Simple Measurement"
+	@dc:description "A [=SimpleMeasurement=]..."
+	concept SimpleMeasurement < Measurement
+	
+	@rdfs:label "Range"
+	@dc:description "A [=Range=]..."
+	concept Range < Measurement
+	
+	@rdfs:label "Confidence Interval"
+	@dc:description "A [=ConfidenceInterval=]..."
+	concept ConfidenceInterval < Range
+	
+	
+	///// Relations	
+	
+	
+	@rdfs:label "CalculatedUsing"
+	@dc:description "[=CalculatedUsing=] relates a quantity to another quantity."
+	relation entity CalculatedUsing [
+		from Quantity
+		to Quantity
+		@rdfs:label "calculated using"
+		forward calculatedUsing
+		@rdfs:label "used in calculation"
+		reverse usedInCalculation
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Is Dimension Of"
+	@dc:description "[=IsDimensionOf=] is a..."
+	relation entity IsDimensionOf [
+		from Dimension
+		to Quantity
+		@rdfs:label "is dimension of"
+		forward isDimensionOf
+		@rdfs:label "has dimension"
+		reverse hasDimension
+		asymmetric
+		irreflexive
+	]
+	< info:Describes
+	
+	@rdfs:label "Has Applicable Dimension"
+	@dc:description "[=HasApplicableDimension=] is a..."
+	relation entity HasApplicableDimension [
+		from Unit
+		to Dimension
+		@rdfs:label "has applicable dimension"
+		forward hasApplicableDimension
+		@rdfs:label "is applicable dimension of"
+		reverse isApplicableDimensionOf
+		asymmetric
+		irreflexive
+	]
+	< info:Describes 
+	
+	@rdfs:label "Has Unit"
+	@dc:description "[=HasUnit=] is a..."
+	relation entity HasUnit [
+		from Value
+		to Unit
+		@rdfs:label "has unit"
+		forward hasUnit
+		@rdfs:label "is unit of"
+		reverse isUnitOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Measurement Of"
+	@dc:description "[=MeasurementOf=] is a..."
+	relation entity MeasurementOf [
+		from Measurement
+		to Quantity
+		@rdfs:label "measurement of"
+		forward measurementOf
+		@rdfs:label "measured by"
+		reverse measuredBy
+		asymmetric
+		irreflexive
+	]
+	< info:Describes 
+	
+	
+	
+	///// Scalar Properties
+	
+	@rdfs:label "has value"
+	@dc:description "[=hasValue=] ..."
+	scalar property hasValue [
+		domain Value
+		range xsd:double
+	]
+	
+	@rdfs:label "has Boolean value"
+	@dc:description "[=hasBooleanValue=] ..."
+	scalar property hasBooleanValue [
+		domain Value
+		range xsd:boolean
+	]
+	
+	@rdfs:label "has upper value"
+	@dc:description "[=hasUpperValue=] ..."
+	scalar property hasUpperValue [
+		domain Range
+		range xsd:double
+	]
+	< hasValue
+	
+	@rdfs:label "has lower value"
+	@dc:description "[=hasLowerValue=] ..."
+	scalar property hasLowerValue [
+		domain Range
+		range xsd:double
+	]
+	< hasValue
+	
+	@rdfs:label "has confidence"
+	@dc:description "[=hasConfidence=] ..."
+	scalar property hasConfidence [
+		domain ConfidenceInterval
+		range xsd:decimal // can include a units library later for 'percentage', etc.
+	]
+		
+	
+	///// Rules
+		
+	
+}

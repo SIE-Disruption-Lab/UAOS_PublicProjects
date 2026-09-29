@@ -1,0 +1,35 @@
+vocabulary bundle <http://uaontologies.com/UAOS_Domain/bundle#> as ^bundle {
+	
+	extends <http://uaontologies.com/UAOS_Core/bundle#>
+	
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_4DAssessment#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_Acquisition#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_Assessment#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_BayesianNetworks#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_DataManagement#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_DigitalEnvironment#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_EnterpriseArchitecture#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_GRL#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_Governance#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_Interfaces#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_Manufacturing#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_Measures#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_MissionEngineering#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_ModelingAndSimulation#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_Modes#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_OrbitsAndTrajectories#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_ProjectManagement#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_Requirements#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_Risk#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_Software#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_States#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_TEMP#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_Test#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_UseCases#>
+	includes <http://uaontologies.com/UAOS_Domain/UAOS_Verification#>
+	
+	
+}

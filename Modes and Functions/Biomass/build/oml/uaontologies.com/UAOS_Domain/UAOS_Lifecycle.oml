@@ -1,0 +1,193 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary formalising the four-level NNSA physical hierarchy (System → Subsystem → Component → Part), condition-dependent life estimation (TypeLifeEstimate as a types:Estimate), discrete exposure history (ExposureEvent accumulating damage fractions for Miner's rule SPARQL), and context-dependent replaceability (isReplaceable asserted per physical instance). Type/token pattern is handled via UAOS_Types: part types are modelled as ObjectType instances, conformance via the Types relation, and TypeLifeEstimates are linked to QuantityType instances (ExpectedLife per condition) via estimateOf. The SWRL rule in UAOS_Types infers estimateOfQuantity across the type/token gap. System remaining-life aggregation: worst-case remaining life across non-replaceable parts propagates up the hierarchy."
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_Lifecycle#> as UAOS_Lifecycle {
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	/////// Vocabulary Imports ///////
+
+	// Import standard vocabularies
+	extends <http://purl.org/dc/elements/1.1/> as dc
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	// Import relevant vocabularies
+	extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Measurement#> as meas
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Types#> as types
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#> as sa
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_DigitalEnvironment#> as de
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Vocabulary Definitions ///////
+
+
+	///// Concepts
+
+	@rdfs:label "Subsystem"
+	@dc:description "A [=Subsystem=] is a System that is a physical constituent of a higher-level System, related via hasSubsystem. Corresponds to the second level of the four-level NNSA physical hierarchy (System → Subsystem → Component → Part). A Subsystem may contain Components via hasComponent but need not — it may be treated as a black box when internal decomposition is not modelled."
+	concept Subsystem < sa:System
+
+	@rdfs:label "Component"
+	@dc:description "A [=Component=] is a material Object constituting a Subsystem, related via hasComponent. Components are the third level of the NNSA physical hierarchy. A Component may contain Parts (the atomic tracked units) via hasPart but need not be decomposed when only subsystem-level lifecycle tracking is required."
+	concept Component < tlo:Object
+
+	@rdfs:label "Part"
+	@dc:description "A [=Part=] is a material Object constituting a Component, related via hasPart. Parts are the fourth and lowest level of the NNSA physical hierarchy and the primary atomic units for lifecycle tracking. Each Part instance may conform to a types:ObjectType via types:isOfType and accumulates ExposureEvents over its service life."
+	concept Part < tlo:Object
+
+	@rdfs:label "Life Condition Profile"
+	@dc:description "A [=LifeConditionProfile=] is a DescriptiveICE characterising a named operating or storage condition regime (e.g., cold-dry-storage, hot-moist-operational). It plays two roles: (a) it qualifies a TypeLifeEstimate via appliesToCondition, recording the condition under which the life test was conducted; (b) it qualifies an ExposureEvent via underCondition, recording the condition to which a physical instance was exposed during a given service period."
+	concept LifeConditionProfile < info:DescriptiveICE
+
+	@rdfs:label "Type Life Estimate"
+	@dc:description "A [=TypeLifeEstimate=] is a types:Estimate recording the estimated service life (in years) of a part type (modelled as a types:ObjectType instance) under a specific LifeConditionProfile. It inherits hasValue (xsd:double) and hasUnit from the meas:Value aspect via types:Estimate. It is linked to the QuantityType it estimates via estimateOf: each TypeLifeEstimate is an estimate of an ExpectedLife QuantityType scoped to a specific condition. The SWRL rule in UAOS_Types infers estimateOfQuantity, linking this estimate to the actual ExpectedLife qualities of all conforming part instances."
+	concept TypeLifeEstimate < types:Estimate
+
+	@rdfs:label "Expected Life"
+	@dc:description "An [=ExpectedLife=] is a time-dimensioned Quantity representing the expected service duration of a physical Object under specific operating or storage conditions. As a meas:Quantity (Quality/SDC) it inheres in a physical Object via tlo:sdo. Its type is characterised by a types:QuantityType instance; the SWRL rule in UAOS_Types infers that any TypeLifeEstimate whose estimateOf QuantityType matches the isOfType of this quality is an estimate of this quality."
+	concept ExpectedLife < meas:Quantity
+
+	@rdfs:label "Exposure Event"
+	@dc:description "An [=ExposureEvent=] is a Process recording a discrete temporal period during which a specific physical Object instance was operated or stored under a specific LifeConditionProfile. The duration is recorded in years via exposureDurationYears. Miner's rule damage accumulation is computed in SPARQL by summing (exposureDurationYears / TypeLifeEstimate.hasValue) across all ExposureEvents for a given instance under matching condition profiles, yielding the total damage fraction and hence remaining life."
+	concept ExposureEvent < tlo:Process
+
+
+	///// Relations
+
+	@rdfs:label "Has Subsystem"
+	@dc:description "[=HasSubsystem=] relates a System to a Subsystem of which it is physically composed. Sub-relation of tlo:HasContinuantPart, narrowing both domain and range to enforce the NNSA hierarchy at the System–Subsystem level."
+	relation entity HasSubsystem [
+		from sa:System
+		to Subsystem
+		@rdfs:label "has subsystem"
+		forward hasSubsystem
+		@rdfs:label "is subsystem of"
+		reverse isSubsystemOf
+		asymmetric
+		irreflexive
+	]
+	< tlo:HasContinuantPart
+
+	@rdfs:label "Has Component"
+	@dc:description "[=HasComponent=] relates a Subsystem to a Component of which it is physically composed. Sub-relation of tlo:HasContinuantPart, enforcing the NNSA hierarchy at the Subsystem–Component level."
+	relation entity HasComponent [
+		from Subsystem
+		to Component
+		@rdfs:label "has component"
+		forward hasComponent
+		@rdfs:label "is component of"
+		reverse isComponentOf
+		asymmetric
+		irreflexive
+	]
+	< tlo:HasContinuantPart
+
+	@rdfs:label "Has Part"
+	@dc:description "[=HasPart=] relates a Component to a Part of which it is physically composed. Sub-relation of tlo:HasContinuantPart, enforcing the NNSA hierarchy at the Component–Part level."
+	relation entity HasPart [
+		from Component
+		to Part
+		@rdfs:label "has part"
+		forward hasPart
+		@rdfs:label "is part of"
+		reverse isPartOf
+		asymmetric
+		irreflexive
+	]
+	< tlo:HasContinuantPart
+
+	@rdfs:label "Applies To Condition"
+	@dc:description "[=AppliesToCondition=] relates a TypeLifeEstimate to the LifeConditionProfile under which it was derived. Functional: each TypeLifeEstimate is conditioned on exactly one profile."
+	relation entity AppliesToCondition [
+		from TypeLifeEstimate
+		to LifeConditionProfile
+		@rdfs:label "applies to condition"
+		forward appliesToCondition
+		@rdfs:label "is condition of life estimate"
+		reverse isConditionOfLifeEstimate
+		functional
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Is Exposure Of"
+	@dc:description "[=IsExposureOf=] relates an ExposureEvent to the physical Object instance whose service history it contributes to. Functional: each ExposureEvent belongs to exactly one physical instance."
+	relation entity IsExposureOf [
+		from ExposureEvent
+		to tlo:Object
+		@rdfs:label "is exposure of"
+		forward isExposureOf
+		@rdfs:label "had exposure"
+		reverse hadExposure
+		functional
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Under Condition"
+	@dc:description "[=UnderCondition=] relates an ExposureEvent to the LifeConditionProfile that characterised the operating or storage regime during that exposure period. Functional: each ExposureEvent occurs under exactly one condition profile."
+	relation entity UnderCondition [
+		from ExposureEvent
+		to LifeConditionProfile
+		@rdfs:label "under condition"
+		forward underCondition
+		@rdfs:label "is condition of exposure"
+		reverse isConditionOfExposure
+		functional
+		asymmetric
+		irreflexive
+	]
+
+
+	///// Scalar Properties
+
+	@rdfs:label "is replaceable"
+	@dc:description "[=isReplaceable=] records whether a physical Object instance can be replaced in its current installation context. Asserted per-instance at description time: instances of the same ObjectType may differ — some are replaceable and others are not, depending on installation context. Non-replaceable instances are included in the system-level remaining-life aggregation; replaceable instances are excluded."
+	scalar property isReplaceable [
+		domain tlo:Object
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "exposure duration years"
+	@dc:description "[=exposureDurationYears=] records the duration in years of a discrete ExposureEvent. Used as the numerator in Miner's rule damage accumulation SPARQL: SUM(exposureDurationYears / TypeLifeEstimate.hasValue) grouped by physical instance gives the total accumulated damage fraction, from which remaining life is derived."
+	scalar property exposureDurationYears [
+		domain ExposureEvent
+		range xsd:double
+		functional
+	]
+
+	@rdfs:label "has condition description"
+	@dc:description "[=hasConditionDescription=] records a human-readable description of a LifeConditionProfile, summarising the operating or storage regime it represents."
+	scalar property hasConditionDescription [
+		domain LifeConditionProfile
+		range xsd:string
+	]
+
+
+	///// Lifecycle Phase
+
+	@rdfs:label "Lifecycle Phase"
+	@dc:description "A [=LifecyclePhase=] is a temporally bounded Process representing a named programme phase (e.g., Phase 6.1 SRR, Phase 6.2 PDR, Phase 6.3 CDR). Tool capability type requirements for each phase are modelled via RequiresToolCapabilityType, enabling SPARQL to detect gaps between what a phase requires and what an organisation's DE environment provides."
+	concept LifecyclePhase < tlo:Process
+
+	@rdfs:label "Requires Tool Capability Type"
+	@dc:description "[=RequiresToolCapabilityType=] relates a LifecyclePhase to a DEToolCapabilityKind instance representing the functional capability category required for that phase. Kind instances are GDC types (no bearer constraint) — safe to assert in any description. Gaps between required kinds and available capability instances (typed via types:isOfType) are detected by SPARQL, not OWL reasoning."
+	relation entity RequiresToolCapabilityType [
+		from LifecyclePhase
+		to de:DEToolCapabilityKind
+		@rdfs:label "requires tool capability type"
+		forward requiresToolCapabilityType
+		@rdfs:label "is required tool capability type for phase"
+		reverse isRequiredToolCapabilityTypeForPhase
+		asymmetric
+		irreflexive
+	]
+
+}

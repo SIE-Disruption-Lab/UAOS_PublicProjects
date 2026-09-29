@@ -1,0 +1,121 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture the event patterns required by the SIE Disruption Lab. Note that this is essentially a simplified CCO Event Ontology."
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Core/UAOS_Event#> as UAOS_Event {
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+	
+	// Import standard vocabularies	
+    extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	///// Aspects
+	
+	
+	
+	///// Concepts
+	
+	
+	
+	///// Relations
+	
+	@rdfs:label "Causes"
+	@dc:description "[=Causes=] is a..."
+	relation entity Causes [
+		from tlo:Process
+		to tlo:Process
+		@rdfs:label "causes"
+		forward causes
+		@rdfs:label "is cause of"
+		reverse isCauseOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Has Participant"
+	@dc:description "[=HasParticipant=] is a..."
+	relation entity HasParticipant [
+		from tlo:Occurrent
+		to tlo:Continuant
+		@rdfs:label "has participant"
+		forward hasParticipant
+		@rdfs:label "is participant of"
+		reverse isParticipantOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Manifests In"
+	@dc:description "[=ManifestsIn=] is a..."
+	relation entity ManifestsIn [
+		from tlo:Disposition
+		to tlo:Occurrent
+		@rdfs:label "manifests in"
+		forward manifestsIn
+		@rdfs:label "is manifestation of"
+		reverse isManifestationOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Occurs At"
+	@dc:description "[=OccursAt=] is a..."
+	relation entity OccursAt [
+		from tlo:Occurrent
+		to tlo:Site
+		@rdfs:label "occurs at"
+		forward occursAt
+		@rdfs:label "is site of"
+		reverse isSiteOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Occurs On"
+	@dc:description "[=OccursOn=] is a..."
+	relation entity OccursOn [
+		from tlo:Occurrent
+		to tlo:TemporalRegion
+		@rdfs:label "occurs on"
+		forward occursOn
+		@rdfs:label "is temporal region of"
+		reverse isTemporalRegionOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Occurs Before"
+	@dc:description "[=OccursBefore=] is a..."
+	relation entity OccursBefore [
+		from tlo:TemporalRegion
+		to tlo:TemporalRegion
+		@rdfs:label "occurs before"
+		forward occursBefore
+		@rdfs:label "occurs after"
+		reverse occursAfter
+		asymmetric
+		irreflexive
+	]
+	
+	
+	
+	///// Scalar Properties
+
+	
+	
+	
+	///// Rules
+	
+	
+	}

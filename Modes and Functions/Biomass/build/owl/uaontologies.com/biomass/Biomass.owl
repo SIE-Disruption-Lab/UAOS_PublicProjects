@@ -1,0 +1,1191 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://uaontologies.com/biomass/Biomass#"
+     xml:base="http://uaontologies.com/biomass/Biomass"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:bio="http://uaontologies.com/biomass/Biomass#"
+     xmlns:oml="http://opencaesar.io/oml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:UAOS_Modes="http://uaontologies.com/UAOS_Domain/UAOS_Modes#"
+     xmlns:UAOS_TopLevel="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#">
+    <owl:Ontology rdf:about="http://uaontologies.com/biomass/Biomass">
+        <owl:imports rdf:resource="http://purl.org/dc/elements/1.1"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel"/>
+        <oml:namespace rdf:resource="http://uaontologies.com/biomass/Biomass#"/>
+        <oml:prefix>bio</oml:prefix>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Description"/>
+        <dc:creator>Joe Gregory</dc:creator>
+        <dc:description>A description instantiating the UAOS_Modes vocabulary for a partial model of the ESA Biomass spacecraft, drawn from the published case studies in Chapters 7 and 8 of Gregory PhD Thesis (2022).</dc:description>
+        <dc:hasVersion>0.2</dc:hasVersion>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://opencaesar.io/oml#hasSource -->
+
+
+    <owl:ObjectProperty rdf:about="http://opencaesar.io/oml#hasSource"/>
+    
+
+
+    <!-- http://opencaesar.io/oml#hasTarget -->
+
+
+    <owl:ObjectProperty rdf:about="http://opencaesar.io/oml#hasTarget"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Modes#isStepOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Modes#isStepOf"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Modes#specifiesExecutor -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Modes#specifiesExecutor"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Modes#specifiesFunction -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Modes#specifiesFunction"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasContinuantPart -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasContinuantPart"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#sdo"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_Modes#hasSequencePosition -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_Modes#hasSequencePosition"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasID -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasID"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasName -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasName"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasNaturalLanguageDescription -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#hasNaturalLanguageDescription"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_aocs_ash_to_nmg -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_aocs_ash_to_nmg">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#aocs"/>
+        <UAOS_TopLevel:hasName>AOCS ASH-to-NM-GAP Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_aocs_nmg_to_ash -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_aocs_nmg_to_ash">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#aocs"/>
+        <UAOS_TopLevel:hasName>AOCS NM-GAP-to-ASH Transition</UAOS_TopLevel:hasName>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Intended recovery transition from Normal Mode (GAP) back to ASH. In the MOCD, this path existed only as an alarm-triggered (FDIR) transition, not as a TC-commandable route. The SEAM deployment simulation failed when this transition was requested (thesis §8.6, p.147): no TC-commandable NM-to-ASH path was defined. The absence of exitedBy models this: the transition is not available in aocs_nmg, and the TransitionAvailability rule does not fire. Query Q03 detects the missing source mode.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_aocs_nmg_to_nmc -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_aocs_nmg_to_nmc">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#aocs"/>
+        <UAOS_TopLevel:hasName>AOCS NM-GAP-to-NM-CAP Transition</UAOS_TopLevel:hasName>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Transitions AOCS from Geocentric Pointing (GAP) to Custom Accurate Pointing (CAP) sub-mode. Commanded when spacecraft enters Nominal Mode, enabling precision attitude for SAR acquisitions.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_rdiu_off_to_oper -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_rdiu_off_to_oper">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#rdiu"/>
+        <UAOS_TopLevel:hasName>RDIU Off-to-Operational Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_rdiu_oper_to_off -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_rdiu_oper_to_off">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#rdiu"/>
+        <UAOS_TopLevel:hasName>RDIU Operational-to-Off Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_sar_meas_to_ready -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_sar_meas_to_ready">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#sar"/>
+        <UAOS_TopLevel:hasName>SAR Measurement-to-Ready Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_sar_off_to_ready -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_sar_off_to_ready">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#sar"/>
+        <UAOS_TopLevel:hasName>SAR Off-to-Ready Transition</UAOS_TopLevel:hasName>
+        <UAOS_TopLevel:hasNaturalLanguageDescription>Powers on and initialises the SAR instrument to Ready mode. Executed during POM entry sequence. Includes boot, application software load, and thermal stabilisation.</UAOS_TopLevel:hasNaturalLanguageDescription>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_sar_ready_to_meas -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_sar_ready_to_meas">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#sar"/>
+        <UAOS_TopLevel:hasName>SAR Ready-to-Measurement Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_sar_ready_to_off -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_sar_ready_to_off">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#sar"/>
+        <UAOS_TopLevel:hasName>SAR Ready-to-Off Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_sc_pom_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#biomass"/>
+        <UAOS_TopLevel:hasName>SC POM-to-Nominal Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_sc_pom_to_nom_sub_aocs -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_nom_sub_aocs">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_nom"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_aocs_nmg_to_nmc"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_sc_pom_to_nom_sub_rdiu -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_nom_sub_rdiu">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_nom"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_rdiu_oper_to_off"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_sc_pom_to_nom_sub_sar -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_nom_sub_sar">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_nom"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_sar_ready_to_meas"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_sc_pom_to_saf -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_saf">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#biomass"/>
+        <UAOS_TopLevel:hasName>SC POM-to-Safe Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_sc_pom_to_saf_sub_aocs -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_saf_sub_aocs">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_saf"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_aocs_nmg_to_ash"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_sc_pom_to_saf_sub_rdiu -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_saf_sub_rdiu">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_saf"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_rdiu_oper_to_off"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_sc_pom_to_saf_sub_sar -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_saf_sub_sar">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_saf"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_sar_ready_to_off"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_sc_saf_to_pom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_sc_saf_to_pom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#Transition"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#biomass"/>
+        <UAOS_TopLevel:hasName>SC Safe-to-POM Transition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_sc_saf_to_pom_sub_aocs -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_sc_saf_to_pom_sub_aocs">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#T_sc_saf_to_pom"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_aocs_ash_to_nmg"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#T_sc_saf_to_pom_sub_rdiu -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#T_sc_saf_to_pom_sub_rdiu">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#HasSubTransition"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#T_sc_saf_to_pom"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_rdiu_off_to_oper"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#aocs -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#aocs">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#System"/>
+        <UAOS_TopLevel:hasID>BIOMASS-AOCS</UAOS_TopLevel:hasID>
+        <UAOS_TopLevel:hasName>AOCS Subsystem</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#aocs_ash -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#aocs_ash">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#aocs"/>
+        <UAOS_TopLevel:hasName>AOCS Acquisition and Safe Hold Mode</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#aocs_ash_enteredBy_T_aocs_nmg_to_ash -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#aocs_ash_enteredBy_T_aocs_nmg_to_ash">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#aocs_ash"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_aocs_nmg_to_ash"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#aocs_ash_exitedBy_T_aocs_ash_to_nmg -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#aocs_ash_exitedBy_T_aocs_ash_to_nmg">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#aocs_ash"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_aocs_ash_to_nmg"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#aocs_nmc -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#aocs_nmc">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#aocs"/>
+        <UAOS_TopLevel:hasName>AOCS Normal Mode CAP</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#aocs_nmc_enteredBy_T_aocs_nmg_to_nmc -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#aocs_nmc_enteredBy_T_aocs_nmg_to_nmc">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#aocs_nmc"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_aocs_nmg_to_nmc"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#aocs_nmg -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#aocs_nmg">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#aocs"/>
+        <UAOS_TopLevel:hasName>AOCS Normal Mode GAP</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#aocs_nmg_enteredBy_T_aocs_ash_to_nmg -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#aocs_nmg_enteredBy_T_aocs_ash_to_nmg">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#aocs_nmg"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_aocs_ash_to_nmg"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#aocs_nmg_exitedBy_T_aocs_nmg_to_nmc -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#aocs_nmg_exitedBy_T_aocs_nmg_to_nmc">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#aocs_nmg"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_aocs_nmg_to_nmc"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#biomass -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#biomass">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#System"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/biomass/Biomass#aocs"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/biomass/Biomass#rdiu"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/biomass/Biomass#sar"/>
+        <UAOS_TopLevel:hasID>BIOMASS-SC</UAOS_TopLevel:hasID>
+        <UAOS_TopLevel:hasName>Biomass Spacecraft</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#chain_ldrDeployOBCP -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#chain_ldrDeployOBCP">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#FunctionalChain"/>
+        <UAOS_TopLevel:hasName>LDR Deployment OBCP</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#chain_sarAcquisitionOBCP -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#chain_sarAcquisitionOBCP">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#FunctionalChain"/>
+        <UAOS_TopLevel:hasName>SAR Acquisition OBCP</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_attitude_normal -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_attitude_normal">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#aocs"/>
+        <UAOS_TopLevel:hasName>Attitude Normal Control</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_attitude_normal_in_aocs_nmc -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_attitude_normal_in_aocs_nmc">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#fn_attitude_normal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#aocs_nmc"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_attitude_normal_in_aocs_nmg -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_attitude_normal_in_aocs_nmg">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#fn_attitude_normal"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#aocs_nmg"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_attitude_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_attitude_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#aocs"/>
+        <UAOS_TopLevel:hasName>Attitude Safe Hold</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_attitude_safe_in_aocs_ash -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_attitude_safe_in_aocs_ash">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#fn_attitude_safe"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#aocs_ash"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_deployment -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_deployment">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#biomass"/>
+        <UAOS_TopLevel:hasName>LDR Deployment</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_deployment_in_sc_pom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_deployment_in_sc_pom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#fn_deployment"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#sc_pom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_ldr_motor -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_ldr_motor">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#rdiu"/>
+        <UAOS_TopLevel:hasName>LDR Motor Activation</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_ldr_motor_in_rdiu_operational -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_ldr_motor_in_rdiu_operational">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#fn_ldr_motor"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#rdiu_operational"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_orbit_control -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_orbit_control">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#aocs"/>
+        <UAOS_TopLevel:hasName>Orbit Correction Manoeuvre</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_orbit_control_in_aocs_nmc -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_orbit_control_in_aocs_nmc">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#fn_orbit_control"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#aocs_nmc"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_sar_acquisition -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_sar_acquisition">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#biomass"/>
+        <UAOS_TopLevel:hasName>SAR Data Acquisition</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_sar_acquisition_in_sc_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_sar_acquisition_in_sc_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#fn_sar_acquisition"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#sc_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_sar_imaging -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_sar_imaging">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#sar"/>
+        <UAOS_TopLevel:hasName>SAR Polarimetric Imaging</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_sar_imaging_in_sar_measurement -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_sar_imaging_in_sar_measurement">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#fn_sar_imaging"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#sar_measurement"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_sar_standby -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_sar_standby">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#sar"/>
+        <UAOS_TopLevel:hasName>SAR Standby Operations</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_sar_standby_in_sar_ready -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_sar_standby_in_sar_ready">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#fn_sar_standby"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#sar_ready"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_telemetry -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_telemetry">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#Function"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#biomass"/>
+        <UAOS_TopLevel:hasName>Housekeeping Telemetry</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_telemetry_in_sc_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_telemetry_in_sc_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#fn_telemetry"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#sc_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_telemetry_in_sc_pom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_telemetry_in_sc_pom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#fn_telemetry"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#sc_pom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#fn_telemetry_in_sc_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#fn_telemetry_in_sc_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#AvailableIn"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#fn_telemetry"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#sc_safe"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#rdiu -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#rdiu">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#System"/>
+        <UAOS_TopLevel:hasID>BIOMASS-RDIU</UAOS_TopLevel:hasID>
+        <UAOS_TopLevel:hasName>Reflector Deployment Interface Unit</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#rdiu_off -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#rdiu_off">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#rdiu"/>
+        <UAOS_TopLevel:hasName>RDIU Off</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#rdiu_off_enteredBy_T_rdiu_oper_to_off -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#rdiu_off_enteredBy_T_rdiu_oper_to_off">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#rdiu_off"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_rdiu_oper_to_off"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#rdiu_off_exitedBy_T_rdiu_off_to_oper -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#rdiu_off_exitedBy_T_rdiu_off_to_oper">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#rdiu_off"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_rdiu_off_to_oper"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#rdiu_oper_enteredBy_T_rdiu_off_to_oper -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#rdiu_oper_enteredBy_T_rdiu_off_to_oper">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#rdiu_operational"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_rdiu_off_to_oper"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#rdiu_oper_exitedBy_T_rdiu_oper_to_off -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#rdiu_oper_exitedBy_T_rdiu_oper_to_off">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#rdiu_operational"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_rdiu_oper_to_off"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#rdiu_operational -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#rdiu_operational">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#rdiu"/>
+        <UAOS_TopLevel:hasName>RDIU Operational</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sar -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sar">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_SystemArchitecture#System"/>
+        <UAOS_TopLevel:hasID>BIOMASS-SAR</UAOS_TopLevel:hasID>
+        <UAOS_TopLevel:hasName>P-Band SAR Instrument</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sar_meas_enteredBy_T_sar_ready_to_meas -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sar_meas_enteredBy_T_sar_ready_to_meas">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#sar_measurement"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_sar_ready_to_meas"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sar_meas_exitedBy_T_sar_meas_to_ready -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sar_meas_exitedBy_T_sar_meas_to_ready">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#sar_measurement"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_sar_meas_to_ready"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sar_measurement -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sar_measurement">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#sar"/>
+        <UAOS_TopLevel:hasName>SAR Measurement</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sar_off -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sar_off">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#sar"/>
+        <UAOS_TopLevel:hasName>SAR Off</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sar_off_enteredBy_T_sar_ready_to_off -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sar_off_enteredBy_T_sar_ready_to_off">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#sar_off"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_sar_ready_to_off"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sar_off_exitedBy_T_sar_off_to_ready -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sar_off_exitedBy_T_sar_off_to_ready">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#sar_off"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_sar_off_to_ready"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sar_ready -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sar_ready">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#sar"/>
+        <UAOS_TopLevel:hasName>SAR Ready</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sar_ready_enteredBy_T_sar_meas_to_ready -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sar_ready_enteredBy_T_sar_meas_to_ready">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#sar_ready"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_sar_meas_to_ready"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sar_ready_enteredBy_T_sar_off_to_ready -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sar_ready_enteredBy_T_sar_off_to_ready">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#sar_ready"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_sar_off_to_ready"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sar_ready_exitedBy_T_sar_ready_to_meas -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sar_ready_exitedBy_T_sar_ready_to_meas">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#sar_ready"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_sar_ready_to_meas"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sar_ready_exitedBy_T_sar_ready_to_off -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sar_ready_exitedBy_T_sar_ready_to_off">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#sar_ready"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_sar_ready_to_off"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sc_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sc_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/biomass/Biomass#aocs_nmc"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/biomass/Biomass#rdiu_off"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/biomass/Biomass#sar_measurement"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#biomass"/>
+        <UAOS_TopLevel:hasName>Nominal Mode</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sc_nom_enteredBy_T_sc_pom_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sc_nom_enteredBy_T_sc_pom_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#sc_nom"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sc_pom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sc_pom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/biomass/Biomass#aocs_nmg"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/biomass/Biomass#rdiu_operational"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/biomass/Biomass#sar_ready"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#biomass"/>
+        <UAOS_TopLevel:hasName>Pre-Operational Mode</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sc_pom_enteredBy_T_sc_saf_to_pom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sc_pom_enteredBy_T_sc_saf_to_pom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#sc_pom"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_sc_saf_to_pom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sc_pom_exitedBy_T_sc_pom_to_nom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sc_pom_exitedBy_T_sc_pom_to_nom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#sc_pom"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_nom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sc_pom_exitedBy_T_sc_pom_to_saf -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sc_pom_exitedBy_T_sc_pom_to_saf">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#sc_pom"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_saf"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sc_safe -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sc_safe">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#Mode"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/biomass/Biomass#aocs_ash"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/biomass/Biomass#rdiu_off"/>
+        <UAOS_TopLevel:hasContinuantPart rdf:resource="http://uaontologies.com/biomass/Biomass#sar_off"/>
+        <UAOS_TopLevel:sdo rdf:resource="http://uaontologies.com/biomass/Biomass#biomass"/>
+        <UAOS_TopLevel:hasName>Safe Mode</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sc_safe_enteredBy_T_sc_pom_to_saf -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sc_safe_enteredBy_T_sc_pom_to_saf">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#EnteredBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#sc_safe"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_sc_pom_to_saf"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#sc_safe_exitedBy_T_sc_saf_to_pom -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#sc_safe_exitedBy_T_sc_saf_to_pom">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_States#ExitedBy"/>
+        <oml:hasSource rdf:resource="http://uaontologies.com/biomass/Biomass#sc_safe"/>
+        <oml:hasTarget rdf:resource="http://uaontologies.com/biomass/Biomass#T_sc_saf_to_pom"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#step_ldr_1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#step_ldr_1">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#FunctionalChainStep"/>
+        <UAOS_Modes:isStepOf rdf:resource="http://uaontologies.com/biomass/Biomass#chain_ldrDeployOBCP"/>
+        <UAOS_Modes:specifiesExecutor rdf:resource="http://uaontologies.com/biomass/Biomass#biomass"/>
+        <UAOS_Modes:specifiesFunction rdf:resource="http://uaontologies.com/biomass/Biomass#fn_deployment"/>
+        <UAOS_Modes:hasSequencePosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</UAOS_Modes:hasSequencePosition>
+        <UAOS_TopLevel:hasName>Step 1 - LDR Deployment</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#step_ldr_2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#step_ldr_2">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#FunctionalChainStep"/>
+        <UAOS_Modes:isStepOf rdf:resource="http://uaontologies.com/biomass/Biomass#chain_ldrDeployOBCP"/>
+        <UAOS_Modes:specifiesExecutor rdf:resource="http://uaontologies.com/biomass/Biomass#aocs"/>
+        <UAOS_Modes:specifiesFunction rdf:resource="http://uaontologies.com/biomass/Biomass#fn_ldr_motor"/>
+        <UAOS_Modes:hasSequencePosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</UAOS_Modes:hasSequencePosition>
+        <UAOS_TopLevel:hasName>Step 2 - LDR Motor Activation (wrong executor)</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#step_sar_1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#step_sar_1">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#FunctionalChainStep"/>
+        <UAOS_Modes:isStepOf rdf:resource="http://uaontologies.com/biomass/Biomass#chain_sarAcquisitionOBCP"/>
+        <UAOS_Modes:specifiesExecutor rdf:resource="http://uaontologies.com/biomass/Biomass#sar"/>
+        <UAOS_Modes:specifiesFunction rdf:resource="http://uaontologies.com/biomass/Biomass#fn_sar_imaging"/>
+        <UAOS_Modes:hasSequencePosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</UAOS_Modes:hasSequencePosition>
+        <UAOS_TopLevel:hasName>Step 1 - SAR Polarimetric Imaging</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/biomass/Biomass#step_sar_2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/biomass/Biomass#step_sar_2">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_Modes#FunctionalChainStep"/>
+        <UAOS_Modes:isStepOf rdf:resource="http://uaontologies.com/biomass/Biomass#chain_sarAcquisitionOBCP"/>
+        <UAOS_Modes:specifiesExecutor rdf:resource="http://uaontologies.com/biomass/Biomass#biomass"/>
+        <UAOS_Modes:specifiesFunction rdf:resource="http://uaontologies.com/biomass/Biomass#fn_telemetry"/>
+        <UAOS_Modes:hasSequencePosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</UAOS_Modes:hasSequencePosition>
+        <UAOS_TopLevel:hasName>Step 2 - Housekeeping Telemetry</UAOS_TopLevel:hasName>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.5.0.2023-01-14T12:41:38Z) https://github.com/owlcs/owlapi/ -->
+
+

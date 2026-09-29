@@ -1,0 +1,19 @@
+{ "head": {
+    "vars": [ "chain" , "chainName" , "step" , "stepName" , "stepPos" , "function" , "functionName" , "executor" , "executorName" ]
+  } ,
+  "results": {
+    "bindings": [
+      { 
+        "chain": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#chain_ldrDeployOBCP" } ,
+        "chainName": { "type": "literal" , "value": "LDR Deployment OBCP" } ,
+        "step": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#step_ldr_2" } ,
+        "stepName": { "type": "literal" , "value": "Step 2 - LDR Motor Activation (wrong executor)" } ,
+        "stepPos": { "type": "literal" , "datatype": "http://www.w3.org/2001/XMLSchema#integer" , "value": "2" } ,
+        "function": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#fn_ldr_motor" } ,
+        "functionName": { "type": "literal" , "value": "LDR Motor Activation" } ,
+        "executor": { "type": "uri" , "value": "http://uaontologies.com/biomass/Biomass#aocs" } ,
+        "executorName": { "type": "literal" , "value": "AOCS Subsystem" }
+      }
+    ]
+  }
+}

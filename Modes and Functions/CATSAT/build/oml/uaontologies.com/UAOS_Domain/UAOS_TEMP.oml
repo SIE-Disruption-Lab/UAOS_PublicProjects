@@ -1,0 +1,352 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:contributor "Paul Wach"
+@dc:description "A vocabulary defining the Test and Evaluation Master Plan (TEMP) framework — the overarching T&E planning document, its lifecycle phases (Developmental, Operational, Live Fire), test articles, resource requirements, milestones, and evidence produced. Formalises TEMP structure per DoD Instruction 5000.89 (Test and Evaluation, 2020) and the DAU Test and Evaluation Master Plan Guidebook (2021). Part of the 4D Assessment ontology family."
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_TEMP#> as UAOS_TEMP {
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	/////// Vocabulary Imports ///////
+
+	// Import standard vocabularies
+	extends <http://purl.org/dc/elements/1.1/> as dc
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	// Import relevant vocabularies
+	extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Agent#> as agent
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_Requirements#> as req
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_Assessment#> as assess
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_Test#> as test
+	extends <http://uaontologies.com/UAOS_Domain/UAOS_Verification#> as ver
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Vocabulary Definitions ///////
+
+
+	///// Aspects
+
+
+	///// Concepts
+
+	@rdfs:label "Test and Evaluation Master Plan"
+	@dc:description "A [=TestAndEvaluationMasterPlan=] is a Plan (PrescriptiveICE) that is the overarching document defining the test and evaluation strategy for a programme — its phases, milestones, test articles, resource requirements, and evidence requirements across the full T&E lifecycle. A TEMP is a generically dependent continuant: it can be concretised in many bearers (printed copies, electronic files, programme databases). It prescribes the sequence and scope of DT, OT, and LFT activity required to support programme Milestone decisions per DoD Instruction 5000.89."
+	concept TestAndEvaluationMasterPlan < agent:Plan
+
+	@rdfs:label "TEMP Phase"
+	@dc:description "A [=TEMPPhase=] is a Process that constitutes one named phase of T&E activity within a TEMP. TEMP phases are genuine temporal activities — test personnel, test articles, facilities, and instrumentation all participate in the phase. Each phase occupies a temporal region and may have temporal parts (individual test events). The three primary TEMP phases are DevelopmentalTestPhase, OperationalTestPhase, and LiveFireTestPhase."
+	concept TEMPPhase < tlo:Process
+
+	@rdfs:label "Developmental Test Phase"
+	@dc:description "A [=DevelopmentalTestPhase=] is a TEMPPhase constituting the developmental test and evaluation (DT&E) activity for a programme — testing conducted by the developer to verify that the system meets engineering design specifications before proceeding to operational test. DT data may be credited toward OT evaluation via DT/OT integration criteria (DTOT-01 through DTOT-06)."
+	concept DevelopmentalTestPhase < TEMPPhase
+
+	@rdfs:label "Operational Test Phase"
+	@dc:description "An [=OperationalTestPhase=] is a TEMPPhase constituting the operational test and evaluation (OT&E) activity for a programme — testing conducted by an operationally representative user under realistic operational conditions to assess military utility, operational suitability, and operational effectiveness. OT is typically conducted by an independent operational test agency."
+	concept OperationalTestPhase < TEMPPhase
+
+	@rdfs:label "Live Fire Test Phase"
+	@dc:description "A [=LiveFireTestPhase=] is a TEMPPhase constituting the live fire test and evaluation (LFT&E) activity for programmes subject to the statutory live fire test requirement (10 U.S.C. § 4172). LFT&E assesses the vulnerability and lethality of the system under realistic combat conditions before full-rate production."
+	concept LiveFireTestPhase < TEMPPhase
+
+	@rdfs:label "Test Article"
+	@dc:description "A [=TestArticle=] is a material entity (tlo:Object) that is the item under test during a TEMPPhase — a prototype, engineering development model, limited production unit, or production-representative system. Even when the primary test subject is software, it is instantiated on a material bearer (hardware platform) during testing. The TestArticle bears the qualities (performance, survivability, suitability) that the TEMPPhase is designed to evaluate."
+	concept TestArticle < tlo:Object
+
+	@rdfs:label "TEMP Resource Requirement"
+	@dc:description "A [=TEMPResourceRequirement=] is a Requirement that specifies the resources needed to execute a TEMPPhase — including test personnel, test ranges and facilities, instrumentation, test support equipment, programme funding, and schedule. TEMPResourceRequirements are prescriptive information entities that generically depend on the TEMP document and resource allocation databases."
+	concept TEMPResourceRequirement < req:Requirement
+
+	@rdfs:label "TEMP Milestone"
+	@dc:description "A [=TEMPMilestone=] is a ProgramMilestone that marks a defined formal decision point in the TEMP lifecycle — such as a Test Readiness Review (TRR), a Critical Test Event (CTE), an Initial Operational Test and Evaluation (IOT&E) completion, or a programme Milestone decision (MS-B, MS-C, FRP). TEMPMilestones inherit the formal review gate semantics of ProgramMilestone and provide the primary link from T&E activities to programme acquisition decisions."
+	concept TEMPMilestone < assess:ProgramMilestone
+
+	@rdfs:label "TEMP Evidence"
+	@dc:description "A [=TEMPEvidence=] is a TestResult (DescriptiveICE) that records evidence produced during a TEMPPhase — including test reports, raw data collection records, analysis results, evaluation findings, and DOT&E reports. TEMPEvidence is the primary evidentiary input to programme milestone decisions and to the OSD Director of Operational Test and Evaluation (DOT&E) statutory reporting."
+	concept TEMPEvidence < test:TestResult
+
+
+	///////////////////////////////////////////////////////////////////////////////////
+	/////// Operational Test Procedure Role Concepts ///////
+	// These roles follow the UAOS pattern: they are not subtypes of Object or Person
+	// but Roles that any appropriate bearer can play in the context of a test procedure.
+
+	@rdfs:label "Test Subject Role"
+	@dc:description "A [=TestSubjectRole=] is a Role played by a system or component that is the primary subject under test in a TestProcedure. Any tlo:Continuant may bear this role. Captures the SysML 'subject' feature of a verification case."
+	concept TestSubjectRole < tlo:Role
+
+	@rdfs:label "Test Infrastructure Role"
+	@dc:description "A [=TestInfrastructureRole=] is a Role played by any physical object that supports or enables the execution of a TestProcedure — including test range equipment, threat simulators, data collection systems, and launch infrastructure. This is not a type of object; it is a role any tlo:Object can play."
+	concept TestInfrastructureRole < tlo:Role
+
+	@rdfs:label "Test Personnel Role"
+	@dc:description "A [=TestPersonnelRole=] is a Role played by a Person during a TestProcedure, capturing the functional position that individual occupies in the test event. This is the UAOS equivalent of the SysML PersonnelRole part def."
+	concept TestPersonnelRole < tlo:Role
+
+	@rdfs:label "Pilot Role"
+	@dc:description "A [=PilotRole=] is a TestPersonnelRole played by the pilot participant in a test event."
+	concept PilotRole < TestPersonnelRole
+
+	@rdfs:label "Flight Test Engineer Role"
+	@dc:description "A [=FlightTestEngineerRole=] is a TestPersonnelRole played by the flight test engineer participant in a test event."
+	concept FlightTestEngineerRole < TestPersonnelRole
+
+	@rdfs:label "Crew Role"
+	@dc:description "A [=CrewRole=] is a TestPersonnelRole played by a crew member participant in a test event."
+	concept CrewRole < TestPersonnelRole
+
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Relations ///////
+
+	@rdfs:label "Has TEMP Phase"
+	@dc:description "[=HasTEMPPhase=] relates a TestAndEvaluationMasterPlan to its constituent TEMPPhases. A TEMP typically includes at least one DevelopmentalTestPhase and one OperationalTestPhase; programmes subject to 10 U.S.C. § 4172 additionally include a LiveFireTestPhase."
+	relation entity HasTEMPPhase [
+		from TestAndEvaluationMasterPlan
+		to TEMPPhase
+		@rdfs:label "has TEMP phase"
+		forward hasTEMPPhase
+		@rdfs:label "TEMP phase of"
+		reverse tempPhaseOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Test Article"
+	@dc:description "[=HasTestArticle=] relates a TEMPPhase to the TestArticle evaluated during that phase. Different phases may evaluate different test articles (e.g., engineering development model in DT, production-representative unit in OT), reflecting the increasing maturity of the system under test."
+	relation entity HasTestArticle [
+		from TEMPPhase
+		to TestArticle
+		@rdfs:label "has test article"
+		forward hasTestArticle
+		@rdfs:label "test article of"
+		reverse testArticleOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has TEMP Resource Requirement"
+	@dc:description "[=HasTEMPResourceRequirement=] relates a TEMPPhase to the TEMPResourceRequirements specifying what resources are needed to execute that phase."
+	relation entity HasTEMPResourceRequirement [
+		from TEMPPhase
+		to TEMPResourceRequirement
+		@rdfs:label "has TEMP resource requirement"
+		forward hasTEMPResourceRequirement
+		@rdfs:label "TEMP resource requirement of"
+		reverse tempResourceRequirementOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has TEMP Milestone"
+	@dc:description "[=HasTEMPMilestone=] relates a TestAndEvaluationMasterPlan to its defined TEMPMilestones — the formal decision points that gate progression through the T&E lifecycle and connect T&E completion to programme acquisition decisions."
+	relation entity HasTEMPMilestone [
+		from TestAndEvaluationMasterPlan
+		to TEMPMilestone
+		@rdfs:label "has TEMP milestone"
+		forward hasTEMPMilestone
+		@rdfs:label "TEMP milestone of"
+		reverse tempMilestoneOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Produces TEMP Evidence"
+	@dc:description "[=ProducesTEMPEvidence=] relates a TEMPPhase to the TEMPEvidence it generates during execution — the test reports, data records, and evaluation findings that support milestone decisions and statutory reporting."
+	relation entity ProducesTEMPEvidence [
+		from TEMPPhase
+		to TEMPEvidence
+		@rdfs:label "produces TEMP evidence"
+		forward producesTEMPEvidence
+		@rdfs:label "TEMP evidence produced by"
+		reverse tempEvidenceProducedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Phase Follows"
+	@dc:description "[=PhaseFollows=] is an ordering relation indicating that the domain TEMPPhase temporally follows the range TEMPPhase in the TEMP execution sequence. This asymmetric, irreflexive relation encodes the programme-specific T&E sequence (e.g., DT before OT). The relation is programme-specific: LFT&E may be interleaved with DT or OT depending on statutory requirements and programme structure."
+	relation entity PhaseFollows [
+		from TEMPPhase
+		to TEMPPhase
+		@rdfs:label "phase follows"
+		forward phaseFollows
+		@rdfs:label "phase followed by"
+		reverse phaseFollowedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Planned Test Subject"
+	@dc:description "[=HasPlannedTestSubject=] relates a TestProcedure to the TestSubjectRole identifying the system or component planned to be the subject under test. Captures the SysML 'subject' feature at the procedure planning level, distinct from the execution-level test:hasTestSubject on test:Test."
+	relation entity HasPlannedTestSubject [
+		from test:TestProcedure
+		to TestSubjectRole
+		@rdfs:label "has planned test subject"
+		forward hasPlannedTestSubject
+		@rdfs:label "is planned test subject of"
+		reverse isPlannedTestSubjectOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Test Actor"
+	@dc:description "[=HasTestActor=] relates a TestProcedure to a TestPersonnelRole, identifying a person who plays a defined role in the execution of the procedure. Captures the SysML 'actor' usages on a verification case."
+	relation entity HasTestActor [
+		from test:TestProcedure
+		to TestPersonnelRole
+		@rdfs:label "has test actor"
+		forward hasTestActor
+		@rdfs:label "is test actor in"
+		reverse isTestActorIn
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Test Infrastructure"
+	@dc:description "[=HasTestInfrastructure=] relates a TestProcedure to a TestInfrastructureRole, identifying a physical item playing a support role during the test. Captures the SysML 'item' usages on a verification case that represent test infrastructure rather than the system under test."
+	relation entity HasTestInfrastructure [
+		from test:TestProcedure
+		to TestInfrastructureRole
+		@rdfs:label "has test infrastructure"
+		forward hasTestInfrastructure
+		@rdfs:label "is test infrastructure of"
+		reverse isTestInfrastructureOf
+		asymmetric
+		irreflexive
+	]
+
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Scalar Properties ///////
+
+	@rdfs:label "phase order"
+	@dc:description "[=phaseOrder=] records the numeric position of a TEMPPhase in the programme's T&E execution sequence. Lower values precede higher values. Used alongside PhaseFollows to establish the programme-specific ordering of T&E phases."
+	scalar property phaseOrder [
+		domain TEMPPhase
+		range xsd:positiveInteger
+		functional
+	]
+
+	@rdfs:label "milestone date"
+	@dc:description "[=milestoneDate=] records the planned or actual calendar date of a TEMPMilestone event."
+	scalar property milestoneDate [
+		domain TEMPMilestone
+		range xsd:dateTime
+		functional
+	]
+
+	@rdfs:label "is phase complete"
+	@dc:description "[=isPhaseComplete=] flags whether a TEMPPhase has been completed — all planned test events executed, data collected, and phase evidence package delivered."
+	scalar property isPhaseComplete [
+		domain TEMPPhase
+		range xsd:boolean
+		functional
+	]
+
+	/////// Test Procedure Phase and Classification ///////
+
+	@rdfs:label "Test Phase"
+	@dc:description "[=TestPhase=] enumerates the three mission-sequence positions a TestProcedure can occupy, corresponding to the SysML Stage enum: Preflight, Execution, and Postflight."
+	scalar TestPhase [
+		oneOf "Preflight", "Execution", "Postflight"
+	]
+
+	@rdfs:label "has test phase"
+	@dc:description "[=hasTestPhase=] classifies a TestProcedure by its position in the overall test mission sequence (Preflight, Execution, or Postflight). Corresponds to the SysML Stage attribute on a verification case."
+	scalar property hasTestPhase [
+		domain test:TestProcedure
+		range TestPhase
+		functional
+	]
+
+	@rdfs:label "Test Mission Type"
+	@dc:description "[=TestMissionType=] enumerates the mission classification types applicable to a TestProcedure, corresponding to the SysML MissionType enum."
+	scalar TestMissionType [
+		oneOf "AFTD Flight Test", "Other"
+	]
+
+	@rdfs:label "has test mission type"
+	@dc:description "[=hasTestMissionType=] classifies a TestProcedure by the type of test mission it supports. Corresponds to the SysML missionType attribute on a verification case."
+	scalar property hasTestMissionType [
+		domain test:TestProcedure
+		range TestMissionType
+		functional
+	]
+
+	/////// Test Requirement Metadata ///////
+
+	@rdfs:label "has verification level"
+	@dc:description "[=hasVerificationLevel=] records the verification level (e.g., system, subsystem, component) applicable to a TestRequirement."
+	scalar property hasVerificationLevel [
+		domain ver:TestRequirement
+		range xsd:string
+	]
+
+	@rdfs:label "has verification responsibility"
+	@dc:description "[=hasVerificationResponsibility=] records the organisation or role responsible for executing the verification activity associated with a TestRequirement."
+	scalar property hasVerificationResponsibility [
+		domain ver:TestRequirement
+		range xsd:string
+	]
+
+	@rdfs:label "has verification method"
+	@dc:description "[=hasVerificationMethod=] records one verification method applicable to a TestRequirement. Multiple assertions of this property capture the SysML [1..*] multiplicity on verificationMethods."
+	scalar property hasVerificationMethod [
+		domain ver:TestRequirement
+		range xsd:string
+	]
+
+	@rdfs:label "is safety relevant"
+	@dc:description "[=isSafetyRelevant=] flags whether a TestRequirement is classified as safety-relevant, requiring elevated scrutiny and traceability in the test programme."
+	scalar property isSafetyRelevant [
+		domain ver:TestRequirement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "is airworthiness relevant"
+	@dc:description "[=isAirworthinessRelevant=] flags whether a TestRequirement is relevant to airworthiness certification or compliance."
+	scalar property isAirworthinessRelevant [
+		domain ver:TestRequirement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "is first flight"
+	@dc:description "[=isFirstFlight=] flags whether a TestRequirement must be satisfied prior to or during first flight of the test article."
+	scalar property isFirstFlight [
+		domain ver:TestRequirement
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "derived from requirement"
+	@dc:description "[=derivedFromRequirement=] records the source requirement identifier from which this TestRequirement was derived, preserving the SysML 'derivedFrom' attribute as a string reference."
+	scalar property derivedFromRequirement [
+		domain ver:TestRequirement
+		range xsd:string
+	]
+
+	/////// Provenance ///////
+
+	@rdfs:label "cameo ID"
+	@dc:description "[=cameoId=] records the globally unique identifier assigned to this element in a Cameo Systems Modeler or Rhapsody tool instance, enabling round-trip traceability between OML descriptions and the originating SysML model."
+	scalar property cameoId [
+		domain tlo:IdentifiedEntity
+		range xsd:string
+	]
+
+
+	///// Rules
+
+
+}

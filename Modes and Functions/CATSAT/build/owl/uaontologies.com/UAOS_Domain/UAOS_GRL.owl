@@ -1,0 +1,435 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://uaontologies.com/UAOS_Domain/UAOS_GRL#"
+     xml:base="http://uaontologies.com/UAOS_Domain/UAOS_GRL"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:oml="http://opencaesar.io/oml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:UAOS_GRL="http://uaontologies.com/UAOS_Domain/UAOS_GRL#">
+    <owl:Ontology rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL">
+        <owl:imports rdf:resource="http://purl.org/dc/elements/1.1"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information"/>
+        <oml:namespace rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#"/>
+        <oml:prefix>UAOS_GRL</oml:prefix>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Vocabulary"/>
+        <dc:contributor>Joe Gregory</dc:contributor>
+        <dc:contributor>Paul Wach</dc:contributor>
+        <dc:creator>SIE Disruption Lab</dc:creator>
+        <dc:description>A vocabulary defining the General Readiness Level (GRL) scale and the four assessment axes of the 4D Assessment framework. GRL is a domain-agnostic 9-level readiness framework (Foundation 1-3, Development 4-6, Operational 7-9) from which all existing readiness level frameworks are recoverable via thread restriction. The four assessment axes (Evidence D1, System Readiness D2, Governance D3, Product Quality D4) are the scoring dimensions of the 4D Assessment methodology. Source: WRT-2516 v2, Chapters 6-8.</dc:description>
+        <dc:hasVersion>0.1</dc:hasVersion>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#assessmentThreadOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#assessmentThreadOf">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasAssessmentThread"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#AssessmentThread"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#SystemReadinessAxis"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasAssessmentThread"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>assessment thread of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#grlPhaseOf -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#grlPhaseOf">
+        <owl:inverseOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasGRLPhase"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLPhase"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLLevel"/>
+        <oml:relationBase rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasGRLPhase"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ReverseRelation"/>
+        <rdfs:label>GRL phase of</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasAssessmentThread -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasAssessmentThread">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#SystemReadinessAxis"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#AssessmentThread"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasAssessmentThread"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>has assessment thread</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasGRLPhase -->
+
+
+    <owl:ObjectProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasGRLPhase">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLLevel"/>
+        <rdfs:range rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLPhase"/>
+        <oml:relationEntity rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasGRLPhase"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ForwardRelation"/>
+        <rdfs:label>has GRL phase</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasGRLValue -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasGRLValue">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLLevel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+        <dc:description>[=hasGRLValue=] records the integer position of a GRLLevel on the 1-9 ordinal scale. GRL 1 is the lowest (fundamental principles identified) and GRL 9 is the highest (proven in sustained operational mission). Only ordinal-valid operations (min, max, median, mode) are applicable to GRL values; weighted averages are measurement-theoretically invalid for ordinal data (Stevens 1946).</dc:description>
+        <rdfs:label>has GRL value</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasOrdinalPosition -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasOrdinalPosition">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+        <dc:description>[=hasOrdinalPosition=] records the non-negative integer ordinal rank of a DescriptiveICE within its scale. Used by GRLLevel (ordinal positions 1-9 matching GRL value) and EvidenceQualityCategory (ordinal positions 0-8 matching evidence numeric code) to provide a uniform ordering key across scales for gap analysis and comparison operations.</dc:description>
+        <rdfs:label>has ordinal position</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasPhaseLabel -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasPhaseLabel">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLPhase"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>[=hasPhaseLabel=] records the name of a GRLPhase: &apos;Foundation&apos;, &apos;Development&apos;, or &apos;Operational&apos;.</dc:description>
+        <rdfs:label>has phase label</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasThreadCode -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasThreadCode">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#AssessmentThread"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <dc:description>[=hasThreadCode=] records the abbreviated identifier of an AssessmentThread. Canonical codes: T (Technology), P (Production), I (Integration), H (Human Systems), O (Organizational), K (Knowledge). Extended thread codes (e.g., TC, RQ, WF) follow the same convention.</dc:description>
+        <rdfs:label>has thread code</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#AssessmentAxis -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#AssessmentAxis">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#PrescriptiveICE"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>An [=AssessmentAxis=] is a PrescriptiveICE that specifies one axis along which readiness is scored in the 4D Assessment framework. An AssessmentAxis defines what is to be measured and the scoring rules along that axis. The four concrete axes are EvidenceAxis (D1), SystemReadinessAxis (D2), GovernanceAxis (D3), and ProductQualityAxis (D4). Named &apos;AssessmentAxis&apos; rather than &apos;Dimension&apos; to avoid collision with the UAOS_Measurement &apos;Dimension&apos; concept (physical measurement dimensions).</dc:description>
+        <rdfs:label>Assessment Axis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#AssessmentThread -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#AssessmentThread">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#PrescriptiveICE"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>An [=AssessmentThread=] is a PrescriptiveICE that specifies one named dimension of readiness concern within the SystemReadinessAxis (D2). The six canonical threads are: Technology (T) — does the technology work?; Production (P) — can it be produced at required scale?; Integration (I) — do components integrate properly?; Human Systems (H) — can humans effectively operate this?; Organizational (O) — is the organisation ready?; Knowledge (K) — is the underlying knowledge mature? Extended threads (e.g., Transition TC, Requirements RQ) follow the same pattern and can be added without creating new frameworks.</dc:description>
+        <rdfs:label>Assessment Thread</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#EvidenceAxis -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#EvidenceAxis">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#AssessmentAxis"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>An [=EvidenceAxis=] is an AssessmentAxis that specifies Dimension 1 (D1) of the 4D Assessment framework — evidence quality. D1 scores the quality of evidence supporting a readiness claim using a non-monotonic 9-category ordinal scale (EQ-0 through EQ-8). D1 is non-monotonic: evidence quality can regress if evidence becomes outdated or invalidated. Canonical EvidenceQualityCategory instances are defined in the UAOS_EvidenceCategories library description.</dc:description>
+        <rdfs:label>Evidence Axis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLLevel -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLLevel">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=GRLLevel=] is a DescriptiveICE that represents one position on the General Readiness Level ordinal scale (integers 1-9). GRL levels are information content entities — they record the result of an assessment, distinct from the actual readiness quality inhering in the assessed system. Multiple assessors may assign different GRL levels to the same element at the same time; only ordinal-valid operations (min, max, median, mode) apply across levels.</dc:description>
+        <rdfs:label>GRL Level</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLPhase -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GRLPhase">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Core/UAOS_Information#DescriptiveICE"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=GRLPhase=] is a DescriptiveICE that names a partition of the GRL ordinal scale. The three canonical phases are Foundation (GRL 1-3: conceptual and analytical work), Development (GRL 4-6: empirical demonstration in controlled and representative settings), and Operational (GRL 7-9: proven in real-world operational conditions). Phase boundaries encode universal semantic transitions shared across all readiness level frameworks. Each GRLLevel belongs to exactly one GRLPhase.</dc:description>
+        <rdfs:label>GRL Phase</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#GovernanceAxis -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#GovernanceAxis">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#AssessmentAxis"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=GovernanceAxis=] is an AssessmentAxis that specifies Dimension 3 (D3) of the 4D Assessment framework — governance and regulatory compliance. D3 scores conformance to applicable governance domains and policy requirements. A key D3 function is detection of antiquated policy requirements that may artificially inflate or depress compliance scores.</dc:description>
+        <rdfs:label>Governance Axis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasAssessmentThread -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasAssessmentThread">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=HasAssessmentThread=] relates a SystemReadinessAxis to an AssessmentThread that it subsumes. The D2 axis subsumes the six canonical threads (T, P, I, H, O, K) and any programme-specific extended threads. This relation enables a SystemReadinessAxis to be tailored by activating a subset of threads for a given programme.</dc:description>
+        <rdfs:label>Has Assessment Thread</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasGRLPhase -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasGRLPhase">
+        <oml:type rdf:resource="http://opencaesar.io/oml#RelationEntity"/>
+        <dc:description>[=HasGRLPhase=] relates a GRLLevel to the GRLPhase to which it belongs. Each GRL level belongs to exactly one phase: Foundation (GRL 1-3), Development (GRL 4-6), or Operational (GRL 7-9). Phase membership is fixed and does not vary across programmes.</dc:description>
+        <rdfs:label>Has GRL Phase</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#ProductQualityAxis -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#ProductQualityAxis">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#AssessmentAxis"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=ProductQualityAxis=] is an AssessmentAxis that specifies Dimension 4 (D4) of the 4D Assessment framework — product and process quality aligned with ISO 25010 (product quality, quality in use) and ISO 25012 (data quality). D4 scores quality sub-characteristics; the aggregate D4 readiness uses the median — the only ordinal-valid central tendency measure robust to outliers.</dc:description>
+        <rdfs:label>Product Quality Axis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#SystemReadinessAxis -->
+
+
+    <owl:Class rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#SystemReadinessAxis">
+        <rdfs:subClassOf rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#AssessmentAxis"/>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Concept"/>
+        <dc:description>A [=SystemReadinessAxis=] is an AssessmentAxis that specifies Dimension 2 (D2) of the 4D Assessment framework — system readiness assessed via the General Readiness Level (GRL) scale. D2 subsumes six core assessment threads (Technology T, Production P, Integration I, Human Systems H, Organizational O, Knowledge K) plus any programme-specific extended threads. GRL level instances are defined in the UAOS_GRLLevels library description.</dc:description>
+        <rdfs:label>System Readiness Axis</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="urn:swrl:var#r">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#s">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="urn:swrl:var#t">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>hasAssessmentThread derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasAssessmentThread"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasAssessmentThread"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <rdfs:label>hasGRLPhase derivation</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#HasGRLPhase"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasSource"/>
+                                <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                <swrl:argument2 rdf:resource="urn:swrl:var#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://opencaesar.io/oml#hasTarget"/>
+                                        <swrl:argument1 rdf:resource="urn:swrl:var#r"/>
+                                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasGRLPhase"/>
+                        <swrl:argument1 rdf:resource="urn:swrl:var#s"/>
+                        <swrl:argument2 rdf:resource="urn:swrl:var#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.5.0.2023-01-14T12:41:38Z) https://github.com/owlcs/owlapi/ -->
+
+

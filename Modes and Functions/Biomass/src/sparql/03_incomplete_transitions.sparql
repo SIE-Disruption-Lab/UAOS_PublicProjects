@@ -1,0 +1,20 @@
+PREFIX tlo:    <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#>
+PREFIX States: <http://uaontologies.com/UAOS_Domain/UAOS_States#>
+
+SELECT ?transition  ?transitionName
+       ?system      ?systemName
+WHERE {
+    # Find all Transitions and the Systems they are specifically dependent on
+    ?transition  a States:Transition ;
+                 tlo:hasName ?transitionName ;
+                 tlo:sdo ?system .
+
+    ?system      tlo:hasName ?systemName .
+
+    # COMPLETENESS FILTER: retain only Transitions with NO source Mode —
+    # those for which no Mode declares exitedBy this Transition.
+    FILTER NOT EXISTS {
+        ?sourceMode States:exitedBy ?transition
+    }
+}
+ORDER BY ?systemName ?transitionName

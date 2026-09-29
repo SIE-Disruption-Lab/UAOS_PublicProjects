@@ -1,0 +1,5 @@
+description bundle <http://uaontologies.com/biomass/bundle#> as ^bundle {
+	
+	includes <http://uaontologies.com/biomass/Biomass#>
+	
+}

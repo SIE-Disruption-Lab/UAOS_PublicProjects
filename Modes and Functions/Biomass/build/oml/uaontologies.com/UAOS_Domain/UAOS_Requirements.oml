@@ -1,0 +1,233 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary to capture system requirements patterns"
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_Requirements#> as UAOS_Requirements {
+	
+	////////////////////////////////////////////////////////////////////////////////////
+	
+	/////// Vocabulary Imports ///////
+	
+	// Import standard vocabularies	
+	extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+    
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Measurement#> as meas
+	
+	///////////////////////////////////////////////////////////////////////////////////
+	
+	
+	/////// Vocabulary Definitions ///////
+	
+	///// Aspects
+	
+	
+	///// Concepts
+	
+	@rdfs:label "Requirement"
+	@dc:description "A [=Requirement=]..."
+	concept Requirement < info:PrescriptiveICE
+	
+	@rdfs:label "Objective"
+	@dc:description "A [=Objective=]..."
+	concept Objective < info:PrescriptiveICE
+	
+	@rdfs:label "Constraint"
+	@dc:description "A [=Constraint=]..."
+	concept Constraint < info:PrescriptiveICE
+	
+	@rdfs:label "ConstraintExpression"
+	@dc:description "A [=ConstraintExpression=]..."
+	concept ConstraintExpression < info:RepresentationalICE, meas:Value [
+		restricts some meas:hasUnit to meas:Unit
+		restricts some info:represents to Constraint
+	]
+	
+	@rdfs:label "Quantitative Requirement"
+	@dc:description "A [=QuantitativeRequirement=]..."
+	concept QuantitativeRequirement < Requirement [
+		restricts all info:prescribes to tlo:Quality
+	]
+	
+	@rdfs:label "Functional Requirement"
+	@dc:description "A [=FunctionalRequirement=]..."
+	concept FunctionalRequirement < Requirement
+	
+	@rdfs:label "Performance Requirement"
+	@dc:description "A [=PerformanceRequirement=]..."
+	concept PerformanceRequirement < QuantitativeRequirement
+	
+	@rdfs:label "Physical Requirement"
+	@dc:description "A [=PhysicalRequirement=]..."
+	concept PhysicalRequirement < QuantitativeRequirement
+	
+	@rdfs:label "KPP"
+	@dc:description "A [=KPP=]..."
+	concept KPP < PerformanceRequirement
+	
+	@rdfs:label "KSA"
+	@dc:description "A [=KSA=]..."
+	concept KSA < QuantitativeRequirement
+	
+	
+	///// Relations
+	
+	@rdfs:label "Refines"
+	@dc:description "[=Refines=] is a "
+	relation entity Refines [
+		from Constraint
+		to QuantitativeRequirement
+		@rdfs:label "refines"
+		forward refines
+		@rdfs:label "is refined by"
+		reverse isRefinedBy
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Derives Requirement"
+	@dc:description "[=DerivesRequirement=] is a "
+	relation entity DerivesRequirement [
+		from Requirement
+		to Requirement
+		@rdfs:label "derives requirement"
+		forward derivesRequirement
+		@rdfs:label "requirement derived from"
+		reverse requirementDerivedFrom
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Satisfies"
+	@dc:description "[=Satisfies=] is a "
+	relation entity Satisfies [
+		from tlo:IdentifiedEntity
+		to Requirement
+		@rdfs:label "satisfies"
+		forward satisfies
+		@rdfs:label "is satisfied by"
+		reverse isSatisfiedBy
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Allocates Requirement"
+	@dc:description "[=AllocatesRequirement=] is a "
+	relation entity AllocatesRequirement [
+		from tlo:Continuant
+		to Requirement
+		@rdfs:label "allocates requirement"
+		forward allocatesRequirement
+		@rdfs:label "requirement is allocated to"
+		reverse requirementIsAllocatedTo
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Has Threshold Value"
+	@dc:description "[=HasThresholdValue=] is a "
+	relation entity HasThresholdValue [
+		from QuantitativeRequirement
+		to meas:SimpleMeasurement
+		@rdfs:label "has threshold value"
+		forward hasThresholdValue
+		@rdfs:label "is threshold value of"
+		reverse isThresholdValueOf
+		asymmetric
+		irreflexive
+	]
+	
+	@rdfs:label "Has Objective Value"
+	@dc:description "[=HasObjectiveValue=] is a "
+	relation entity HasObjectiveValue [
+		from QuantitativeRequirement
+		to meas:SimpleMeasurement
+		@rdfs:label "has objective value"
+		forward hasObjectiveValue
+		@rdfs:label "is objective value of"
+		reverse isObjectiveValueOf
+		asymmetric
+		irreflexive
+	]
+	
+	
+	///// Scalar Properties
+	
+	@rdfs:label "has requirement text"
+	@dc:description "[=hasRequirementText=] ..."
+	scalar property hasRequirementText [
+		domain Requirement
+		range xsd:string
+	]
+	
+	@rdfs:label "has objective text"
+	@dc:description "[=hasObjectiveText=] ..."
+	scalar property hasObjectiveText [
+		domain Objective
+		range xsd:string
+	]
+	
+	@rdfs:label "has constraint expression"
+	@dc:description "[=hasConstraintExpression=] ..."
+	scalar property hasConstraintExpression [
+		domain Constraint
+		range xsd:string
+	]
+	
+	@rdfs:label "comparesTo"
+	@dc:description "[=comparesTo=] ..."
+	scalar property comparesTo [
+		domain ConstraintExpression
+		range xsd:double
+	]
+	
+	@rdfs:label "equal to"
+	@dc:description "[=equalTo=] ..."
+	scalar property equalTo [
+		domain ConstraintExpression
+		range xsd:double
+	]
+	< comparesTo
+	
+	@rdfs:label "greater than"
+	@dc:description "[=greaterThan=] ..."
+	scalar property greaterThan [
+		domain ConstraintExpression
+		range xsd:double
+	]
+	< comparesTo
+	
+	@rdfs:label "less than"
+	@dc:description "[=lessThan=] ..."
+	scalar property lessThan [
+		domain ConstraintExpression
+		range xsd:double
+	]
+	< comparesTo
+	
+	@rdfs:label "greater than or equal to"
+	@dc:description "[=greaterThanOrEqualTo=] ..."
+	scalar property greaterThanOrEqualTo [
+    	domain ConstraintExpression
+    	range xsd:double
+  	]
+  	< comparesTo
+
+	@rdfs:label "less than or equal to"
+	@dc:description "[=lessThanOrEqualTo=] ..."
+  	scalar property lessThanOrEqualTo [
+    	domain ConstraintExpression
+    	range xsd:double
+  	]
+  	< comparesTo
+	
+	
+	
+	///// Rules
+
+	
+}

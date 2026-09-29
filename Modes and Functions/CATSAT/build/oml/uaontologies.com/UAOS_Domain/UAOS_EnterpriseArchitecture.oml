@@ -1,0 +1,105 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A minimal Enterprise Architecture vocabulary for the UAOS. Captures the concepts needed to model organisational structure, application components and services, and programme membership. Inspired by ArchiMate 3.2 (Business and Application layers) but scoped to the needs of DE environment modelling. Capability modelling has moved to UAOS_DigitalEnvironment, which defines DEToolCapability, DEEnvironmentCapability, and DEProgramCapability as Disposition subclasses bearing on DETools, DigitalEnvironments, and EngineeringProgrammes respectively."
+@dc:hasVersion "0.3"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_EnterpriseArchitecture#> as UAOS_EA {
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	/////// Vocabulary Imports ///////
+
+	// Import standard vocabularies
+	extends <http://purl.org/dc/elements/1.1/> as dc
+    extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+    extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+    // Import relevant vocabularies
+    extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Agent#> as agent
+
+	///////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Vocabulary Definitions ///////
+
+	///// Concepts
+
+	@rdfs:label "Application Component"
+	@dc:description "An [=ApplicationComponent=] is a deployed instance of software in a specific organisational context — a particular, independent continuant (Object). Maps to ArchiMate 'Application Component'. Modelled as tlo:Object rather than sw:Software because a deployment is a particular thing, not an abstract pattern: 'UA's installation of Jama Connect' is an Object, whereas 'Jama Connect the product' is a GDC (sw:Software). Being an Object (IndependentContinuant) makes ApplicationComponent a valid bearer for both SDCs (Functions, Dispositions) and GDCs."
+	concept ApplicationComponent < tlo:Object
+
+	@rdfs:label "Application Service"
+	@dc:description "An [=ApplicationService=] is a Function of an ApplicationComponent — the specific service behaviour the component exposes. Maps to ArchiMate 'Application Service'. Ontologically: a SpecificallyDependentContinuant (Function/Disposition) inhering in an ApplicationComponent."
+	concept ApplicationService < tlo:Function [
+		restricts some tlo:sdo to ApplicationComponent
+	]
+
+	@rdfs:label "Technology Platform"
+	@dc:description "A [=TechnologyPlatform=] is a material Object that provides hosting or runtime services for ApplicationComponents (e.g., a cloud platform, an on-premise server cluster)."
+	concept TechnologyPlatform < tlo:Object
+
+	@rdfs:label "Engineering Programme"
+	@dc:description "An [=EngineeringProgramme=] is a collective Agent composed of two or more Organisations collaborating on a shared engineering endeavour. It is the bearer of DEProgramCapability dispositions (defined in UAOS_DigitalEnvironment) that emerge from the combined capabilities and integrations of its member organisations. Modelled as a subtype of agent:Organization."
+	concept EngineeringProgramme < agent:Organization
+
+
+	///// Relations
+
+	@rdfs:label "Provides"
+	@dc:description "[=Provides=] relates an ApplicationComponent to an ApplicationService it implements and exposes. The BFO grounding is captured by the sdo restriction on ApplicationService (service spec is specifically dependent on the implementing component)."
+	relation entity Provides [
+		from ApplicationComponent
+		to ApplicationService
+		@rdfs:label "provides"
+		forward provides
+		@rdfs:label "is provided by"
+		reverse isProvidedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Member Organisation"
+	@dc:description "[=HasMemberOrganisation=] relates an EngineeringProgramme to each member Organisation that participates in it."
+	relation entity HasMemberOrganisation [
+		from EngineeringProgramme
+		to agent:Organization
+		@rdfs:label "has member organisation"
+		forward hasMemberOrganisation
+		@rdfs:label "is member of programme"
+		reverse isMemberOfProgramme
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Hosted On"
+	@dc:description "[=HostedOn=] relates an ApplicationComponent to the TechnologyPlatform on which it runs."
+	relation entity HostedOn [
+		from ApplicationComponent
+		to TechnologyPlatform
+		@rdfs:label "hosted on"
+		forward hostedOn
+		@rdfs:label "hosts"
+		reverse hosts
+		asymmetric
+		irreflexive
+	]
+
+
+	///// Scalar Properties
+
+	@rdfs:label "has component version"
+	@dc:description "[=hasComponentVersion=] records the deployed version of an ApplicationComponent."
+	scalar property hasComponentVersion [
+		domain ApplicationComponent
+		range xsd:string
+	]
+
+	@rdfs:label "is proprietary"
+	@dc:description "[=isProprietary=] indicates whether an ApplicationComponent is proprietary software."
+	scalar property isProprietary [
+		domain ApplicationComponent
+		range xsd:boolean
+	]
+
+
+}

@@ -1,0 +1,15 @@
+vocabulary bundle <http://uaontologies.com/UAOS_Core/bundle#> as ^bundle {
+	
+	extends <http://uaontologies.com/UAOS_TopLevel/bundle#>
+			
+	includes <http://uaontologies.com/UAOS_Core/UAOS_Agent#>
+	includes <http://uaontologies.com/UAOS_Core/UAOS_Event#>
+	includes <http://uaontologies.com/UAOS_Core/UAOS_Information#>
+	includes <http://uaontologies.com/UAOS_Core/UAOS_Location#>
+	includes <http://uaontologies.com/UAOS_Core/UAOS_Measurement#>
+	includes <http://uaontologies.com/UAOS_Core/UAOS_Ownership#>
+	includes <http://uaontologies.com/UAOS_Core/UAOS_Provenance#>
+	includes <http://uaontologies.com/UAOS_Core/UAOS_Software#>
+	includes <http://uaontologies.com/UAOS_Core/UAOS_Types#>
+	
+}

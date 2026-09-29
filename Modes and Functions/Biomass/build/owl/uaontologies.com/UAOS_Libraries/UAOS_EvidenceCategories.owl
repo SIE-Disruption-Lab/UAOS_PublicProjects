@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#"
+     xml:base="http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:oml="http://opencaesar.io/oml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:UAOS_GRL="http://uaontologies.com/UAOS_Domain/UAOS_GRL#"
+     xmlns:UAOS_4DAssessment="http://uaontologies.com/UAOS_Domain/UAOS_4DAssessment#"
+     xmlns:UAOS_EvidenceCategories="http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#">
+    <owl:Ontology rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories">
+        <owl:imports rdf:resource="http://purl.org/dc/elements/1.1"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_4DAssessment"/>
+        <owl:imports rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_GRL"/>
+        <oml:namespace rdf:resource="http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#"/>
+        <oml:prefix>UAOS_EvidenceCategories</oml:prefix>
+        <oml:type rdf:resource="http://opencaesar.io/oml#Description"/>
+        <dc:contributor>Joe Gregory</dc:contributor>
+        <dc:creator>SIE Disruption Lab</dc:creator>
+        <dc:description>A library description defining the nine canonical instances of EvidenceQualityCategory for the D1 Evidence Quality axis of the 4D Assessment framework (EQ-0 through EQ-8). EQ-0 represents no usable evidence; EQ-8 represents the highest-quality operational evidence. The D1 scale is non-monotonic: evidence quality can regress if evidence becomes outdated or invalidated. Source: WRT-2516 v2, Chapter 8.</dc:description>
+        <dc:hasVersion>0.1</dc:hasVersion>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_4DAssessment#hasEvidenceNumeric -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_4DAssessment#hasEvidenceNumeric"/>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasOrdinalPosition -->
+
+
+    <owl:DatatypeProperty rdf:about="http://uaontologies.com/UAOS_Domain/UAOS_GRL#hasOrdinalPosition"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ0 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ0">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_4DAssessment#EvidenceQualityCategory"/>
+        <UAOS_4DAssessment:hasEvidenceNumeric rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</UAOS_4DAssessment:hasEvidenceNumeric>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ1 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ1">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_4DAssessment#EvidenceQualityCategory"/>
+        <UAOS_4DAssessment:hasEvidenceNumeric rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</UAOS_4DAssessment:hasEvidenceNumeric>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ2 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ2">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_4DAssessment#EvidenceQualityCategory"/>
+        <UAOS_4DAssessment:hasEvidenceNumeric rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</UAOS_4DAssessment:hasEvidenceNumeric>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ3 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ3">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_4DAssessment#EvidenceQualityCategory"/>
+        <UAOS_4DAssessment:hasEvidenceNumeric rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</UAOS_4DAssessment:hasEvidenceNumeric>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ4 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ4">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_4DAssessment#EvidenceQualityCategory"/>
+        <UAOS_4DAssessment:hasEvidenceNumeric rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</UAOS_4DAssessment:hasEvidenceNumeric>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ5 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ5">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_4DAssessment#EvidenceQualityCategory"/>
+        <UAOS_4DAssessment:hasEvidenceNumeric rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</UAOS_4DAssessment:hasEvidenceNumeric>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ6 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ6">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_4DAssessment#EvidenceQualityCategory"/>
+        <UAOS_4DAssessment:hasEvidenceNumeric rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</UAOS_4DAssessment:hasEvidenceNumeric>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ7 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ7">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_4DAssessment#EvidenceQualityCategory"/>
+        <UAOS_4DAssessment:hasEvidenceNumeric rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</UAOS_4DAssessment:hasEvidenceNumeric>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">7</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ8 -->
+
+
+    <owl:NamedIndividual rdf:about="http://uaontologies.com/UAOS_Libraries/UAOS_EvidenceCategories#EQ8">
+        <rdf:type rdf:resource="http://uaontologies.com/UAOS_Domain/UAOS_4DAssessment#EvidenceQualityCategory"/>
+        <UAOS_4DAssessment:hasEvidenceNumeric rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</UAOS_4DAssessment:hasEvidenceNumeric>
+        <UAOS_GRL:hasOrdinalPosition rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">8</UAOS_GRL:hasOrdinalPosition>
+        <oml:type rdf:resource="http://opencaesar.io/oml#ConceptInstance"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.5.0.2023-01-14T12:41:38Z) https://github.com/owlcs/owlapi/ -->
+
+

@@ -1,0 +1,5 @@
+vocabulary bundle <http://uaontologies.com/UAOS_TopLevel/bundle#> as ^bundle {
+	
+	includes <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#>
+	
+}

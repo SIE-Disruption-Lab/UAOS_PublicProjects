@@ -1,0 +1,32 @@
+{ "head": {
+    "vars": [ "parentTransition" , "parentTransitionName" , "parentSystem" , "parentSystemName" , "childSystem" , "childSystemName" , "expectedChildSourceMode" , "expectedChildSourceModeName" , "expectedChildTargetMode" , "expectedChildTargetModeName" ]
+  } ,
+  "results": {
+    "bindings": [
+      { 
+        "parentTransition": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_adcs_nom_to_sci" } ,
+        "parentTransitionName": { "type": "literal" , "value": "ADCS Nominal-to-Science Transition" } ,
+        "parentSystem": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs" } ,
+        "parentSystemName": { "type": "literal" , "value": "ADCS Subsystem" } ,
+        "childSystem": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa" } ,
+        "childSystemName": { "type": "literal" , "value": "Reaction Wheel Assembly" } ,
+        "expectedChildSourceMode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa_nominal" } ,
+        "expectedChildSourceModeName": { "type": "literal" , "value": "RWA Nominal Mode" } ,
+        "expectedChildTargetMode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa_science" } ,
+        "expectedChildTargetModeName": { "type": "literal" , "value": "RWA Science Mode" }
+      } ,
+      { 
+        "parentTransition": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#T_adcs_sci_to_nom" } ,
+        "parentTransitionName": { "type": "literal" , "value": "ADCS Science-to-Nominal Transition" } ,
+        "parentSystem": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#adcs" } ,
+        "parentSystemName": { "type": "literal" , "value": "ADCS Subsystem" } ,
+        "childSystem": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa" } ,
+        "childSystemName": { "type": "literal" , "value": "Reaction Wheel Assembly" } ,
+        "expectedChildSourceMode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa_science" } ,
+        "expectedChildSourceModeName": { "type": "literal" , "value": "RWA Science Mode" } ,
+        "expectedChildTargetMode": { "type": "uri" , "value": "http://uaontologies.com/CATSAT/CATSAT#rwa_nominal" } ,
+        "expectedChildTargetModeName": { "type": "literal" , "value": "RWA Nominal Mode" }
+      }
+    ]
+  }
+}

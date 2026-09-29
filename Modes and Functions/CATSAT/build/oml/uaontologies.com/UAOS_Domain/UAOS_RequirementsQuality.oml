@@ -1,0 +1,305 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "A vocabulary formalising the INCOSE Guide to Writing Requirements V4 (2023) quality framework. Captures the 42 writing rules, 15 quality characteristics (9 individual, 6 set), 14 rule categories, severity ratings, and applicability levels, together with the Assessment process pattern for evaluating requirement sets against these rules. Source ontology: incose-req.ttl (Arizona SIE lab, v0.1.0). Departure from source: Violation was originally modelled as a BFO SDC inhering in a Requirement. This vocabulary rejects that choice because Requirement is a GDC, and GDCs are not SDCCarriers in UAOS — making the inheres-in relation a category error. Violation is re-modelled as a DescriptiveICE, with ViolationConcerns (a sub-relation of info:Describes) expressing the intentional relation to the Requirement it concerns."
+@dc:hasVersion "0.1"
+vocabulary <http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#> as UAOS_RequirementsQuality {
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	/////// Vocabulary Imports ///////
+
+	// Import standard vocabularies
+	extends <http://purl.org/dc/elements/1.1/> as dc
+	extends <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+	extends <http://www.w3.org/2001/XMLSchema#> as xsd
+
+	// Import relevant vocabularies
+	extends <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Information#> as info
+	extends <http://uaontologies.com/UAOS_Core/UAOS_Agent#> as agent
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Vocabulary Definitions ///////
+
+
+	///// Concepts
+
+	@rdfs:label "Requirement"
+	@dc:description "A [=Requirement=] is a PrescriptiveICE stating a capability, constraint, or quality factor that a system shall satisfy. It is the atomic unit of quality assessment in the INCOSE Guide V4 framework. A Requirement is a GDC: it is concretised in a document or tool artefact and may migrate between carriers while remaining the same requirement."
+	concept Requirement < info:PrescriptiveICE
+
+	@rdfs:label "Requirement Set"
+	@dc:description "A [=RequirementSet=] is an InformationContentEntity grouping a cohesive collection of Requirements. RequirementSet is the unit submitted to an Assessment. Corresponds to the 'requirement set' defined in INCOSE Guide V4 Section 3, against which set-level quality characteristics (C10–C15) are evaluated."
+	concept RequirementSet < info:InformationContentEntity
+
+	@rdfs:label "Quality Characteristic"
+	@dc:description "A [=QualityCharacteristic=] is a DescriptiveICE naming a property that a well-formed Requirement or RequirementSet should exhibit. Characteristics are partitioned into individual (C1–C9) and set (C10–C15) subtypes. Defined in INCOSE Guide V4 Sections 2 and 3."
+	concept QualityCharacteristic < info:DescriptiveICE
+
+	@rdfs:label "Individual Quality Characteristic"
+	@dc:description "An [=IndividualQualityCharacteristic=] is a QualityCharacteristic that applies to a single Requirement in isolation. The nine individual characteristics (C1 Necessary through C9 Conforming) each define a quality that any well-formed individual requirement should exhibit."
+	concept IndividualQualityCharacteristic < QualityCharacteristic
+
+	@rdfs:label "Set Quality Characteristic"
+	@dc:description "A [=SetQualityCharacteristic=] is a QualityCharacteristic that applies to a RequirementSet as a whole. The six set characteristics (C10 Complete through C15 Correct) capture emergent properties of a collection that cannot be assessed at the level of individual requirements."
+	concept SetQualityCharacteristic < QualityCharacteristic
+
+	@rdfs:label "Rule"
+	@dc:description "A [=Rule=] is a PrescriptiveICE prescribing a specific writing practice that requirement authors should apply to produce well-formed requirements. Each Rule belongs to exactly one RuleCategory, has exactly one RuleApplicability level, and tests one or more QualityCharacteristics. The 42 canonical Rules are defined in INCOSE Guide V4 Section 4, with applicability in Appendix D and characteristic cross-references in Appendix E."
+	concept Rule < info:PrescriptiveICE
+
+	@rdfs:label "Rule Category"
+	@dc:description "A [=RuleCategory=] is a DescriptiveICE grouping related Rules under a common linguistic or structural concern (e.g., Accuracy, Non-Ambiguity, Singularity). The 14 canonical categories are defined in INCOSE Guide V4 Section 4."
+	concept RuleCategory < info:DescriptiveICE
+
+	@rdfs:label "Violation"
+	@dc:description "A [=Violation=] is a DescriptiveICE recording the finding that a specific Requirement fails to satisfy a specific Rule. As a DescriptiveICE it is a judgment about a requirement — not a property inhering in it — which is the ontologically correct model given that Requirement is a GDC (not an SDCCarrier). The Violation concerns a Requirement via ViolationConcerns (a sub-relation of info:Describes) and cites the breached Rule via ViolationOf."
+	concept Violation < info:DescriptiveICE
+
+	@rdfs:label "Assessment"
+	@dc:description "An [=Assessment=] is a ManagedProcess in which a RequirementSet is systematically evaluated against the applicable Rules to identify Violations. The Assessment is conducted by one or more Agents (hasAssessor) over a TemporalRegion (hasAssessmentPeriod) and produces exactly one AssessmentResult."
+	concept Assessment < agent:ManagedProcess
+
+	@rdfs:label "Assessment Result"
+	@dc:description "An [=AssessmentResult=] is a DescriptiveICE recording the outcome of an Assessment. It is formally about the assessed RequirementSet (via AssessmentResultAbout, a sub-relation of info:IsAbout) and carries zero or more Violations as ICE parts (restricts some tlo:hasContinuantPart to Violation). The IE-Inherits-Representation rule in UAOS_Information then propagates: all Violation parts inherit the AssessmentResult's aboutness of the RequirementSet."
+	concept AssessmentResult < info:DescriptiveICE [
+		restricts some tlo:hasContinuantPart to Violation
+	]
+
+	@rdfs:label "Severity Rating"
+	@dc:description "A [=SeverityRating=] is a DescriptiveICE representing a level on an ordinal scale indicating the impact of a Violation. The canonical scale has four levels: Low (rank 1), Medium (rank 2), High (rank 3), Critical (rank 4). The ordinal position is captured by hasOrdinalRank."
+	concept SeverityRating < info:DescriptiveICE
+
+	@rdfs:label "Rule Applicability"
+	@dc:description "A [=RuleApplicability=] is a DescriptiveICE representing one of three applicability levels from INCOSE Guide V4 Appendix D: CNCR (Compulsory for Needs and Compulsory for Requirements), RNCR (Recommended for Needs and Compulsory for Requirements), or CR (Compulsory for Requirements, optional for Needs)."
+	concept RuleApplicability < info:DescriptiveICE
+
+
+	///// Relations
+
+	@rdfs:label "Tests Characteristic"
+	@dc:description "[=TestsCharacteristic=] relates a Rule to a QualityCharacteristic that application of the rule helps to achieve or verify. Derived from INCOSE Guide V4 Appendix E cross-reference matrix. A rule may test multiple characteristics."
+	relation entity TestsCharacteristic [
+		from Rule
+		to QualityCharacteristic
+		@rdfs:label "tests characteristic"
+		forward testsCharacteristic
+		@rdfs:label "is tested by rule"
+		reverse isTestedByRule
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Belongs To Category"
+	@dc:description "[=BelongsToCategory=] relates a Rule to the RuleCategory under which it is grouped. Each Rule belongs to exactly one category."
+	relation entity BelongsToCategory [
+		from Rule
+		to RuleCategory
+		@rdfs:label "belongs to category"
+		forward belongsToCategory
+		@rdfs:label "category has rule"
+		reverse categoryHasRule
+		functional
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Applicability"
+	@dc:description "[=HasApplicability=] relates a Rule to its RuleApplicability level, indicating whether the rule is compulsory or recommended at the need and requirement levels. Derived from INCOSE Guide V4 Appendix D."
+	relation entity HasApplicability [
+		from Rule
+		to RuleApplicability
+		@rdfs:label "has applicability"
+		forward hasApplicability
+		@rdfs:label "is applicability of"
+		reverse isApplicabilityOf
+		functional
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Violation Of"
+	@dc:description "[=ViolationOf=] relates a Violation to the Rule that was breached. Each Violation is a finding against exactly one Rule."
+	relation entity ViolationOf [
+		from Violation
+		to Rule
+		@rdfs:label "violation of"
+		forward violationOf
+		@rdfs:label "has violation"
+		reverse hasViolation
+		functional
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Violation Concerns"
+	@dc:description "[=ViolationConcerns=] relates a Violation to the Requirement it concerns. Sub-relation of info:Describes, expressing that a Violation is a description (a quality finding) about a specific Requirement. This replaces the inheresInRequirement object property of the source ontology: a Violation does not inhere in a Requirement — it describes it as having a defect. Each Violation concerns exactly one Requirement."
+	relation entity ViolationConcerns [
+		from Violation
+		to Requirement
+		@rdfs:label "violation concerns"
+		forward violationConcerns
+		@rdfs:label "is concerned by violation"
+		reverse isConcernedByViolation
+		functional
+		asymmetric
+		irreflexive
+	]
+	< info:Describes
+
+	@rdfs:label "Has Severity Rating"
+	@dc:description "[=HasSeverityRating=] relates a Violation to its SeverityRating on the Low–Critical ordinal scale."
+	relation entity HasSeverityRating [
+		from Violation
+		to SeverityRating
+		@rdfs:label "has severity rating"
+		forward hasSeverityRating
+		@rdfs:label "is severity rating of"
+		reverse isSeverityRatingOf
+		functional
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Member Of Set"
+	@dc:description "[=MemberOfSet=] relates a Requirement to a RequirementSet of which it is a member. A Requirement may belong to more than one set."
+	relation entity MemberOfSet [
+		from Requirement
+		to RequirementSet
+		@rdfs:label "member of set"
+		forward memberOfSet
+		@rdfs:label "has member requirement"
+		reverse hasMemberRequirement
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Assesses Set"
+	@dc:description "[=AssessesSet=] relates an Assessment to a RequirementSet that is being evaluated. An Assessment may cover more than one set."
+	relation entity AssessesSet [
+		from Assessment
+		to RequirementSet
+		@rdfs:label "assesses set"
+		forward assessesSet
+		@rdfs:label "is assessed by"
+		reverse isAssessedBy
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Assessment Result"
+	@dc:description "[=HasAssessmentResult=] relates an Assessment to its AssessmentResult. Each Assessment produces exactly one result."
+	relation entity HasAssessmentResult [
+		from Assessment
+		to AssessmentResult
+		@rdfs:label "has assessment result"
+		forward hasAssessmentResult
+		@rdfs:label "is assessment result of"
+		reverse isAssessmentResultOf
+		functional
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Assessor"
+	@dc:description "[=HasAssessor=] relates an Assessment to the Agent (Person or Organisation) conducting it. An assessment may have more than one assessor."
+	relation entity HasAssessor [
+		from Assessment
+		to agent:Agent
+		@rdfs:label "has assessor"
+		forward hasAssessor
+		@rdfs:label "is assessor of"
+		reverse isAssessorOf
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Has Assessment Period"
+	@dc:description "[=HasAssessmentPeriod=] relates an Assessment to the TemporalRegion over which it was conducted. Begin and end instants are recorded on the TemporalRegion via tlo:hasBeginInstant and tlo:hasEndInstant."
+	relation entity HasAssessmentPeriod [
+		from Assessment
+		to tlo:TemporalRegion
+		@rdfs:label "has assessment period"
+		forward hasAssessmentPeriod
+		@rdfs:label "is assessment period of"
+		reverse isAssessmentPeriodOf
+		functional
+		asymmetric
+		irreflexive
+	]
+
+	@rdfs:label "Assessment Result About"
+	@dc:description "[=AssessmentResultAbout=] relates an AssessmentResult directly to the RequirementSet it covers. Sub-relation of info:IsAbout, enabling direct queries of 'what set does this result describe?' without traversing the Assessment process. Functional because each AssessmentResult covers the set assessed in its parent Assessment. The IE-Inherits-Representation rule then propagates this aboutness to all Violation parts of the result."
+	relation entity AssessmentResultAbout [
+		from AssessmentResult
+		to RequirementSet
+		@rdfs:label "assessment result about"
+		forward assessmentResultAbout
+		@rdfs:label "has assessment result about"
+		reverse hasAssessmentResultAbout
+		functional
+		asymmetric
+		irreflexive
+	]
+	< info:IsAbout
+
+
+	///// Scalar Properties
+
+	@rdfs:label "has rule ID"
+	@dc:description "[=hasRuleId=] records the canonical identifier of a Rule as assigned in INCOSE Guide V4 (e.g., 'R1', 'R42')."
+	scalar property hasRuleId [
+		domain Rule
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "has characteristic ID"
+	@dc:description "[=hasCharacteristicId=] records the canonical identifier of a QualityCharacteristic as assigned in INCOSE Guide V4 (e.g., 'C1', 'C15')."
+	scalar property hasCharacteristicId [
+		domain QualityCharacteristic
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "has ordinal rank"
+	@dc:description "[=hasOrdinalRank=] records the ordinal position of a SeverityRating on the Low–Critical scale (1 = Low, 2 = Medium, 3 = High, 4 = Critical)."
+	scalar property hasOrdinalRank [
+		domain SeverityRating
+		range xsd:integer
+		functional
+	]
+
+	@rdfs:label "requires project dictionary"
+	@dc:description "[=requiresProjectDictionary=] indicates whether application of a Rule requires a project-specific glossary or data dictionary to be in place. Derived from INCOSE Guide V4 Appendix D."
+	scalar property requiresProjectDictionary [
+		domain Rule
+		range xsd:boolean
+		functional
+	]
+
+	@rdfs:label "has affected text"
+	@dc:description "[=hasAffectedText=] records the verbatim text segment within a Requirement statement that is the immediate locus of a Violation."
+	scalar property hasAffectedText [
+		domain Violation
+		range xsd:string
+	]
+
+	@rdfs:label "has requirement ID"
+	@dc:description "[=hasRequirementId=] records the project-assigned identifier of a Requirement (e.g., 'SYS-REQ-001')."
+	scalar property hasRequirementId [
+		domain Requirement
+		range xsd:string
+		functional
+	]
+
+	@rdfs:label "has statement text"
+	@dc:description "[=hasStatementText=] records the full natural-language text of a Requirement statement."
+	scalar property hasStatementText [
+		domain Requirement
+		range xsd:string
+	]
+
+}

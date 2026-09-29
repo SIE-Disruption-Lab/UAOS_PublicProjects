@@ -1,0 +1,794 @@
+@dc:creator "SIE Disruption Lab"
+@dc:contributor "Joe Gregory"
+@dc:description "Canonical instance library for the INCOSE Guide to Writing Requirements V4 (1 Jul 2023). Instantiates all 42 writing rules, 15 quality characteristics, 14 rule categories, 4 severity ratings, and 3 applicability levels defined in that guide. Cross-reference matrix (Rule x Characteristic) derived from Appendix E, p.137. Rule applicability and project dictionary requirements derived from Appendix D, pp.131-136. Source: incose-req-rules.ttl (Arizona SIE lab, v0.1.0)."
+@dc:hasVersion "0.1"
+description <http://uaontologies.com/UAOS_Libraries/UAOS_INCOSERules#> as UAOS_INCOSERules {
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	/////// Imports ///////
+
+	uses <http://purl.org/dc/elements/1.1/> as dc
+	uses <http://www.w3.org/2000/01/rdf-schema#> as rdfs
+	uses <http://uaontologies.com/UAOS_TopLevel/UAOS_TopLevel#> as tlo
+	uses <http://uaontologies.com/UAOS_Domain/UAOS_RequirementsQuality#> as rq
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+
+	/////// Severity Ratings ///////
+
+	@rdfs:label "Low"
+	instance SeverityLow : rq:SeverityRating [
+		tlo:hasNaturalLanguageDescription "Minor issue with minimal impact on requirement quality."
+		rq:hasOrdinalRank 1
+	]
+
+	@rdfs:label "Medium"
+	instance SeverityMedium : rq:SeverityRating [
+		tlo:hasNaturalLanguageDescription "Moderate issue that may affect downstream processes."
+		rq:hasOrdinalRank 2
+	]
+
+	@rdfs:label "High"
+	instance SeverityHigh : rq:SeverityRating [
+		tlo:hasNaturalLanguageDescription "Significant issue likely to cause problems in verification, implementation, or traceability."
+		rq:hasOrdinalRank 3
+	]
+
+	@rdfs:label "Critical"
+	instance SeverityCritical : rq:SeverityRating [
+		tlo:hasNaturalLanguageDescription "Severe issue that renders the requirement unusable or dangerous."
+		rq:hasOrdinalRank 4
+	]
+
+
+	/////// Rule Applicability Levels ///////
+
+	@rdfs:label "CNCR"
+	instance CNCR : rq:RuleApplicability [
+		tlo:hasNaturalLanguageDescription "Compulsory for Needs and Compulsory for Requirements."
+	]
+
+	@rdfs:label "RNCR"
+	instance RNCR : rq:RuleApplicability [
+		tlo:hasNaturalLanguageDescription "Recommended for Needs and Compulsory for Requirements."
+	]
+
+	@rdfs:label "CR"
+	instance CR : rq:RuleApplicability [
+		tlo:hasNaturalLanguageDescription "Compulsory for Requirements (Optional for Needs)."
+	]
+
+
+	/////// Individual Quality Characteristics (C1-C9) ///////
+	// INCOSE Guide V4, Section 2
+
+	@rdfs:label "Necessary"
+	instance C1_Necessary : rq:IndividualQualityCharacteristic [
+		rq:hasCharacteristicId "C1"
+		tlo:hasNaturalLanguageDescription "The requirement defines an essential capability, characteristic, constraint, or quality factor."
+	]
+
+	@rdfs:label "Appropriate"
+	instance C2_Appropriate : rq:IndividualQualityCharacteristic [
+		rq:hasCharacteristicId "C2"
+		tlo:hasNaturalLanguageDescription "The specific intent and amount of detail is appropriate to the level of the entity to which it refers."
+	]
+
+	@rdfs:label "Unambiguous"
+	instance C3_Unambiguous : rq:IndividualQualityCharacteristic [
+		rq:hasCharacteristicId "C3"
+		tlo:hasNaturalLanguageDescription "The requirement is stated such that it can be interpreted in only one way."
+	]
+
+	@rdfs:label "Complete"
+	instance C4_Complete : rq:IndividualQualityCharacteristic [
+		rq:hasCharacteristicId "C4"
+		tlo:hasNaturalLanguageDescription "The requirement sufficiently describes the necessary capability, characteristic, constraint, or quality factor to meet the entity need."
+	]
+
+	@rdfs:label "Singular"
+	instance C5_Singular : rq:IndividualQualityCharacteristic [
+		rq:hasCharacteristicId "C5"
+		tlo:hasNaturalLanguageDescription "The requirement states a single capability, characteristic, constraint, or quality factor."
+	]
+
+	@rdfs:label "Feasible"
+	instance C6_Feasible : rq:IndividualQualityCharacteristic [
+		rq:hasCharacteristicId "C6"
+		tlo:hasNaturalLanguageDescription "The requirement can be realized within entity constraints with acceptable risk."
+	]
+
+	@rdfs:label "Verifiable/Validatable"
+	instance C7_Verifiable : rq:IndividualQualityCharacteristic [
+		rq:hasCharacteristicId "C7"
+		tlo:hasNaturalLanguageDescription "The requirement is structured and worded such that its realization can be proven to the stakeholders' satisfaction."
+	]
+
+	@rdfs:label "Correct"
+	instance C8_Correct : rq:IndividualQualityCharacteristic [
+		rq:hasCharacteristicId "C8"
+		tlo:hasNaturalLanguageDescription "The requirement is an accurate representation of the entity need from which it was transformed."
+	]
+
+	@rdfs:label "Conforming"
+	instance C9_Conforming : rq:IndividualQualityCharacteristic [
+		rq:hasCharacteristicId "C9"
+		tlo:hasNaturalLanguageDescription "The individual requirement conforms to an approved style guide or similar standard."
+	]
+
+
+	/////// Set Quality Characteristics (C10-C15) ///////
+	// INCOSE Guide V4, Section 3
+
+	@rdfs:label "Complete (Set)"
+	instance C10_Complete : rq:SetQualityCharacteristic [
+		rq:hasCharacteristicId "C10"
+		tlo:hasNaturalLanguageDescription "The requirement set stands alone such that it sufficiently describes the necessary capabilities, characteristics, constraints, and/or quality factors."
+	]
+
+	@rdfs:label "Consistent"
+	instance C11_Consistent : rq:SetQualityCharacteristic [
+		rq:hasCharacteristicId "C11"
+		tlo:hasNaturalLanguageDescription "The set of requirements contains individual requirements that are unique, do not conflict, and are not duplicated."
+	]
+
+	@rdfs:label "Feasible (Set)"
+	instance C12_Feasible : rq:SetQualityCharacteristic [
+		rq:hasCharacteristicId "C12"
+		tlo:hasNaturalLanguageDescription "The requirement set can be realized within entity constraints with acceptable risk."
+	]
+
+	@rdfs:label "Comprehensible"
+	instance C13_Comprehensible : rq:SetQualityCharacteristic [
+		rq:hasCharacteristicId "C13"
+		tlo:hasNaturalLanguageDescription "The requirement set is written such that it is clear, structured, and readable."
+	]
+
+	@rdfs:label "Able to be Validated"
+	instance C14_AbleToBeValidated : rq:SetQualityCharacteristic [
+		rq:hasCharacteristicId "C14"
+		tlo:hasNaturalLanguageDescription "The requirement set can be proven to satisfy its intended use in the operational environment."
+	]
+
+	@rdfs:label "Correct (Set)"
+	instance C15_Correct : rq:SetQualityCharacteristic [
+		rq:hasCharacteristicId "C15"
+		tlo:hasNaturalLanguageDescription "The requirement set accurately represents the entity needs from which it was transformed."
+	]
+
+
+	/////// Rule Categories (14) ///////
+	// INCOSE Guide V4, Section 4
+
+	@rdfs:label "Accuracy"
+	instance Cat_Accuracy : rq:RuleCategory [
+		tlo:hasNaturalLanguageDescription "Rules ensuring accurate expression of needs and requirements (R1-R9)."
+	]
+
+	@rdfs:label "Concision"
+	instance Cat_Concision : rq:RuleCategory [
+		tlo:hasNaturalLanguageDescription "Rules ensuring concise expression (R10-R11)."
+	]
+
+	@rdfs:label "Non-Ambiguity"
+	instance Cat_NonAmbiguity : rq:RuleCategory [
+		tlo:hasNaturalLanguageDescription "Rules ensuring non-ambiguous expression (R12-R17)."
+	]
+
+	@rdfs:label "Singularity"
+	instance Cat_Singularity : rq:RuleCategory [
+		tlo:hasNaturalLanguageDescription "Rules ensuring each statement expresses a single thought (R18-R23)."
+	]
+
+	@rdfs:label "Completeness"
+	instance Cat_Completeness : rq:RuleCategory [
+		tlo:hasNaturalLanguageDescription "Rules ensuring complete expression of needs and requirements (R24-R25)."
+	]
+
+	@rdfs:label "Realism"
+	instance Cat_Realism : rq:RuleCategory [
+		tlo:hasNaturalLanguageDescription "Rules ensuring realistic, achievable statements (R26)."
+	]
+
+	@rdfs:label "Conditions"
+	instance Cat_Conditions : rq:RuleCategory [
+		tlo:hasNaturalLanguageDescription "Rules ensuring conditions are stated explicitly (R27-R28)."
+	]
+
+	@rdfs:label "Uniqueness"
+	instance Cat_Uniqueness : rq:RuleCategory [
+		tlo:hasNaturalLanguageDescription "Rules ensuring each requirement is unique and expressed once (R29-R30)."
+	]
+
+	@rdfs:label "Abstraction"
+	instance Cat_Abstraction : rq:RuleCategory [
+		tlo:hasNaturalLanguageDescription "Rules ensuring solution-free expression at the appropriate level (R31)."
+	]
+
+	@rdfs:label "Quantifiers"
+	instance Cat_Quantifiers : rq:RuleCategory [
+		tlo:hasNaturalLanguageDescription "Rules governing the use of universal quantifiers (R32)."
+	]
+
+	@rdfs:label "Tolerance"
+	instance Cat_Tolerance : rq:RuleCategory [
+		tlo:hasNaturalLanguageDescription "Rules ensuring quantities include appropriate ranges and tolerances (R33)."
+	]
+
+	@rdfs:label "Quantification"
+	instance Cat_Quantification : rq:RuleCategory [
+		tlo:hasNaturalLanguageDescription "Rules ensuring measurable and temporally precise statements (R34-R35)."
+	]
+
+	@rdfs:label "Uniformity of Language"
+	instance Cat_UniformityOfLanguage : rq:RuleCategory [
+		tlo:hasNaturalLanguageDescription "Rules ensuring consistent terminology and style (R36-R40)."
+	]
+
+	@rdfs:label "Modularity"
+	instance Cat_Modularity : rq:RuleCategory [
+		tlo:hasNaturalLanguageDescription "Rules ensuring modular organization of requirement sets (R41-R42)."
+	]
+
+
+	/////// Rules (R01-R42) ///////
+	// INCOSE Guide V4, Section 4 + Appendix D (applicability) + Appendix E (characteristic cross-reference)
+
+	// --- 4.1 ACCURACY ---
+
+	@rdfs:label "Structured Statements"
+	instance R01 : rq:Rule [
+		rq:hasRuleId "R1"
+		tlo:hasNaturalLanguageDescription "Need and requirement statements must conform to one of the agreed patterns, resulting in a well-structured complete statement."
+		rq:belongsToCategory Cat_Accuracy
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C4_Complete
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C8_Correct
+		rq:testsCharacteristic C9_Conforming
+	]
+
+	@rdfs:label "Active Voice"
+	instance R02 : rq:Rule [
+		rq:hasRuleId "R2"
+		tlo:hasNaturalLanguageDescription "Use the active voice with the responsible entity clearly identified as the subject."
+		rq:belongsToCategory Cat_Accuracy
+		rq:hasApplicability RNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C4_Complete
+		rq:testsCharacteristic C7_Verifiable
+	]
+
+	@rdfs:label "Appropriate Subject-Verb"
+	instance R03 : rq:Rule [
+		rq:hasRuleId "R3"
+		tlo:hasNaturalLanguageDescription "Ensure the subject and verb are appropriate to the entity to which the statement refers."
+		rq:belongsToCategory Cat_Accuracy
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary true
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C8_Correct
+		rq:testsCharacteristic C14_AbleToBeValidated
+	]
+
+	@rdfs:label "Defined Terms"
+	instance R04 : rq:Rule [
+		rq:hasRuleId "R4"
+		tlo:hasNaturalLanguageDescription "Define all terms used within the statement in an associated glossary and/or data dictionary."
+		rq:belongsToCategory Cat_Accuracy
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary true
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C9_Conforming
+		rq:testsCharacteristic C11_Consistent
+		rq:testsCharacteristic C12_Feasible
+		rq:testsCharacteristic C13_Comprehensible
+		rq:testsCharacteristic C14_AbleToBeValidated
+	]
+
+	@rdfs:label "Definite Articles"
+	instance R05 : rq:Rule [
+		rq:hasRuleId "R5"
+		tlo:hasNaturalLanguageDescription "Use the definite article 'the' rather than the indefinite article 'a'."
+		rq:belongsToCategory Cat_Accuracy
+		rq:hasApplicability RNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C7_Verifiable
+	]
+
+	@rdfs:label "Common Units of Measure"
+	instance R06 : rq:Rule [
+		rq:hasRuleId "R6"
+		tlo:hasNaturalLanguageDescription "When stating quantities, use appropriate and consistent units of measure explicitly stated using a common measurement system."
+		rq:belongsToCategory Cat_Accuracy
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C4_Complete
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C8_Correct
+	]
+
+	@rdfs:label "Vague Terms"
+	instance R07 : rq:Rule [
+		rq:hasRuleId "R7"
+		tlo:hasNaturalLanguageDescription "Avoid the use of vague terms."
+		rq:belongsToCategory Cat_Accuracy
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C4_Complete
+		rq:testsCharacteristic C7_Verifiable
+	]
+
+	@rdfs:label "Escape Clauses"
+	instance R08 : rq:Rule [
+		rq:hasRuleId "R8"
+		tlo:hasNaturalLanguageDescription "Avoid the inclusion of escape clauses that state vague conditions or possibilities."
+		rq:belongsToCategory Cat_Accuracy
+		rq:hasApplicability RNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C7_Verifiable
+	]
+
+	@rdfs:label "Open-Ended Clauses"
+	instance R09 : rq:Rule [
+		rq:hasRuleId "R9"
+		tlo:hasNaturalLanguageDescription "Avoid open-ended, non-specific clauses such as 'including but not limited to', 'etc.' and 'and so on'."
+		rq:belongsToCategory Cat_Accuracy
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C4_Complete
+		rq:testsCharacteristic C5_Singular
+		rq:testsCharacteristic C7_Verifiable
+	]
+
+	// --- 4.2 CONCISION ---
+
+	@rdfs:label "Superfluous Infinitives"
+	instance R10 : rq:Rule [
+		rq:hasRuleId "R10"
+		tlo:hasNaturalLanguageDescription "Avoid the use of superfluous infinitives such as 'to be designed to', 'to be able to', 'to enable'."
+		rq:belongsToCategory Cat_Concision
+		rq:hasApplicability CR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C7_Verifiable
+	]
+
+	@rdfs:label "Separate Clauses"
+	instance R11 : rq:Rule [
+		rq:hasRuleId "R11"
+		tlo:hasNaturalLanguageDescription "Use a separate clause for each condition or qualification."
+		rq:belongsToCategory Cat_Concision
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C4_Complete
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C8_Correct
+	]
+
+	// --- 4.3 NON-AMBIGUITY ---
+
+	@rdfs:label "Correct Grammar"
+	instance R12 : rq:Rule [
+		rq:hasRuleId "R12"
+		tlo:hasNaturalLanguageDescription "Use correct grammar."
+		rq:belongsToCategory Cat_NonAmbiguity
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C8_Correct
+		rq:testsCharacteristic C9_Conforming
+	]
+
+	@rdfs:label "Correct Spelling"
+	instance R13 : rq:Rule [
+		rq:hasRuleId "R13"
+		tlo:hasNaturalLanguageDescription "Use correct spelling."
+		rq:belongsToCategory Cat_NonAmbiguity
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary true
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C7_Verifiable
+	]
+
+	@rdfs:label "Correct Punctuation"
+	instance R14 : rq:Rule [
+		rq:hasRuleId "R14"
+		tlo:hasNaturalLanguageDescription "Use correct punctuation."
+		rq:belongsToCategory Cat_NonAmbiguity
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C8_Correct
+	]
+
+	@rdfs:label "Logical Expressions"
+	instance R15 : rq:Rule [
+		rq:hasRuleId "R15"
+		tlo:hasNaturalLanguageDescription "Use a defined convention to express logical expressions such as '[X AND Y]', '[X OR Y]', '[X XOR Y]', 'NOT [X OR Y]'."
+		rq:belongsToCategory Cat_NonAmbiguity
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C7_Verifiable
+	]
+
+	@rdfs:label "Use of Not"
+	instance R16 : rq:Rule [
+		rq:hasRuleId "R16"
+		tlo:hasNaturalLanguageDescription "Avoid the use of the word 'not'."
+		rq:belongsToCategory Cat_NonAmbiguity
+		rq:hasApplicability RNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C8_Correct
+	]
+
+	@rdfs:label "Use of Oblique Symbol"
+	instance R17 : rq:Rule [
+		rq:hasRuleId "R17"
+		tlo:hasNaturalLanguageDescription "Avoid the use of the oblique ('/') symbol except in units or fractions."
+		rq:belongsToCategory Cat_NonAmbiguity
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C7_Verifiable
+	]
+
+	// --- 4.4 SINGULARITY ---
+
+	@rdfs:label "Single Thought Sentence"
+	instance R18 : rq:Rule [
+		rq:hasRuleId "R18"
+		tlo:hasNaturalLanguageDescription "Write a single sentence that contains a single thought conditioned and qualified by relevant sub-clauses."
+		rq:belongsToCategory Cat_Singularity
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C4_Complete
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C8_Correct
+		rq:testsCharacteristic C14_AbleToBeValidated
+	]
+
+	@rdfs:label "Combinators"
+	instance R19 : rq:Rule [
+		rq:hasRuleId "R19"
+		tlo:hasNaturalLanguageDescription "Avoid combinators that join clauses, such as 'and', 'or', 'then', 'unless', 'but', 'as well as', 'however', 'whether', 'whereas'."
+		rq:belongsToCategory Cat_Singularity
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C5_Singular
+	]
+
+	@rdfs:label "Purpose Phrases"
+	instance R20 : rq:Rule [
+		rq:hasRuleId "R20"
+		tlo:hasNaturalLanguageDescription "Avoid phrases indicating purpose: 'purpose of', 'intent of', or 'reason for'."
+		rq:belongsToCategory Cat_Singularity
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C1_Necessary
+		rq:testsCharacteristic C5_Singular
+	]
+
+	@rdfs:label "Parentheses"
+	instance R21 : rq:Rule [
+		rq:hasRuleId "R21"
+		tlo:hasNaturalLanguageDescription "Avoid parentheses and brackets containing subordinate text."
+		rq:belongsToCategory Cat_Singularity
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C5_Singular
+	]
+
+	@rdfs:label "Enumeration"
+	instance R22 : rq:Rule [
+		rq:hasRuleId "R22"
+		tlo:hasNaturalLanguageDescription "Enumerate sets explicitly instead of using a group noun to name the set."
+		rq:belongsToCategory Cat_Singularity
+		rq:hasApplicability RNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C5_Singular
+	]
+
+	@rdfs:label "Supporting Diagram, Model, or ICD"
+	instance R23 : rq:Rule [
+		rq:hasRuleId "R23"
+		tlo:hasNaturalLanguageDescription "When a need or requirement is related to complex behavior, refer to the supporting diagram, model, or ICD."
+		rq:belongsToCategory Cat_Singularity
+		rq:hasApplicability RNCR
+		rq:requiresProjectDictionary true
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C4_Complete
+	]
+
+	// --- 4.5 COMPLETENESS ---
+
+	@rdfs:label "Pronouns"
+	instance R24 : rq:Rule [
+		rq:hasRuleId "R24"
+		tlo:hasNaturalLanguageDescription "Avoid the use of personal and indefinite pronouns."
+		rq:belongsToCategory Cat_Completeness
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C4_Complete
+		rq:testsCharacteristic C7_Verifiable
+	]
+
+	@rdfs:label "Headings"
+	instance R25 : rq:Rule [
+		rq:hasRuleId "R25"
+		tlo:hasNaturalLanguageDescription "Avoid relying on headings to support explanation or understanding of the need or requirement."
+		rq:belongsToCategory Cat_Completeness
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C7_Verifiable
+	]
+
+	// --- 4.6 REALISM ---
+
+	@rdfs:label "Absolutes"
+	instance R26 : rq:Rule [
+		rq:hasRuleId "R26"
+		tlo:hasNaturalLanguageDescription "Avoid using unachievable absolutes."
+		rq:belongsToCategory Cat_Realism
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C6_Feasible
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C8_Correct
+		rq:testsCharacteristic C14_AbleToBeValidated
+	]
+
+	// --- 4.7 CONDITIONS ---
+
+	@rdfs:label "Explicit Conditions"
+	instance R27 : rq:Rule [
+		rq:hasRuleId "R27"
+		tlo:hasNaturalLanguageDescription "State conditions' applicability explicitly instead of leaving applicability to be inferred from context."
+		rq:belongsToCategory Cat_Conditions
+		rq:hasApplicability RNCR
+		rq:requiresProjectDictionary true
+		rq:testsCharacteristic C4_Complete
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C8_Correct
+	]
+
+	@rdfs:label "Multiple Conditions"
+	instance R28 : rq:Rule [
+		rq:hasRuleId "R28"
+		tlo:hasNaturalLanguageDescription "Express the propositional nature of a condition explicitly for a single action instead of giving lists of actions for a specific condition."
+		rq:belongsToCategory Cat_Conditions
+		rq:hasApplicability CR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C7_Verifiable
+	]
+
+	// --- 4.8 UNIQUENESS ---
+
+	@rdfs:label "Classification"
+	instance R29 : rq:Rule [
+		rq:hasRuleId "R29"
+		tlo:hasNaturalLanguageDescription "Classify needs and requirements according to the aspects of the problem or system it addresses."
+		rq:belongsToCategory Cat_Uniqueness
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary true
+		rq:testsCharacteristic C10_Complete
+		rq:testsCharacteristic C11_Consistent
+	]
+
+	@rdfs:label "Unique Expression"
+	instance R30 : rq:Rule [
+		rq:hasRuleId "R30"
+		tlo:hasNaturalLanguageDescription "Express each need and requirement once and only once."
+		rq:belongsToCategory Cat_Uniqueness
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C1_Necessary
+		rq:testsCharacteristic C8_Correct
+		rq:testsCharacteristic C11_Consistent
+	]
+
+	// --- 4.9 ABSTRACTION ---
+
+	@rdfs:label "Solution Free"
+	instance R31 : rq:Rule [
+		rq:hasRuleId "R31"
+		tlo:hasNaturalLanguageDescription "Avoid stating implementation in a need or requirement statement unless there is rationale for constraining the design."
+		rq:belongsToCategory Cat_Abstraction
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C2_Appropriate
+	]
+
+	// --- 4.10 QUANTIFIERS ---
+
+	@rdfs:label "Universal Qualification"
+	instance R32 : rq:Rule [
+		rq:hasRuleId "R32"
+		tlo:hasNaturalLanguageDescription "Use 'each' instead of 'all', 'any' or 'both' when universal quantification is intended."
+		rq:belongsToCategory Cat_Quantifiers
+		rq:hasApplicability RNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C4_Complete
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C8_Correct
+	]
+
+	// --- 4.11 TOLERANCE ---
+
+	@rdfs:label "Range of Values"
+	instance R33 : rq:Rule [
+		rq:hasRuleId "R33"
+		tlo:hasNaturalLanguageDescription "Define each quantity with a range of values appropriate to the entity to which it applies and against which it will be verified or validated."
+		rq:belongsToCategory Cat_Tolerance
+		rq:hasApplicability CR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C4_Complete
+		rq:testsCharacteristic C6_Feasible
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C8_Correct
+		rq:testsCharacteristic C14_AbleToBeValidated
+	]
+
+	// --- 4.12 QUANTIFICATION ---
+
+	@rdfs:label "Measurable Performance"
+	instance R34 : rq:Rule [
+		rq:hasRuleId "R34"
+		tlo:hasNaturalLanguageDescription "Provide specific measurable performance targets appropriate to the entity."
+		rq:belongsToCategory Cat_Quantification
+		rq:hasApplicability RNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C4_Complete
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C14_AbleToBeValidated
+	]
+
+	@rdfs:label "Temporal Dependencies"
+	instance R35 : rq:Rule [
+		rq:hasRuleId "R35"
+		tlo:hasNaturalLanguageDescription "Define temporal dependencies explicitly instead of using indefinite temporal keywords."
+		rq:belongsToCategory Cat_Quantification
+		rq:hasApplicability RNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C4_Complete
+		rq:testsCharacteristic C7_Verifiable
+	]
+
+	// --- 4.13 UNIFORMITY OF LANGUAGE ---
+
+	@rdfs:label "Consistent Terms and Units"
+	instance R36 : rq:Rule [
+		rq:hasRuleId "R36"
+		tlo:hasNaturalLanguageDescription "Ensure each term and unit of measure is used consistently throughout the requirement set and associated models."
+		rq:belongsToCategory Cat_UniformityOfLanguage
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary true
+		rq:testsCharacteristic C4_Complete
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C8_Correct
+		rq:testsCharacteristic C10_Complete
+		rq:testsCharacteristic C12_Feasible
+		rq:testsCharacteristic C13_Comprehensible
+		rq:testsCharacteristic C14_AbleToBeValidated
+		rq:testsCharacteristic C15_Correct
+	]
+
+	@rdfs:label "Acronyms"
+	instance R37 : rq:Rule [
+		rq:hasRuleId "R37"
+		tlo:hasNaturalLanguageDescription "If acronyms are used, they must be consistent throughout the requirement set and associated models."
+		rq:belongsToCategory Cat_UniformityOfLanguage
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary true
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C10_Complete
+		rq:testsCharacteristic C12_Feasible
+		rq:testsCharacteristic C13_Comprehensible
+		rq:testsCharacteristic C14_AbleToBeValidated
+	]
+
+	@rdfs:label "Abbreviations"
+	instance R38 : rq:Rule [
+		rq:hasRuleId "R38"
+		tlo:hasNaturalLanguageDescription "Avoid the use of abbreviations in need and requirement statements as well as associated models and other SE lifecycle artefacts."
+		rq:belongsToCategory Cat_UniformityOfLanguage
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C10_Complete
+		rq:testsCharacteristic C12_Feasible
+		rq:testsCharacteristic C13_Comprehensible
+		rq:testsCharacteristic C14_AbleToBeValidated
+	]
+
+	@rdfs:label "Style Guide"
+	instance R39 : rq:Rule [
+		rq:hasRuleId "R39"
+		tlo:hasNaturalLanguageDescription "Use a project-wide style guide for individual need and requirement statements."
+		rq:belongsToCategory Cat_UniformityOfLanguage
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary true
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C4_Complete
+		rq:testsCharacteristic C5_Singular
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C10_Complete
+		rq:testsCharacteristic C12_Feasible
+		rq:testsCharacteristic C13_Comprehensible
+		rq:testsCharacteristic C14_AbleToBeValidated
+	]
+
+	@rdfs:label "Decimal Format"
+	instance R40 : rq:Rule [
+		rq:hasRuleId "R40"
+		tlo:hasNaturalLanguageDescription "Use a consistent format and number of significant digits for the specification of decimal numbers."
+		rq:belongsToCategory Cat_UniformityOfLanguage
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C1_Necessary
+		rq:testsCharacteristic C3_Unambiguous
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C10_Complete
+	]
+
+	// --- 4.14 MODULARITY ---
+
+	@rdfs:label "Related Needs and Requirements"
+	instance R41 : rq:Rule [
+		rq:hasRuleId "R41"
+		tlo:hasNaturalLanguageDescription "Group related needs and requirements together."
+		rq:belongsToCategory Cat_Modularity
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C4_Complete
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C8_Correct
+		rq:testsCharacteristic C9_Conforming
+		rq:testsCharacteristic C10_Complete
+		rq:testsCharacteristic C14_AbleToBeValidated
+	]
+
+	@rdfs:label "Structured Sets"
+	instance R42 : rq:Rule [
+		rq:hasRuleId "R42"
+		tlo:hasNaturalLanguageDescription "Conform to a defined structure or template for organizing sets of needs and requirements."
+		rq:belongsToCategory Cat_Modularity
+		rq:hasApplicability CNCR
+		rq:requiresProjectDictionary false
+		rq:testsCharacteristic C7_Verifiable
+		rq:testsCharacteristic C8_Correct
+		rq:testsCharacteristic C10_Complete
+		rq:testsCharacteristic C11_Consistent
+		rq:testsCharacteristic C12_Feasible
+		rq:testsCharacteristic C13_Comprehensible
+		rq:testsCharacteristic C14_AbleToBeValidated
+	]
+
+}
